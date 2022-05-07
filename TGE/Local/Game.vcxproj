@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Retail|x64">
+      <Configuration>Retail</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FA9857C-6BE0-860D-14CD-6C1000E3020F}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Game</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\Lib\</OutDir>
+    <IntDir>..\Temp\Game\Debug\</IntDir>
+    <TargetName>Game_Debug</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\Lib\</OutDir>
+    <IntDir>..\Temp\Game\Release\</IntDir>
+    <TargetName>Game_Release</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">
+    <OutDir>..\Lib\</OutDir>
+    <IntDir>..\Temp\Game\Retail\</IntDir>
+    <TargetName>Game_Retail</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_LIB;TGE_SYSTEM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Source\tga2dcore;..\Source\External;..\Source\External\SoundEngine-FMod;..\Source\External\fmod\studio\inc;..\Source\External\fmod\core\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>..\Lib;..\Source\External\fmod\studio\lib\x64;..\Source\External\fmod\core\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>_RELEASE;WIN32;_LIB;TGE_SYSTEM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Source\tga2dcore;..\Source\External;..\Source\External\SoundEngine-FMod;..\Source\External\fmod\studio\inc;..\Source\External\fmod\core\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>..\Lib;..\Source\External\fmod\studio\lib\x64;..\Source\External\fmod\core\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>_RETAIL;WIN32;_LIB;TGE_SYSTEM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Source\tga2dcore;..\Source\External;..\Source\External\SoundEngine-FMod;..\Source\External\fmod\studio\inc;..\Source\External\fmod\core\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>..\Lib;..\Source\External\fmod\studio\lib\x64;..\Source\External\fmod\core\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Source\Game\BoxColliderComponent.h" />
+    <ClInclude Include="..\Source\Game\BulletComponent.h" />
+    <ClInclude Include="..\Source\Game\Button.h" />
+    <ClInclude Include="..\Source\Game\CameraComponent.h" />
+    <ClInclude Include="..\Source\Game\CollisionManager.h" />
+    <ClInclude Include="..\Source\Game\Component.h" />
+    <ClInclude Include="..\Source\Game\Converter.h" />
+    <ClInclude Include="..\Source\Game\CreditsState.h" />
+    <ClInclude Include="..\Source\Game\EnemyComponent.h" />
+    <ClInclude Include="..\Source\Game\Game.h" />
+    <ClInclude Include="..\Source\Game\GameObject.h" />
+    <ClInclude Include="..\Source\Game\GameState.h" />
+    <ClInclude Include="..\Source\Game\GameWorld.h" />
+    <ClInclude Include="..\Source\Game\Gamepad.h" />
+    <ClInclude Include="..\Source\Game\InputHandler.h" />
+    <ClInclude Include="..\Source\Game\InputManager.h" />
+    <ClInclude Include="..\Source\Game\InputMapper.h" />
+    <ClInclude Include="..\Source\Game\InputMapperEvents.h" />
+    <ClInclude Include="..\Source\Game\InputObserver.h" />
+    <ClInclude Include="..\Source\Game\MainMenuState.h" />
+    <ClInclude Include="..\Source\Game\MeshComponent.h" />
+    <ClInclude Include="..\Source\Game\OBB3D.h" />
+    <ClInclude Include="..\Source\Game\Observer.h" />
+    <ClInclude Include="..\Source\Game\OptionsState.h" />
+    <ClInclude Include="..\Source\Game\PauseMenuState.h" />
+    <ClInclude Include="..\Source\Game\PlayerComponent.h" />
+    <ClInclude Include="..\Source\Game\PollingStation.h" />
+    <ClInclude Include="..\Source\Game\Postmaster.h" />
+    <ClInclude Include="..\Source\Game\RenderManager.h" />
+    <ClInclude Include="..\Source\Game\RenderObjectManager.h" />
+    <ClInclude Include="..\Source\Game\Scene.h" />
+    <ClInclude Include="..\Source\Game\SceneManager.h" />
+    <ClInclude Include="..\Source\Game\State.h" />
+    <ClInclude Include="..\Source\Game\StateStack.h" />
+    <ClInclude Include="..\Source\Game\UnityLoader.h" />
+    <ClInclude Include="..\Source\Game\resource.h" />
+    <ClInclude Include="..\Source\Game\stdafx.h" />
+    <ClInclude Include="..\Source\Game\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source\Game\BoxColliderComponent.cpp" />
+    <ClCompile Include="..\Source\Game\BulletComponent.cpp" />
+    <ClCompile Include="..\Source\Game\Button.cpp" />
+    <ClCompile Include="..\Source\Game\CameraComponent.cpp" />
+    <ClCompile Include="..\Source\Game\CollisionManager.cpp" />
+    <ClCompile Include="..\Source\Game\Component.cpp" />
+    <ClCompile Include="..\Source\Game\CreditsState.cpp" />
+    <ClCompile Include="..\Source\Game\EnemyComponent.cpp" />
+    <ClCompile Include="..\Source\Game\Game.cpp" />
+    <ClCompile Include="..\Source\Game\GameObject.cpp" />
+    <ClCompile Include="..\Source\Game\GameState.cpp" />
+    <ClCompile Include="..\Source\Game\GameWorld.cpp" />
+    <ClCompile Include="..\Source\Game\Gamepad.cpp" />
+    <ClCompile Include="..\Source\Game\InputHandler.cpp" />
+    <ClCompile Include="..\Source\Game\InputManager.cpp" />
+    <ClCompile Include="..\Source\Game\InputMapper.cpp" />
+    <ClCompile Include="..\Source\Game\MainMenuState.cpp" />
+    <ClCompile Include="..\Source\Game\MeshComponent.cpp" />
+    <ClCompile Include="..\Source\Game\OBB3D.cpp" />
+    <ClCompile Include="..\Source\Game\OptionsState.cpp" />
+    <ClCompile Include="..\Source\Game\PauseMenuState.cpp" />
+    <ClCompile Include="..\Source\Game\PlayerComponent.cpp" />
+    <ClCompile Include="..\Source\Game\PollingStation.cpp" />
+    <ClCompile Include="..\Source\Game\Postmaster.cpp" />
+    <ClCompile Include="..\Source\Game\RenderManager.cpp" />
+    <ClCompile Include="..\Source\Game\RenderObjectManager.cpp" />
+    <ClCompile Include="..\Source\Game\Scene.cpp" />
+    <ClCompile Include="..\Source\Game\SceneManager.cpp" />
+    <ClCompile Include="..\Source\Game\State.cpp" />
+    <ClCompile Include="..\Source\Game\StateStack.cpp" />
+    <ClCompile Include="..\Source\Game\UnityLoader.cpp" />
+    <ClCompile Include="..\Source\Game\stdafx.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\Source\Game\Postmaster.cpp">
+      <Filter>Code\Postmaster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\InputHandler.cpp">
+      <Filter>Code\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\InputManager.cpp">
+      <Filter>Code\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\State.cpp">
+      <Filter>Code\StateStack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\StateStack.cpp">
+      <Filter>Code\StateStack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\MainMenuState.cpp">
+      <Filter>Code\StateStack\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\PauseMenuState.cpp">
+      <Filter>Code\StateStack\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\Button.cpp">
+      <Filter>Code\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\GameState.cpp">
+      <Filter>Code\StateStack\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\InputMapper.cpp">
+      <Filter>Code\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\stdafx.cpp">
+      <Filter>Native TGA2.5D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\Game.cpp">
+      <Filter>Native TGA2.5D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\GameWorld.cpp">
+      <Filter>Native TGA2.5D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\CameraComponent.cpp">
+      <Filter>Code\Objects\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\Scene.cpp">
+      <Filter>Code\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\SceneManager.cpp">
+      <Filter>Code\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\GameObject.cpp">
+      <Filter>Code\GameObject Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\Component.cpp">
+      <Filter>Code\GameObject Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\RenderManager.cpp">
+      <Filter>Code\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\RenderObjectManager.cpp">
+      <Filter>Code\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\MeshComponent.cpp">
+      <Filter>Code\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\UnityLoader.cpp">
+      <Filter>Code\UnityLoader Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\PollingStation.cpp">
+      <Filter>Code\UnityLoader Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\CollisionManager.cpp">
+      <Filter>Code\Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\BoxColliderComponent.cpp">
+      <Filter>Code\Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\OBB3D.cpp">
+      <Filter>Code\Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\PlayerComponent.cpp">
+      <Filter>Code\GameObject Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\EnemyComponent.cpp">
+      <Filter>Code\GameObject Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\BulletComponent.cpp">
+      <Filter>Code\GameObject Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\Gamepad.cpp">
+      <Filter>Code\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\OptionsState.cpp">
+      <Filter>Code\StateStack\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\CreditsState.cpp">
+      <Filter>Code\StateStack\States</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Source\Game\Observer.h">
+      <Filter>Code\Postmaster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Postmaster.h">
+      <Filter>Code\Postmaster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\InputHandler.h">
+      <Filter>Code\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\InputManager.h">
+      <Filter>Code\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\State.h">
+      <Filter>Code\StateStack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\StateStack.h">
+      <Filter>Code\StateStack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\MainMenuState.h">
+      <Filter>Code\StateStack\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\PauseMenuState.h">
+      <Filter>Code\StateStack\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Button.h">
+      <Filter>Code\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\GameState.h">
+      <Filter>Code\StateStack\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\InputMapperEvents.h">
+      <Filter>Code\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\InputMapper.h">
+      <Filter>Code\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\resource.h">
+      <Filter>Native TGA2.5D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\stdafx.h">
+      <Filter>Native TGA2.5D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\targetver.h">
+      <Filter>Native TGA2.5D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Game.h">
+      <Filter>Native TGA2.5D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\GameWorld.h">
+      <Filter>Native TGA2.5D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\CameraComponent.h">
+      <Filter>Code\Objects\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Scene.h">
+      <Filter>Code\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\SceneManager.h">
+      <Filter>Code\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\GameObject.h">
+      <Filter>Code\GameObject Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Component.h">
+      <Filter>Code\GameObject Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\RenderManager.h">
+      <Filter>Code\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\RenderObjectManager.h">
+      <Filter>Code\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\MeshComponent.h">
+      <Filter>Code\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\UnityLoader.h">
+      <Filter>Code\UnityLoader Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\PollingStation.h">
+      <Filter>Code\UnityLoader Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Converter.h" />
+    <ClInclude Include="..\Source\Game\BoxColliderComponent.h">
+      <Filter>Code\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\OBB3D.h">
+      <Filter>Code\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\CollisionManager.h">
+      <Filter>Code\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\PlayerComponent.h">
+      <Filter>Code\GameObject Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\EnemyComponent.h">
+      <Filter>Code\GameObject Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\BulletComponent.h">
+      <Filter>Code\GameObject Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\InputObserver.h">
+      <Filter>Code\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Gamepad.h">
+      <Filter>Code\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\OptionsState.h">
+      <Filter>Code\StateStack\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\CreditsState.h">
+      <Filter>Code\StateStack\States</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Code">
+      <UniqueIdentifier>{c7a661bc-2fc2-41c7-b9cc-cead952c3887}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Postmaster">
+      <UniqueIdentifier>{735910e6-844c-4d10-b39d-65fcb10adee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\StateStack">
+      <UniqueIdentifier>{f5d8705c-5cb7-4ef2-acf4-a6159489b8df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\StateStack\States">
+      <UniqueIdentifier>{418ee4c7-977d-4493-a34a-c1b9163e74da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\UI">
+      <UniqueIdentifier>{3f9f14d2-2a86-4e4a-b6ff-bbf250dd3851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Native TGA2.5D">
+      <UniqueIdentifier>{fb6f9dd3-0880-49f1-8095-bcdb02082380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Scene">
+      <UniqueIdentifier>{ec94c97f-061a-410a-a9e8-9a8e96560440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\GameObject Component">
+      <UniqueIdentifier>{913a830a-0a82-4d59-aace-ee73ab589a29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Rendering">
+      <UniqueIdentifier>{1566add5-aed9-4baf-9e80-dea107453a98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\UnityLoader Utilities">
+      <UniqueIdentifier>{d9ada2c3-de2a-4fc0-a27a-a59cc30dd1cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Audio">
+      <UniqueIdentifier>{bf6cb9ca-0727-4789-b783-8b16e475d3e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Collisions">
+      <UniqueIdentifier>{c74794c2-8207-4b93-851a-33d2554d754c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Debug">
+      <UniqueIdentifier>{9b58ec71-5378-4bd3-bd93-81ff87a1a7a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Input">
+      <UniqueIdentifier>{1aeacc05-c530-4529-9bf0-1b27525f7b96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Objects">
+      <UniqueIdentifier>{c9e1d01e-1370-4c85-aeb5-7c94fe66acb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Objects\Player">
+      <UniqueIdentifier>{8afe4169-0e5d-4807-bfb3-703b642e6ecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Objects\Enemy">
+      <UniqueIdentifier>{6a0b5830-6fe0-44e6-b7fa-89020de093a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Objects\Skybox">
+      <UniqueIdentifier>{9eda6807-d088-44a7-abb5-91555b1d0311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Objects\Camera">
+      <UniqueIdentifier>{e56ec12f-9104-4a13-9ed1-21f74b263da6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

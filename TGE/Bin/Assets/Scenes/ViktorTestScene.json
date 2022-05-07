@@ -1,0 +1,295 @@
+{
+  "gameObjects": [
+    {
+      "name": "Main Camera",
+      "tag": "MainCamera",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 13.99,
+          "z": -19.57
+        },
+        "rotation": {
+          "x": 0.457873881,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.889017165
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "camera",
+          "data": {
+            "fov": 60.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Directional Light",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 3.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.408217877,
+          "y": -0.234569684,
+          "z": 0.109381631,
+          "w": 0.8754261
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 1
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Player",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -1.629,
+          "y": 3.574,
+          "z": -12.881
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "albedo": "Assets/Materials/texture_test.dds",
+            "normal": "Assets/Materials/texture_test.dds",
+            "reflective": "Assets/Materials/texture_test.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.85,
+              "y": 2.0,
+              "z": 0.69
+            }
+          }
+        },
+        {
+          "type": "player",
+          "data": {
+            "max_hp": 5,
+            "max_healing": 3,
+            "max_attacks": 3,
+            "dash_time": 0.1,
+            "healing_time": 0.1,
+            "attack_time": 0.1,
+            "speed": 7.0,
+            "dash_speed": 3.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Cube",
+      "tag": "Untagged",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -0.7105459,
+          "y": 2.6,
+          "z": -12.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 50.0,
+          "y": 1.0,
+          "z": 50.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 50.0,
+              "y": 1.0,
+              "z": 50.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Cube (1)",
+      "tag": "Untagged",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 6.98,
+          "y": 4.92,
+          "z": -13.13
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.359182477,
+          "w": 0.933267355
+        },
+        "scale": {
+          "x": 10.0,
+          "y": 1.0,
+          "z": 10.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "Assets/Materials/texture_test.dds",
+            "normal": "Assets/Materials/texture_test.dds",
+            "reflective": "Assets/Materials/texture_test.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 10.0,
+              "y": 1.0,
+              "z": 10.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Enemy",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -11.83,
+          "y": 3.371,
+          "z": -12.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 0.5,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "Assets/Materials/texture_test.dds",
+            "normal": "Assets/Materials/texture_test.dds",
+            "reflective": "Assets/Materials/texture_test.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 0.5,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "enemy",
+          "data": {
+            "max_hp": 5,
+            "speed": 5.0,
+            "attack_speed": 1.0,
+            "type": 1,
+            "detection_radius": 8.0
+          }
+        }
+      ],
+      "children": []
+    }
+  ]
+}

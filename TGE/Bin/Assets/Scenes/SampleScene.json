@@ -1,0 +1,132 @@
+{
+  "gameObjects": [
+    {
+      "name": "Directional Light",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -0.029,
+          "y": 3.049,
+          "z": 0.05
+        },
+        "rotation": {
+          "x": 0.408217877,
+          "y": -0.234569684,
+          "z": 0.109381631,
+          "w": 0.8754261
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 1
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "enHeltVanligKub",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.94,
+          "y": 8.44,
+          "z": 4.5
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "Assets/Materials/texture_test.dds",
+            "normal": "Assets/Materials/texture_test.dds",
+            "reflective": "Assets/Materials/texture_test.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.99999994,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "player",
+          "data": {
+            "max_hp": 32,
+            "max_healing": 32,
+            "max_attacks": 32,
+            "dash_time": 32,
+            "healing_time": 32,
+            "attack_time": 32,
+            "speed": 32,
+            "dash_speed": 32
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Main Camera",
+      "tag": "MainCamera",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 10.26,
+          "z": -9.1
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "camera",
+          "data": {
+            "fov": 90.0
+          }
+        }
+      ],
+      "children": []
+    }
+  ]
+}

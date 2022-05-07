@@ -1,0 +1,489 @@
+{
+  "gameObjects": [
+    {
+      "name": "Main Camera",
+      "tag": "MainCamera",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -0.48,
+          "y": 6.25,
+          "z": -24.65
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "camera",
+          "data": {
+            "fov": 60.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Player",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -1.827,
+          "y": 5.437,
+          "z": -13.963
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.85,
+              "y": 2.0,
+              "z": 0.69
+            }
+          }
+        },
+        {
+          "type": "player",
+          "data": {
+            "max_hp": 5,
+            "max_healing": 3,
+            "max_attacks": 3,
+            "dash_time": 0.1,
+            "healing_time": 0.1,
+            "attack_time": 0.1,
+            "speed": 10.0,
+            "dash_speed": 30.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Directional Light",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -1.2,
+          "y": 5.01,
+          "z": 2.07
+        },
+        "rotation": {
+          "x": 0.210670054,
+          "y": -0.7856753,
+          "z": 0.3663664,
+          "w": 0.451783419
+        },
+        "scale": {
+          "x": 1.00000048,
+          "y": 1.0,
+          "z": 1.00000036
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 1
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Cube",
+      "tag": "Finish",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -4.63,
+          "y": -0.33,
+          "z": -12.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 10.0,
+          "y": 6.76,
+          "z": 10.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 10.0,
+              "y": 6.76,
+              "z": 10.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Cube (1)",
+      "tag": "Finish",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 4.43,
+          "y": 2.04,
+          "z": -12.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.27588895,
+          "w": 0.961189568
+        },
+        "scale": {
+          "x": 10.0,
+          "y": 6.22000027,
+          "z": 10.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "Assets/Materials/texture_test.dds",
+            "normal": "Assets/Materials/texture_test.dds",
+            "reflective": "Assets/Materials/texture_test.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 10.0,
+              "y": 6.22000027,
+              "z": 10.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Cube (2)",
+      "tag": "Untagged",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -6.59,
+          "y": 2.86,
+          "z": -12.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "Assets/Materials/texture_test.dds",
+            "normal": "Assets/Materials/texture_test.dds",
+            "reflective": "Assets/Materials/texture_test.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Cube (3)",
+      "tag": "Untagged",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -7.51,
+          "y": 2.6,
+          "z": -12.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 10.0,
+          "y": 1.0,
+          "z": 10.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 10.0,
+              "y": 1.0,
+              "z": 10.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Cube (4)",
+      "tag": "Untagged",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -1.99,
+          "y": 3.56,
+          "z": -5.65
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.28049916,
+          "z": 0.0,
+          "w": 0.9598543
+        },
+        "scale": {
+          "x": 10.0,
+          "y": 2.65,
+          "z": 10.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 10.0,
+              "y": 2.65,
+              "z": 10.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Cube (5)",
+      "tag": "Untagged",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -7.18,
+          "y": 3.1,
+          "z": -12.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "Assets/Materials/texture_test.dds",
+            "normal": "Assets/Materials/texture_test.dds",
+            "reflective": "Assets/Materials/texture_test.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Cube (6)",
+      "tag": "Untagged",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -7.62,
+          "y": 3.46,
+          "z": -12.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "Assets/Materials/texture_test.dds",
+            "normal": "Assets/Materials/texture_test.dds",
+            "reflective": "Assets/Materials/texture_test.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        }
+      ],
+      "children": []
+    }
+  ]
+}
