@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Bank" id="{c3fc9841-e33c-4b76-94e5-91d12c3198b8}">
+		<property name="name">
+			<value>Zone 2 - Badlands</value>
+		</property>
+		<relationship name="folder">
+			<destination>{9c19bc0a-eee1-47e1-9dd9-a6c285546e27}</destination>
+		</relationship>
+	</object>
+</objects>
