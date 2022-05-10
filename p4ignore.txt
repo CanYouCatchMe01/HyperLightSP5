@@ -1,0 +1,4 @@
+# ignoreing git stuff
+.git/
+.gitattributes
+.gitignore

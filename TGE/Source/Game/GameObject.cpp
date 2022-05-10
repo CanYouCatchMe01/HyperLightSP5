@@ -30,15 +30,6 @@ void GameObject::OnCollisionExit(GameObject* aOther)
 	}
 }
 
-void GameObject::DebugUpdate()
-{
-	ImGui::Checkbox(name.c_str(), &myPoppedOut);
-	if (myPoppedOut)
-	{
-
-	}
-}
-
 GameObject::~GameObject()
 {
 	for (auto& component : myComponents)
@@ -87,6 +78,44 @@ void GameObject::OnStart()
 		myChildren[i]->OnStart();
 	}
 }
+
+#ifdef _DEBUG
+void GameObject::DebugUpdate()
+{
+	ImGui::Checkbox(name.c_str(), &myPoppedOut);
+	if (myPoppedOut)
+	{
+
+		if (!ImGui::Begin(name.c_str()))
+		{
+			ImGui::End();
+			return;
+		}
+		if (ImGui::BeginTabBar("Boop"))
+		{
+			if (ImGui::BeginTabItem("Components"))
+			{
+				for (Component* i : myComponents)
+				{
+					i->DebugUpdate();
+				}
+				ImGui::EndTabItem();
+			}
+			if (ImGui::BeginTabItem("Children"))
+			{
+				for (GameObject* i : myChildren)
+				{
+					i->DebugUpdate();
+				}
+				ImGui::EndTabItem();
+			}
+			ImGui::EndTabBar();
+		}
+		ImGui::End();
+	}
+}
+#endif // _DEBUG
+
 
 
 void GameObject::Update(float aTimeDelta)

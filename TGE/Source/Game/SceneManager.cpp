@@ -33,22 +33,22 @@ void SceneManager::Update(float aTimeDelta)
 	for (size_t i = 0; i < myScenes.size(); ++i)
 		myScenes[i]->Update(aTimeDelta);
 
-#ifdef _DEBUG
-	ImGui::Begin("Scenes");
-	for (auto& scene : myScenePaths)
-	{
-		if (ImGui::Button(scene.c_str()))
-		{
-			if (myScenes.size() > 0)
-			{
-				delete myScenes[0];
-			}
-			myScenes[0] = myUnityLoader.CreateScene(scene);
-			myScenes[0]->OnStart();
-		}
-	}
-	ImGui::End();
-#endif // _DEBUG
+//#ifdef _DEBUG // Replaced with prettier version.
+//	ImGui::Begin("Scenes");
+//	for (auto& scene : myScenePaths)
+//	{
+//		if (ImGui::Button(scene.c_str()))
+//		{
+//			if (myScenes.size() > 0)
+//			{
+//				delete myScenes[0];
+//			}
+//			myScenes[0] = myUnityLoader.CreateScene(scene);
+//			myScenes[0]->OnStart();
+//		}
+//	}
+//	ImGui::End();
+//#endif // _DEBUG
 }
 
 void SceneManager::Render()

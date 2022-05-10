@@ -154,14 +154,17 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\Source\Game\BaseDebugger.h" />
     <ClInclude Include="..\Source\Game\BoxColliderComponent.h" />
     <ClInclude Include="..\Source\Game\BulletComponent.h" />
     <ClInclude Include="..\Source\Game\Button.h" />
     <ClInclude Include="..\Source\Game\CameraComponent.h" />
     <ClInclude Include="..\Source\Game\CollisionManager.h" />
     <ClInclude Include="..\Source\Game\Component.h" />
+    <ClInclude Include="..\Source\Game\ComponentDebugger.h" />
     <ClInclude Include="..\Source\Game\Converter.h" />
     <ClInclude Include="..\Source\Game\CreditsState.h" />
+    <ClInclude Include="..\Source\Game\DebugObserver.h" />
     <ClInclude Include="..\Source\Game\EnemyComponent.h" />
     <ClInclude Include="..\Source\Game\Game.h" />
     <ClInclude Include="..\Source\Game\GameObject.h" />
@@ -194,12 +197,14 @@
     <ClInclude Include="..\Source\Game\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Source\Game\BaseDebugger.cpp" />
     <ClCompile Include="..\Source\Game\BoxColliderComponent.cpp" />
     <ClCompile Include="..\Source\Game\BulletComponent.cpp" />
     <ClCompile Include="..\Source\Game\Button.cpp" />
     <ClCompile Include="..\Source\Game\CameraComponent.cpp" />
     <ClCompile Include="..\Source\Game\CollisionManager.cpp" />
     <ClCompile Include="..\Source\Game\Component.cpp" />
+    <ClCompile Include="..\Source\Game\ComponentDebugger.cpp" />
     <ClCompile Include="..\Source\Game\CreditsState.cpp" />
     <ClCompile Include="..\Source\Game\EnemyComponent.cpp" />
     <ClCompile Include="..\Source\Game\Game.cpp" />

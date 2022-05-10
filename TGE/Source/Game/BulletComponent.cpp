@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "BulletComponent.h"
+#include "GameObject.h"
+#include "PlayerComponent.h"
 
 BulletComponent::BulletComponent()
 {
@@ -18,4 +20,14 @@ BulletComponent::BulletComponent(Tga2D::Vector3f aDirection, float aSpeed, int a
 void BulletComponent::OnUpdate(float aDT)
 {
 	myTransform->SetPosition(myTransform->GetPosition() + myDir * mySpeed * aDT);
+}
+
+void BulletComponent::OnCollisionEnter(GameObject* aOther)
+{
+	PlayerComponent* a = aOther->GetComponent<PlayerComponent>();
+	if (a != nullptr)
+	{
+		a->TakeDamedg(myDamedg);
+		//destroy bullet
+	}
 }

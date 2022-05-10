@@ -2,9 +2,12 @@
 #include "State.h"
 #include "InputObserver.h"
 #include <tga2d/sprite/sprite.h>
+//#include "tga2d/engine.h"
+//#include <tga2d/text/text.h>
 
 class Button;
 enum class eButtonType;
+
 enum class eArrowIndex
 {
 	eResDown,
@@ -16,6 +19,7 @@ enum class eArrowIndex
 	eSFXDown,
 	eSFXUp
 };
+
 class OptionsState : public State, public Input::InputObserver
 {
 public:
@@ -32,6 +36,7 @@ private:
 	std::vector<Button*> myButtons;
 	std::vector<Button*> myArrows;
 	eButtonType mySelectedButton;
+	int mySelectedButtonIndex;
 	int mySelectedArrow = 100;
 	Tga2D::SpriteSharedData mySharedData;
 	Tga2D::Sprite2DInstanceData mySpriteInstance = {};

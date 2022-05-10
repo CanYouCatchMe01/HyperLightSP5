@@ -29,6 +29,10 @@ void CameraComponent::OnAwake()
 void CameraComponent::OnStart()
 {
 	myCameraOffset = myTransform->GetPosition();
+	if (myPollingStation->myPlayer != nullptr)
+	{
+		myCameraOffset -= myPollingStation->myPlayer->GetTransform().GetPosition();
+	}
 }
 
 void CameraComponent::RecieveEvent(Input::eInputEvent aEvent, const float aValue)

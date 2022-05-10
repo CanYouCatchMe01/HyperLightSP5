@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 279404847040230280}
   - component: {fileID: 3594977439704171555}
   - component: {fileID: 6202407707771043613}
-  - component: {fileID: 5599734580384836438}
+  - component: {fileID: 8040483357092703234}
   m_Layer: 0
   m_Name: Collider 4
   m_TagString: Untagged
@@ -87,25 +87,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!102 &5599734580384836438
-TextMesh:
-  serializedVersion: 3
+--- !u!114 &8040483357092703234
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7193240322700937407}
-  m_Text: ' COL'
-  m_OffsetZ: -3
-  m_CharacterSize: 0.03
-  m_LineSpacing: 1
-  m_Anchor: 6
-  m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 400
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161ef549bff26054a9e1668c38a35e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

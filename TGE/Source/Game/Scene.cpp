@@ -46,15 +46,15 @@ void Scene::Update(float aTimeDelta)
 
 	myCollisionManager.Update();
 
-	if (ImGui::Begin("Object Hierarchy"))
-	{
-		for (auto& go : myGameObjects)
-		{
-			AddImguiNode(go);
-		}
+	//if (ImGui::Begin("Object Hierarchy")) // Removed for a prettier debugger.
+	//{
+	//	for (auto& go : myGameObjects)
+	//	{
+	//		AddImguiNode(go);
+	//	}
 
-	}
-	ImGui::End();
+	//}
+	//ImGui::End();
 }
 
 void Scene::AddImguiNode(GameObject* aGameObject)

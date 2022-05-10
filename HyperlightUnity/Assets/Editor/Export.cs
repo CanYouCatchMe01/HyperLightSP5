@@ -114,7 +114,9 @@ public class Export
         EditorSceneManager.OpenScene(initiallyOpened); // Load the scene you first had opened
     }
 
-    [MenuItem("Tools/Play and Export active scene")]
+    
+
+    [MenuItem("Tools/Export and play active scene")]
     private static void Play()
     {
         ExportActiveScene();
@@ -129,6 +131,11 @@ public class Export
         System.Diagnostics.Process.Start(info);
     }
 
+    [MenuItem("Tools/Toggle visible colliders")]
+    private static void ToggleColliders()
+    {
+        DrawCollider.myDrawColliders = !DrawCollider.myDrawColliders;
+    }
     private static void ExportScene(UnityEngine.SceneManagement.Scene aScene)
     {
         GameObject[] rootGameobjects = aScene.GetRootGameObjects();

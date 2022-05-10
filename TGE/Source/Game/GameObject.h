@@ -2,7 +2,9 @@
 #include <vector>
 #include <tga2d/math/Transform.h>
 #include "Component.h"
+#ifdef _DEBUG
 #include "DebugObserver.h"
+#endif // _DEBUG
 
 namespace CapNCrunch
 {
@@ -11,7 +13,10 @@ namespace CapNCrunch
 
 class Emitter;
 
-class GameObject : DebugObserver
+class GameObject
+#ifdef _DEBUG
+	: DebugObserver
+#endif // _DEBUG
 {
 public:
 	friend class Scene;
@@ -79,7 +84,9 @@ public:
 	inline Tga2D::Transform& GetTransform() { return myTransform; }
 	inline Scene* GetParentScene() { return myScene; }
 	PollingStation* GetPollingStation() { return myPollingStation; }
+#ifdef _DEBUG
 	void DebugUpdate() override;
+#endif // _DEBUG
 protected:
 	virtual ~GameObject(); //Protected för att bara en scen för förstöra gameobjects, mvh elias
 private:

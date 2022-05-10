@@ -28,6 +28,11 @@ public:
 	virtual void OnAwake() override;
 
 	virtual void OnStart() override;
+	void DebugUpdate() override;
+
+	void OnCollisionEnter(GameObject* aOther) override;
+
+	void TakeDamedg(int aDamedg);
 
 private:
 	int myMaxHp = 5;

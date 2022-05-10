@@ -307,8 +307,28 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 
 void PlayerComponent::OnAwake()
 {
+	myPollingStation->myPlayer = myGameObject;
 }
 void PlayerComponent::OnStart()
 {
-	myPollingStation->myPlayer = myGameObject;
+}
+
+void PlayerComponent::DebugUpdate()
+{
+	if (ImGui::CollapsingHeader("PlayerComponent"))
+	{
+		ImGui::InputInt("HP", &myHp);
+	}
+
+}
+
+void PlayerComponent::OnCollisionEnter(GameObject* /*aOther*/)
+{
+
+}
+
+void PlayerComponent::TakeDamedg(int aDamedg)
+{
+	myHp -= aDamedg;
+	//chekded
 }

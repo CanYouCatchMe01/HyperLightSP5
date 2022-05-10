@@ -12,6 +12,7 @@
 #include "PlayerComponent.h"
 #include "EnemyComponent.h"
 #include "BoxColliderComponent.h"
+#include "BaseDebugger.h"
 
 UnityLoader::UnityLoader(PollingStation* aPollingStation)
 {
@@ -30,6 +31,7 @@ class Scene* UnityLoader::CreateScene(std::string aPathToJson)
 	for (auto& gameObject : j["gameObjects"])
 	{
 		scene->myGameObjects.push_back(CreateGameObject(gameObject, scene));
+		myPollingStation->myDebugger.get()->AddObserver(scene->myGameObjects.back());
 	}
 
 	return scene;

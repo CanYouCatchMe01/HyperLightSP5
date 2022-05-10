@@ -10,7 +10,7 @@ PollingStation::PollingStation()
 
 void PollingStation::Init(HWND aHWND)
 {
-	myDebugger = std::make_unique<BaseDebugger>();
+	myDebugger = std::make_unique<BaseDebugger>(this);
 	myInputMapper = std::make_unique<Input::InputMapper>(aHWND);
 	MapKeys();
 	mySceneManager = std::make_unique<SceneManager>(this);

@@ -1,5 +1,7 @@
 #pragma once
 #include <tga2d/sprite/sprite.h>
+#include "tga2d/engine.h"
+#include <tga2d/text/text.h>
 
 enum class eButtonType
 {
@@ -31,10 +33,15 @@ public:
 	Button(eButtonType aButtonType, Tga2D::Vector2f aPosition);
 	void SetState(eState aState);
 	void Render();
+	void SetActiveColour();
+	void ResetColour();
 	inline eState GetState() { return myState; }
 	inline eButtonType GetType() { return myButtonType; }
 	inline void SetSizeMultiplier(Tga2D::Vector2f aMultiplier) { mySpriteInstance.mySizeMultiplier = aMultiplier; }
+
 private:
+	bool myHasText = false;
+	Tga2D::Text myText;
 	eState myState;
 	eButtonType myButtonType;
 

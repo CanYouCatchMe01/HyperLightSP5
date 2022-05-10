@@ -44,6 +44,7 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 
 	myButtons[0]->SetState(eState::Selected);
 	mySelectedButton = myButtons[0]->GetType();
+	mySelectedButtonIndex = 0;
 
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuUp, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuDown, this);
@@ -55,6 +56,10 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseLeft, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseRight, this);
 	myPopInfo.myShouldPop = false;
+
+	//myRes = Tga2D::Text(L"Text/Nectar.ttf", Tga2D::FontSize_18);
+	//myRes.SetText("testinginging");
+	//myRes.SetColor({ 1,0,0,1 });
 }
 
 OptionsState::~OptionsState()
@@ -98,27 +103,26 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*a
 		switch (aEvent)
 		{
 		case Input::eInputEvent::eMenuLeft:
-			if (mySelectedButton == eButtonType::Resolution && 
-				myArrows[(int)eArrowIndex::eResUp]->GetState()!= eState::Selected)
+			if (mySelectedButton == eButtonType::Resolution &&
+				myArrows[(int)eArrowIndex::eResUp]->GetState() != eState::Selected)
 			{
 				myArrows[(int)eArrowIndex::eResDown]->SetState(eState::Selected);
 				mySelectedArrow = (int)eArrowIndex::eResDown;
 			}
-
 			else if (mySelectedButton == eButtonType::MasterVol &&
 				myArrows[(int)eArrowIndex::eMasterUp]->GetState() != eState::Selected)
 			{
 				myArrows[(int)eArrowIndex::eMasterDown]->SetState(eState::Selected);
 				mySelectedArrow = (int)eArrowIndex::eMasterDown;
 			}
-			
+
 			else if (mySelectedButton == eButtonType::MusicVol &&
 				myArrows[(int)eArrowIndex::eMusicUp]->GetState() != eState::Selected)
 			{
 				myArrows[(int)eArrowIndex::eMusicDown]->SetState(eState::Selected);
 				mySelectedArrow = (int)eArrowIndex::eMusicDown;
 			}
-			
+
 			else if (mySelectedButton == eButtonType::SFXVol &&
 				myArrows[(int)eArrowIndex::eSFXUp]->GetState() != eState::Selected)
 			{
@@ -133,7 +137,7 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*a
 				myArrows[(int)eArrowIndex::eResUp]->SetState(eState::Selected);
 				mySelectedArrow = (int)eArrowIndex::eResUp;
 			}
-			
+
 			else if (mySelectedButton == eButtonType::MasterVol &&
 				myArrows[(int)eArrowIndex::eMasterDown]->GetState() != eState::Selected)
 			{
@@ -156,7 +160,8 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*a
 			}
 			break;
 		case Input::eInputEvent::eMenuDown:
-			for (size_t i = 0; i < myButtons.size(); i++) //Cycle down
+			myButtons[mySelectedButtonIndex]->ResetColour();
+			for (int i = 0; i < myButtons.size(); i++) //Cycle down
 			{
 				if (myButtons[i]->GetState() == eState::Selected)
 				{
@@ -166,12 +171,15 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*a
 					{
 						myButtons[i + 1]->SetState(eState::Selected);
 						mySelectedButton = myButtons[i + 1]->GetType();
+						mySelectedButtonIndex = i + 1;
 					}
 					else
 					{
 						myButtons[0]->SetState(eState::Selected);
 						mySelectedButton = myButtons[0]->GetType();
+						mySelectedButtonIndex = 0;
 					}
+					myButtons[mySelectedButtonIndex]->SetActiveColour();
 
 					return;
 
@@ -179,7 +187,8 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*a
 			}
 			break;
 		case Input::eInputEvent::eMenuUp:
-			for (size_t i = 0; i < myButtons.size(); i++) //Cycle up
+			myButtons[mySelectedButtonIndex]->ResetColour();
+			for (int i = 0; i < myButtons.size(); i++) //Cycle up
 			{
 				if (myButtons[i]->GetState() == eState::Selected)
 				{
@@ -189,12 +198,16 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*a
 					{
 						myButtons[i - 1]->SetState(eState::Selected);
 						mySelectedButton = myButtons[i - 1]->GetType();
+						mySelectedButtonIndex = i - 1;
 					}
 					else
 					{
 						myButtons[myButtons.size() - 1]->SetState(eState::Selected);
 						mySelectedButton = myButtons[myButtons.size() - 1]->GetType();
+						mySelectedButtonIndex = (int)myButtons.size() - 1;
 					}
+					myButtons[mySelectedButtonIndex]->SetActiveColour();
+
 					return;
 				}
 			}
@@ -208,7 +221,7 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*a
 		case Input::eInputEvent::eReleaseDown:
 			if (mySelectedArrow < myArrows.size())
 			{
-				myArrows[mySelectedArrow]->SetState(eState::None); 
+				myArrows[mySelectedArrow]->SetState(eState::None);
 			}
 			break;
 		case Input::eInputEvent::eReleaseRight:

@@ -53,6 +53,7 @@ void RenderManager::Render(Scene* aScene)
 	myGraphicsEngine.GetFullscreenEffectTonemap().Render();
 	//OBS.
 
+	aScene->GetCollisionManager().Render();
 	//Reset camera and ambient light for 2D elements to render properly
 
 

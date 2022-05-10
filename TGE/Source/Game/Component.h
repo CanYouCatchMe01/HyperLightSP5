@@ -1,10 +1,15 @@
 #pragma once
 #include "tga2d/math/Transform.h"
 #include "PollingStation.h"
+#include "ComponentDebugger.h"
 
 class GameObject;
 
-class Component
+class Component 
+#ifdef _DEBUG
+	: ComponentDebugger
+#endif // _DEBUG
+
 {
 public:
 

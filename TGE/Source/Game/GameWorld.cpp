@@ -11,6 +11,7 @@
 #include "MainMenuState.h"
 #include "GameState.h"
 #include "SoundEngine-FMod/SoundEngine.h"
+#include "BaseDebugger.h"
 
 GameWorld::GameWorld()
 {}
@@ -39,7 +40,7 @@ void GameWorld::Init(HWND aHWND)
 	std::vector<std::string> eventNames;
 	SoundEngine::GetEvents(eventNames);
 
-	ok = SoundEngine::RegisterEvent("event:/Music/Zone 3 - BGM", 0);
+	ok = SoundEngine::RegisterEvent("event:/Music/Level 1", 0);
 
 	SoundEventInstanceHandle eventHandle = SoundEngine::CreateEventInstance(0);
 
@@ -49,6 +50,7 @@ void GameWorld::Init(HWND aHWND)
 
 void GameWorld::Update(float aTimeDelta)
 {
+	myPollingStation->myDebugger.get()->DebugUpdate();
 	myStateStack.UpdateState(aTimeDelta);
 	SoundEngine::Update();
 }

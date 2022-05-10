@@ -193,14 +193,14 @@ class Converter
     {
         JObject result = new JObject();
 
-        Vector3 size;
-        size.x = aBoxCollider.size.x * aBoxCollider.transform.lossyScale.x;
-        size.y = aBoxCollider.size.y * aBoxCollider.transform.lossyScale.y;
-        size.z = aBoxCollider.size.z * aBoxCollider.transform.lossyScale.z;
+        //Vector3 size;
+        //size.x = aBoxCollider.size.x * aBoxCollider.transform.lossyScale.x;
+        //size.y = aBoxCollider.size.y * aBoxCollider.transform.lossyScale.y;
+        //size.z = aBoxCollider.size.z * aBoxCollider.transform.lossyScale.z;
 
         result.Add("is_trigger", aBoxCollider.isTrigger);
         result.Add("center", ConvertToJSON(aBoxCollider.center));
-        result.Add("size", ConvertToJSON(size));
+        result.Add("size", ConvertToJSON(aBoxCollider.size));
 
         return result;
     }

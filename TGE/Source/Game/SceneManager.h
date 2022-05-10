@@ -14,12 +14,14 @@ public:
 
 	void Update(float aTimeDelta);
 	void Render();
-
-private:
-	RenderManager myRenderManager;
-	UnityLoader myUnityLoader;
 	std::vector<class Scene*> myScenes;
 #ifdef _DEBUG
 	std::vector<std::string> myScenePaths;
 #endif
+	UnityLoader myUnityLoader;
+private:
+	RenderManager myRenderManager;
+
+
+
 };

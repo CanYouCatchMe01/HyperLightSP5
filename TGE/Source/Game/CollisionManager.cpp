@@ -30,5 +30,9 @@ void CollisionManager::Update()
 
 void CollisionManager::Render()
 {
+	for (auto& c : myOBBColliders)
+	{
+		c.Draw();
+	}
 }
 

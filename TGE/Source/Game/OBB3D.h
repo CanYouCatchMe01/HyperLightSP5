@@ -15,12 +15,11 @@ class OBB3D
 public:
 	OBB3D(Vector3 aSize, Vector3 anOffset, bool aIsStatic = false, bool aIsTrigger = false, GameObject* aParent = nullptr);
 	bool Collides(OBB3D& aOther);
-	void SetPosition(Tga2D::Vector3f aPos);
 	void Calculate();
 
 public:
 	void SetTransform(Tga2D::Transform& aTransform);
-
+	void Draw();
 private:
 	void SATTest(const Vector3 anAxis, const SetOfCorners& aPtSet, float& aMinExtent, float& aMaxExtent);
 	bool Overlaps(float aMin1, float aMax1, float aMin2, float aMax2); 

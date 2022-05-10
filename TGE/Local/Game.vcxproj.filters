@@ -97,6 +97,12 @@
     <ClCompile Include="..\Source\Game\CreditsState.cpp">
       <Filter>Code\StateStack\States</Filter>
     </ClCompile>
+    <ClCompile Include="..\Source\Game\BaseDebugger.cpp">
+      <Filter>Code\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\ComponentDebugger.cpp">
+      <Filter>Code\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\Game\Observer.h">
@@ -210,6 +216,15 @@
     </ClInclude>
     <ClInclude Include="..\Source\Game\CreditsState.h">
       <Filter>Code\StateStack\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\BaseDebugger.h">
+      <Filter>Code\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\DebugObserver.h">
+      <Filter>Code\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\ComponentDebugger.h">
+      <Filter>Code\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

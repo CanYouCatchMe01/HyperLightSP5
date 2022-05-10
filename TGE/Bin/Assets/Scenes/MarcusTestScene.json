@@ -151,16 +151,16 @@
           "w": 1.0
         },
         "scale": {
-          "x": 0.75,
-          "y": 2.0,
-          "z": 0.75
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
         }
       },
       "components": [
         {
           "type": "mesh",
           "data": {
-            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
             "albedo": "",
             "normal": "",
             "reflective": ""
@@ -169,15 +169,16 @@
         {
           "type": "box_collider",
           "data": {
+            "is_trigger": false,
             "center": {
               "x": 0.0,
-              "y": 0.0,
+              "y": 1.0,
               "z": 0.0
             },
             "size": {
-              "x": 0.75,
-              "y": 2.0,
-              "z": 0.75
+              "x": 0.85,
+              "y": 1.64,
+              "z": 0.69
             }
           }
         },
@@ -272,8 +273,8 @@
         {
           "type": "mesh",
           "data": {
-            "model": "Assets/Art/3D/Ground Blocks/BlockBlock2.fbx",
-            "albedo": "Assets/Art/3D/Ground Blocks/wangmap_c.dds",
+            "model": "Assets/Art/3D/Ground Blocks/Ground v1/BlockBlock2.fbx",
+            "albedo": "Assets/Art/3D/Ground Blocks/Ground v1/wangmap_c.dds",
             "normal": "",
             "reflective": ""
           }

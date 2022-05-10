@@ -2,6 +2,7 @@
 #include <tga2d/engine.h>
 #include "Game.h"
 #include "imgui/imgui.h"
+#include <Windows.h>
 
 
 #include <tga2d/error/ErrorManager.h>
@@ -67,6 +68,10 @@ bool Game::Init(const std::wstring& aVersion, HWND aHWND)
 		Tga2D::DebugFeature::Cpu |
 		Tga2D::DebugFeature::Filewatcher |
 		Tga2D::DebugFeature::OptimizeWarnings;
+
+#ifdef _RELEASE
+	ShowCursor(false);
+#endif
 
 	if (!Tga2D::Engine::Start(createParameters))
 	{

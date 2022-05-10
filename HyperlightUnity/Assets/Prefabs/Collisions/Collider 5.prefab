@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8465974214801285905}
   - component: {fileID: 2665386519910202403}
+  - component: {fileID: 4712192851023280961}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -44,6 +45,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4712192851023280961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4292970402403156231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161ef549bff26054a9e1668c38a35e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4616242926759232598
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,6 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6710564916059798580}
   - component: {fileID: 2600641788965866517}
+  - component: {fileID: 4504861457756861413}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -88,6 +102,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4504861457756861413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616242926759232598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161ef549bff26054a9e1668c38a35e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7193240322700937407
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 279404847040230280}
   - component: {fileID: 2815298839838954569}
-  - component: {fileID: 6436381349423934972}
+  - component: {fileID: 3517293021362551562}
   m_Layer: 0
   m_Name: Collider 5
   m_TagString: Untagged
@@ -163,25 +189,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!102 &6436381349423934972
-TextMesh:
-  serializedVersion: 3
+--- !u!114 &3517293021362551562
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7193240322700937407}
-  m_Text: ' COL'
-  m_OffsetZ: -3
-  m_CharacterSize: 0.03
-  m_LineSpacing: 1
-  m_Anchor: 6
-  m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 400
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161ef549bff26054a9e1668c38a35e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
