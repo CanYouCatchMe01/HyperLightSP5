@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{ff4d0ec5-3563-42d6-b40d-715fc7f62415}">
 		<property name="name">
-			<value>Zone 3 - BGM</value>
+			<value>jungle</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -35,7 +35,7 @@
 			<destination>{a0a7201c-bfdb-49a8-b8e1-85c3c7891809}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{cfb6624e-8365-4230-b60b-db991fb65027}</destination>
+			<destination>{91f859f8-45b0-4c26-9994-9bb24509ca9e}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{2229862a-3a42-474d-bdc5-a2bc7e4a273d}">

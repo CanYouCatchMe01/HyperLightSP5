@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="Bank" id="{cfb6624e-8365-4230-b60b-db991fb65027}">
+	<object class="EventFolder" id="{2286d8ac-8a8e-42b9-a420-8fe88d3e8718}">
 		<property name="name">
-			<value>Zone 3 - Forest</value>
+			<value>player</value>
 		</property>
 		<relationship name="folder">
-			<destination>{9c19bc0a-eee1-47e1-9dd9-a6c285546e27}</destination>
+			<destination>{7a5fe944-917e-40f8-89f8-07b807ea923a}</destination>
 		</relationship>
 	</object>
 </objects>

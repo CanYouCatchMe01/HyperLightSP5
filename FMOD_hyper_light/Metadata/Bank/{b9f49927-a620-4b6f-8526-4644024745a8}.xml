@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Bank" id="{b9f49927-a620-4b6f-8526-4644024745a8}">
 		<property name="name">
-			<value>Master</value>
+			<value>master</value>
 		</property>
 		<property name="isMasterBank">
 			<value>true</value>

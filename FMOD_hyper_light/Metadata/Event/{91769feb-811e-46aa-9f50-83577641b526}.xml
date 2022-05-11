@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{91769feb-811e-46aa-9f50-83577641b526}">
 		<property name="name">
-			<value>Walk</value>
+			<value>walk</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{05aa40da-7e5e-48f4-85a1-399113c64d87}</destination>
+			<destination>{2286d8ac-8a8e-42b9-a420-8fe88d3e8718}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{ebb0187b-d19f-445e-bd7f-49a1992b13f6}</destination>
@@ -35,7 +35,7 @@
 			<destination>{b301a6bf-4caf-45fc-abae-08e42898fa7d}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{b9f49927-a620-4b6f-8526-4644024745a8}</destination>
+			<destination>{438367a1-6e43-48e7-a778-127cca70305e}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{ebb0187b-d19f-445e-bd7f-49a1992b13f6}">
