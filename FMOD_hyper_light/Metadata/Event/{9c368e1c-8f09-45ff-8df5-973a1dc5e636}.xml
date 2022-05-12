@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{9c368e1c-8f09-45ff-8df5-973a1dc5e636}">
 		<property name="name">
-			<value>Menu Hoover</value>
+			<value>menu_hoover</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -32,7 +32,7 @@
 			<destination>{da9d3ec7-216b-42b3-bcce-00c52789086d}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{438367a1-6e43-48e7-a778-127cca70305e}</destination>
+			<destination>{b9f49927-a620-4b6f-8526-4644024745a8}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{7a5adb9b-3296-4dc9-8843-5312fe3f0c52}">
@@ -53,7 +53,7 @@
 			<destination>{70d69409-5a6f-4bc2-994d-dd8fc0717f60}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{8e783bef-6dc3-4b8b-8f28-58d0a6fa01cb}</destination>
+			<destination>{dd2a664f-efe8-4051-90e0-9ea368261b3e}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{94afb064-8b8b-4724-b493-0c339be00523}" />

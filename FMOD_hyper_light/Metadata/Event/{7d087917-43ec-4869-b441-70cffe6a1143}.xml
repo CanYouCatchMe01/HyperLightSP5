@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{7d087917-43ec-4869-b441-70cffe6a1143}">
 		<property name="name">
-			<value>Select</value>
+			<value>select</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -32,7 +32,7 @@
 			<destination>{5c280b83-4c42-44ef-abb2-094401f8c8dc}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{438367a1-6e43-48e7-a778-127cca70305e}</destination>
+			<destination>{b9f49927-a620-4b6f-8526-4644024745a8}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{0743850d-660d-4f20-a01c-3e89bb46a172}">
@@ -53,7 +53,7 @@
 			<destination>{e69870db-f338-4613-aac1-6996c4a9412d}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{8e783bef-6dc3-4b8b-8f28-58d0a6fa01cb}</destination>
+			<destination>{dd2a664f-efe8-4051-90e0-9ea368261b3e}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{6fde33ba-c6d5-4b9d-84c4-48aef93c5e00}" />

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{869bc206-4319-473a-947d-b24ee16fc30d}">
 		<property name="name">
-			<value>Dash_Placeholder</value>
+			<value>dash</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -32,7 +32,7 @@
 			<destination>{adfaadf0-1500-4642-b713-936c3b4a3fae}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{438367a1-6e43-48e7-a778-127cca70305e}</destination>
+			<destination>{b9f49927-a620-4b6f-8526-4644024745a8}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{c74f70e6-40b4-4d2b-9c7b-d9ea8252364d}">
@@ -53,7 +53,7 @@
 			<destination>{e31a7ab8-6d1b-4446-b661-a3b006b52950}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{8e783bef-6dc3-4b8b-8f28-58d0a6fa01cb}</destination>
+			<destination>{dd2a664f-efe8-4051-90e0-9ea368261b3e}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{184fe455-ac94-4244-821d-9d9aba744bd1}" />
@@ -159,18 +159,21 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{abd50736-6699-4f53-b893-9ae89a741762}">
 		<relationship name="effects">
-			<destination>{ef99e7ce-f57f-47cb-9770-db549b1b4d6f}</destination>
+			<destination>{750d66e2-a4e5-4730-ad3a-3bf2acafec85}</destination>
 			<destination>{df50eeea-23d6-4a85-9538-a7dbcbe34b7f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{fe494c96-3d4e-44a8-a167-651209272cf4}" />
 	<object class="MixerBusFader" id="{ef499a5e-db6d-4456-a9f3-e6d38dc598db}" />
-	<object class="ThreeEQEffect" id="{ef99e7ce-f57f-47cb-9770-db549b1b4d6f}">
-		<property name="highGain">
-			<value>-1.5</value>
+	<object class="ParamEqEffect" id="{750d66e2-a4e5-4730-ad3a-3bf2acafec85}">
+		<property name="centreFrequency">
+			<value>1150</value>
 		</property>
-		<property name="crossoverSlope">
-			<value>0</value>
+		<property name="gain">
+			<value>-3</value>
+		</property>
+		<property name="bandwidth">
+			<value>2.9000001</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{df50eeea-23d6-4a85-9538-a7dbcbe34b7f}" />
