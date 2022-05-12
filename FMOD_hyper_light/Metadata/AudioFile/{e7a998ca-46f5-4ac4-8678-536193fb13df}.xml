@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e7a998ca-46f5-4ac4-8678-536193fb13df}">
+		<property name="assetPath">
+			<value>SFX/menu/Meny_Klick_2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.45337499999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8728dd84-aca8-44bb-8a96-e57a3ddbb506}</destination>
+		</relationship>
+	</object>
+</objects>
