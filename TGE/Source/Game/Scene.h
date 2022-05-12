@@ -24,7 +24,7 @@ public:
 	CollisionManager& GetCollisionManager();
 	Tga2D::Camera& GetCamera();
 private:
-	void AddImguiNode(class GameObject* aGameObject);
+	//void AddImguiNode(class GameObject* aGameObject); // replaced with a prettier version.
 	std::vector<class GameObject*> myGameObjects;
 
 	Tga2D::Camera myCamera;

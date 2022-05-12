@@ -36,6 +36,8 @@ private:
 
 	eCollisionState myCollisionState = eCollisionState::eNone;
 
+	Vector3 myLastPos;
+
 	Vector3 myOffset;
 	Vector3 mySize;
 

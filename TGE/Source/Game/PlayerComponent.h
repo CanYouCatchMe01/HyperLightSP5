@@ -2,11 +2,12 @@
 #include "InputObserver.h"
 #include "InputMapperEvents.h"
 #include "Component.h"
+#include "SoundEngine-FMod/SoundEngine.h"
+
 
 class PlayerComponent : public Component, Input::InputObserver
 {
 public:
-	PlayerComponent();
 	PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed);
 	void OnUpdate(float aDT) override;
 	void Movement(float aDT);
@@ -28,11 +29,16 @@ public:
 	virtual void OnAwake() override;
 
 	virtual void OnStart() override;
+#ifdef _DEBUG
 	void DebugUpdate() override;
+#endif // _DEBUG
 
 	void OnCollisionEnter(GameObject* aOther) override;
 
 	void TakeDamedg(int aDamedg);
+
+
+
 
 private:
 	int myMaxHp = 5;
@@ -42,13 +48,12 @@ private:
 	float myAttackTime = 0.1f;
 	float myGravity = 10.0f;
 	int myMaxAttacks = 3;
-
+	float mySpeed = 0.5f;
+	float myDashSpeed = 3.0f;
 
 	Tga2D::Vector3f myDir = { 0.0f,0.0f,0.0f };
 	Tga2D::Vector3f myLastDir = { 0.0f,0.0f,0.0f };
 	Tga2D::Vector3f myDashDir = { 0.0f,0.0f,0.0f };
-	float mySpeed = 0.5f;
-	float myDashSpeed = 3.0f;
 	float myDashTimer = 0.0f;
 	float myAttackTimer = 0.0f;
 	float myHealTimer = 0.0f;
@@ -61,5 +66,9 @@ private:
 	int myAttacks = 0;
 	int myHp = myMaxHp;
 	int myHealingItems = 0;
+
+	//Sound
+	SoundEventInstanceHandle myDashSound;
+	SoundEventInstanceHandle myWalkSound;
 };
 

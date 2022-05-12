@@ -6,9 +6,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": 0.0,
-          "y": 13.99,
-          "z": -19.57
+          "x": -2.655,
+          "y": 14.7,
+          "z": -20.08
         },
         "rotation": {
           "x": 0.457873881,
@@ -170,9 +170,9 @@
               "z": 0.0
             },
             "size": {
-              "x": 50.0,
+              "x": 1.0,
               "y": 1.0,
-              "z": 50.0
+              "z": 1.0
             }
           }
         }
@@ -221,9 +221,9 @@
               "z": 0.0
             },
             "size": {
-              "x": 10.0,
+              "x": 1.0,
               "y": 1.0,
-              "z": 10.0
+              "z": 1.0
             }
           }
         }
@@ -265,7 +265,7 @@
         {
           "type": "box_collider",
           "data": {
-            "is_trigger": true,
+            "is_trigger": false,
             "center": {
               "x": 0.0,
               "y": 0.0,
@@ -273,19 +273,18 @@
             },
             "size": {
               "x": 1.0,
-              "y": 0.5,
+              "y": 1.0,
               "z": 1.0
             }
           }
         },
         {
-          "type": "enemy",
+          "type": "melee_enemy",
           "data": {
             "max_hp": 5,
-            "speed": 5.0,
-            "attack_speed": 1.0,
-            "type": 1,
-            "detection_radius": 8.0
+            "speed": 2.0,
+            "attack_speed": 1,
+            "detection_radius": 5.0
           }
         }
       ],

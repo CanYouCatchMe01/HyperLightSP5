@@ -44,9 +44,9 @@
         },
         "rotation": {
           "x": 0.0,
-          "y": -1.0,
+          "y": 0.0,
           "z": 0.0,
-          "w": 2.95042946E-06
+          "w": 1.0
         },
         "scale": {
           "x": 1.0,
@@ -9850,9 +9850,9 @@
       "is_static": true,
       "transform": {
         "position": {
-          "x": 4.88,
-          "y": 5.24,
-          "z": -0.65
+          "x": -0.8441558,
+          "y": 4.0,
+          "z": -8.162582
         },
         "rotation": {
           "x": 0.0,
@@ -9874,9 +9874,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 19.8799973,
-              "y": 3.23999977,
-              "z": -1.43008828
+              "x": 14.15584,
+              "y": 2.0,
+              "z": -8.942671
             },
             "rotation": {
               "x": 0.0,
@@ -9890,25 +9890,51 @@
               "z": 11.5
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.5,
-                  "y": -0.5,
-                  "z": 0.5
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 6.90580654,
+                  "y": 1.5,
+                  "z": -14.6926279
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 14.5,
                   "y": 1.0,
                   "z": 11.5
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Floor (2)",
@@ -9916,9 +9942,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 18.42007,
-              "y": 3.23999977,
-              "z": 11.3299179
+              "x": 12.6959152,
+              "y": 2.0,
+              "z": 3.81733513
             },
             "rotation": {
               "x": 0.0,
@@ -9932,25 +9958,51 @@
               "z": 5.97150373
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.5,
-                  "y": -0.5,
-                  "z": 0.5
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 7.06417036,
+                  "y": 1.5,
+                  "z": 0.831617355
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 11.2634554,
                   "y": 1.0,
                   "z": 5.97150373
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Floor (3)",
@@ -9958,9 +10010,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 19.4700966,
-              "y": 3.23999977,
-              "z": 15.74991
+              "x": 13.7459412,
+              "y": 2.0,
+              "z": 8.237328
             },
             "rotation": {
               "x": 0.0,
@@ -9974,25 +10026,51 @@
               "z": 3.20806813
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.5,
-                  "y": -0.5,
-                  "z": 0.5
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 12.1416492,
+                  "y": 1.5,
+                  "z": 6.6333046
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.20856619,
                   "y": 1.0,
                   "z": 3.20806813
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Floor (4)",
@@ -10000,9 +10078,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 16.2941322,
-              "y": 3.23999977,
-              "z": 21.8599339
+              "x": 10.5699768,
+              "y": 2.0,
+              "z": 14.3473511
             },
             "rotation": {
               "x": 0.0,
@@ -10016,25 +10094,51 @@
               "z": 3.08734822
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.5,
-                  "y": -0.5,
-                  "z": 0.5
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 8.965685,
+                  "y": 1.5,
+                  "z": 12.8036861
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.20856619,
                   "y": 1.0,
                   "z": 3.08734822
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Floor (5)",
@@ -10042,9 +10146,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 19.4801636,
-              "y": 3.23999977,
-              "z": 26.8699112
+              "x": 13.7560062,
+              "y": 2.0,
+              "z": 19.3573284
             },
             "rotation": {
               "x": 0.0,
@@ -10058,25 +10162,51 @@
               "z": 3.08734822
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.5,
-                  "y": -0.5,
-                  "z": 0.5
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 12.1517143,
+                  "y": 1.5,
+                  "z": 17.8136654
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.20856619,
                   "y": 1.0,
                   "z": 3.08734822
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Floor (6)",
@@ -10084,9 +10214,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 11.8202438,
-              "y": 3.23999977,
-              "z": 40.59995
+              "x": 6.09608746,
+              "y": 2.0,
+              "z": 33.087368
             },
             "rotation": {
               "x": 0.0,
@@ -10100,25 +10230,51 @@
               "z": 24.4277172
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.5,
-                  "y": -0.5,
-                  "z": 0.5
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -11.5046673,
+                  "y": 1.5,
+                  "z": 20.8736153
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 35.2013664,
                   "y": 1.0,
                   "z": 24.4277172
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Floor (7)",
@@ -10126,9 +10282,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 2.7803278,
-              "y": 6.24999952,
-              "z": 54.86
+              "x": -2.943828,
+              "y": 5.00999975,
+              "z": 47.34742
             },
             "rotation": {
               "x": 0.0,
@@ -10142,25 +10298,51 @@
               "z": 15.075016
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.5,
-                  "y": -0.5,
-                  "z": 0.5
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -12.92457,
+                  "y": 4.50999975,
+                  "z": 39.8099747
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 19.9613972,
                   "y": 1.0,
                   "z": 15.075016
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Floor (8)",
@@ -10168,9 +10350,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 2.78043985,
-              "y": 6.24999952,
-              "z": 73.84001
+              "x": -2.943716,
+              "y": 5.00999975,
+              "z": 66.32743
             },
             "rotation": {
               "x": 0.0,
@@ -10184,25 +10366,51 @@
               "z": 15.075016
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.5,
-                  "y": -0.5,
-                  "z": 0.5
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -12.9244595,
+                  "y": 4.50999975,
+                  "z": 58.78997
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 19.9613972,
                   "y": 1.0,
                   "z": 15.075016
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Floor (9)",
@@ -10210,9 +10418,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 2.78026032,
-              "y": 4.33,
-              "z": 43.4300041
+              "x": -2.94389558,
+              "y": 3.09000015,
+              "z": 35.9174232
             },
             "rotation": {
               "x": 6.42685734E-07,
@@ -10226,25 +10434,51 @@
               "z": 9.224557
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.5,
-                  "y": -0.5,
-                  "z": 0.5
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -9.010986,
+                  "y": 2.54138756,
+                  "z": 31.6911888
                 },
-                "size": {
+                "rotation": {
+                  "x": 6.42685734E-07,
+                  "y": -0.975987256,
+                  "z": 0.217827857,
+                  "w": 2.87958164E-06
+                },
+                "scale": {
                   "x": 12.1341372,
                   "y": 1.0,
                   "z": 9.224557
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Floor (10)",
@@ -10252,9 +10486,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 7.25005341,
-              "y": 2.86199975,
-              "z": 8.4499855
+              "x": 0.155839622,
+              "y": 2.0,
+              "z": -8.942598
             },
             "rotation": {
               "x": 0.0,
@@ -10264,29 +10498,55 @@
             },
             "scale": {
               "x": 14.5,
-              "y": 12.28,
+              "y": 1.0,
               "z": 28.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.5,
-                  "y": -0.5,
-                  "z": 0.5
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -7.094243,
+                  "y": 1.5,
+                  "z": -22.9425545
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 14.5,
-                  "y": 12.28,
+                  "y": 1.0,
                   "z": 28.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         }
       ]
     },
@@ -10336,25 +10596,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 8.655834,
+                  "y": 4.500001,
+                  "z": -7.16264248
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (2)",
@@ -10378,25 +10664,51 @@
               "z": 5.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 16.65577,
+                  "y": 4.500001,
+                  "z": -18.1785851
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 30.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (3)",
@@ -10420,25 +10732,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 17.655777,
+                  "y": 4.500001,
+                  "z": -17.1626968
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (4)",
@@ -10462,25 +10800,51 @@
               "z": 3.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 7.655858,
+                  "y": 4.500001,
+                  "z": -3.16263628
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 18.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (5)",
@@ -10504,25 +10868,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 12.1560259,
+                  "y": 4.500001,
+                  "z": 25.3373356
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (6)",
@@ -10546,25 +10936,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 27.1560268,
+                  "y": 4.500001,
+                  "z": 25.3372478
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (7)",
@@ -10588,25 +11004,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 9.156044,
+                  "y": 4.500001,
+                  "z": 28.3373547
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (8)",
@@ -10630,25 +11072,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -0.8440093,
+                  "y": 4.500001,
+                  "z": 19.3374138
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (9)",
@@ -10672,25 +11140,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 3.15600848,
+                  "y": 4.500001,
+                  "z": 22.337389
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (10)",
@@ -10714,25 +11208,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 6.156026,
+                  "y": 4.500001,
+                  "z": 25.3373718
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (11)",
@@ -10756,25 +11276,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -10.3439465,
+                  "y": 4.500001,
+                  "z": 29.83747
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -3.05473759E-06,
+                  "z": 0.0,
+                  "w": -1.0
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (12)",
@@ -10798,25 +11344,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -10.3439169,
+                  "y": 4.500001,
+                  "z": 34.83747
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -3.05473759E-06,
+                  "z": 0.0,
+                  "w": -1.0
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (13)",
@@ -10840,25 +11412,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -10.34387,
+                  "y": 4.500001,
+                  "z": 42.83747
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -3.05473759E-06,
+                  "z": 0.0,
+                  "w": -1.0
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (14)",
@@ -10882,25 +11480,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 4.65613,
+                  "y": 4.500001,
+                  "z": 42.83738
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -3.05473759E-06,
+                  "z": 0.0,
+                  "w": -1.0
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (15)",
@@ -10924,25 +11548,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 4.656165,
+                  "y": 7.5,
+                  "z": 48.83738
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -3.05473759E-06,
+                  "z": 0.0,
+                  "w": -1.0
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (16)",
@@ -10966,25 +11616,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -10.3438339,
+                  "y": 7.5,
+                  "z": 48.83747
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -3.05473759E-06,
+                  "z": 0.0,
+                  "w": -1.0
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (17)",
@@ -11008,25 +11684,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 5.65582228,
+                  "y": 4.500001,
+                  "z": -9.162625
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (18)",
@@ -11050,25 +11752,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -6.344189,
+                  "y": 4.500001,
+                  "z": -11.1625547
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (19)",
@@ -11092,25 +11820,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -7.344225,
+                  "y": 4.500001,
+                  "z": -17.1625481
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (20)",
@@ -11134,25 +11888,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 2.15578151,
+                  "y": 4.500001,
+                  "z": -15.6626015
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (21)",
@@ -11176,25 +11956,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 8.155779,
+                  "y": 4.500001,
+                  "z": -16.66264
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (22)",
@@ -11218,25 +12024,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 4.15591431,
+                  "y": 4.500001,
+                  "z": 6.337384
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (3)",
@@ -11260,25 +12092,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 18.15614,
+                  "y": 4.5,
+                  "z": 44.3373
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (4)",
@@ -11302,25 +12160,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 21.1561565,
+                  "y": 4.5,
+                  "z": 47.3372841
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (2)",
@@ -11344,25 +12228,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 7.6560874,
+                  "y": 4.5,
+                  "z": 35.75318
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1 (1)",
@@ -11386,25 +12296,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 20.1557846,
+                  "y": 4.5,
+                  "z": -15.6627083
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071087,
+                  "z": 0.0,
+                  "w": -0.7071049
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1",
@@ -11428,25 +12364,51 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 5.65582228,
+                  "y": 4.500001,
+                  "z": -9.162625
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 6.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 1",
@@ -11470,25 +12432,51 @@
               "z": 3.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.5,
-                  "y": 1.5,
-                  "z": -3.0
+              "name": "Box",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 22.655983,
+                  "y": 4.5,
+                  "z": 17.8372746
                 },
-                "size": {
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
                   "x": 3.0,
                   "y": 3.0,
                   "z": 18.0
                 }
-              }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 2 (1)",
@@ -11512,40 +12500,7 @@
               "z": 1.0
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.51366186,
-                  "y": 1.5,
-                  "z": -4.46410942
-                },
-                "size": {
-                  "x": 3.02732372,
-                  "y": 3.0,
-                  "z": 3.07178116
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 3.02802,
-                  "y": 1.5,
-                  "z": -1.48870885
-                },
-                "size": {
-                  "x": 6.05604,
-                  "y": 3.0,
-                  "z": 2.97741771
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -11580,9 +12535,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.24663162,
-                      "y": 3.0,
-                      "z": 0.853201866
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 9.655791,
+                  "y": 4.500002,
+                  "z": -13.6626511
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.4735923E-06
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 8.155777,
+                  "y": 4.500002,
+                  "z": -16.6626434
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.4735923E-06
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }
@@ -11613,40 +12652,7 @@
               "z": 1.00000024
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.51366186,
-                  "y": 1.5,
-                  "z": -4.46410942
-                },
-                "size": {
-                  "x": 3.02732444,
-                  "y": 3.0,
-                  "z": 3.07178187
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 3.02802,
-                  "y": 1.5,
-                  "z": -1.48870885
-                },
-                "size": {
-                  "x": 6.05604124,
-                  "y": 3.0,
-                  "z": 2.97741842
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -11681,9 +12687,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.246632,
-                      "y": 3.0,
-                      "z": 0.853202
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 16.6558685,
+                  "y": 4.500002,
+                  "z": -1.662694
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071086,
+                  "z": 0.0,
+                  "w": -0.707105041
+                },
+                "scale": {
+                  "x": 3.000001,
+                  "y": 3.0,
+                  "z": 3.000001
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 19.65586,
+                  "y": 4.500002,
+                  "z": -3.16270924
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071086,
+                  "z": 0.0,
+                  "w": -0.707105041
+                },
+                "scale": {
+                  "x": 6.000002,
+                  "y": 3.0,
+                  "z": 3.000001
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }
@@ -11714,40 +12804,7 @@
               "z": 1.0
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.51366186,
-                  "y": 1.5,
-                  "z": -4.46410942
-                },
-                "size": {
-                  "x": 3.02732372,
-                  "y": 3.0,
-                  "z": 3.07178116
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 3.02802,
-                  "y": 1.5,
-                  "z": -1.48870885
-                },
-                "size": {
-                  "x": 6.05604,
-                  "y": 3.0,
-                  "z": 2.97741771
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -11782,9 +12839,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.246631,
-                      "y": 3.0,
-                      "z": 0.853201866
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 4.628188,
+                  "y": 7.51,
+                  "z": 56.3654022
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071086,
+                  "z": 0.0,
+                  "w": -0.707105
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 7.628181,
+                  "y": 7.51,
+                  "z": 54.86539
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071086,
+                  "z": 0.0,
+                  "w": -0.707105
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }
@@ -11815,40 +12956,7 @@
               "z": 1.0
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.51366186,
-                  "y": 1.5,
-                  "z": -4.46410942
-                },
-                "size": {
-                  "x": 3.02732372,
-                  "y": 3.0,
-                  "z": 3.07178116
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 3.02802,
-                  "y": 1.5,
-                  "z": -1.48870885
-                },
-                "size": {
-                  "x": 6.05604,
-                  "y": 3.0,
-                  "z": 2.97741771
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -11883,9 +12991,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.246631,
-                      "y": 3.0,
-                      "z": 0.853201866
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -13.371829,
+                  "y": 7.51,
+                  "z": 53.3094635
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -3.11434223E-06,
+                  "z": 0.0,
+                  "w": -1.0
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -11.8718109,
+                  "y": 7.51,
+                  "z": 56.3094559
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -3.11434223E-06,
+                  "z": 0.0,
+                  "w": -1.0
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }
@@ -11916,40 +13108,7 @@
               "z": 1.0
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.51366186,
-                  "y": 1.5,
-                  "z": -4.46410942
-                },
-                "size": {
-                  "x": 3.02732372,
-                  "y": 3.0,
-                  "z": 3.07178116
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 3.02802,
-                  "y": 1.5,
-                  "z": -1.48870885
-                },
-                "size": {
-                  "x": 6.05604,
-                  "y": 3.0,
-                  "z": 2.97741771
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -11984,9 +13143,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.24663162,
-                      "y": 3.0,
-                      "z": 0.8532019
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -10.3438482,
+                  "y": 7.51,
+                  "z": 47.30945
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.707104266,
+                  "z": 0.0,
+                  "w": -0.707109332
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -13.3438377,
+                  "y": 7.51,
+                  "z": 48.8094635
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.707104266,
+                  "z": 0.0,
+                  "w": -0.707109332
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }
@@ -12017,40 +13260,7 @@
               "z": 1.0
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.51366186,
-                  "y": 1.5,
-                  "z": -4.46410942
-                },
-                "size": {
-                  "x": 3.02732372,
-                  "y": 3.0,
-                  "z": 3.07178116
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 3.02802,
-                  "y": 1.5,
-                  "z": -1.48870885
-                },
-                "size": {
-                  "x": 6.05604,
-                  "y": 3.0,
-                  "z": 2.97741771
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -12085,9 +13295,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.246631,
-                      "y": 3.0,
-                      "z": 0.853201866
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -10.3717833,
+                  "y": 7.51,
+                  "z": 59.3654861
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -3.05473759E-06,
+                  "z": 0.0,
+                  "w": -1.0
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -8.871765,
+                  "y": 7.51,
+                  "z": 62.3654747
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -3.05473759E-06,
+                  "z": 0.0,
+                  "w": -1.0
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }
@@ -12118,40 +13412,7 @@
               "z": 1.00000024
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.51366186,
-                  "y": 1.5,
-                  "z": -4.46410942
-                },
-                "size": {
-                  "x": 3.02732444,
-                  "y": 3.0,
-                  "z": 3.07178187
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 3.02802,
-                  "y": 1.5,
-                  "z": -1.48870885
-                },
-                "size": {
-                  "x": 6.05604124,
-                  "y": 3.0,
-                  "z": 2.97741842
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -12186,9 +13447,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.24663162,
-                      "y": 3.0,
-                      "z": 0.853202
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 1.6842742,
+                  "y": 7.51,
+                  "z": 62.39343
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071091,
+                  "z": 0.0,
+                  "w": -0.707104564
+                },
+                "scale": {
+                  "x": 3.000001,
+                  "y": 3.0,
+                  "z": 3.000001
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 4.684265,
+                  "y": 7.51,
+                  "z": 60.89341
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071091,
+                  "z": 0.0,
+                  "w": -0.707104564
+                },
+                "scale": {
+                  "x": 6.000002,
+                  "y": 3.0,
+                  "z": 3.000001
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }
@@ -12219,40 +13564,7 @@
               "z": 1.0
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.51366186,
-                  "y": 1.5,
-                  "z": -4.46410942
-                },
-                "size": {
-                  "x": 3.02732372,
-                  "y": 3.0,
-                  "z": 3.07178116
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 3.02802,
-                  "y": 1.5,
-                  "z": -1.48870885
-                },
-                "size": {
-                  "x": 6.05604,
-                  "y": 3.0,
-                  "z": 2.97741771
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -12287,9 +13599,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.246631,
-                      "y": 3.0,
-                      "z": 0.853201866
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 7.65617371,
+                  "y": 7.51,
+                  "z": 50.3373642
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 6.156156,
+                  "y": 7.51,
+                  "z": 47.33737
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -1.0,
+                  "z": 0.0,
+                  "w": 2.95042946E-06
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }
@@ -12320,40 +13716,7 @@
               "z": 1.0
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.51366186,
-                  "y": 1.5,
-                  "z": -4.46410942
-                },
-                "size": {
-                  "x": 3.02732372,
-                  "y": 3.0,
-                  "z": 3.07178116
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 3.02802,
-                  "y": 1.5,
-                  "z": -1.48870885
-                },
-                "size": {
-                  "x": 6.05604,
-                  "y": 3.0,
-                  "z": 2.97741771
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -12388,9 +13751,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.246631,
-                      "y": 3.0,
-                      "z": 0.853201866
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 19.6561623,
+                  "y": 4.5,
+                  "z": 48.3372879
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071086,
+                  "z": 0.0,
+                  "w": -0.707105
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 22.6561565,
+                  "y": 4.5,
+                  "z": 46.8372765
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071086,
+                  "z": 0.0,
+                  "w": -0.707105
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }
@@ -12421,40 +13868,7 @@
               "z": 1.0
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.51366186,
-                  "y": 1.5,
-                  "z": -4.46410942
-                },
-                "size": {
-                  "x": 3.02732372,
-                  "y": 3.0,
-                  "z": 3.07178116
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 3.02802,
-                  "y": 1.5,
-                  "z": -1.48870885
-                },
-                "size": {
-                  "x": 6.05604,
-                  "y": 3.0,
-                  "z": 2.97741771
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -12489,9 +13903,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.246631,
-                      "y": 3.0,
-                      "z": 0.853201866
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 2.65590215,
+                  "y": 4.500002,
+                  "z": 4.33739376
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "GameObject (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 5.65589333,
+                  "y": 4.500002,
+                  "z": 2.8373754
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.7071089,
+                  "z": 0.0,
+                  "w": -0.7071047
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 3.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }
@@ -12522,40 +14020,7 @@
               "z": 1.00000024
             }
           },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 2.97096944,
-                  "y": 1.5,
-                  "z": -1.5
-                },
-                "size": {
-                  "x": 0.0580601841,
-                  "y": 3.0,
-                  "z": 3.00000072
-                }
-              }
-            },
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 1.49999952,
-                  "y": 1.5,
-                  "z": -0.0279372036
-                },
-                "size": {
-                  "x": 3.00000072,
-                  "y": 3.0,
-                  "z": 0.0558744222
-                }
-              }
-            }
-          ],
+          "components": [],
           "children": [
             {
               "name": "Cube",
@@ -12574,7 +14039,7 @@
                   "w": 0.608764
                 },
                 "scale": {
-                  "x": 4.042384,
+                  "x": 4.244503,
                   "y": 2.9860127,
                   "z": 0.117968917
                 }
@@ -12590,9 +14055,93 @@
                       "z": 0.0
                     },
                     "size": {
-                      "x": 4.042384,
-                      "y": 2.9860127,
-                      "z": 0.117968917
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "Cube (1)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -6.1431694,
+                  "y": 4.500001,
+                  "z": -1.41255379
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.965925,
+                  "z": 0.0,
+                  "w": 0.258822381
+                },
+                "scale": {
+                  "x": 3.00000048,
+                  "y": 3.0,
+                  "z": 0.100000016
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "Cube (2)",
+              "tag": "Untagged",
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -6.692193,
+                  "y": 4.500001,
+                  "z": 0.6364882
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.4999971,
+                  "z": 0.0,
+                  "w": 0.8660273
+                },
+                "scale": {
+                  "x": 3.00000119,
+                  "y": 3.0,
+                  "z": 0.100000039
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
                     }
                   }
                 }

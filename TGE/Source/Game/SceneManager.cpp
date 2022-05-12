@@ -5,10 +5,8 @@
 
 SceneManager::SceneManager(PollingStation* aPollingStation) : myUnityLoader(aPollingStation)
 {
-	myScenes.push_back(myUnityLoader.CreateScene("SampleScene"));
-	myScenes[0]->OnStart();
+	LoadScene("AdamTestscene");
 
-#ifdef _DEBUG
 	for (const auto& entry : std::filesystem::directory_iterator("Assets/Scenes"))
 	{
 		std::string entryString = entry.path().string();
@@ -17,7 +15,6 @@ SceneManager::SceneManager(PollingStation* aPollingStation) : myUnityLoader(aPol
 		baseFilename = baseFilename.substr(0, jsonStart);
 		myScenePaths.push_back(baseFilename);
 	}
-#endif // _DEBUG
 
 
 }
@@ -30,8 +27,7 @@ SceneManager::~SceneManager()
 
 void SceneManager::Update(float aTimeDelta)
 {
-	for (size_t i = 0; i < myScenes.size(); ++i)
-		myScenes[i]->Update(aTimeDelta);
+	myScenes[myActiveScene]->Update(aTimeDelta);
 
 //#ifdef _DEBUG // Replaced with prettier version.
 //	ImGui::Begin("Scenes");
@@ -53,10 +49,15 @@ void SceneManager::Update(float aTimeDelta)
 
 void SceneManager::Render()
 {
-	if (myScenes.size() == 0)
-	{
-		return;
-	}
+	/*if (myScenes.size() == 0)
+		return;*/
 
-	myRenderManager.Render(myScenes[0]);
+	myRenderManager.Render(myScenes[myActiveScene]);
+}
+
+void SceneManager::LoadScene(std::string aScenePath)
+{
+	myScenes.push_back(myUnityLoader.CreateScene(aScenePath));
+	myActiveScene = myScenes.size() - 1;
+	myScenes[myActiveScene]->OnStart();
 }

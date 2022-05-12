@@ -77,8 +77,6 @@ public class Export
             //return; // Dont copy png;
         }
 
-        
-
         File.Copy(aSource, aDestination, true);
     }
 
@@ -87,6 +85,8 @@ public class Export
     [MenuItem("Tools/Export active scene")]
     private static void ExportActiveScene()
     {
+        myRequiredPaths.Clear();
+
         if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) // Check if active scene is saved
             return;
 
@@ -99,6 +99,8 @@ public class Export
     [MenuItem("Tools/Export scenes in build settings")]
     private static void ExportAllScenes()
     {
+        myRequiredPaths.Clear();
+
         if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) // Check if active scene is saved
             return;
 

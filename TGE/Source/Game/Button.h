@@ -38,7 +38,8 @@ public:
 	inline eState GetState() { return myState; }
 	inline eButtonType GetType() { return myButtonType; }
 	inline void SetSizeMultiplier(Tga2D::Vector2f aMultiplier) { mySpriteInstance.mySizeMultiplier = aMultiplier; }
-
+	void ToggleFullScreen();
+	void SetText(std::string aText);
 private:
 	bool myHasText = false;
 	Tga2D::Text myText;

@@ -240,5 +240,6 @@ void  Tga2D::GraphicsEngine::DoDraw(RenderObjectLine* aObject)
 
 void Tga2D::GraphicsEngine::SetFullScreen(bool aFullScreen)
 {
+	myIsFullScreen = aFullScreen;
 	DX11::SwapChain->SetFullscreenState(aFullScreen, nullptr);
 }

@@ -99,6 +99,17 @@ bool SoundEngine::RegisterEvent(const std::string& anEventName, unsigned anEvent
 	return false;
 }
 
+void SoundEngine::RegisterAllEvents()
+{
+	std::vector<std::string> eventList;
+	GetEvents(eventList);
+
+	for (int i = 0; i < eventList.size(); i++)
+	{
+		RegisterEvent(eventList[i], i);
+	}
+}
+
 SoundEventInstanceHandle SoundEngine::CreateEventInstance(const std::string& anEventName)
 {
 	return myImpl->CreateEventInstance(anEventName);

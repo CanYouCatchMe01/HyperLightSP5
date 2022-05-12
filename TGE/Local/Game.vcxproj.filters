@@ -79,15 +79,6 @@
     <ClCompile Include="..\Source\Game\OBB3D.cpp">
       <Filter>Code\Collisions</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Game\PlayerComponent.cpp">
-      <Filter>Code\GameObject Component</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Game\EnemyComponent.cpp">
-      <Filter>Code\GameObject Component</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Game\BulletComponent.cpp">
-      <Filter>Code\GameObject Component</Filter>
-    </ClCompile>
     <ClCompile Include="..\Source\Game\Gamepad.cpp">
       <Filter>Code\Input</Filter>
     </ClCompile>
@@ -102,6 +93,24 @@
     </ClCompile>
     <ClCompile Include="..\Source\Game\ComponentDebugger.cpp">
       <Filter>Code\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\EnemyComponent.cpp">
+      <Filter>Code\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\MeleeEnemy.cpp">
+      <Filter>Code\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\ChargeEnemy.cpp">
+      <Filter>Code\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\FluteEnemy.cpp">
+      <Filter>Code\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\PlayerComponent.cpp">
+      <Filter>Code\Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\BulletComponent.cpp">
+      <Filter>Code\Objects\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,15 +205,6 @@
     <ClInclude Include="..\Source\Game\CollisionManager.h">
       <Filter>Code\Collisions</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Game\PlayerComponent.h">
-      <Filter>Code\GameObject Component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Game\EnemyComponent.h">
-      <Filter>Code\GameObject Component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Game\BulletComponent.h">
-      <Filter>Code\GameObject Component</Filter>
-    </ClInclude>
     <ClInclude Include="..\Source\Game\InputObserver.h">
       <Filter>Code\Input</Filter>
     </ClInclude>
@@ -225,6 +225,24 @@
     </ClInclude>
     <ClInclude Include="..\Source\Game\ComponentDebugger.h">
       <Filter>Code\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\EnemyComponent.h">
+      <Filter>Code\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\MeleeEnemy.h">
+      <Filter>Code\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\ChargeEnemy.h">
+      <Filter>Code\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\FluteEnemy.h">
+      <Filter>Code\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\PlayerComponent.h">
+      <Filter>Code\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\BulletComponent.h">
+      <Filter>Code\Objects\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

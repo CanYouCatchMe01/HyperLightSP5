@@ -56,9 +56,9 @@ protected:
 	std::shared_ptr<Model> LoadModel(const std::wstring& someFilePath);
 	bool LoadAnimation(const std::wstring& someFilePath, Model& aModel);
 
-private:	
+private:
 	std::map<std::wstring, Model*> myLoadedModels;
-	std::vector<std::shared_ptr<Model>> myModels;	
+	std::vector<std::shared_ptr<Model>> myModels;
 	static ModelFactory* myInstance;
 };
 

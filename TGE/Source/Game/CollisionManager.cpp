@@ -18,12 +18,20 @@ OBB3D* CollisionManager::GetOBB3D(size_t aHandle)
 
 void CollisionManager::Update()
 {
-	for (auto& outer : myOBBColliders)
+	/*for (auto& outer : myOBBColliders)
 	{
 		for (auto& inner : myOBBColliders)
 		{
 			if (&outer == &inner) { continue; }
 			outer.Collides(inner);
+		}
+	}*/
+
+	for (size_t i = 0; i < myOBBColliders.size(); i++)
+	{
+		for (size_t j = i+1; j < myOBBColliders.size(); j++)
+		{
+			myOBBColliders[i].Collides(myOBBColliders[j]);
 		}
 	}
 }

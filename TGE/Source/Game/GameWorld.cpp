@@ -11,7 +11,11 @@
 #include "MainMenuState.h"
 #include "GameState.h"
 #include "SoundEngine-FMod/SoundEngine.h"
+#ifdef _DEBUG
 #include "BaseDebugger.h"
+#endif // _DEBUG
+
+
 
 GameWorld::GameWorld()
 {}
@@ -21,36 +25,35 @@ GameWorld::~GameWorld()
 
 void GameWorld::Init(HWND aHWND)  
 {
+	//Audio
+	SoundEngine::Init("");
+	bool ok = false;
+	ok = SoundEngine::LoadBank("Assets/FMODBank/Master.strings.bank", 0);
+	ok = SoundEngine::LoadBank("Assets/FMODBank/Master.bank", 0);
+
+	SoundEngine::RegisterAllEvents();
+
+
+
+
 	myPollingStation = new PollingStation;
 	myPollingStation->Init(aHWND);
 
 	myStateStack.Init(myPollingStation);
 	myStateStack.PushState(new MainMenuState(myStateStack, myPollingStation));
 
-	SoundEngine::Init("");
+	
 
-	bool ok = false;
-	ok = SoundEngine::LoadBank("Assets/FMODBank/Master.strings.bank", 0);
-	ok = SoundEngine::LoadBank("Assets/FMODBank/Master.bank", 0);
-	ok = SoundEngine::LoadBank("Assets/FMODBank/Music.bank", 0);
-	ok = SoundEngine::LoadBank("Assets/FMODBank/Zone 1 - Desert.bank", 0);
-	ok = SoundEngine::LoadBank("Assets/FMODBank/Zone 2 - Badlands.bank", 0);
-	ok = SoundEngine::LoadBank("Assets/FMODBank/Zone 3 - Forest.bank", 0);
 
-	std::vector<std::string> eventNames;
-	SoundEngine::GetEvents(eventNames);
-
-	ok = SoundEngine::RegisterEvent("event:/Music/Level 1", 0);
-
-	SoundEventInstanceHandle eventHandle = SoundEngine::CreateEventInstance(0);
-
-	ok = SoundEngine::PlayEvent(eventHandle);
-	ok;
 }
 
 void GameWorld::Update(float aTimeDelta)
 {
+#ifdef _DEBUG
 	myPollingStation->myDebugger.get()->DebugUpdate();
+#endif // _DEBUG
+
+
 	myStateStack.UpdateState(aTimeDelta);
 	SoundEngine::Update();
 }

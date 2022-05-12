@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Button.h"
+#include <tga2d/engine.h>
 #include <tga2d/texture/TextureManager.h>
 #include <tga2d/graphics/GraphicsEngine.h>
 #include <tga2d/drawers/SpriteDrawer.h>
@@ -19,13 +20,14 @@ Button::Button(eButtonType aButtonType, Tga2D::Vector2f aPosition)
 	myText.SetText("");
 	myText.SetColor({ 1,1,1,1 });
 
-
 	mySpriteInstance.mySize = { 0.2f,0.2f };
 	mySpriteInstance.mySizeMultiplier = { 1.5f, 0.75f };
 	mySpriteInstance.myColor = { 1,1,1,1 };
 	mySpriteInstance.myPivot = { 0.5f, 0.5f };
 
 	mySpriteInstance.myPosition = aPosition;
+
+	bool fullscreenStat = Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetFullsScreenStatus();
 
 	//set textures based on button type
 	switch (aButtonType)
@@ -77,6 +79,12 @@ Button::Button(eButtonType aButtonType, Tga2D::Vector2f aPosition)
 	case eButtonType::FullScreen:
 		texturePathSelected = L"Sprites/UI/Menus/OptionsMenu/ui_optionsMenu_fullscreen_selected.dds";
 		texturePathDeselected = L"Sprites/UI/Menus/OptionsMenu/ui_optionsMenu_fullscreen_unSelected.dds";
+		myText.SetColor({ 1,0,0,1 });
+		if (!fullscreenStat)
+			myText.SetText("Windowed");
+		else
+			myText.SetText("FullScreen");
+		myHasText = true;
 		break;
 	case eButtonType::Credits:
 		texturePathSelected = L"Sprites/UI/Menus/MainMenu/ui_mainMenu_credits_selected.dds";
@@ -144,4 +152,22 @@ void Button::SetActiveColour()
 void Button::ResetColour()
 {
 	myText.SetColor({ 1,1,1,1 });
+}
+
+void Button::ToggleFullScreen()
+{
+	if (myButtonType == eButtonType::FullScreen)
+	{
+		bool fullscreenStat = Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetFullsScreenStatus();
+
+		if (!fullscreenStat)
+			myText.SetText("Windowed");
+		else
+			myText.SetText("FullScreen");
+	}
+}
+
+void Button::SetText(std::string aText)
+{
+	myText.SetText(aText);
 }

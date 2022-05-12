@@ -1,8 +1,10 @@
 #include "stdafx.h"
 #include "PollingStation.h"
 #include "SceneManager.h"
-#include "BaseDebugger.h"
 #include "GameObject.h"
+#ifdef _DEBUG
+#include "BaseDebugger.h"
+#endif // _DEBUG
 
 PollingStation::PollingStation()
 {
@@ -10,7 +12,11 @@ PollingStation::PollingStation()
 
 void PollingStation::Init(HWND aHWND)
 {
+#ifdef _DEBUG
 	myDebugger = std::make_unique<BaseDebugger>(this);
+#endif // _DEBUG
+
+
 	myInputMapper = std::make_unique<Input::InputMapper>(aHWND);
 	MapKeys();
 	mySceneManager = std::make_unique<SceneManager>(this);
@@ -25,10 +31,10 @@ void PollingStation::MapKeys()
 	myInputMapper.get()->MapEvent(Input::eInputAction::eKey_X, Input::eInputEvent::eAttack);
 	myInputMapper.get()->MapEvent(Input::eInputAction::eKey_Space, Input::eInputEvent::eDash);
 
-	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowUp, Input::eInputEvent::eReleaseUp);
-	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowDown, Input::eInputEvent::eReleaseDown);
-	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowLeft, Input::eInputEvent::eReleaseLeft);
-	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowRight, Input::eInputEvent::eReleaseRight);
+	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowUp, Input::eInputEvent::eReleaseArrowUp);
+	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowDown, Input::eInputEvent::eReleaseArrowDown);
+	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowLeft, Input::eInputEvent::eReleaseArrowLeft);
+	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowRight, Input::eInputEvent::eReleaseArrowRight);
 
 	myInputMapper.get()->MapEvent(Input::eInputAction::eKey_Escape, Input::eInputEvent::ePause);
 

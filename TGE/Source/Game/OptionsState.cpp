@@ -2,7 +2,7 @@
 #include "OptionsState.h"
 #include "Button.h"
 #include "StateStack.h"
-
+#include "tga2d/engine.h"
 #include <vector>
 #include <tga2d/texture/TextureManager.h>
 #include <tga2d/graphics/GraphicsEngine.h>
@@ -16,34 +16,34 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/OptionsMenu/ui_optionsMenu_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
 	mySpriteInstance.mySizeMultiplier = { 2.f,1.f };
-	mySpriteInstance.myScaleSpritesWithAspectRatio = true;
-
+//	mySpriteInstance.myScaleSpritesWithAspectRatio = true;
 	float leftArrowX = 0.38f;
 	float rightArrowX = 0.62f;
 	float yPosition = 0.35f;
 	float yIncrement = 0.12f;
-	myButtons.push_back(new Button(eButtonType::FullScreen, { 0.5f, yPosition }));
-	yPosition += yIncrement;
-	myButtons.push_back(new Button(eButtonType::Resolution, { 0.5f, yPosition }));
-	myArrows.push_back(new Button(eButtonType::ArrowLeft, { leftArrowX,yPosition }));
-	myArrows.push_back(new Button(eButtonType::ArrowRight, { rightArrowX,yPosition }));
-	yPosition += yIncrement;
-	myButtons.push_back(new Button(eButtonType::MasterVol, { 0.5f, yPosition }));
-	myArrows.push_back(new Button(eButtonType::ArrowLeft, { leftArrowX,yPosition }));
-	myArrows.push_back(new Button(eButtonType::ArrowRight, { rightArrowX,yPosition }));
-	yPosition += yIncrement;
-	myButtons.push_back(new Button(eButtonType::MusicVol, { 0.5f, yPosition }));
-	myArrows.push_back(new Button(eButtonType::ArrowLeft, { leftArrowX,yPosition }));
-	myArrows.push_back(new Button(eButtonType::ArrowRight, { rightArrowX,yPosition }));
-	yPosition += yIncrement;
-	myButtons.push_back(new Button(eButtonType::SFXVol, { 0.5f, yPosition }));
-	myArrows.push_back(new Button(eButtonType::ArrowLeft, { leftArrowX,yPosition }));
-	myArrows.push_back(new Button(eButtonType::ArrowRight, { rightArrowX,yPosition }));
-	yPosition += yIncrement;
-	myButtons.push_back(new Button(eButtonType::Back, { 0.5f, yPosition }));
 
-	myButtons[0]->SetState(eState::Selected);
-	mySelectedButton = myButtons[0]->GetType();
+	myButtons.push_back(Button(eButtonType::FullScreen, { 0.5f, yPosition }));
+	yPosition += yIncrement;
+	myButtons.push_back(Button(eButtonType::Resolution, { 0.5f, yPosition }));
+	myArrows.push_back(Button(eButtonType::ArrowLeft,   { leftArrowX,yPosition }));
+	myArrows.push_back(Button(eButtonType::ArrowRight,  { rightArrowX,yPosition }));
+	yPosition += yIncrement;
+	myButtons.push_back(Button(eButtonType::MasterVol,  { 0.5f, yPosition }));
+	myArrows.push_back(Button(eButtonType::ArrowLeft,   { leftArrowX,yPosition }));
+	myArrows.push_back(Button(eButtonType::ArrowRight,  { rightArrowX,yPosition }));
+	yPosition += yIncrement;
+	myButtons.push_back(Button(eButtonType::MusicVol,   { 0.5f, yPosition }));
+	myArrows.push_back(Button(eButtonType::ArrowLeft,   { leftArrowX,yPosition }));
+	myArrows.push_back(Button(eButtonType::ArrowRight,  { rightArrowX,yPosition }));
+	yPosition += yIncrement;
+	myButtons.push_back(Button(eButtonType::SFXVol,     { 0.5f, yPosition }));
+	myArrows.push_back(Button(eButtonType::ArrowLeft,   { leftArrowX,yPosition }));
+	myArrows.push_back(Button(eButtonType::ArrowRight,  { rightArrowX,yPosition }));
+	yPosition += yIncrement;
+	myButtons.push_back(Button(eButtonType::Back,		{ 0.5f, yPosition }));
+
+	myButtons[0].SetState(eState::Selected);
+	mySelectedButton = myButtons[0].GetType();
 	mySelectedButtonIndex = 0;
 
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuUp, this);
@@ -51,15 +51,19 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuLeft, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuRight, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
-	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseUp, this);
-	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseDown, this);
-	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseLeft, this);
-	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseRight, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseArrowLeft, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseArrowRight, this);
+
 	myPopInfo.myShouldPop = false;
 
-	//myRes = Tga2D::Text(L"Text/Nectar.ttf", Tga2D::FontSize_18);
-	//myRes.SetText("testinginging");
-	//myRes.SetColor({ 1,0,0,1 });
+	myScreenResolutions.push_back({ 960, 540 });
+	myScreenResolutions.push_back({ 1280,720 });
+	myScreenResolutions.push_back({ 1920,1080 });
+	myScreenResolutions.push_back({ 2560,1440 });
+//	myScreenResolutions.push_back({ 3840,2160 });
+
+	myScreenResIndex = 2;
+	myButtons[1].SetText(std::to_string(myScreenResolutions[myScreenResIndex].x) + "x" + std::to_string(myScreenResolutions[myScreenResIndex].y));
 }
 
 OptionsState::~OptionsState()
@@ -69,19 +73,8 @@ OptionsState::~OptionsState()
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMenuLeft, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMenuRight, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eSelect, this);
-	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eReleaseUp, this);
-	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eReleaseDown, this);
-	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eReleaseLeft, this);
-	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eReleaseRight, this);
-
-	for (Button* b : myButtons)
-	{
-		delete b;
-	}
-	for (Button* a : myArrows)
-	{
-		delete a;
-	}
+	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eReleaseArrowLeft, this);
+	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eReleaseArrowRight, this);
 }
 
 void OptionsState::Init()
@@ -93,169 +86,203 @@ PopInfo OptionsState::Update(const float /*aDeltaTime*/)
 	{
 		myIsActive = true;
 	}
+	if (myShouldChangeScreenRes)
+	{
+		Tga2D::Engine::GetInstance()->SetResolution(myScreenResolutions[myScreenResIndex], true);
+		myShouldChangeScreenRes = false;
+	}
+
 	return myPopInfo;
 }
 
-void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)
+void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aValue)
 {
-	if (myIsActive)
+	if (!myIsActive)
 	{
-		switch (aEvent)
+		return;
+	}
+
+	auto changeSettings = [&](int anArrowIndex)
+	{
+		if (aValue < 0 && myArrows[anArrowIndex + 1].GetState() != eState::Selected)
 		{
-		case Input::eInputEvent::eMenuLeft:
-			if (mySelectedButton == eButtonType::Resolution &&
-				myArrows[(int)eArrowIndex::eResUp]->GetState() != eState::Selected)
-			{
-				myArrows[(int)eArrowIndex::eResDown]->SetState(eState::Selected);
-				mySelectedArrow = (int)eArrowIndex::eResDown;
-			}
-			else if (mySelectedButton == eButtonType::MasterVol &&
-				myArrows[(int)eArrowIndex::eMasterUp]->GetState() != eState::Selected)
-			{
-				myArrows[(int)eArrowIndex::eMasterDown]->SetState(eState::Selected);
-				mySelectedArrow = (int)eArrowIndex::eMasterDown;
-			}
+			mySelectedArrow = anArrowIndex;
+			myArrows[mySelectedArrow].SetState(eState::Selected);
 
-			else if (mySelectedButton == eButtonType::MusicVol &&
-				myArrows[(int)eArrowIndex::eMusicUp]->GetState() != eState::Selected)
+			switch (mySelectedButton)
 			{
-				myArrows[(int)eArrowIndex::eMusicDown]->SetState(eState::Selected);
-				mySelectedArrow = (int)eArrowIndex::eMusicDown;
-			}
-
-			else if (mySelectedButton == eButtonType::SFXVol &&
-				myArrows[(int)eArrowIndex::eSFXUp]->GetState() != eState::Selected)
-			{
-				myArrows[(int)eArrowIndex::eSFXDown]->SetState(eState::Selected);
-				mySelectedArrow = (int)eArrowIndex::eSFXDown;
-			}
-			break;
-		case Input::eInputEvent::eMenuRight:
-			if (mySelectedButton == eButtonType::Resolution &&
-				myArrows[(int)eArrowIndex::eResDown]->GetState() != eState::Selected)
-			{
-				myArrows[(int)eArrowIndex::eResUp]->SetState(eState::Selected);
-				mySelectedArrow = (int)eArrowIndex::eResUp;
-			}
-
-			else if (mySelectedButton == eButtonType::MasterVol &&
-				myArrows[(int)eArrowIndex::eMasterDown]->GetState() != eState::Selected)
-			{
-				myArrows[(int)eArrowIndex::eMasterUp]->SetState(eState::Selected);
-				mySelectedArrow = (int)eArrowIndex::eMasterUp;
-			}
-
-			else if (mySelectedButton == eButtonType::MusicVol &&
-				myArrows[(int)eArrowIndex::eMusicDown]->GetState() != eState::Selected)
-			{
-				myArrows[(int)eArrowIndex::eMusicUp]->SetState(eState::Selected);
-				mySelectedArrow = (int)eArrowIndex::eMusicUp;
-			}
-
-			else if (mySelectedButton == eButtonType::SFXVol &&
-				myArrows[(int)eArrowIndex::eSFXDown]->GetState() != eState::Selected)
-			{
-				myArrows[(int)eArrowIndex::eSFXUp]->SetState(eState::Selected);
-				mySelectedArrow = (int)eArrowIndex::eSFXUp;
-			}
-			break;
-		case Input::eInputEvent::eMenuDown:
-			myButtons[mySelectedButtonIndex]->ResetColour();
-			for (int i = 0; i < myButtons.size(); i++) //Cycle down
-			{
-				if (myButtons[i]->GetState() == eState::Selected)
+			case eButtonType::Resolution:
+				if (myScreenResIndex > 0)
 				{
-					myButtons[i]->SetState(eState::None);
-
-					if (i < myButtons.size() - 1)
-					{
-						myButtons[i + 1]->SetState(eState::Selected);
-						mySelectedButton = myButtons[i + 1]->GetType();
-						mySelectedButtonIndex = i + 1;
-					}
-					else
-					{
-						myButtons[0]->SetState(eState::Selected);
-						mySelectedButton = myButtons[0]->GetType();
-						mySelectedButtonIndex = 0;
-					}
-					myButtons[mySelectedButtonIndex]->SetActiveColour();
-
-					return;
-
+					myScreenResIndex--;
+					myButtons[mySelectedButtonIndex].SetText(std::to_string(myScreenResolutions[myScreenResIndex].x) + "x" + std::to_string(myScreenResolutions[myScreenResIndex].y));
+					myShouldChangeScreenRes = true;
 				}
+				break;
+			case eButtonType::MasterVol:
+				break;
+			case eButtonType::MusicVol:
+				break;
+			case eButtonType::SFXVol:
+				break;
+			default:
+				break;
 			}
-			break;
-		case Input::eInputEvent::eMenuUp:
-			myButtons[mySelectedButtonIndex]->ResetColour();
-			for (int i = 0; i < myButtons.size(); i++) //Cycle up
-			{
-				if (myButtons[i]->GetState() == eState::Selected)
-				{
-					myButtons[i]->SetState(eState::None);
-
-					if (i > 0)
-					{
-						myButtons[i - 1]->SetState(eState::Selected);
-						mySelectedButton = myButtons[i - 1]->GetType();
-						mySelectedButtonIndex = i - 1;
-					}
-					else
-					{
-						myButtons[myButtons.size() - 1]->SetState(eState::Selected);
-						mySelectedButton = myButtons[myButtons.size() - 1]->GetType();
-						mySelectedButtonIndex = (int)myButtons.size() - 1;
-					}
-					myButtons[mySelectedButtonIndex]->SetActiveColour();
-
-					return;
-				}
-			}
-			break;
-		case Input::eInputEvent::eReleaseUp:
-			if (mySelectedArrow < myArrows.size())
-			{
-				myArrows[mySelectedArrow]->SetState(eState::None);
-			}
-			break;
-		case Input::eInputEvent::eReleaseDown:
-			if (mySelectedArrow < myArrows.size())
-			{
-				myArrows[mySelectedArrow]->SetState(eState::None);
-			}
-			break;
-		case Input::eInputEvent::eReleaseRight:
-			if (mySelectedArrow < myArrows.size())
-			{
-				myArrows[mySelectedArrow]->SetState(eState::None);
-			}
-			break;
-		case Input::eInputEvent::eReleaseLeft:
-			if (mySelectedArrow < myArrows.size())
-			{
-				myArrows[mySelectedArrow]->SetState(eState::None);
-			}
-			break;
-		case Input::eInputEvent::eSelect:
-			InvokeButton(mySelectedButton);
-			myIsActive = false;
-			break;
-		default:
-			break;
 		}
+		else if (aValue > 0 && myArrows[anArrowIndex - 1].GetState() != eState::Selected)
+		{
+			mySelectedArrow = anArrowIndex;
+			myArrows[mySelectedArrow].SetState(eState::Selected);
+
+			switch (mySelectedButton)
+			{
+			case eButtonType::Resolution:
+				if (myScreenResIndex < myScreenResolutions.size()-1)
+				{
+					myScreenResIndex++;
+					myButtons[mySelectedButtonIndex].SetText(std::to_string(myScreenResolutions[myScreenResIndex].x) + "x" + std::to_string(myScreenResolutions[myScreenResIndex].y));
+					myShouldChangeScreenRes = true;
+				}
+				break;
+			case eButtonType::MasterVol:
+				break;
+			case eButtonType::MusicVol:
+				break;
+			case eButtonType::SFXVol:
+				break;
+			default:
+				break;
+			}
+		}
+	};
+
+	switch (aEvent)
+	{
+	case Input::eInputEvent::eMenuLeft:
+		if (mySelectedButton == eButtonType::Resolution)
+		{
+			changeSettings((int)eArrowIndex::eResDown);
+		}
+		else if (mySelectedButton == eButtonType::MasterVol)
+		{
+			changeSettings((int)eArrowIndex::eMasterDown);
+		}
+		else if (mySelectedButton == eButtonType::MusicVol)
+		{
+			changeSettings((int)eArrowIndex::eMusicDown);
+		}
+		else if (mySelectedButton == eButtonType::SFXVol)
+		{
+			changeSettings((int)eArrowIndex::eSFXDown);
+		}
+		break;
+
+	case Input::eInputEvent::eMenuRight:
+		if (mySelectedButton == eButtonType::Resolution)
+		{
+			changeSettings((int)eArrowIndex::eResUp);
+		}
+		else if (mySelectedButton == eButtonType::MasterVol)
+		{
+			changeSettings((int)eArrowIndex::eMasterUp);
+		}
+		else if (mySelectedButton == eButtonType::MusicVol)
+		{
+			changeSettings((int)eArrowIndex::eMusicUp);
+		}
+		else if (mySelectedButton == eButtonType::SFXVol)
+		{
+			changeSettings((int)eArrowIndex::eSFXUp);
+		}
+		break;
+
+	case Input::eInputEvent::eMenuDown:
+		myButtons[mySelectedButtonIndex].ResetColour();
+
+		if (myButtons[mySelectedButtonIndex].GetState() == eState::Selected)
+		{
+			myButtons[mySelectedButtonIndex].SetState(eState::None);
+
+			if (mySelectedButtonIndex < myButtons.size() - 1)
+			{
+				mySelectedButtonIndex++;
+				myButtons[mySelectedButtonIndex].SetState(eState::Selected);
+				mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
+				
+			}
+			else
+			{
+				mySelectedButtonIndex = 0;
+				myButtons[mySelectedButtonIndex].SetState(eState::Selected);
+				mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
+			}
+			myButtons[mySelectedButtonIndex].SetActiveColour();
+		}
+		break;
+
+	case Input::eInputEvent::eMenuUp:
+		myButtons[mySelectedButtonIndex].ResetColour();
+
+		if (myButtons[mySelectedButtonIndex].GetState() == eState::Selected)
+		{
+			myButtons[mySelectedButtonIndex].SetState(eState::None);
+
+			if (mySelectedButtonIndex > 0)
+			{
+				mySelectedButtonIndex--;
+				myButtons[mySelectedButtonIndex].SetState(eState::Selected);
+				mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
+			}
+			else
+			{
+				mySelectedButtonIndex = (int)myButtons.size() - 1;
+				myButtons[mySelectedButtonIndex].SetState(eState::Selected);
+				mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
+			}
+			myButtons[mySelectedButtonIndex].SetActiveColour();
+		}
+		break;
+
+	case Input::eInputEvent::eReleaseArrowUp:
+		if (mySelectedArrow < myArrows.size())
+			myArrows[mySelectedArrow].SetState(eState::None);
+		break;
+
+	case Input::eInputEvent::eReleaseArrowDown:
+		if (mySelectedArrow < myArrows.size())
+			myArrows[mySelectedArrow].SetState(eState::None);
+		break;
+
+	case Input::eInputEvent::eReleaseArrowRight:
+		if (mySelectedArrow < myArrows.size())
+			myArrows[mySelectedArrow].SetState(eState::None);
+		break;
+
+	case Input::eInputEvent::eReleaseArrowLeft:
+		if (mySelectedArrow < myArrows.size())
+			myArrows[mySelectedArrow].SetState(eState::None);
+		break;
+
+	case Input::eInputEvent::eSelect:
+		InvokeButton(mySelectedButton);
+		myIsActive = false;
+		break;
+
+	default:
+		break;
 	}
 }
 
 void OptionsState::Render()
 {
 	Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetSpriteDrawer().Draw(mySharedData, mySpriteInstance);
-	for (Button* b : myButtons)
+	for (Button b : myButtons)
 	{
-		b->Render();
+		b.Render();
 	}
-	for (Button* a : myArrows)
+	for (Button a : myArrows)
 	{
-		a->Render();
+		a.Render();
 	}
 }
 
@@ -266,6 +293,10 @@ void OptionsState::InvokeButton(eButtonType aType)
 	case eButtonType::FullScreen:
 		myFullScreen = !myFullScreen;
 		Tga2D::Engine::GetInstance()->SetFullScreen(myFullScreen);
+		if (myButtons[mySelectedButtonIndex].GetType() == eButtonType::FullScreen)
+		{
+			myButtons[mySelectedButtonIndex].ToggleFullScreen();
+		}
 		break;
 	case eButtonType::Back:
 		myPopInfo.myShouldPop = true;

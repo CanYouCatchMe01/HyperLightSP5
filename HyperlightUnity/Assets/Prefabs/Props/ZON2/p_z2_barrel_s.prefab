@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1799780788746797468}
   - component: {fileID: 4548332564590605654}
   m_Layer: 0
-  m_Name: a_z2_barrel_s
+  m_Name: p_z2_barrel_s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -767422483664348206, guid: bf7eb8dd5dac2e24280c5b8f3992cbcd, type: 3}
+  - {fileID: 2100000, guid: f7b1b3fdd97f37e4580af4da6f582703, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

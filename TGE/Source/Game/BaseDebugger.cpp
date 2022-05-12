@@ -1,4 +1,7 @@
 #include "stdafx.h"
+#ifdef _DEBUG
+
+
 #include "BaseDebugger.h"
 #include "DebugObserver.h"
 #include "SceneManager.h"
@@ -8,10 +11,6 @@
 BaseDebugger::BaseDebugger(PollingStation* aPollingStation)
 {
 	myPollingStation = aPollingStation;
-}
-
-BaseDebugger::~BaseDebugger()
-{
 }
 
 void BaseDebugger::AddObserver(DebugObserver* anObserver)
@@ -31,6 +30,8 @@ void BaseDebugger::RemoveObserver(DebugObserver* anObserver)
 
 void BaseDebugger::DebugUpdate()
 {
+
+
 	if (!ImGui::Begin("Debugger Menu"))
 	{
 		// Early out if the window is collapsed, as an optimization.
@@ -45,12 +46,7 @@ void BaseDebugger::DebugUpdate()
 			{
 				if (ImGui::Button(scene.c_str()))
 				{
-					if (myPollingStation->mySceneManager.get()->myScenes.size() > 0)
-					{
-						delete myPollingStation->mySceneManager.get()->myScenes[0];
-					}
-					myPollingStation->mySceneManager.get()->myScenes[0] = myPollingStation->mySceneManager.get()->myUnityLoader.CreateScene(scene);
-					myPollingStation->mySceneManager.get()->myScenes[0]->OnStart();
+					myPollingStation->mySceneManager->LoadScene(scene);
 				}
 			}
 			ImGui::EndTabItem();
@@ -67,4 +63,7 @@ void BaseDebugger::DebugUpdate()
 	}
 
 	ImGui::End();
+
+
 }
+#endif // _DEBUG

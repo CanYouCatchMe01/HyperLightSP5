@@ -58,9 +58,7 @@ void MainMenuState::Init()
 PopInfo MainMenuState::Update(const float /*aDeltaTime*/)
 {
 	if (myIsActive == false)
-	{
 		myIsActive = true;
-	}
 
 	return myPopInfo;
 }

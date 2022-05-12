@@ -157,6 +157,8 @@ public:
 	 */
 	static bool RegisterEvent(const std::string& anEventName, unsigned int anEventId);
 
+	static void RegisterAllEvents();
+
 	/**
 	 * Creates an instance of the specified event, allowing it to be controlled independently.
 	 * If you only need to play the event once you can use PlayEventOneShot as a fire and forget instead.

@@ -57,7 +57,7 @@ namespace Input
 		}
 		if (myInputManager.IsKeyHeld(VK_DOWN) == true)
 		{
-			TranslateActionToEvent(Input::eInputAction::eHoldArrowKeyDown, 1.f);
+			TranslateActionToEvent(Input::eInputAction::eHoldArrowKeyDown, -1.f);
 		}
 		if (myInputManager.IsKeyHeld(VK_RIGHT) == true)
 		{
@@ -65,7 +65,7 @@ namespace Input
 		}
 		if (myInputManager.IsKeyHeld(VK_LEFT) == true)
 		{
-			TranslateActionToEvent(Input::eInputAction::eHoldArrowKeyLeft, 1.f);
+			TranslateActionToEvent(Input::eInputAction::eHoldArrowKeyLeft, -1.f);
 		}
 		if (myInputManager.IsKeyPressed(VK_UP))
 		{
@@ -73,11 +73,11 @@ namespace Input
 		}
 		if (myInputManager.IsKeyPressed(VK_DOWN))
 		{
-			TranslateActionToEvent(Input::eInputAction::ePressArrowKeyDown, 1.f);
+			TranslateActionToEvent(Input::eInputAction::ePressArrowKeyDown, -1.f);
 		}
 		if (myInputManager.IsKeyPressed(VK_LEFT))
 		{
-			TranslateActionToEvent(Input::eInputAction::ePressArrowKeyLeft, 1.f);
+			TranslateActionToEvent(Input::eInputAction::ePressArrowKeyLeft, -1.f);
 		}
 		if (myInputManager.IsKeyPressed(VK_RIGHT))
 		{

@@ -8,6 +8,8 @@ OBB3D::OBB3D(Vector3 aSize, Vector3 anOffset, bool aIsStatic, bool aIsTrigger, G
     myIsStatic = aIsStatic;
     mySize = aSize;
 
+    myLastPos = myParent->GetTransform().GetPosition();
+
     Calculate();
 }
 
@@ -17,9 +19,10 @@ bool OBB3D::Collides(OBB3D& anOther)
         return false;
 
     Vector3 mtv;
-    Vector3 maxTv(1.0f,1.0f,1.0f);
+    Vector3 maxTv;
     float maximumOverlap = -FLT_MAX;
     float minimumOverlap = FLT_MAX;
+
     if (!GetMTVTranslation(anOther, mtv, minimumOverlap, maxTv, maximumOverlap))
         return false;
 
@@ -41,12 +44,11 @@ bool OBB3D::Collides(OBB3D& anOther)
         }
     }
 
-    
-
     if (vecToObstacle.Dot(correction) < 0)
         correction *= -1.0f;
 
     SetCollisionEvent(true, anOther);
+    
 
     if (myIsStatic)
     {
@@ -55,7 +57,6 @@ bool OBB3D::Collides(OBB3D& anOther)
     }
 
     myParent->GetTransform().SetPosition(myParent->GetTransform().GetPosition() - correction);
-
     return true;
 }
 
@@ -224,7 +225,7 @@ void OBB3D::SetTransform(Tga2D::Transform& aTransform)
 
 void OBB3D::Draw()
 {
-    if (true) return;
+    //if (true) return;
 
     auto& camera = Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetCamera();
     for (auto& corner : myCorners)

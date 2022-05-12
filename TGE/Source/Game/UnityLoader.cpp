@@ -11,8 +11,15 @@
 #include "Converter.h"
 #include "PlayerComponent.h"
 #include "EnemyComponent.h"
+#include "MeleeEnemy.h"
+#include "ChargeEnemy.h"
+#include "FluteEnemy.h"
 #include "BoxColliderComponent.h"
+#ifdef _DEBUG
 #include "BaseDebugger.h"
+#endif // _DEBUG
+
+
 
 UnityLoader::UnityLoader(PollingStation* aPollingStation)
 {
@@ -31,7 +38,9 @@ class Scene* UnityLoader::CreateScene(std::string aPathToJson)
 	for (auto& gameObject : j["gameObjects"])
 	{
 		scene->myGameObjects.push_back(CreateGameObject(gameObject, scene));
+#ifdef _DEBUG
 		myPollingStation->myDebugger.get()->AddObserver(scene->myGameObjects.back());
+#endif // _DEBUG
 	}
 
 	return scene;
@@ -74,9 +83,21 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			gameObject->AddComponent<BoxColliderComponent>(data["size"], data["center"], aGameObject["is_static"], data["is_trigger"]);
 			// TODO: Add box collider
 		}
-		else if (type == "enemy")
+		else if (type == "melee_enemy")
 		{
-			gameObject->AddComponent<EnemyComponent>(data["type"], data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"]);
+			gameObject->AddComponent<MeleeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"]);
+		}
+		else if (type == "charge_enemy")
+		{
+			gameObject->AddComponent<ChargeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"]);
+		}
+		else if (type == "flute_enemy")
+		{
+			gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"]);
+		}
+		else if (type == "animated_mesh")
+		{
+			std::cout << "animated mesh on: " << gameObject->name << '\n';
 		}
 	}
 

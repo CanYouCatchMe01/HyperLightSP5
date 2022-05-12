@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include <tga2d/engine.h>
 #include "Game.h"
-#include "imgui/imgui.h"
+
+
+
 #include <Windows.h>
 
 
@@ -34,6 +36,7 @@ LRESULT Game::WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	lParam;
 	wParam;
 	hWnd;
+	
 	if (myGameWorld.myPollingStation != nullptr)
 	{
 		myGameWorld.myPollingStation->myInputMapper.get()->Update(message, wParam, lParam);
@@ -69,7 +72,7 @@ bool Game::Init(const std::wstring& aVersion, HWND aHWND)
 		Tga2D::DebugFeature::Filewatcher |
 		Tga2D::DebugFeature::OptimizeWarnings;
 
-#ifdef _RELEASE
+#ifdef _RETAIL
 	ShowCursor(false);
 #endif
 

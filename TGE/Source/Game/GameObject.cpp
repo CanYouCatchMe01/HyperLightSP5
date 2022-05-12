@@ -3,6 +3,7 @@
 #include <tga2d/engine.h>
 #include <tga2d/drawers/DebugDrawer.h>
 #ifdef _DEBUG
+#include "BaseDebugger.h"
 #include "imgui/imgui.h"
 #endif //_DEBUG
 
@@ -32,6 +33,9 @@ void GameObject::OnCollisionExit(GameObject* aOther)
 
 GameObject::~GameObject()
 {
+#ifdef _DEBUG
+	myPollingStation->myDebugger.get()->RemoveObserver(this);
+#endif // _DEBUG
 	for (auto& component : myComponents)
 	{
 		delete component;

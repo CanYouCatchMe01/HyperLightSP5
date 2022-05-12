@@ -185,7 +185,11 @@ void Tga2D::Engine::IdleProcess()
 	{
 		return;
 	}
-		myImguiInterFace->PreFrame();
+#ifdef _DEBUG
+	myImguiInterFace->PreFrame();
+#endif // _DEBUG
+
+
 	
 		BeginFrame(myClearColor);
 
@@ -484,11 +488,15 @@ void Engine::EndFrame( void )
 			
 
 	});
+#ifdef _DEBUG
 	if (myDebugDrawer)
 	{
 		myDebugDrawer->Update(myDeltaTime);
 		myDebugDrawer->Render();
 	}
+#endif // _DEBUG
+
+
 
 	myDx11->EndFrame(myCreateParameters.myEnableVSync);
 

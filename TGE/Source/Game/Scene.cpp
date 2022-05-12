@@ -57,26 +57,26 @@ void Scene::Update(float aTimeDelta)
 	//ImGui::End();
 }
 
-void Scene::AddImguiNode(GameObject* aGameObject)
-{
-	if (ImGui::TreeNode(aGameObject->name.c_str()))
-	{
-		Tga2D::Transform& transform = aGameObject->GetTransform();
-		ImGui::Text("Tranform");
-		ImGui::DragFloat3("position", (float*)&transform, 0.1f);
-		ImGui::DragFloat3("rotation", (float*)(&transform) + 3, 0.1f);
-		ImGui::DragFloat3("scale", (float*)(&transform) + 6, 0.1f);
-
-		ImGui::Separator();
-		ImGui::Text("Children");
-		for (auto& child : aGameObject->myChildren)
-		{
-			AddImguiNode(child);
-		}
-
-		ImGui::TreePop();
-	}
-}
+//void Scene::AddImguiNode(GameObject* aGameObject) // Replaced with a prettier debugger.
+//{
+//	if (ImGui::TreeNode(aGameObject->name.c_str()))
+//	{
+//		Tga2D::Transform& transform = aGameObject->GetTransform();
+//		ImGui::Text("Tranform");
+//		ImGui::DragFloat3("position", (float*)&transform, 0.1f);
+//		ImGui::DragFloat3("rotation", (float*)(&transform) + 3, 0.1f);
+//		ImGui::DragFloat3("scale", (float*)(&transform) + 6, 0.1f);
+//
+//		ImGui::Separator();
+//		ImGui::Text("Children");
+//		for (auto& child : aGameObject->myChildren)
+//		{
+//			AddImguiNode(child);
+//		}
+//
+//		ImGui::TreePop();
+//	}
+//}
 
 void Scene::OnStart()
 {

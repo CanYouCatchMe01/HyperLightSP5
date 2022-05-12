@@ -2,8 +2,6 @@
 #include "State.h"
 #include "InputObserver.h"
 #include <tga2d/sprite/sprite.h>
-//#include "tga2d/engine.h"
-//#include <tga2d/text/text.h>
 
 class Button;
 enum class eButtonType;
@@ -32,9 +30,12 @@ public:
 	void InvokeButton(eButtonType aType);
 
 private:
+	std::vector<Tga2D::Vector2ui> myScreenResolutions;
+	int myScreenResIndex;
+	bool myShouldChangeScreenRes=false;
 	bool myFullScreen = false;
-	std::vector<Button*> myButtons;
-	std::vector<Button*> myArrows;
+	std::vector<Button> myButtons;
+	std::vector<Button> myArrows;
 	eButtonType mySelectedButton;
 	int mySelectedButtonIndex;
 	int mySelectedArrow = 100;

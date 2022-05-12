@@ -1,37 +1,44 @@
 #pragma once
 #include "Component.h"
 
+class GameObject;
+
 class EnemyComponent : public Component
 {
-
 public:
-	EnemyComponent(int aType, int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius);
-	void OnUpdate(float aDT) override;
-	
+	EnemyComponent();
+	virtual ~EnemyComponent() = default;
+
+	void OnUpdate(float aDt) override;
 	void OnAwake();
 	void OnStart();
 
-	void SetPosition(Tga2D::Vector3f aPosition);
-	Tga2D::Vector3f GetPosition();
+	virtual void Attack(float aDT, Tga2D::Vector3f aDirection) = 0;
+	
+protected:
+	// to do, complete the IdleMovement function
 
-private:
-	void IdleMovement(float aDt);
-	void MoveCloser(float aDT, Tga2D::Vector3f aDirection);
-	void MoveAway(float aDT, Tga2D::Vector3f aDirection);
-	void Charge(float aDT, Tga2D::Vector3f aDirection);
-	void Attack(float aDT, Tga2D::Vector3f aDirection);
+	virtual void CheckRadius();
 
-	Tga2D::Vector3f myAttackDirection;
-	class GameObject* myTarget;
-	int myType;
-	int myHp;
+	virtual void SetPosition(const Tga2D::Vector3f& aPosition);
+	virtual Tga2D::Vector3f GetPosition();
+	virtual void IdleMovement(float aDt);
+	virtual void MoveTowardsPlayer(float aDT);
+
+	Tga2D::Vector3f myDistanceToTarget;
+	GameObject* myTarget;
+	bool myIsInRange = false;
+
 	int myMaxHp;
+	int myAttackDmg;
+	int myRandNum;
+
+	float myMoveTimer = 0.0f;
+	float myMoveTime;
+
 	float mySpeed;
 	float myAttackSpeed;
 	float myDetectionRadius;
-	float myTelegraph = 0.0f;
-	float myAttackTime = 0.0f;
-	bool myAttacking = false;
-	bool myIsInRange = false;
-};
+private:
 
+};

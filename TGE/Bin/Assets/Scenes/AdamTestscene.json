@@ -33,14 +33,288 @@
       "children": []
     },
     {
+      "name": "a_z1_ground5",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 4.67,
+          "y": 2.46,
+          "z": -17.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone1/z1_Ground/a_z1_ground5.fbx",
+            "albedo": "Assets/Materials/Mat Ground Blocks/z1_matGround_c.dds",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_barrel_m",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -6.76101971,
+          "y": 3.05000019,
+          "z": -15.5506668
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_m.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 2.98023224E-08,
+              "y": 0.5210103,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.08197021,
+              "y": 1.04202056,
+              "z": 1.08197021
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_barrel_s",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -5.756049,
+          "y": 3.05000019,
+          "z": -11.66
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.388792217,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.6734036,
+              "y": 0.777584434,
+              "z": 0.6734036
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_s_many",
+      "tag": "Untagged",
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -4.460671,
+          "y": 3.05258512,
+          "z": -13.1469736
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_s_many.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_woodenStatue",
+      "tag": "Untagged",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -3.84096718,
+          "y": 3.05000019,
+          "z": -13.72
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 1.280744,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.9865849,
+              "y": 2.561488,
+              "z": 0.4938808
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_TreeL",
+      "tag": "Untagged",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -2.346747,
+          "y": 4.88499975,
+          "z": -5.06
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.02,
+              "y": 2.02,
+              "z": 0.15
+            },
+            "size": {
+              "x": 1.74,
+              "y": 5.19,
+              "z": 1.83
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "Player",
       "tag": "Untagged",
       "is_static": false,
       "transform": {
         "position": {
           "x": 0.0,
-          "y": 5.437,
-          "z": -13.963
+          "y": 5.08,
+          "z": -13.639
         },
         "rotation": {
           "x": 0.0,
@@ -91,6 +365,38 @@
             "attack_time": 0.1,
             "speed": 10.0,
             "dash_speed": 30.0
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.9592706,
+              "z": -1.4
+            },
+            "size": {
+              "x": 0.84,
+              "y": 0.89,
+              "z": 1.59
+            }
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_test.fbx",
+                "name": "Take 001"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_test.fbx",
+                "name": "Take 001"
+              }
+            ]
           }
         }
       ],
@@ -236,7 +542,7 @@
       "is_static": true,
       "transform": {
         "position": {
-          "x": -5.576,
+          "x": -6.25,
           "y": 2.648,
           "z": -12.79
         },
@@ -339,7 +645,7 @@
       "transform": {
         "position": {
           "x": -7.18,
-          "y": 3.1,
+          "y": 2.9,
           "z": -12.79
         },
         "rotation": {
@@ -390,7 +696,7 @@
       "transform": {
         "position": {
           "x": -7.62,
-          "y": 3.46,
+          "y": 3.14,
           "z": -12.79
         },
         "rotation": {
@@ -435,25 +741,25 @@
       "children": []
     },
     {
-      "name": "GameObject",
+      "name": "Slopecollider",
       "tag": "Untagged",
-      "is_static": true,
+      "is_static": false,
       "transform": {
         "position": {
-          "x": -25.84,
-          "y": -17.86,
-          "z": -64.52
+          "x": -0.87,
+          "y": 2.29,
+          "z": -19.3
         },
         "rotation": {
-          "x": 0.455578983,
-          "y": 0.5241326,
-          "z": -0.00545589672,
-          "w": 0.7195159
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.121869281,
+          "w": 0.9925462
         },
         "scale": {
-          "x": 12.2000008,
-          "y": 7.84000063,
-          "z": 12.9000034
+          "x": 12.4000006,
+          "y": 1.9400003,
+          "z": 2.81
         }
       },
       "components": [
@@ -462,13 +768,13 @@
           "data": {
             "is_trigger": false,
             "center": {
-              "x": -1.76,
-              "y": 4.89,
-              "z": -0.39
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
             },
             "size": {
-              "x": 2.12,
-              "y": 3.74,
+              "x": 1.0,
+              "y": 1.73,
               "z": 1.0
             }
           }

@@ -1,3 +1,4 @@
+#ifdef _DEBUG
 #pragma once
 
 
@@ -8,3 +9,5 @@ public:
 private:
 
 };
+#endif // _DEBUG
+

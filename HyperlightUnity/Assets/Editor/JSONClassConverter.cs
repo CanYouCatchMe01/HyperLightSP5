@@ -136,6 +136,45 @@ class Converter
             result.Add("type", "camera");
             result.Add("data", ConvertToJSON((Camera)aComponent));
         }
+        else if (aComponent.GetType() == typeof(Animation))
+        {
+            result.Add("type", "animated_mesh");
+            result.Add("data", ConvertToJSON((Animation)aComponent));
+        }
+
+        return result;
+    }
+
+    public static JObject ConvertToJSON(Animation aAnimation)
+    {
+        JObject result = new JObject();
+
+        Mesh mesh = aAnimation.gameObject.GetComponent<MeshFilter>().sharedMesh;
+        string meshPath = AssetDatabase.GetAssetPath(PrefabUtility.GetCorrespondingObjectFromOriginalSource(mesh));
+
+
+        //List<JObject> animations = new List<JObject>();
+
+        JArray animations = new JArray();
+
+        if (aAnimation)
+        {
+            Debug.Log("has animations");
+            foreach (AnimationState item in aAnimation)
+            {
+                JObject animation = new JObject();
+                string path = AssetDatabase.GetAssetPath(item.clip);
+                animation.Add("path", path);
+                animation.Add("name", item.name);
+                animations.Add(animation);
+                Export.AddDependency(path);
+            }
+        }
+
+        Export.AddDependency(meshPath);
+        result.Add("model", meshPath);
+
+        result.Add("animations", animations);
 
         return result;
     }

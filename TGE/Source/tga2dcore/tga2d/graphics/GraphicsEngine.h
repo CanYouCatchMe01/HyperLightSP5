@@ -52,8 +52,9 @@ namespace Tga2D
 		void DoDraw(LineMultiPrimitive* aObject);
 
 		void SetFullScreen(bool aFullScreen);
+		inline bool GetFullsScreenStatus() { return myIsFullScreen; }
 	private:
-
+		bool myIsFullScreen = false;
 		std::unique_ptr<SpriteDrawer> mySpriteDrawer;
 		std::unique_ptr<ModelDrawer> myModelDrawer;
 		std::unique_ptr<CustomShapeDrawer> myCustomShapeDrawer;
