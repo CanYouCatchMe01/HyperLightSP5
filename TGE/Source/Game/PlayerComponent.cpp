@@ -17,6 +17,9 @@ PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, fl
 	myAttackTime = aAttackTime;
 	mySpeed = aSpeed;
 	myDashSpeed = aDashSpeed;
+
+	SoundEngine::PlayEvent(myWalkSound);
+	SoundEngine::SetEventVolume(myWalkSound, 0.0f);
 }
 
 void PlayerComponent::OnUpdate(float aDT)
@@ -84,26 +87,33 @@ void PlayerComponent::Movement(float aDT)
 	if (GetAsyncKeyState(0x44))
 	{
 		myDir += myTransform->GetMatrix().GetRight();
-		SoundEngine::PlayEvent(myWalkSound);
 	}
 	// left
 	if (GetAsyncKeyState(0x41))
 	{
 		myDir += myTransform->GetMatrix().GetRight() * -1.f;
-		SoundEngine::PlayEvent(myWalkSound);
 	}
 	// forward
 	if (GetAsyncKeyState(0x57))
 	{
 		myDir += myTransform->GetMatrix().GetForward();
-		SoundEngine::PlayEvent(myWalkSound);
 	}
 	// backward
 	if (GetAsyncKeyState(0x53))
 	{
 		myDir += myTransform->GetMatrix().GetForward() * -1.f;
-		SoundEngine::PlayEvent(myWalkSound);
 	}
+
+	//increasing the volume when the player is moving
+	if (myDir == Tga2D::Vector3f(0.0f, 0.0f, 0.0f))
+	{
+		SoundEngine::SetEventVolume(myWalkSound, 0.0f);
+	}
+	else
+	{
+		SoundEngine::SetEventVolume(myWalkSound, 1.0f);
+	}
+	
 	//// up right
 	//if (GetAsyncKeyState(0x44) && GetAsyncKeyState(0x57))
 	//{
