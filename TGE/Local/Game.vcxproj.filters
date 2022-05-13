@@ -103,7 +103,7 @@
     <ClCompile Include="..\Source\Game\BulletComponent.cpp">
       <Filter>Code\Objects\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Game\GuitarComponent.cpp" />
+    <ClCompile Include="..\Source\Game\MeleeComponent.cpp" />
     <ClCompile Include="..\Source\Game\ChargeEnemy.cpp">
       <Filter>Code\GameObject Component</Filter>
     </ClCompile>
@@ -249,7 +249,7 @@
     <ClInclude Include="..\Source\Game\BulletComponent.h">
       <Filter>Code\Objects\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Game\GuitarComponent.h" />
+    <ClInclude Include="..\Source\Game\MeleeComponent.h" />
     <ClInclude Include="..\Source\Game\ChargeEnemy.h">
       <Filter>Code\GameObject Component</Filter>
     </ClInclude>

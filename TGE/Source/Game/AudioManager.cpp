@@ -2,6 +2,14 @@
 #include "AudioManager.h"
 #include "../../Bin/Assets/FMOD/fmod_studio_guids.hpp"
 
+#ifdef _DEBUG
+	#include <exception>
+	#include <filesystem>
+	#include <iostream>
+#endif // _DEBUG
+
+namespace fs = std::filesystem;
+
 AudioManager::AudioManager()
 {
 	Init();
@@ -14,6 +22,12 @@ AudioManager::~AudioManager()
 
 void AudioManager::Init()
 {
+#ifdef _DEBUG
+	//Copy .bank file
+	fs::copy_file("../../FMOD_hyper_light/Build/Desktop/Master.bank", "Assets/FMOD/Master.bank", fs::copy_options::overwrite_existing);
+	//Copy guids file
+	fs::copy_file("../../FMOD_hyper_light/fmod_studio_guids.hpp", "Assets/FMOD/fmod_studio_guids.hpp", fs::copy_options::overwrite_existing);
+#endif // _DEBUG
 
 	myListenerAttributes = FMOD_3D_ATTRIBUTES();
 	myListenerAttributes.up = { 0,1,0 };
@@ -45,12 +59,13 @@ void AudioManager::Init()
 	myContext.system->getBusByID(&FSPRO::Bus::Musik, &myChannels.at(Channels::Music));
 	myContext.system->getBusByID(&FSPRO::Bus::FX, &myChannels.at(Channels::SFX));
 
-	myChannels.at(Channels::Master)->setVolume(0.5f);
+	myChannels.at(Channels::Master)->setVolume(1.0f);
 	myChannels.at(Channels::Music)->setVolume(0.5f);
 	myChannels.at(Channels::SFX)->setVolume(0.5f);
 
 	myLevelMusic = nullptr;
 	myCurrentLevel = 0;
+
 }
 
 void AudioManager::Update()

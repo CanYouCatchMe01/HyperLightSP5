@@ -24,6 +24,7 @@ public:
 	void SetTransform(Tga2D::Transform& aTransform);
 	void Draw();
 private:
+	void SetPosition(Tga2D::Vector3f aPos);
 	void SATTest(const Vector3 anAxis, const SetOfCorners& aPtSet, float& aMinExtent, float& aMaxExtent);
 	bool Overlaps(float aMin1, float aMax1, float aMin2, float aMax2); 
 	void SetCollisionEvent(bool aCollided, OBB3D& aOther);

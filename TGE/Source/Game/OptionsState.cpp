@@ -3,6 +3,8 @@
 #include "Button.h"
 #include "StateStack.h"
 #include "tga2d/engine.h"
+#include "PollingStation.h"
+#include "AudioManager.h"
 #include <vector>
 #include <tga2d/texture/TextureManager.h>
 #include <tga2d/graphics/GraphicsEngine.h>
@@ -22,6 +24,7 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	float yIncrement = 0.12f;
 
 	myButtons.push_back(Button(eButtonType::FullScreen, { 0.5f, yPosition }));
+
 	int buttonIndex = (int)eButtonType::Resolution;
 	for (size_t i = 0; i < 4; i++)
 	{
@@ -52,10 +55,12 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	myScreenResolutions.push_back({ 1280,720 });
 	myScreenResolutions.push_back({ 1920,1080 });
 	myScreenResolutions.push_back({ 2560,1440 });
-//	myScreenResolutions.push_back({ 3840,2160 });
 
-	myScreenResIndex = 2;
+	myScreenResIndex = 1;
 	myButtons[1].SetText(std::to_string(myScreenResolutions[myScreenResIndex].x) + "x" + std::to_string(myScreenResolutions[myScreenResIndex].y));
+	myButtons[2].SetText(std::to_string((int)(myPollingStation->myAudioManager.get()->GetVolume(Channels::Master) * 100)));
+	myButtons[3].SetText(std::to_string((int)(myPollingStation->myAudioManager.get()->GetVolume(Channels::Music) * 100)));
+	myButtons[4].SetText(std::to_string((int)(myPollingStation->myAudioManager.get()->GetVolume(Channels::SFX) * 100)));
 }
 
 OptionsState::~OptionsState()
@@ -117,6 +122,7 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 			case eButtonType::MusicVol:
 				break;
 			case eButtonType::SFXVol:
+				//play a sfx sound
 				break;
 			default:
 				break;
@@ -210,6 +216,8 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 				mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
 			}
 			myButtons[mySelectedButtonIndex].SetActiveColour();
+			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
+			//play sound here
 		}
 		break;
 
@@ -233,6 +241,8 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 				mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
 			}
 			myButtons[mySelectedButtonIndex].SetActiveColour();
+			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
+			//play sound here
 		}
 		break;
 

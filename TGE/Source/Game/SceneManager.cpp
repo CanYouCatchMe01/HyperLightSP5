@@ -5,7 +5,7 @@
 
 SceneManager::SceneManager(PollingStation* aPollingStation) : myUnityLoader(aPollingStation)
 {
-	LoadScene("AdamTestscene");
+	LoadScene("ViktorTestScene");
 
 	for (const auto& entry : std::filesystem::directory_iterator("Assets/Scenes"))
 	{

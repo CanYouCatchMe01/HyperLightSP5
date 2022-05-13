@@ -631,6 +631,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: a_z3_barrel_s
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fed6fc7016d2be84085cda3ba9ff9357, type: 3}
+      propertyPath: m_TagString
+      value: popcorn
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fed6fc7016d2be84085cda3ba9ff9357, type: 3}
 --- !u!1 &918546528 stripped
@@ -649,8 +653,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6734036, y: 0.77758443, z: 0.6734036}
-  m_Center: {x: 0, y: 0.38879222, z: 0}
+  m_Size: {x: 0.6734036, y: 0.77758443, z: 0.6632351}
+  m_Center: {x: 0, y: 0.38879222, z: -0.0050842464}
 --- !u!114 &918546530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4207025edc3df8148a3dac71b4db0b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myScriptName: melee_enemy
+  myScriptName: popcorn_enemy
   myList:
   - myVariableType: 0
     myVariableName: max_hp
@@ -692,7 +696,7 @@ MonoBehaviour:
   - myVariableType: 1
     myVariableName: detection_radius
     myInt: 0
-    myFloat: 2
+    myFloat: 5
     myString: 
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
@@ -713,6 +717,19 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!65 &918546531
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918546528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0570307, y: 0.77758443, z: 1.0010986}
+  m_Center: {x: -0.003145218, y: 0.38879222, z: -0.028122902}
 --- !u!1 &947257746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,7 +1092,7 @@ Transform:
   m_GameObject: {fileID: 1221023299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.63, y: -0.33, z: -12.79}
-  m_LocalScale: {x: 10, y: 6.76, z: 10}
+  m_LocalScale: {x: 18, y: 6.76, z: 18}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -1529,7 +1546,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756422521}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

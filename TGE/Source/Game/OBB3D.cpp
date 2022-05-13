@@ -49,7 +49,9 @@ bool OBB3D::Collides(OBB3D& anOther)
     Tga2D::Vector3f correction = mtv * minimumOverlap;
     Tga2D::Vector3f vecToObstacle = anOther.myTransform.GetPosition() - myTransform.GetPosition();
 
-    if (maximumOverlap > 0)
+
+    // OLD
+    /*if (maximumOverlap > 0)
     {
         correction = maxTv * maximumOverlap;
         Vector3 n = correction.GetNormalized();
@@ -59,20 +61,34 @@ bool OBB3D::Collides(OBB3D& anOther)
             correction.x = 0;
             correction.z = 0;
         }
-    }
+    }*/
 
     if (vecToObstacle.Dot(correction) < 0)
         correction *= -1.0f;
 
+    // NEW FIX FOR SLOPES AND EDGES, check if not a level plane and if the length is smaller than max step height
+    if (myTransform.GetMatrix().GetUp().GetNormalized().Dot(correction.GetNormalized()) != 1 && correction.Length() < myMaxStepHeight)
+    {
+        correction.x = 0;
+        correction.z = 0;
+    }
     
 
     if (myIsStatic)
     {
         anOther.myParent->GetTransform().SetPosition(anOther.myParent->GetTransform().GetPosition() + correction);
+        //anOther.SetPosition(anOther.myTransform.GetPosition() + correction);
         return true;
     }
     myParent->GetTransform().SetPosition(myParent->GetTransform().GetPosition() - correction);
+    //SetPosition(myTransform.GetPosition() - correction);
     return true;
+}
+
+void OBB3D::SetPosition(Tga2D::Vector3f aPos)
+{
+    myTransform.SetPosition(aPos);
+    Calculate();
 }
 
 void OBB3D::SATTest(const Vector3 anAxis, const SetOfCorners& aPtSet, float& aMinExtent, float& aMaxExtent)
@@ -167,14 +183,16 @@ bool OBB3D::GetMTVTranslation(OBB3D& aOtherObb, Vector3& aMtv, float& aMinTransl
 
         aMaxTranslation;
         aMaxTv;
-        if (translation > aMaxTranslation && translation < myMaxStepHeight)
+
+        // OLD
+        /*if (translation > aMaxTranslation && translation < myMaxStepHeight)
         {
             if (aOtherObb.myTransform.GetMatrix().GetUp().GetNormalized().Dot(normal) > 0)
             {
                 aMaxTranslation = translation;
                 aMaxTv = normal;
             }
-        }
+        }*/
     }
 
     return true;
@@ -240,7 +258,7 @@ void OBB3D::SetTransform(Tga2D::Transform& aTransform)
 
 void OBB3D::Draw()
 {
-    if (true) return;
+    if (!myDrawHitbox) return;
 
     auto& camera = Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetCamera();
     for (auto& corner : myCorners)

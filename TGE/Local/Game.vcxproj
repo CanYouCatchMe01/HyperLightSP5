@@ -177,7 +177,7 @@
     <ClInclude Include="..\Source\Game\GameWorld.h" />
     <ClInclude Include="..\Source\Game\Gamepad.h" />
     <ClInclude Include="..\Source\Game\Hud.h" />
-    <ClInclude Include="..\Source\Game\GuitarComponent.h" />
+    <ClInclude Include="..\Source\Game\MeleeComponent.h" />
     <ClInclude Include="..\Source\Game\InputHandler.h" />
     <ClInclude Include="..\Source\Game\InputManager.h" />
     <ClInclude Include="..\Source\Game\InputMapper.h" />
@@ -227,7 +227,7 @@
     <ClCompile Include="..\Source\Game\GameWorld.cpp" />
     <ClCompile Include="..\Source\Game\Gamepad.cpp" />
     <ClCompile Include="..\Source\Game\Hud.cpp" />
-    <ClCompile Include="..\Source\Game\GuitarComponent.cpp" />
+    <ClCompile Include="..\Source\Game\MeleeComponent.cpp" />
     <ClCompile Include="..\Source\Game\InputHandler.cpp" />
     <ClCompile Include="..\Source\Game\InputManager.cpp" />
     <ClCompile Include="..\Source\Game\InputMapper.cpp" />

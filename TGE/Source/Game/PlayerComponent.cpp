@@ -3,6 +3,7 @@
 #include <iostream>
 #include "GameObject.h"
 #include "EnemyComponent.h"
+#include "PopcornEnemy.h"
 #include "AudioComponent.h"
 
 PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed)
@@ -221,11 +222,20 @@ void PlayerComponent::OnStart()
 }
 void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 {
-	EnemyComponent* enemy = aOther->GetComponent<EnemyComponent>();
-
-	if (enemy != nullptr)
+	if (aOther->tag == "popcorn")
 	{
-		TakeDamage(enemy->GetAttackDmg());
+		std::cout << "player took damage\n";
+		TakeDamage(aOther->GetComponent<PopcornEnemy>()->GetAttackDmg());
+		aOther->GetComponent<PopcornEnemy>()->myIsStunned = true;
+	}
+}
+
+void PlayerComponent::OnCollisionExit(GameObject* aOther)
+{
+	
+	if (aOther->tag == "popcorn")
+	{
+		aOther->GetComponent<PopcornEnemy>()->myIsStunned = false;
 	}
 }
 

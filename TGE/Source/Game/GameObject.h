@@ -2,6 +2,7 @@
 #include <vector>
 #include <tga2d/math/Transform.h>
 #include "Component.h"
+#include "BoxColliderComponent.h"
 #ifdef _DEBUG
 #include "DebugObserver.h"
 #endif // _DEBUG
@@ -92,7 +93,6 @@ protected:
 private:
 	void Update(float aTimeDelta);
 	std::vector<GameObject*> myChildren;
-
 	PollingStation* myPollingStation;
 	Scene* myScene;
 	Tga2D::Transform myTransform;

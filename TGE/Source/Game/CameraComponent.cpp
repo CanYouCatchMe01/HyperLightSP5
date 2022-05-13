@@ -75,13 +75,13 @@ void CameraComponent::RecieveEvent(Input::eInputEvent aEvent, const float aValue
 void CameraComponent::OnUpdate(const float /*aDeltaTime*/)
 {
 	//Follow Player
-	/*if (myPollingStation->myPlayer != nullptr)
+	if (myPollingStation->myPlayer != nullptr)
 	{
 		Tga2D::Vector3f targetPosition = myPollingStation->myPlayer->GetTransform().GetPosition();
 		myTransform->SetPosition(targetPosition + myCameraOffset);
-	}*/
+	}
 	
-	//Sett rendering camera
+	//Set rendering camera
 	myCamera->SetTransform(*myTransform);
 }
 

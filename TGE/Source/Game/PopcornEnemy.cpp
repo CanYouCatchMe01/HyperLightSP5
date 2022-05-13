@@ -17,23 +17,32 @@ PopcornEnemy::PopcornEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float 
 
 void PopcornEnemy::OnUpdate(float aDt)
 {
+	float yPos = GetPosition().y;
+	SetPosition({GetPosition().x, yPos -= myGravity * aDt, GetPosition().z});
 	myMoveTimer -= aDt;
 	CheckRadius();
 
 	// enemy behavior
-	if (!myIsInRange)
+	if (!myIsStunned && !myIsInRange)
 	{
 		IdleMovement(aDt);
 	}
-	else if (!myAttacking && myIsInRange)
+	else if (!myIsStunned && myIsInRange)
 	{
 		MoveTowardsPlayer(aDt);
 	}
 }
 
-//void PopcornEnemy::OnCollisionEnter(GameObject* aOther)
-//{
-//}
+void PopcornEnemy::OnCollisionEnter(GameObject* aOther)
+{
+	PlayerComponent* player = aOther->GetComponent<PlayerComponent>();
+	std::cout << "that boi fine\n";
+	if (player != nullptr)
+	{
+		std::cout << "OUCH!\n";
+		player->TakeDamage(myAttackDmg);
+	}
+}
 
 void PopcornEnemy::OnDeath()
 {

@@ -33,13 +33,14 @@ public:
 #endif // _DEBUG
 
 	void OnCollisionEnter(GameObject* aOther) override;
+	void OnCollisionExit(GameObject* aOther) override;
 
 	void OnDeath();
 	void TakeDamage(int someDamage);
 
 
 
-
+	bool myAttack = false;
 private:
 	int myMaxHp = 5;
 	int myMaxHealing = 3;
@@ -60,7 +61,7 @@ private:
 	float myStunTimer = 0.0f;
 	bool myDash = false;
 	bool myStun = false;
-	bool myAttack = false;
+
 	bool myHealing = false;
 	bool myNextAttack = false;
 	int myAttacks = 0;

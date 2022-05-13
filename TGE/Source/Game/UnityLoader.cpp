@@ -16,6 +16,7 @@
 #include "FluteEnemy.h"
 #include "BoxColliderComponent.h"
 #include "AnimatedMeshComponent.h"
+#include "MeleeComponent.h"
 #ifdef _DEBUG
 #include "BaseDebugger.h"
 #endif // _DEBUG
@@ -88,7 +89,7 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			gameObject->AddComponent<BoxColliderComponent>(data["size"], data["center"], aGameObject["is_static"], data["is_trigger"]);
 			// TODO: Add box collider
 		}
-		else if (type == "melee_enemy")
+		else if (type == "popcorn_enemy")
 		{
 			gameObject->AddComponent<PopcornEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
 		}
@@ -99,6 +100,10 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 		else if (type == "flute_enemy")
 		{
 			gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
+		}
+		else if (type == "weapon")
+		{
+			gameObject->AddComponent<MeleeComponent>();
 		}
 	}
 

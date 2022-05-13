@@ -2,6 +2,10 @@
 #include "tga2d/math/Transform.h"
 #include "PollingStation.h"
 #include "ComponentDebugger.h"
+#ifdef _DEBUG
+#include "imgui/imgui.h"
+#endif // _DEBUG
+
 
 class GameObject;
 

@@ -420,7 +420,7 @@
         {
           "type": "mesh",
           "data": {
-            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue.fbx",
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_s.fbx",
             "albedo": "",
             "normal": "",
             "reflective": ""
@@ -911,6 +911,57 @@
             "size": {
               "x": 1.0,
               "y": 1.73,
+              "z": 1.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Cube (8)",
+      "tag": "deathbox",
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -4.63,
+          "y": -5.1,
+          "z": -12.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 105.2,
+          "y": 6.76,
+          "z": 136.33
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 0.99999994,
               "z": 1.0
             }
           }

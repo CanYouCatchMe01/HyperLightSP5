@@ -261,7 +261,7 @@
     },
     {
       "name": "a_z3_barrel_s",
-      "tag": "Untagged",
+      "tag": "popcorn",
       "is_static": false,
       "transform": {
         "position": {
@@ -298,24 +298,40 @@
             "center": {
               "x": 0.0,
               "y": 0.388792217,
-              "z": 0.0
+              "z": -0.0050842464
             },
             "size": {
               "x": 0.6734036,
               "y": 0.777584434,
-              "z": 0.6734036
+              "z": 0.6632351
             }
           }
         },
         {
-          "type": "melee_enemy",
+          "type": "popcorn_enemy",
           "data": {
             "max_hp": 5,
             "speed": 5.0,
             "attack_speed": 2.0,
-            "detection_radius": 2.0,
+            "detection_radius": 5.0,
             "idle_speed": 2.0,
             "attack_damage": 1
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": -0.003145218,
+              "y": 0.388792217,
+              "z": -0.0281229019
+            },
+            "size": {
+              "x": 1.05703068,
+              "y": 0.777584434,
+              "z": 1.00109863
+            }
           }
         }
       ],
@@ -456,9 +472,9 @@
           "w": 1.0
         },
         "scale": {
-          "x": 10.0,
+          "x": 18.0,
           "y": 6.76,
-          "z": 10.0
+          "z": 18.0
         }
       },
       "components": [
@@ -525,7 +541,7 @@
         {
           "type": "box_collider",
           "data": {
-            "is_trigger": true,
+            "is_trigger": false,
             "center": {
               "x": 0.0,
               "y": 0.0,

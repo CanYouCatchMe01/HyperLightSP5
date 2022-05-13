@@ -10,7 +10,7 @@ public:
 
 private:
 
-	/*void OnCollisionEnter(GameObject* aOther) override;*/
+	void OnCollisionEnter(GameObject* aOther) override;
 	void OnDeath() override;
 
 	void MoveAway(float aDT, Tga2D::Vector3f aDirection);
@@ -18,7 +18,5 @@ private:
 
 	Tga2D::Vector3f myAttackDirection;
 	int myHp;
-
-	bool myAttacking = false;
 };
 

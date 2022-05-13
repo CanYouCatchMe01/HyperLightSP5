@@ -17,7 +17,7 @@ public:
 
 	virtual void Attack(float aDT, Tga2D::Vector3f aDirection) = 0;
 	virtual void OnDeath() = 0;
-	
+
 protected:
 	virtual void CheckRadius();
 
@@ -27,8 +27,6 @@ protected:
 
 	virtual void IdleMovement(float aDt);
 	virtual void MoveTowardsPlayer(float aDT);
-
-	
 
 	Tga2D::Vector3f myDistanceToTarget;
 	class GameObject* myTarget;
@@ -40,10 +38,14 @@ protected:
 	int myAttackDmg;
 	int myRandNum;
 
+	float myGravity = 5.5f;
 	float mySpeed;
 	float myIdleSpeed;
 	float myAttackSpeed;
 	float myDetectionRadius;
 	float myMoveTimer = 0.0f;
 	float myMoveTime;
+
+public:
+	bool myIsStunned = false;
 };

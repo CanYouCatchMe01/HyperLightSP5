@@ -18,6 +18,7 @@ public:
 	void Render();
 	void RecieveMsg(const Message& aMsg);
 private:
+	Tga2D::Vector2f myStartSizeMultiplier;
 	PollingStation* myPollingStation;
 	int myNumberOfHealthKits;
 	std::vector<Tga2D::Texture*> myTextures;

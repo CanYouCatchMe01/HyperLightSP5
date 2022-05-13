@@ -11,10 +11,10 @@
 UIElement::UIElement(Tga2D::Vector2f aPosition, eElementType anElementType, PollingStation* aPollingStation)
 {
 	myPollingStation = aPollingStation;
-	Tga2D::Vector2f sizeMultiplier = { .4f,.2f };
-	float healthBarFillVariable1 = 3.5f / sizeMultiplier.x;
-	float healthBarFillVariable2 = (sizeMultiplier.x) / (1.f / 3.f);
-	mySpriteInstance.mySizeMultiplier = sizeMultiplier;
+	myStartSizeMultiplier = { .4f,.2f };
+	float healthBarFillVariable1 = 3.5f / myStartSizeMultiplier.x;
+	float healthBarFillVariable2 = (myStartSizeMultiplier.x) / (1.f / 3.f);
+	mySpriteInstance.mySizeMultiplier = myStartSizeMultiplier;
 	mySpriteInstance.myPosition = aPosition;
 	myElementType = anElementType;
 
@@ -32,9 +32,9 @@ UIElement::UIElement(Tga2D::Vector2f aPosition, eElementType anElementType, Poll
 		myTextures.push_back(Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/HUD/ui_hud_healthBar_life.dds"));
 		myTextures.push_back(Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/HUD/ui_hud_healthBar_frame.dds"));
 		mySharedDataOutline.myTexture = myTextures[1];
-		mySpriteInstanceHealth.mySizeMultiplier = { sizeMultiplier.x, sizeMultiplier.y };
-		mySpriteInstanceHealth.myPivot = { (sizeMultiplier.x / healthBarFillVariable2), 0.5f };
-		mySpriteInstanceHealth.myPosition = { aPosition.x-(mySpriteInstanceHealth.myPivot.x/ healthBarFillVariable1),aPosition.y};
+		mySpriteInstanceHealth.mySizeMultiplier = { myStartSizeMultiplier.x, myStartSizeMultiplier.y };
+		mySpriteInstanceHealth.myPivot = { (myStartSizeMultiplier.x / healthBarFillVariable2), 0.5f };
+		mySpriteInstanceHealth.myPosition = { aPosition.x- (mySpriteInstanceHealth.myPivot.x / healthBarFillVariable1),aPosition.y};
 
 		myPollingStation->myPostmaster->AddObserver(this, eMessageType::ePlayerTookDMG);
 		break;
@@ -109,6 +109,14 @@ void UIElement::RecieveMsg(const Message& aMsg)
 		break;
 
 	case eMessageType::ePlayerTookDMG:
+		if (myElementType == eElementType::eHealthBar && mySpriteInstanceHealth.mySizeMultiplier.x > 0)
+		{
+			mySpriteInstanceHealth.mySizeMultiplier = { (myStartSizeMultiplier.x * aMsg.aFloatValue), myStartSizeMultiplier.y };
+		}
+		if (mySpriteInstanceHealth.mySizeMultiplier.x < 0)
+		{
+			mySpriteInstanceHealth.mySizeMultiplier.x = 0;
+		}
 		break;
 
 	default:

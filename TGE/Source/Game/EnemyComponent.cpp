@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "EnemyComponent.h"
 #include "GameObject.h"
+#include "MeleeComponent.h"
+#include "PlayerComponent.h"
 
 EnemyComponent::EnemyComponent()
 {
@@ -21,12 +23,17 @@ void EnemyComponent::OnStart()
 	myRandNum = -1;
 }
 
-void EnemyComponent::OnCollisionEnter(GameObject*)
+void EnemyComponent::OnCollisionEnter(GameObject* aTrigger)
 {
+	if (aTrigger->GetComponent<PlayerComponent>()->myAttack)
+	{
+		TakeDamage(aTrigger->GetComponent<MeleeComponent>()->myDamage);
+	}
 }
 
 void EnemyComponent::TakeDamage(int someDamage)
 {
+	myIsStunned = true;
 	myHp -= someDamage;
 	if (myHp <= 0) { OnDeath(); }
 }
@@ -103,7 +110,7 @@ void EnemyComponent::IdleMovement(float aDt)
 void EnemyComponent::MoveTowardsPlayer(float aDt)
 {
 	myDistanceToTarget.Normalize();
-	SetPosition(GetPosition() + myDistanceToTarget * mySpeed * aDt);
+	SetPosition(GetPosition() + Tga2D::Vector3f{ myDistanceToTarget.x, 0, myDistanceToTarget.z } * mySpeed * aDt);
 }
 
 

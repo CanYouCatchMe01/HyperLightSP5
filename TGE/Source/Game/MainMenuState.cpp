@@ -14,6 +14,8 @@
 #include <tga2d/drawers/SpriteDrawer.h>
 #include <iostream>
 
+#include "AudioManager.h"
+
 MainMenuState::MainMenuState(StateStack& aStateStack, PollingStation* aPollingStation) 
 	: 
 	State(aStateStack, aPollingStation)
@@ -87,7 +89,7 @@ void MainMenuState::RecieveEvent(const Input::eInputEvent aEvent, const float /*
 						myButtons[0]->SetState(eState::Selected);
 						mySelectedType = myButtons[0]->GetType();
 					}
-					//play sound here
+					myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 
 					return;
 				}
@@ -111,7 +113,7 @@ void MainMenuState::RecieveEvent(const Input::eInputEvent aEvent, const float /*
 						myButtons[myButtons.size() - 1]->SetState(eState::Selected);
 						mySelectedType = myButtons[myButtons.size() - 1]->GetType();
 					}
-					//play sound here
+					myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 
 					return;
 				}
