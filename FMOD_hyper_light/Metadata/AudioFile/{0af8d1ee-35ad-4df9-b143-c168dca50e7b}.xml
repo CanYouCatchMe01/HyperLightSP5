@@ -5,13 +5,13 @@
 			<value>SFX/player/walk.wav</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>96</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.98099773242630384</value>
+			<value>0.26666666666666666</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{8728dd84-aca8-44bb-8a96-e57a3ddbb506}</destination>
