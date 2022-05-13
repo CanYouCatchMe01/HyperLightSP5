@@ -14,7 +14,8 @@ namespace Input
 		InputMapper(HWND aHWND);
 		~InputMapper();
 
-		void Update(UINT message, WPARAM wParam, LPARAM lParam);
+		void Update();
+		void UpdateEvents(UINT message, WPARAM wParam, LPARAM lParam);
 		void MapEvent(const eInputAction aInputEvent, const eInputEvent aOutputEvent);
 		void AddObserver(const eInputEvent aEventToListenFor, InputObserver* aObserver);
 		void RemoveObserver(const eInputEvent aEventToListenFor, InputObserver* aObserver);

@@ -11,6 +11,6 @@ public:
 private:
 	Tga2D::Vector3f myDir;
 	float mySpeed;
-	int myDamedg;
+	int myDamage;
 };
 

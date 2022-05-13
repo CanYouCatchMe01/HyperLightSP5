@@ -39,7 +39,7 @@ LRESULT Game::WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	
 	if (myGameWorld.myPollingStation != nullptr)
 	{
-		myGameWorld.myPollingStation->myInputMapper.get()->Update(message, wParam, lParam);
+		myGameWorld.myPollingStation->myInputMapper.get()->UpdateEvents(message, wParam, lParam);
 	}
 	switch (message)
 	{
@@ -94,6 +94,6 @@ void Game::InitCallBack(HWND aHWND)
 
 void Game::UpdateCallBack()
 {
-		myGameWorld.Update(Tga2D::Engine::GetInstance()->GetDeltaTime());
-		myGameWorld.Render();
+	myGameWorld.Update(Tga2D::Engine::GetInstance()->GetDeltaTime());
+	myGameWorld.Render();
 }

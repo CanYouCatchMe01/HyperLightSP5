@@ -22,3 +22,13 @@ void BoxColliderComponent::OnUpdate(const float /*adeltatime*/)
 {
 	myScene->GetCollisionManager().GetOBB3D(myHandle)->SetTransform(*myTransform);
 }
+
+#ifdef _DEBUG
+void BoxColliderComponent::DebugUpdate()
+{
+	if (ImGui::Checkbox("Draw collider", &myDrawHitbox))
+	{
+		myScene->GetCollisionManager().GetOBB3D(myHandle)->myDrawHitbox = myDrawHitbox;
+	}
+}
+#endif

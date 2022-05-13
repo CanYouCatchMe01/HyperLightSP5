@@ -113,6 +113,26 @@ void GameObject::DebugUpdate()
 				}
 				ImGui::EndTabItem();
 			}
+
+			if (ImGui::BeginTabItem("Transform"))
+			{
+				//Position
+				float position[3] = { myTransform.GetPosition().x,myTransform.GetPosition().y,myTransform.GetPosition().z };
+				ImGui::DragFloat3("Position", position);
+				myTransform.SetPosition({ position[0], position[1], position[2] });
+
+				//Rotation
+				float rotation[3] = { myTransform.GetRotation().x,myTransform.GetRotation().y,myTransform.GetRotation().z };
+				ImGui::DragFloat3("Rotation", rotation);
+				myTransform.SetRotation({ rotation[0], rotation[1], rotation[2] });
+
+				//Scale
+				float scale[3] = { myTransform.GetScale().x,myTransform.GetScale().y,myTransform.GetScale().z };
+				ImGui::DragFloat3("Scale", scale);
+				myTransform.SetScale({ scale[0], scale[1], scale[2] });
+				
+				ImGui::EndTabItem();
+			}
 			ImGui::EndTabBar();
 		}
 		ImGui::End();
@@ -131,6 +151,13 @@ void GameObject::Update(float aTimeDelta)
 
 	for (size_t i = 0; i < myChildren.size(); ++i)
 	{
+		//Tga2D::Transform old = myChildren[i]->GetTransform();
+		//Tga2D::Matrix4x4f global = myChildren[i]->GetTransform().GetMatrix() * myTransform.GetMatrix();
+		//myChildren[i]->GetTransform() = Tga2D::Transform(global);
+
 		myChildren[i]->Update(aTimeDelta);
+
+		//Tga2D::Matrix4x4f local = myChildren[i]->GetTransform().GetMatrix() * Tga2D::Matrix4x4f::GetFastInverse(myTransform.GetMatrix());
+		//myChildren[i]->GetTransform() = old;
 	}
 }

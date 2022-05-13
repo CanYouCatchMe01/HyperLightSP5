@@ -15,30 +15,22 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 {
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/OptionsMenu/ui_optionsMenu_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
-	mySpriteInstance.mySizeMultiplier = { 2.f,1.f };
-//	mySpriteInstance.myScaleSpritesWithAspectRatio = true;
+	mySpriteInstance.myScaleSpritesWithAspectRatio = false;
 	float leftArrowX = 0.38f;
 	float rightArrowX = 0.62f;
 	float yPosition = 0.35f;
 	float yIncrement = 0.12f;
 
 	myButtons.push_back(Button(eButtonType::FullScreen, { 0.5f, yPosition }));
-	yPosition += yIncrement;
-	myButtons.push_back(Button(eButtonType::Resolution, { 0.5f, yPosition }));
-	myArrows.push_back(Button(eButtonType::ArrowLeft,   { leftArrowX,yPosition }));
-	myArrows.push_back(Button(eButtonType::ArrowRight,  { rightArrowX,yPosition }));
-	yPosition += yIncrement;
-	myButtons.push_back(Button(eButtonType::MasterVol,  { 0.5f, yPosition }));
-	myArrows.push_back(Button(eButtonType::ArrowLeft,   { leftArrowX,yPosition }));
-	myArrows.push_back(Button(eButtonType::ArrowRight,  { rightArrowX,yPosition }));
-	yPosition += yIncrement;
-	myButtons.push_back(Button(eButtonType::MusicVol,   { 0.5f, yPosition }));
-	myArrows.push_back(Button(eButtonType::ArrowLeft,   { leftArrowX,yPosition }));
-	myArrows.push_back(Button(eButtonType::ArrowRight,  { rightArrowX,yPosition }));
-	yPosition += yIncrement;
-	myButtons.push_back(Button(eButtonType::SFXVol,     { 0.5f, yPosition }));
-	myArrows.push_back(Button(eButtonType::ArrowLeft,   { leftArrowX,yPosition }));
-	myArrows.push_back(Button(eButtonType::ArrowRight,  { rightArrowX,yPosition }));
+	int buttonIndex = (int)eButtonType::Resolution;
+	for (size_t i = 0; i < 4; i++)
+	{
+		yPosition += yIncrement;
+		myButtons.push_back(Button((eButtonType)buttonIndex, { 0.5f, yPosition }));
+		myArrows.push_back(Button(eButtonType::ArrowLeft, { leftArrowX,yPosition }));
+		myArrows.push_back(Button(eButtonType::ArrowRight, { rightArrowX,yPosition }));
+		buttonIndex++;
+	}
 	yPosition += yIncrement;
 	myButtons.push_back(Button(eButtonType::Back,		{ 0.5f, yPosition }));
 
@@ -86,6 +78,7 @@ PopInfo OptionsState::Update(const float /*aDeltaTime*/)
 	{
 		myIsActive = true;
 	}
+
 	if (myShouldChangeScreenRes)
 	{
 		Tga2D::Engine::GetInstance()->SetResolution(myScreenResolutions[myScreenResIndex], true);

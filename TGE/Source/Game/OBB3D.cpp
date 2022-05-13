@@ -24,10 +24,27 @@ bool OBB3D::Collides(OBB3D& anOther)
     float minimumOverlap = FLT_MAX;
 
     if (!GetMTVTranslation(anOther, mtv, minimumOverlap, maxTv, maximumOverlap))
+    {
+        SetCollisionEvent(false, anOther);
+        anOther.SetCollisionEvent(false, *this);
         return false;
+    }
+        
 
     if (!anOther.GetMTVTranslation(*this, mtv, minimumOverlap, maxTv, maximumOverlap))
+    {
+        SetCollisionEvent(false, anOther);
+        anOther.SetCollisionEvent(false, *this);
         return false;
+    }
+
+    SetCollisionEvent(true, anOther);
+    anOther.SetCollisionEvent(true, *this);
+
+    if (myIsTrigger || anOther.myIsTrigger)
+    {
+        return true;
+    }
 
     Tga2D::Vector3f correction = mtv * minimumOverlap;
     Tga2D::Vector3f vecToObstacle = anOther.myTransform.GetPosition() - myTransform.GetPosition();
@@ -47,7 +64,6 @@ bool OBB3D::Collides(OBB3D& anOther)
     if (vecToObstacle.Dot(correction) < 0)
         correction *= -1.0f;
 
-    SetCollisionEvent(true, anOther);
     
 
     if (myIsStatic)
@@ -55,7 +71,6 @@ bool OBB3D::Collides(OBB3D& anOther)
         anOther.myParent->GetTransform().SetPosition(anOther.myParent->GetTransform().GetPosition() + correction);
         return true;
     }
-
     myParent->GetTransform().SetPosition(myParent->GetTransform().GetPosition() - correction);
     return true;
 }
@@ -140,7 +155,6 @@ bool OBB3D::GetMTVTranslation(OBB3D& aOtherObb, Vector3& aMtv, float& aMinTransl
         SATTest(normal, aOtherObb.myCorners, shape2Min, shape2Max);
         if (!Overlaps(shape1Min, shape1Max, shape2Min, shape2Max))
         {
-            SetCollisionEvent(false, aOtherObb);
             return false;
         }
 
@@ -219,13 +233,14 @@ void OBB3D::Calculate()
 
 void OBB3D::SetTransform(Tga2D::Transform& aTransform)
 {
+    myLastPos = aTransform.GetPosition();
     myTransform = aTransform;
     Calculate();
 }
 
 void OBB3D::Draw()
 {
-    //if (true) return;
+    if (true) return;
 
     auto& camera = Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetCamera();
     for (auto& corner : myCorners)
@@ -282,9 +297,6 @@ void OBB3D::Draw()
             arrowHeadPos.z /= arrowHeadPos.w;
         }
 
-        
-
-        
         Tga2D::Vector2f arrowHeadPosTransformed = { arrowHeadPos.x * 0.5f + 0.5f, arrowHeadPos.y * -0.5f + 0.5f };
         Tga2D::Vector2f transformed = { pos.x * 0.5f + 0.5f, pos.y * -0.5f + 0.5f };
         Tga2D::Engine::GetInstance()->GetDebugDrawer().DrawArrow(transformed, arrowHeadPosTransformed, Tga2D::Color(1, 0, 0, 1), 0.35f);

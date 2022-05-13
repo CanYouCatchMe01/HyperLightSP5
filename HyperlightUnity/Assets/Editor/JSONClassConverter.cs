@@ -114,6 +114,9 @@ class Converter
 
         if (aComponent.GetType() == typeof(MeshFilter))
         {
+            if (aComponent.GetComponent<Animation>() != null)
+                return result;
+
             result.Add("type", "mesh");
             result.Add("data", ConvertToJSON((MeshFilter)aComponent));
         }
@@ -150,16 +153,42 @@ class Converter
         JObject result = new JObject();
 
         Mesh mesh = aAnimation.gameObject.GetComponent<MeshFilter>().sharedMesh;
+        MeshRenderer meshRenderer = aAnimation.gameObject.GetComponent<MeshRenderer>();
+
+        if (!mesh || !meshRenderer)
+            return result;
+
         string meshPath = AssetDatabase.GetAssetPath(PrefabUtility.GetCorrespondingObjectFromOriginalSource(mesh));
 
 
-        //List<JObject> animations = new List<JObject>();
+        string albedoPath = "";
+        string normalPath = "";
+        string reflectivePath = "";
+
+        if (mesh && meshRenderer)
+        {
+            Material material = meshRenderer.sharedMaterial;
+            var albedo = material.GetTexture("_MainTex");
+            var normal = material.GetTexture("_BumpMap");
+            var reflective = material.GetTexture("_MetallicGlossMap");
+
+            albedoPath = AssetDatabase.GetAssetPath(albedo);
+            normalPath = AssetDatabase.GetAssetPath(normal);
+            reflectivePath = AssetDatabase.GetAssetPath(reflective);
+
+            Export.AddDependency(albedoPath);
+            Export.AddDependency(normalPath);
+            Export.AddDependency(reflectivePath);
+        }
+
+        result.Add("albedo", Path.ChangeExtension(albedoPath, ".dds"));
+        result.Add("normal", Path.ChangeExtension(normalPath, ".dds"));
+        result.Add("reflective", Path.ChangeExtension(reflectivePath, ".dds"));
 
         JArray animations = new JArray();
 
         if (aAnimation)
         {
-            Debug.Log("has animations");
             foreach (AnimationState item in aAnimation)
             {
                 JObject animation = new JObject();

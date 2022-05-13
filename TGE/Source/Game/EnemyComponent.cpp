@@ -21,13 +21,23 @@ void EnemyComponent::OnStart()
 	myRandNum = -1;
 }
 
+void EnemyComponent::OnCollisionEnter(GameObject*)
+{
+}
+
+void EnemyComponent::TakeDamage(int someDamage)
+{
+	myHp -= someDamage;
+	if (myHp <= 0) { OnDeath(); }
+}
+
 void EnemyComponent::CheckRadius()
 {
 	//Define a circle around the enemy
 	myDistanceToTarget = myTarget->GetTransform().GetPosition() - GetPosition();
 	float r2 = myDistanceToTarget.x * myDistanceToTarget.x + myDistanceToTarget.z * myDistanceToTarget.z;
 	// check if player is in range
-	myIsInRange = r2 < myDetectionRadius* myDetectionRadius;
+	myIsInRange = r2 < myDetectionRadius * myDetectionRadius;
 }
 
 void EnemyComponent::SetPosition(const Tga2D::Vector3f& aPosition)
@@ -40,11 +50,16 @@ Tga2D::Vector3f EnemyComponent::GetPosition()
 	return myTransform->GetPosition();
 }
 
+int EnemyComponent::GetAttackDmg()
+{
+	return myAttackDmg;
+}
+
 void EnemyComponent::IdleMovement(float aDt)
 {
 	// choose a random direction or stand still.
-// choose a random time for said action to occur.
-// set position
+	// choose a random time for said action to occur.
+	// set position
 	Tga2D::Vector3f forwardDir = myTransform->GetMatrix().GetForward();
 	Tga2D::Vector3f backwardDir = forwardDir * -1.f;
 	Tga2D::Vector3f rightDir = myTransform->GetMatrix().GetRight();
@@ -62,19 +77,19 @@ void EnemyComponent::IdleMovement(float aDt)
 	{
 	case 0:
 		forwardDir.Normalize();
-		SetPosition(GetPosition() + forwardDir * mySpeed * aDt);
+		SetPosition(GetPosition() + forwardDir * myIdleSpeed * aDt);
 		break;
 	case 1:
 		backwardDir.Normalize();
-		SetPosition(GetPosition() + backwardDir * mySpeed * aDt);
+		SetPosition(GetPosition() + backwardDir * myIdleSpeed * aDt);
 		break;
 	case 2:
 		rightDir.Normalize();
-		SetPosition(GetPosition() + rightDir * mySpeed * aDt);
+		SetPosition(GetPosition() + rightDir * myIdleSpeed * aDt);
 		break;
 	case 3:
 		leftDir.Normalize();
-		SetPosition(GetPosition() + leftDir * mySpeed * aDt);
+		SetPosition(GetPosition() + leftDir * myIdleSpeed * aDt);
 		break;
 	case 4:
 		// do nothing
@@ -90,3 +105,5 @@ void EnemyComponent::MoveTowardsPlayer(float aDt)
 	myDistanceToTarget.Normalize();
 	SetPosition(GetPosition() + myDistanceToTarget * mySpeed * aDt);
 }
+
+

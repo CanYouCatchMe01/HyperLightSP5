@@ -6,7 +6,9 @@ class Observer;
 
 enum class eMessageType
 {
-
+	ePlayerTookDMG,
+	ePlayerHealed,
+	ePlayerPickedUpHealth
 };
 
 
@@ -14,6 +16,9 @@ struct Message
 {
 	void* myVoidPointer;
 	eMessageType myMsg;
+	float aFloatValue;
+	int anIntValue;
+	//float or int? for player health
 };
 
 class Postmaster

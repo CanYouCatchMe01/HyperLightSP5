@@ -97,20 +97,34 @@
     <ClCompile Include="..\Source\Game\EnemyComponent.cpp">
       <Filter>Code\Objects\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Game\MeleeEnemy.cpp">
-      <Filter>Code\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Game\ChargeEnemy.cpp">
-      <Filter>Code\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Game\FluteEnemy.cpp">
-      <Filter>Code\Objects\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="..\Source\Game\PlayerComponent.cpp">
       <Filter>Code\Objects\Player</Filter>
     </ClCompile>
     <ClCompile Include="..\Source\Game\BulletComponent.cpp">
       <Filter>Code\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\GuitarComponent.cpp" />
+    <ClCompile Include="..\Source\Game\ChargeEnemy.cpp">
+      <Filter>Code\GameObject Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\FluteEnemy.cpp">
+      <Filter>Code\GameObject Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\AnimatedMeshComponent.cpp" />
+    <ClCompile Include="..\Source\Game\Hud.cpp">
+      <Filter>Code\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\UIElement.cpp">
+      <Filter>Code\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\PopcornEnemy.cpp">
+      <Filter>Code\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\AudioManager.cpp">
+      <Filter>Code\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\AudioComponent.cpp">
+      <Filter>Code\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -229,20 +243,36 @@
     <ClInclude Include="..\Source\Game\EnemyComponent.h">
       <Filter>Code\Objects\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Game\MeleeEnemy.h">
-      <Filter>Code\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Game\ChargeEnemy.h">
-      <Filter>Code\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Game\FluteEnemy.h">
-      <Filter>Code\Objects\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="..\Source\Game\PlayerComponent.h">
       <Filter>Code\Objects\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\Game\BulletComponent.h">
       <Filter>Code\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\GuitarComponent.h" />
+    <ClInclude Include="..\Source\Game\ChargeEnemy.h">
+      <Filter>Code\GameObject Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\FluteEnemy.h">
+      <Filter>Code\GameObject Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\AnimatedMeshComponent.h">
+      <Filter>Code\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Hud.h">
+      <Filter>Code\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\UIElement.h">
+      <Filter>Code\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\PopcornEnemy.h">
+      <Filter>Code\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\AudioManager.h">
+      <Filter>Code\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\AudioComponent.h">
+      <Filter>Code\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

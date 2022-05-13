@@ -21,6 +21,15 @@ void RenderObjectManager::Render(Tga2D::ForwardRenderer& aForwardsRenderer)
 
 		aForwardsRenderer.Render(myModels[i]);
 	}
+
+	for (size_t i = 0; i != myAnimatedModels.size(); ++i)
+	{
+		if (myEmptyAnimatedModels.count(i))
+			continue;
+
+		aForwardsRenderer.Render(myAnimatedModels[i]);
+	}
+
 }
 
 size_t RenderObjectManager::RegisterModel(const wchar_t* aPath, std::wstring* someTexturePaths)
@@ -37,13 +46,37 @@ size_t RenderObjectManager::RegisterModel(const wchar_t* aPath, std::wstring* so
 	return myModels.size() - 1;
 }
 
+size_t RenderObjectManager::RegisterAnimatedModel(const wchar_t* aPath, std::wstring* someTexturePaths)
+{
+	if (myEmptyAnimatedModels.size())
+	{
+		size_t handle = *std::prev(myEmptyAnimatedModels.end());
+		myEmptyAnimatedModels.erase(std::prev(myEmptyAnimatedModels.end()));
+		myAnimatedModels[handle] = Tga2D::ModelFactory::GetInstance().GetAnimatedModel(aPath);
+		return handle;
+	}
+
+	myAnimatedModels.push_back(Tga2D::ModelFactory::GetInstance().GetAnimatedModel(aPath, someTexturePaths));
+	return myAnimatedModels.size() - 1;
+}
+
 
 Tga2D::ModelInstance* RenderObjectManager::GetModel(size_t aModelHandle)
 {
 	return &myModels[aModelHandle];
 }
 
+Tga2D::AnimatedModelInstance* RenderObjectManager::GetAnimatedModel(size_t aModelHandle)
+{
+	return &myAnimatedModels[aModelHandle];
+}
+
 void RenderObjectManager::DestroyModel(size_t aModel)
 {
 	myEmptyModels.insert(aModel);
+}
+
+void RenderObjectManager::DestroyAnimatedModel(size_t aModel)
+{
+	myEmptyAnimatedModels.insert(aModel);
 }

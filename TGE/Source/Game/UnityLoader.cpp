@@ -11,10 +11,11 @@
 #include "Converter.h"
 #include "PlayerComponent.h"
 #include "EnemyComponent.h"
-#include "MeleeEnemy.h"
+#include "PopcornEnemy.h"
 #include "ChargeEnemy.h"
 #include "FluteEnemy.h"
 #include "BoxColliderComponent.h"
+#include "AnimatedMeshComponent.h"
 #ifdef _DEBUG
 #include "BaseDebugger.h"
 #endif // _DEBUG
@@ -70,6 +71,10 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 		{
 			gameObject->AddComponent<MeshComponent>(data["model"], data["albedo"], data["normal"], data["reflective"], aScene);
 		}
+		else if (type == "animated_mesh")
+		{
+			gameObject->AddComponent<AnimatedMeshComponent>(data["model"], data["albedo"], data["normal"], data["reflective"], data["animations"], aScene);
+		}
 		else if (type == "camera")
 		{
 			gameObject->AddComponent<CameraComponent>(&aScene->myCamera, data["fov"]);
@@ -85,19 +90,15 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 		}
 		else if (type == "melee_enemy")
 		{
-			gameObject->AddComponent<MeleeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"]);
+			gameObject->AddComponent<PopcornEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
 		}
 		else if (type == "charge_enemy")
 		{
-			gameObject->AddComponent<ChargeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"]);
+			gameObject->AddComponent<ChargeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
 		}
 		else if (type == "flute_enemy")
 		{
-			gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"]);
-		}
-		else if (type == "animated_mesh")
-		{
-			std::cout << "animated mesh on: " << gameObject->name << '\n';
+			gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
 		}
 	}
 

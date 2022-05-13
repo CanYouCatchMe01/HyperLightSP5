@@ -1,12 +1,14 @@
 #include "stdafx.h"
 #include "ChargeEnemy.h"
 
-ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius)
+ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, int anAttackDamage)
 {
 	myMaxHp = aMaxHp;
 	mySpeed = aSpeed;
 	myAttackSpeed = anAttackSpeed;
 	myDetectionRadius = aDetectionRadius;
+	myIdleSpeed = anIdleSpeed;
+	myAttackDmg = anAttackDamage;
 }
 
 void ChargeEnemy::OnUpdate(float aDt)
@@ -53,4 +55,8 @@ void ChargeEnemy::Attack(float aDt, Tga2D::Vector3f aDirection)
 {
 	aDt;
 	aDirection;
+}
+
+void ChargeEnemy::OnDeath()
+{
 }

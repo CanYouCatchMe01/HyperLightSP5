@@ -13,8 +13,11 @@
     <Filter Include="DirectXTex\WICTextureLoader">
       <UniqueIdentifier>{C3C4F026-2FD2-1E0D-B8B8-1AF824C5EAC3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SoundEngine-FMod">
-      <UniqueIdentifier>{D76B4E43-C364-6D95-EC96-521AD8EE4CA1}</UniqueIdentifier>
+    <Filter Include="FMOD">
+      <UniqueIdentifier>{0BC4847C-F7FA-850D-A0E7-6B108CFD010F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD\include">
+      <UniqueIdentifier>{7EC6EE02-6A29-7EA7-13AF-B65DFFF0492A}</UniqueIdentifier>
     </Filter>
     <Filter Include="StackWalker">
       <UniqueIdentifier>{21FD7E7C-8DB2-F771-16A7-F148825BEE75}</UniqueIdentifier>
@@ -39,27 +42,6 @@
     </Filter>
     <Filter Include="bass">
       <UniqueIdentifier>{8E78947C-7AAF-950D-239C-7B100FB2110F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="fmod">
-      <UniqueIdentifier>{8BDC967C-7713-980D-2000-7E100C16140F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="fmod\core">
-      <UniqueIdentifier>{E31B0841-4F86-BCB7-98C4-6D5D046E9A0C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="fmod\core\inc">
-      <UniqueIdentifier>{6CE8C47D-D8A8-40B4-A1E3-89310D638590}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="fmod\fsbank">
-      <UniqueIdentifier>{0FB4BDAA-7B69-36A0-045E-307770122DA4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="fmod\fsbank\inc">
-      <UniqueIdentifier>{98B6A27B-0442-1040-0D53-9334795D6C40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="fmod\studio">
-      <UniqueIdentifier>{12542DC9-7E09-A6BE-07FE-9F9573B29CC2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="fmod\studio\inc">
-      <UniqueIdentifier>{1BA01889-872B-864D-903C-0942FC46E24D}</UniqueIdentifier>
     </Filter>
     <Filter Include="freetype">
       <UniqueIdentifier>{89895BD8-7556-B6E3-9E6F-A48B8A9BEB71}</UniqueIdentifier>
@@ -102,14 +84,38 @@
     <ClInclude Include="..\Source\External\DirectXTex\WICTextureLoader\WICTextureLoader11.h">
       <Filter>DirectXTex\WICTextureLoader</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\External\SoundEngine-FMod\SoundEngine.h">
-      <Filter>SoundEngine-FMod</Filter>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod.h">
+      <Filter>FMOD\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\External\SoundEngine-FMod\SoundEngine.pch.h">
-      <Filter>SoundEngine-FMod</Filter>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod.hpp">
+      <Filter>FMOD\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\External\SoundEngine-FMod\SoundEngineStructs.h">
-      <Filter>SoundEngine-FMod</Filter>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod_codec.h">
+      <Filter>FMOD\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod_common.h">
+      <Filter>FMOD\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod_dsp.h">
+      <Filter>FMOD\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod_dsp_effects.h">
+      <Filter>FMOD\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod_errors.h">
+      <Filter>FMOD\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod_output.h">
+      <Filter>FMOD\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod_studio.h">
+      <Filter>FMOD\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod_studio.hpp">
+      <Filter>FMOD\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\External\FMOD\include\fmod_studio_common.h">
+      <Filter>FMOD\include</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\External\StackWalker\StackWalker.h">
       <Filter>StackWalker</Filter>
@@ -389,45 +395,6 @@
     </ClInclude>
     <ClInclude Include="..\Source\External\bass\bass.h">
       <Filter>bass</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\core\inc\fmod.h">
-      <Filter>fmod\core\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\core\inc\fmod.hpp">
-      <Filter>fmod\core\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\core\inc\fmod_codec.h">
-      <Filter>fmod\core\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\core\inc\fmod_common.h">
-      <Filter>fmod\core\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\core\inc\fmod_dsp.h">
-      <Filter>fmod\core\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\core\inc\fmod_dsp_effects.h">
-      <Filter>fmod\core\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\core\inc\fmod_errors.h">
-      <Filter>fmod\core\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\core\inc\fmod_output.h">
-      <Filter>fmod\core\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\fsbank\inc\fsbank.h">
-      <Filter>fmod\fsbank\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\fsbank\inc\fsbank_errors.h">
-      <Filter>fmod\fsbank\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\studio\inc\fmod_studio.h">
-      <Filter>fmod\studio\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\studio\inc\fmod_studio.hpp">
-      <Filter>fmod\studio\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\External\fmod\studio\inc\fmod_studio_common.h">
-      <Filter>fmod\studio\inc</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\External\freetype\config\ftconfig.h">
       <Filter>freetype\config</Filter>
@@ -738,15 +705,6 @@
     </ClCompile>
     <ClCompile Include="..\Source\External\DirectXTex\WICTextureLoader\WICTextureLoader11.cpp">
       <Filter>DirectXTex\WICTextureLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\External\SoundEngine-FMod\SoundEngine.cpp">
-      <Filter>SoundEngine-FMod</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\External\SoundEngine-FMod\SoundEngine.pch.cpp">
-      <Filter>SoundEngine-FMod</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\External\SoundEngine-FMod\SoundEngineStructs.cpp">
-      <Filter>SoundEngine-FMod</Filter>
     </ClCompile>
     <ClCompile Include="..\Source\External\StackWalker\StackWalker.cpp">
       <Filter>StackWalker</Filter>

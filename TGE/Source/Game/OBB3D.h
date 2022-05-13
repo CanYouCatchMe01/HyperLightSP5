@@ -13,6 +13,9 @@ using Vector3 = Tga2D::Vector3f;
 class OBB3D
 {
 public:
+	friend class BoxColliderComponent;
+	friend class CollisionManager;
+
 	OBB3D(Vector3 aSize, Vector3 anOffset, bool aIsStatic = false, bool aIsTrigger = false, GameObject* aParent = nullptr);
 	bool Collides(OBB3D& aOther);
 	void Calculate();
@@ -35,6 +38,8 @@ private:
 	};
 
 	eCollisionState myCollisionState = eCollisionState::eNone;
+
+	bool myDrawHitbox = false;
 
 	Vector3 myLastPos;
 

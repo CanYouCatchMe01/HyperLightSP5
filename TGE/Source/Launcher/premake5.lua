@@ -19,16 +19,12 @@ project "Launcher"
 	includedirs {
 		"../tga2dcore",
 		"../Game/",
-		"../External/inc/SoundEngine-FMod/",
-		"../External/fmod/studio/inc/",
-		"../External/fmod/core/inc/"
+		"../External/FMOD/include/",
 	}
 
 	libdirs {
 		"../../Lib/",
-		"../External/fmod/studio/lib/x64/",
-		"../External/fmod/core/lib/x64/",
-		
+		"../External/FMOD/lib/",
 	}
 
 	links { 
@@ -43,8 +39,10 @@ project "Launcher"
 		"Game",
 		"tga2dcore",
 		"External",
+		"fmod_vc.lib",
+		"fmodL_vc.lib",
 		"fmodstudio_vc.lib",
-		"fmod_vc.lib"
+		"fmodstudioL_vc.lib"
 	}
 
 	defines {"_CONSOLE"}

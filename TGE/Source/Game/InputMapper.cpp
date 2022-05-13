@@ -35,35 +35,35 @@ namespace Input
 
 	void InputMapper::UpdateKeyboardInput()
 	{
-		if (myInputManager.IsKeyPressed(VK_SPACE) == true)
+		if (myInputManager.IsKeyPressed(VK_SPACE))
 		{
 			TranslateActionToEvent(Input::eInputAction::eKey_Space, 1.f);
 		}
-		if (myInputManager.IsKeyPressed(VK_ESCAPE) == true)
+		if (myInputManager.IsKeyPressed(VK_ESCAPE))
 		{
 			TranslateActionToEvent(Input::eInputAction::eKey_Escape, 1.f);
 		}
-		if (myInputManager.IsKeyPressed(VK_RETURN) == true)
+		if (myInputManager.IsKeyPressed(VK_RETURN))
 		{
 			TranslateActionToEvent(Input::eInputAction::eKey_Enter, 1.f);
 		}
-		if (myInputManager.IsKeyPressed('X') == true)
+		if (myInputManager.IsKeyPressed('X'))
 		{
 			TranslateActionToEvent(Input::eInputAction::eKey_X, 1.f);
 		}
-		if (myInputManager.IsKeyHeld(VK_UP) == true)
+		if (myInputManager.IsKeyHeld(VK_UP))
 		{
 			TranslateActionToEvent(Input::eInputAction::eHoldArrowKeyUp, 1.f);
 		}
-		if (myInputManager.IsKeyHeld(VK_DOWN) == true)
+		if (myInputManager.IsKeyHeld(VK_DOWN))
 		{
 			TranslateActionToEvent(Input::eInputAction::eHoldArrowKeyDown, -1.f);
 		}
-		if (myInputManager.IsKeyHeld(VK_RIGHT) == true)
+		if (myInputManager.IsKeyHeld(VK_RIGHT))
 		{
 			TranslateActionToEvent(Input::eInputAction::eHoldArrowKeyRight, 1.f);
 		}
-		if (myInputManager.IsKeyHeld(VK_LEFT) == true)
+		if (myInputManager.IsKeyHeld(VK_LEFT))
 		{
 			TranslateActionToEvent(Input::eInputAction::eHoldArrowKeyLeft, -1.f);
 		}
@@ -99,11 +99,63 @@ namespace Input
 		{
 			TranslateActionToEvent(Input::eInputAction::eReleaseArrowRight, 1.f);
 		}
+		if (myInputManager.IsKeyHeld('W'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eHoldW, 1.f);
+		}
+		if (myInputManager.IsKeyHeld('S'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eHoldS, -1.f);
+		}
+		if (myInputManager.IsKeyHeld('D'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eHoldD, 1.f);
+		}
+		if (myInputManager.IsKeyHeld('A'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eHoldA, -1.f);
+		}
+		if (myInputManager.IsKeyPressed('W'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eReleaseW, 1.f);
+		}
+		if (myInputManager.IsKeyPressed('S'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eReleaseS, -1.f);
+		}
+		if (myInputManager.IsKeyPressed('A'))
+		{
+			TranslateActionToEvent(Input::eInputAction::ePressArrowKeyLeft, -1.f);
+		}
+		if (myInputManager.IsKeyPressed('D'))
+		{
+			TranslateActionToEvent(Input::eInputAction::ePressArrowKeyRight, 1.f);
+		}
+		if (myInputManager.IsKeyReleased('W'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eReleaseW, 1.f);
+		}
+		if (myInputManager.IsKeyReleased('S'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eReleaseS, 1.f);
+		}
+		if (myInputManager.IsKeyReleased('A'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eReleaseA, 1.f);
+		}
+		if (myInputManager.IsKeyReleased('D'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eReleaseD, 1.f);
+		}
 	}
 
-	void InputMapper::Update(UINT message, WPARAM wParam, LPARAM lParam)
+	void InputMapper::UpdateEvents(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		myInputManager.UpdateEvents(message, wParam, lParam);
+	}
+
+	void InputMapper::Update()
+	{
 		myInputManager.Update();
 		UpdateKeyboardInput();
 	}

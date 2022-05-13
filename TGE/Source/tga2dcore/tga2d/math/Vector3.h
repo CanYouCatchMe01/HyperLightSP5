@@ -51,6 +51,8 @@ namespace Tga2D
 		Vector3<T> GetNormalized() const;
 		void Normalize();
 
+		std::array<T, 3> GetValueArray() const;
+
 		T Dot(const Vector3<T>& aVector) const;
 		Vector3<T> Cross(const Vector3<T>& aVector) const;
 
@@ -193,6 +195,12 @@ namespace Tga2D
 		X = X * inversedMagnitude;
 		Y = Y * inversedMagnitude;
 		Z = Z * inversedMagnitude;
+	}
+
+	template<class T>
+	inline std::array<T, 3> Vector3<T>::GetValueArray() const
+	{
+		return {X, Y, Z};
 	}
 
 	template<class T>

@@ -7,14 +7,14 @@ BulletComponent::BulletComponent()
 {
 	myDir = { 0.0f,0.0f,0.0f };
 	mySpeed = 0.0f;
-	myDamedg = 0;
+	myDamage = 0;
 }
 
 BulletComponent::BulletComponent(Tga2D::Vector3f aDirection, float aSpeed, int aDamedg)
 {
 	myDir = aDirection;
 	mySpeed = aSpeed;
-	myDamedg = aDamedg;
+	myDamage = aDamedg;
 }
 
 void BulletComponent::OnUpdate(float aDT)
@@ -27,7 +27,7 @@ void BulletComponent::OnCollisionEnter(GameObject* aOther)
 	PlayerComponent* a = aOther->GetComponent<PlayerComponent>();
 	if (a != nullptr)
 	{
-		a->TakeDamedg(myDamedg);
+		a->TakeDamage(myDamage);
 		//destroy bullet
 	}
 }

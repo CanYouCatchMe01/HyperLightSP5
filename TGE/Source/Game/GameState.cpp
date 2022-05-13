@@ -4,12 +4,13 @@
 #include "StateStack.h"
 #include "PauseMenuState.h"
 #include "SceneManager.h"
+#include "Hud.h"
 #include <iostream>
 #include <tga2d/graphics/Camera.h>
 
 GameState::GameState(StateStack& aStateStack, PollingStation* aPollingStation) 
     :
-    State(aStateStack, aPollingStation)
+    State(aStateStack, aPollingStation), myHud(aPollingStation)
 {
     myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::ePause, this);
     myPopInfo.myShouldPop = false;
@@ -37,6 +38,7 @@ void GameState::Init()
 void GameState::Render()
 {
     myPollingStation->mySceneManager->Render();
+    myHud.Render();
 }
 
 void GameState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)

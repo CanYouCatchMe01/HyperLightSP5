@@ -25,6 +25,7 @@ private:
 	
 public:
 	Transform() = default;
+	Transform(Tga2D::Matrix4x4f& aMatrix);
 	Transform(Vector3f somePosition, Rotator someRotation = Rotator::Zero, Vector3f someScale = Vector3f::One);
 	Transform(Vector3f somePosition, Quaternionf someRotation, Vector3f someScale = Vector3f::One);
 

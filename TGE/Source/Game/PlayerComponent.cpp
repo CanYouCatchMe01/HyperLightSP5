@@ -2,11 +2,10 @@
 #include "PlayerComponent.h"
 #include <iostream>
 #include "GameObject.h"
-#include "SoundEngine-FMod/SoundEngine.h"
+#include "EnemyComponent.h"
+#include "AudioComponent.h"
 
-PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed) :
-	myDashSound(SoundEngine::CreateEventInstance("event:/sfx/player/dash")),
-	myWalkSound(SoundEngine::CreateEventInstance("event:/sfx/player/walk"))
+PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed)
 {
 	myMaxHp = aMaxHp;
 	myHp = myMaxHp;
@@ -17,28 +16,16 @@ PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, fl
 	myAttackTime = aAttackTime;
 	mySpeed = aSpeed;
 	myDashSpeed = aDashSpeed;
-
-	SoundEngine::PlayEvent(myWalkSound);
-	SoundEngine::SetEventVolume(myWalkSound, 0.0f);
 }
 
 void PlayerComponent::OnUpdate(float aDT)
 {
-	if (!myStun)
+	if (!myStun && !myHealing && !myAttack)
 	{
-		if (!myHealing && !myAttack)
-		{
-			Movement(aDT);
-		}
-
-		if (!myDash && !myHealing)
-		{
-			Attack(aDT);
-		}
-
+		Movement(aDT);
 	}
 	myStunTimer -= aDT;
-	if (myStunTimer < 0.0f)
+	if (myStunTimer < 0)
 	{
 		myStun = false;
 	}
@@ -48,16 +35,12 @@ void PlayerComponent::OnUpdate(float aDT)
 		myDash = false;
 	}
 	myAttackTimer -= aDT;
-	if (myAttackTimer < 0.05f)
+	if (myAttackTimer < 0)
 	{
 		myAttack = false;
 	}
-	if (myAttackTimer < -0.05f)
-	{
-		myAttacks = 0;
-	}
 	myHealTimer -= aDT;
-	if (myHealTimer < 0.0f)
+	if (myHealTimer < 0)
 	{
 		myHealing = false;
 	}
@@ -65,83 +48,14 @@ void PlayerComponent::OnUpdate(float aDT)
 
 void PlayerComponent::Movement(float aDT)
 {
-	//myDir.Normalize();
-	//if (myDir.x != 0 || myDir.y != 0)
-	//{
-	//	myLastDir = myDir;
-	//}
-
-	//if (myDash)
-	//{
-	//	myTransform->SetPosition(myTransform->GetPosition() + myDashDir * myDashSpeed * aDT);
-	//}
-
-	//if (!myDash)
-	//{
-	//	myDir.y -= myGravity / mySpeed;
-	//	myTransform->SetPosition(myTransform->GetPosition() + myDir * mySpeed * aDT);
-	//}
-	//myDir = { 0.0f,0.0f,0.0f };
-
-	// right
-	if (GetAsyncKeyState(0x44))
-	{
-		myDir += myTransform->GetMatrix().GetRight();
-	}
-	// left
-	if (GetAsyncKeyState(0x41))
-	{
-		myDir += myTransform->GetMatrix().GetRight() * -1.f;
-	}
-	// forward
-	if (GetAsyncKeyState(0x57))
-	{
-		myDir += myTransform->GetMatrix().GetForward();
-	}
-	// backward
-	if (GetAsyncKeyState(0x53))
-	{
-		myDir += myTransform->GetMatrix().GetForward() * -1.f;
-	}
 
 	//increasing the volume when the player is moving
 	if (myDir == Tga2D::Vector3f(0.0f, 0.0f, 0.0f))
 	{
-		SoundEngine::SetEventVolume(myWalkSound, 0.0f);
 	}
 	else
 	{
-		SoundEngine::SetEventVolume(myWalkSound, 1.0f);
 	}
-	
-	//// up right
-	//if (GetAsyncKeyState(0x44) && GetAsyncKeyState(0x57))
-	//{
-	//	Tga2D::Vector3f topRight = myTransform->GetMatrix().GetRight() + myTransform->GetMatrix().GetForward();
-	//	topRight.Normalize();
-	//	myDir = topRight;
-	//}
-	//// up left
-	//if (GetAsyncKeyState(0x41) && GetAsyncKeyState(0x57))
-	//{
-	//	Tga2D::Vector3f topLeft = (myTransform->GetMatrix().GetRight() * -1.f) + myTransform->GetMatrix().GetForward();
-	//	topLeft.Normalize();
-	//	myDir = topLeft;
-	//}
-	//// down right
-	//if (GetAsyncKeyState(0x44) && GetAsyncKeyState(0x53))
-	//{
-	//	Tga2D::Vector3f downRight = myTransform->GetMatrix().GetRight() + (myTransform->GetMatrix().GetForward() * -1.f);
-	//	downRight.Normalize();
-	//	myDir = downRight;
-	//}
-	//// down left
-	//if (GetAsyncKeyState(0x41) && GetAsyncKeyState(0x53))
-	//{
-	//	Tga2D::Vector3f downLeft = (myTransform->GetMatrix().GetRight() * -1.f) + (myTransform->GetMatrix().GetForward() * -1.f);
-	//	downLeft.Normalize();
-	//	myDir = downLeft;
-	//}
 
 	if (myDir.Length() > 0)
 	{
@@ -153,50 +67,24 @@ void PlayerComponent::Movement(float aDT)
 	{
 		myLastDir = myDir;
 	}
-
 	if (myDash)
 	{
 		SetPosition(GetPosition() + myDashDir * myDashSpeed * aDT);
-		SoundEngine::PlayEvent(myDashSound);
+		return;
 	}
-	else
-	{
-		if (GetAsyncKeyState(0x20) && myDashTimer < -0.1)
-		{
-			myDashTimer = myDashTime;
-			myDash = true;
-			if (myDir.x == 0 && myDir.y == 0)
-			{
-				myDashDir = myLastDir;
-			}
-			else
-			{
-				myDashDir = myDir;
-			}
-		}
-	}
-
-	if (!myDash)
-	{
-		myDir.y -= myGravity / mySpeed;
-		SetPosition(GetPosition() + myDir * mySpeed * aDT);
-	}
+	myDir.y = -myGravity/mySpeed;
+	SetPosition(GetPosition() + (myDir * mySpeed * aDT));
 	myDir = { 0.0f,0.0f,0.0f };
 }
 
-void PlayerComponent::Attack(float /*aDT*/)
+void PlayerComponent::Attack()
 {	
-	if (myNextAttack)
+	if (myAttackTimer < 0.0f)
 	{
-		if (myAttackTimer < 0.0f)
-		{
-			myAttackTimer = 0.1f;
-			myAttack = true;
-		}
-	}
-	else if (myAttack)
-	{
+		myAttackTimer = 0.1f;
+		myAttack = true;
 		//do the attack
+		myAudioComponent->PlayEvent(FSPRO::Event::sfx_player_attack);
 	}
 }
 
@@ -261,10 +149,10 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 	switch (aEvent)
 	{
 	case Input::eInputEvent::eMoveDown:
-		myDir.y += 1.0f;
+		myDir.z -= 1.0f;
 		break;
 	case Input::eInputEvent::eMoveUp:
-		myDir.y -= 1.0f;
+		myDir.z += 1.0f;
 		break;
 	case Input::eInputEvent::eMoveRight:
 		myDir.x += 1.0f;
@@ -273,24 +161,14 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 		myDir.x -= 1.0f;
 		break;
 	case Input::eInputEvent::eAttack:
-		if (myAttacks < myMaxAttacks)
+		if (myAttackTimer < 0.0f && !myHealing)
 		{
-			if (myAttackTimer < 0.0f)
-			{
-				myAttackTimer = myAttackTime;
-				myAttack = true;
-				myAttacks++;
-			}
-			else if (!myNextAttack)
-			{
-				myNextAttack = true;
-				myAttacks++;
-			}
+			Attack();
 		}
 		break;
 	case Input::eInputEvent::eDash:
 	{
-		if (myDashTimer < -0.1)
+		if (myDashTimer < -0.1 && !myHealing)
 		{
 			myDashTimer = myDashTime;
 			myDash = true;
@@ -317,7 +195,7 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 			}
 			else
 			{
-				//no healing
+				//cry
 			}
 		}
 		break;
@@ -328,18 +206,39 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 void PlayerComponent::OnAwake()
 {
 	myPollingStation->myPlayer = myGameObject;
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveDown, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveLeft, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveRight, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveUp, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eDash, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eAttack, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eHeal, this);
+
+	myAudioComponent = myGameObject->AddComponent<AudioComponent>();
 }
 void PlayerComponent::OnStart()
 {
 }
-void PlayerComponent::OnCollisionEnter(GameObject* /*aOther*/)
+void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 {
+	EnemyComponent* enemy = aOther->GetComponent<EnemyComponent>();
 
+	if (enemy != nullptr)
+	{
+		TakeDamage(enemy->GetAttackDmg());
+	}
 }
 
-void PlayerComponent::TakeDamedg(int aDamedg)
+void PlayerComponent::OnDeath()
 {
-	myHp -= aDamedg;
+	// you ded, now what?
+}
+
+void PlayerComponent::TakeDamage(int someDamage)
+{
+	myHp -= someDamage;
+	/*SoundEngine::PlayEvent(takeDamageSound?);*/
+	if (myHp <= 0) { OnDeath(); }
 	//chekded
 }
 #ifdef _DEBUG

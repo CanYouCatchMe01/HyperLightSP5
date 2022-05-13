@@ -19,15 +19,12 @@ project "Game"
 	includedirs {
 		"../tga2dcore",
 		"../External/",
-		"../External/SoundEngine-FMod/",
-		"../External/fmod/studio/inc/",
-		"../External/fmod/core/inc/"
+		"../External/FMOD/include/",
 	}
 
 	libdirs {
 		"../../Lib/",
-		"../External/fmod/studio/lib/x64/",
-		"../External/fmod/core/lib/x64/"
+		"../External/FMOD/lib/",
 	}
 
 	defines {

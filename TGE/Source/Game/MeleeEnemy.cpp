@@ -1,16 +1,16 @@
 #include "stdafx.h"
 #include "MeleeEnemy.h"
+#include "PlayerComponent.h"
 #include "GameObject.h"
-#include <random>
-#include <chrono>
-#include <ctime>
 
-MeleeEnemy::MeleeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius)
+MeleeEnemy::MeleeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, int anAttackDamage)
 {
 	myMaxHp = aMaxHp;
 	mySpeed = aSpeed;
 	myAttackSpeed = anAttackSpeed;
 	myDetectionRadius = aDetectionRadius;
+	myIdleSpeed = anIdleSpeed;
+	myAttackDmg = anAttackDamage;
 }
 
 void MeleeEnemy::OnUpdate(float aDt)
@@ -27,6 +27,20 @@ void MeleeEnemy::OnUpdate(float aDt)
 	{
 		MoveTowardsPlayer(aDt);
 	}
+}
+
+void MeleeEnemy::OnCollisionEnter(GameObject* aOther)
+{
+	PlayerComponent* player = aOther->GetComponent<PlayerComponent>();
+	
+	if (player != nullptr)
+	{
+		player->TakeDamage(myAttackDmg);
+	}
+}
+
+void MeleeEnemy::OnDeath()
+{
 }
 
 void MeleeEnemy::MoveAway(float aDT, Tga2D::Vector3f aDirection)

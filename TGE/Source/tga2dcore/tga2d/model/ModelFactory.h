@@ -43,7 +43,7 @@ public:
 	static ModelFactory& GetInstance() { if (!myInstance) { myInstance = new ModelFactory(); } return *myInstance; }
 	static void DestroyInstance() { if (myInstance) { delete myInstance; myInstance = nullptr; } }
 
-	AnimatedModelInstance GetAnimatedModel(const std::wstring& someFilePath);
+	AnimatedModelInstance GetAnimatedModel(const std::wstring& someFilePath, std::wstring* someTexturePaths = nullptr);
 	ModelInstance GetModel(const std::wstring& someFilePath, std::wstring* someTexturePaths = nullptr);
 
 	ModelInstancer GetModelInstancer(const std::wstring& someFilePath);

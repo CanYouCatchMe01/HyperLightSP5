@@ -10,16 +10,29 @@ namespace Input
 		eHoldArrowKeyDown,
 		eHoldArrowKeyRight,
 		eHoldArrowKeyLeft,
+		eHoldW,
+		eHoldS,
+		eHoldD,
+		eHoldA,
 		eReleaseArrowUp,
 		eReleaseArrowDown,
 		eReleaseArrowRight,
 		eReleaseArrowLeft,
+		eReleaseW,
+		eReleaseS,
+		eReleaseD,
+		eReleaseA,
 	//------For Menus------
 		eKey_Enter,
 		ePressArrowKeyUp,
 		ePressArrowKeyDown,
 		ePressArrowKeyRight,
-		ePressArrowKeyLeft
+		ePressArrowKeyLeft,
+		ePressW,
+		ePressS,
+		ePressD,
+		ePressA
+
 	//------For Menus------
 	};
 

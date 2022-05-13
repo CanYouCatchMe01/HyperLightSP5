@@ -3,6 +3,7 @@
 #include <tga2d/graphics/Camera.h>
 #include "imgui/imgui.h"
 #include "GameObject.h"
+#include "AudioManager.h"
 
 CameraComponent::CameraComponent(Tga2D::Camera* aCamera, const float aFieldOfView) : myCamera(aCamera)
 {
@@ -24,6 +25,7 @@ void CameraComponent::OnAwake()
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveRight, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveDown, this);
 
+	myPollingStation->myAudioManager->SetListenerTransform(myTransform);
 }
 
 void CameraComponent::OnStart()
@@ -72,21 +74,14 @@ void CameraComponent::RecieveEvent(Input::eInputEvent aEvent, const float aValue
 
 void CameraComponent::OnUpdate(const float /*aDeltaTime*/)
 {
-	//ImGui::Text("Move Camera?");
-	//ImGui::SameLine();
-	//if (myCameraMove)
-	//{
-	//	if (ImGui::SmallButton("On")) { myCameraMove = !myCameraMove; }
-	//}
-	//else // Yes I'm lazy, how could you tell?
-	//{
-	//	if (ImGui::SmallButton("off")) { myCameraMove = !myCameraMove; }
-	//}
-	if (myPollingStation->myPlayer != nullptr)
+	//Follow Player
+	/*if (myPollingStation->myPlayer != nullptr)
 	{
 		Tga2D::Vector3f targetPosition = myPollingStation->myPlayer->GetTransform().GetPosition();
 		myTransform->SetPosition(targetPosition + myCameraOffset);
-	}
+	}*/
+	
+	//Sett rendering camera
 	myCamera->SetTransform(*myTransform);
 }
 

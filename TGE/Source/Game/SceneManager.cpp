@@ -14,6 +14,7 @@ SceneManager::SceneManager(PollingStation* aPollingStation) : myUnityLoader(aPol
 		size_t jsonStart = baseFilename.find(".json");
 		baseFilename = baseFilename.substr(0, jsonStart);
 		myScenePaths.push_back(baseFilename);
+		// martin was here
 	}
 
 
@@ -27,6 +28,14 @@ SceneManager::~SceneManager()
 
 void SceneManager::Update(float aTimeDelta)
 {
+	/*static float timer;
+	timer += aTimeDelta;
+	if (timer > 1.0f)
+	{
+		std::cout << 1 / aTimeDelta << '\n';
+		timer = 0.0f;
+	}*/
+	
 	myScenes[myActiveScene]->Update(aTimeDelta);
 
 //#ifdef _DEBUG // Replaced with prettier version.

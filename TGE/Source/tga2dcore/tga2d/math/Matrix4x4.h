@@ -42,6 +42,7 @@ namespace Tga2D
 		Vector3<T> GetRight( ) const;
 		Vector3<T> GetPosition( ) const;
 		Vector4<T> GetPositionVec4( ) const;
+		std::array<T, 16> GetValueArray() const;
 
 		/*This function will decompose the matrix, if this is done every frame and calculated back into a matrix it will twist
 		slightly each frame, likely due to precision errors during conversion */
@@ -408,6 +409,15 @@ namespace Tga2D
 	inline Vector4<T> Matrix4x4<T>::GetPositionVec4( ) const
 	{
 		return { (*this)(4,1), (*this)(4,2), (*this)(4,3), (*this)(4,4) };
+	}
+
+	template<typename T>
+	inline std::array<T, 16> Matrix4x4<T>::GetValueArray() const
+	{
+		return { (*this)(1,1), (*this)(1,2), (*this)(1,3), (*this)(1,4),
+				(*this)(2,1), (*this)(2,2), (*this)(2,3), (*this)(2,4),
+				(*this)(3,1), (*this)(3,2), (*this)(3,3), (*this)(3,4),
+				(*this)(4,1), (*this)(4,2), (*this)(4,3), (*this)(4,4) };
 	}
 
 	template<typename T>

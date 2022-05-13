@@ -1,6 +1,7 @@
 #pragma once
 #include "State.h"
 #include "InputObserver.h"
+#include "Hud.h"
 
 class GameState : public State , public Input::InputObserver
 {
@@ -13,4 +14,5 @@ public:
 	void RecieveEvent(const Input::eInputEvent aEvent, const float aValue) override;
 
 private:
+	Hud myHud;
 };

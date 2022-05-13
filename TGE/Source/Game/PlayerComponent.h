@@ -2,7 +2,6 @@
 #include "InputObserver.h"
 #include "InputMapperEvents.h"
 #include "Component.h"
-#include "SoundEngine-FMod/SoundEngine.h"
 
 
 class PlayerComponent : public Component, Input::InputObserver
@@ -11,7 +10,7 @@ public:
 	PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed);
 	void OnUpdate(float aDT) override;
 	void Movement(float aDT);
-	void Attack(float aDT);
+	void Attack();
 
 	void PickupHealing();
 
@@ -35,7 +34,8 @@ public:
 
 	void OnCollisionEnter(GameObject* aOther) override;
 
-	void TakeDamedg(int aDamedg);
+	void OnDeath();
+	void TakeDamage(int someDamage);
 
 
 
@@ -43,11 +43,11 @@ public:
 private:
 	int myMaxHp = 5;
 	int myMaxHealing = 3;
+	int myMaxAttacks = 3;
 	float myDashTime = 0.1f;
 	float myHealingTime = 0.1f;
 	float myAttackTime = 0.1f;
 	float myGravity = 10.0f;
-	int myMaxAttacks = 3;
 	float mySpeed = 0.5f;
 	float myDashSpeed = 3.0f;
 
@@ -67,8 +67,7 @@ private:
 	int myHp = myMaxHp;
 	int myHealingItems = 0;
 
-	//Sound
-	SoundEventInstanceHandle myDashSound;
-	SoundEventInstanceHandle myWalkSound;
+	//Audio
+	class AudioComponent* myAudioComponent = nullptr;
 };
 

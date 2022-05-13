@@ -46,15 +46,12 @@ project "External"
 		--?? on these, spine part of assimp?
 		"spine/include/",
 		"vld",
-		"fmod/studio/inc/",
-		"fmod/core/inc/",
-		"SoundEngine-FMod/"
+		"FMOD/include/"
 	}
 
 	libdirs {
 		"Lib/",
-		"fmod/studio/lib/x64/",
-		"fmod/core/lib/x64/"
+		"FMOD/lib/"
 	}
 
 	defines {"_CONSOLE"}

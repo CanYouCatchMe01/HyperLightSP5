@@ -10,7 +10,6 @@
 #include "SceneManager.h"
 #include "MainMenuState.h"
 #include "GameState.h"
-#include "SoundEngine-FMod/SoundEngine.h"
 #ifdef _DEBUG
 #include "BaseDebugger.h"
 #endif // _DEBUG
@@ -25,26 +24,11 @@ GameWorld::~GameWorld()
 
 void GameWorld::Init(HWND aHWND)  
 {
-	//Audio
-	SoundEngine::Init("");
-	bool ok = false;
-	ok = SoundEngine::LoadBank("Assets/FMODBank/Master.strings.bank", 0);
-	ok = SoundEngine::LoadBank("Assets/FMODBank/Master.bank", 0);
-
-	SoundEngine::RegisterAllEvents();
-
-
-
-
 	myPollingStation = new PollingStation;
 	myPollingStation->Init(aHWND);
 
 	myStateStack.Init(myPollingStation);
 	myStateStack.PushState(new MainMenuState(myStateStack, myPollingStation));
-
-	
-
-
 }
 
 void GameWorld::Update(float aTimeDelta)
@@ -55,7 +39,7 @@ void GameWorld::Update(float aTimeDelta)
 
 
 	myStateStack.UpdateState(aTimeDelta);
-	SoundEngine::Update();
+	myPollingStation->Update();
 }
 
 void GameWorld::Render()

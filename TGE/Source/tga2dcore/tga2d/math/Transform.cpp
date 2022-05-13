@@ -3,6 +3,11 @@
 
 using namespace Tga2D;
 
+Tga2D::Transform::Transform(Tga2D::Matrix4x4f& aMatrix)
+{
+	aMatrix.DecomposeMatrix(myPosition, myRotation, myScale);
+}
+
 Transform::Transform(Vector3f somePosition, Rotator someRotation, Vector3f someScale) : myPosition(somePosition),
 	myRotation(someRotation), myScale(someScale)
 {
@@ -21,7 +26,7 @@ void Transform::SetPosition(Vector3f somePosition)
 
 void Transform::SetRotation(Rotator someRotation)
 {
-	myRotation.Roll = fmod(-someRotation.Roll, 360.0f);
+	myRotation.Roll = fmod(someRotation.Roll, 360.0f);
 	if (myRotation.Roll > 180)
 		myRotation.Roll -= 360;
 	else if (myRotation.Roll < -180)
@@ -33,7 +38,7 @@ void Transform::SetRotation(Rotator someRotation)
 	else if (myRotation.Pitch < -180)
 		myRotation.Pitch += 360;
 
-	myRotation.Yaw = fmod(-someRotation.Yaw, 360.0f);
+	myRotation.Yaw = fmod(someRotation.Yaw, 360.0f);
 	if (myRotation.Yaw > 180)
 		myRotation.Yaw -= 360;
 	else if (myRotation.Yaw < -180)

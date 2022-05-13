@@ -18,7 +18,7 @@ RenderTarget RenderTarget::Create(Vector2ui aSize, DXGI_FORMAT aFormat)
 	desc.MipLevels = 1;
 	desc.ArraySize = 1;
 	desc.Format = aFormat;
-	desc.SampleDesc.Count = 1;
+	desc.SampleDesc.Count = 8;
 	desc.SampleDesc.Quality = 0;
 	desc.Usage = D3D11_USAGE_DEFAULT;
 	desc.BindFlags = D3D11_BIND_RENDER_TARGET | D3D11_BIND_SHADER_RESOURCE;

@@ -31,5 +31,4 @@ private:
 	bool myCameraMove = false;
 	Tga2D::Camera* const myCamera;
 	Tga2D::Vector3f myCameraOffset = {0.f,1.f,-10.f};
-
 };

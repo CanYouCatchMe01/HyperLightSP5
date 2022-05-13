@@ -87,9 +87,9 @@ void MainMenuState::RecieveEvent(const Input::eInputEvent aEvent, const float /*
 						myButtons[0]->SetState(eState::Selected);
 						mySelectedType = myButtons[0]->GetType();
 					}
+					//play sound here
 
 					return;
-
 				}
 			}
 			break;
@@ -111,6 +111,8 @@ void MainMenuState::RecieveEvent(const Input::eInputEvent aEvent, const float /*
 						myButtons[myButtons.size() - 1]->SetState(eState::Selected);
 						mySelectedType = myButtons[myButtons.size() - 1]->GetType();
 					}
+					//play sound here
+
 					return;
 				}
 			}

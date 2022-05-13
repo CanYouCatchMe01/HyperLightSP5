@@ -1,6 +1,7 @@
 #pragma once
 #include "PollingStation.h"
 #include "StateStack.h"
+#include "AudioManager.h"
 
 namespace Tga2D
 {

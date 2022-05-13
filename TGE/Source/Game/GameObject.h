@@ -33,7 +33,7 @@ public:
 	void OnStart();
 
 	template <typename ComponentType, typename... Args>
-	ComponentType* AddComponent(Args... args)
+	ComponentType* AddComponent(Args&&... args)
 	{
 		ComponentType* c = new ComponentType(args...);
 		c->myTransform = &myTransform;

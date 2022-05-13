@@ -715,7 +715,7 @@ ModelInstancer ModelFactory::GetModelInstancer(const std::wstring& someFilePath)
     return MI;
 }
 
-AnimatedModelInstance ModelFactory::GetAnimatedModel(const std::wstring& someFilePath)
+AnimatedModelInstance ModelFactory::GetAnimatedModel(const std::wstring& someFilePath, std::wstring* someTexturePaths)
 {
     // This needs to be moved to separate memory structures at some point.
     AnimatedModelInstance MI;
@@ -726,7 +726,14 @@ AnimatedModelInstance ModelFactory::GetAnimatedModel(const std::wstring& someFil
 
     MI.Init(Mdl);
 
-    AssignMaterials(someFilePath, Mdl.get(), MI);
+    if (someTexturePaths != nullptr)
+    {
+        AssignCustomMaterials(someTexturePaths, Mdl.get(), MI);
+    }
+    else
+    {
+        AssignMaterials(someFilePath, Mdl.get(), MI);
+    }
 
     return MI;
 }

@@ -78,7 +78,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_DEBUG;WIN32;_LIB;TGE_SYSTEM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Source\tga2dcore;..\Source\External;..\Source\External\SoundEngine-FMod;..\Source\External\fmod\studio\inc;..\Source\External\fmod\core\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Source\tga2dcore;..\Source\External;..\Source\External\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -92,7 +92,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\Lib;..\Source\External\fmod\studio\lib\x64;..\Source\External\fmod\core\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Lib;..\Source\External\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -102,7 +102,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_RELEASE;WIN32;_LIB;TGE_SYSTEM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Source\tga2dcore;..\Source\External;..\Source\External\SoundEngine-FMod;..\Source\External\fmod\studio\inc;..\Source\External\fmod\core\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Source\tga2dcore;..\Source\External;..\Source\External\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -121,7 +121,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\Lib;..\Source\External\fmod\studio\lib\x64;..\Source\External\fmod\core\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Lib;..\Source\External\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">
@@ -131,7 +131,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_RETAIL;WIN32;_LIB;TGE_SYSTEM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Source\tga2dcore;..\Source\External;..\Source\External\SoundEngine-FMod;..\Source\External\fmod\studio\inc;..\Source\External\fmod\core\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Source\tga2dcore;..\Source\External;..\Source\External\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -150,30 +150,34 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>..\Lib;..\Source\External\fmod\studio\lib\x64;..\Source\External\fmod\core\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Lib;..\Source\External\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Source\Game\ChargeEnemy.h" />
-    <ClInclude Include="..\Source\Game\EnemyComponent.h" />
+    <ClInclude Include="..\Source\Game\AnimatedMeshComponent.h" />
+    <ClInclude Include="..\Source\Game\AudioComponent.h" />
+    <ClInclude Include="..\Source\Game\AudioManager.h" />
     <ClInclude Include="..\Source\Game\BaseDebugger.h" />
     <ClInclude Include="..\Source\Game\BoxColliderComponent.h" />
     <ClInclude Include="..\Source\Game\BulletComponent.h" />
     <ClInclude Include="..\Source\Game\Button.h" />
     <ClInclude Include="..\Source\Game\CameraComponent.h" />
+    <ClInclude Include="..\Source\Game\ChargeEnemy.h" />
     <ClInclude Include="..\Source\Game\CollisionManager.h" />
     <ClInclude Include="..\Source\Game\Component.h" />
     <ClInclude Include="..\Source\Game\ComponentDebugger.h" />
     <ClInclude Include="..\Source\Game\Converter.h" />
     <ClInclude Include="..\Source\Game\CreditsState.h" />
     <ClInclude Include="..\Source\Game\DebugObserver.h" />
+    <ClInclude Include="..\Source\Game\EnemyComponent.h" />
     <ClInclude Include="..\Source\Game\FluteEnemy.h" />
-    <ClInclude Include="..\Source\Game\MeleeEnemy.h" />
     <ClInclude Include="..\Source\Game\Game.h" />
     <ClInclude Include="..\Source\Game\GameObject.h" />
     <ClInclude Include="..\Source\Game\GameState.h" />
     <ClInclude Include="..\Source\Game\GameWorld.h" />
     <ClInclude Include="..\Source\Game\Gamepad.h" />
+    <ClInclude Include="..\Source\Game\Hud.h" />
+    <ClInclude Include="..\Source\Game\GuitarComponent.h" />
     <ClInclude Include="..\Source\Game\InputHandler.h" />
     <ClInclude Include="..\Source\Game\InputManager.h" />
     <ClInclude Include="..\Source\Game\InputMapper.h" />
@@ -187,6 +191,7 @@
     <ClInclude Include="..\Source\Game\PauseMenuState.h" />
     <ClInclude Include="..\Source\Game\PlayerComponent.h" />
     <ClInclude Include="..\Source\Game\PollingStation.h" />
+    <ClInclude Include="..\Source\Game\PopcornEnemy.h" />
     <ClInclude Include="..\Source\Game\Postmaster.h" />
     <ClInclude Include="..\Source\Game\RenderManager.h" />
     <ClInclude Include="..\Source\Game\RenderObjectManager.h" />
@@ -194,30 +199,35 @@
     <ClInclude Include="..\Source\Game\SceneManager.h" />
     <ClInclude Include="..\Source\Game\State.h" />
     <ClInclude Include="..\Source\Game\StateStack.h" />
+    <ClInclude Include="..\Source\Game\UIElement.h" />
     <ClInclude Include="..\Source\Game\UnityLoader.h" />
     <ClInclude Include="..\Source\Game\resource.h" />
     <ClInclude Include="..\Source\Game\stdafx.h" />
     <ClInclude Include="..\Source\Game\targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Source\Game\ChargeEnemy.cpp" />
-    <ClCompile Include="..\Source\Game\EnemyComponent.cpp" />
+    <ClCompile Include="..\Source\Game\AnimatedMeshComponent.cpp" />
+    <ClCompile Include="..\Source\Game\AudioComponent.cpp" />
+    <ClCompile Include="..\Source\Game\AudioManager.cpp" />
     <ClCompile Include="..\Source\Game\BaseDebugger.cpp" />
     <ClCompile Include="..\Source\Game\BoxColliderComponent.cpp" />
     <ClCompile Include="..\Source\Game\BulletComponent.cpp" />
     <ClCompile Include="..\Source\Game\Button.cpp" />
     <ClCompile Include="..\Source\Game\CameraComponent.cpp" />
+    <ClCompile Include="..\Source\Game\ChargeEnemy.cpp" />
     <ClCompile Include="..\Source\Game\CollisionManager.cpp" />
     <ClCompile Include="..\Source\Game\Component.cpp" />
     <ClCompile Include="..\Source\Game\ComponentDebugger.cpp" />
     <ClCompile Include="..\Source\Game\CreditsState.cpp" />
+    <ClCompile Include="..\Source\Game\EnemyComponent.cpp" />
     <ClCompile Include="..\Source\Game\FluteEnemy.cpp" />
-    <ClCompile Include="..\Source\Game\MeleeEnemy.cpp" />
     <ClCompile Include="..\Source\Game\Game.cpp" />
     <ClCompile Include="..\Source\Game\GameObject.cpp" />
     <ClCompile Include="..\Source\Game\GameState.cpp" />
     <ClCompile Include="..\Source\Game\GameWorld.cpp" />
     <ClCompile Include="..\Source\Game\Gamepad.cpp" />
+    <ClCompile Include="..\Source\Game\Hud.cpp" />
+    <ClCompile Include="..\Source\Game\GuitarComponent.cpp" />
     <ClCompile Include="..\Source\Game\InputHandler.cpp" />
     <ClCompile Include="..\Source\Game\InputManager.cpp" />
     <ClCompile Include="..\Source\Game\InputMapper.cpp" />
@@ -228,6 +238,7 @@
     <ClCompile Include="..\Source\Game\PauseMenuState.cpp" />
     <ClCompile Include="..\Source\Game\PlayerComponent.cpp" />
     <ClCompile Include="..\Source\Game\PollingStation.cpp" />
+    <ClCompile Include="..\Source\Game\PopcornEnemy.cpp" />
     <ClCompile Include="..\Source\Game\Postmaster.cpp" />
     <ClCompile Include="..\Source\Game\RenderManager.cpp" />
     <ClCompile Include="..\Source\Game\RenderObjectManager.cpp" />
@@ -235,6 +246,7 @@
     <ClCompile Include="..\Source\Game\SceneManager.cpp" />
     <ClCompile Include="..\Source\Game\State.cpp" />
     <ClCompile Include="..\Source\Game\StateStack.cpp" />
+    <ClCompile Include="..\Source\Game\UIElement.cpp" />
     <ClCompile Include="..\Source\Game\UnityLoader.cpp" />
     <ClCompile Include="..\Source\Game\stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

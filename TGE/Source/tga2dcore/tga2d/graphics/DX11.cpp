@@ -157,7 +157,7 @@ bool DX11::Init(WindowsWindow* aWindowHandler)
 	swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM_SRGB;
 	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 	swapChainDesc.OutputWindow = myWindowHandler->GetWindowHandle();
-	swapChainDesc.SampleDesc.Count = 1;
+	swapChainDesc.SampleDesc.Count = 8;
 	swapChainDesc.Windowed = true;
 
 	UINT creationFlags = 0;
