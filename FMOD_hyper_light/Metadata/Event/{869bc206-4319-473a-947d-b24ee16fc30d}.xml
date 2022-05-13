@@ -106,9 +106,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{f06264be-b3e8-447e-a0a6-c2832f1a1a9e}">
-		<property name="volume">
-			<value>-2</value>
-		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -170,7 +167,7 @@
 			<value>1150</value>
 		</property>
 		<property name="gain">
-			<value>-3</value>
+			<value>-5.5</value>
 		</property>
 		<property name="bandwidth">
 			<value>2.9000001</value>
