@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "GameState.h"
 #include "PollingStation.h"
+#include "Postmaster.h"
 #include "StateStack.h"
 #include "PauseMenuState.h"
 #include "SceneManager.h"
@@ -26,6 +27,15 @@ PopInfo GameState::Update(const float aDeltaTime)
     myIsActive = true;
 
     myPollingStation->mySceneManager->Update(aDeltaTime);
+ 
+    //to test sending of hurt message
+    if (GetAsyncKeyState('T'))
+    {
+        Message test = { this,eMessageType::ePlayerTookDMG };
+        test.aFloatValue = (float)20/(float)25;
+        myPollingStation->myPostmaster.get()->SendMsg(test);
+    }
+    
 
     return myPopInfo;
 }

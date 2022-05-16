@@ -1,10 +1,10 @@
 #pragma once
 #include "Component.h"
 
-class SceneLoaderComponent : public Component
+class TeleporterComponent : public Component
 {
 public:
-	SceneLoaderComponent(std::string aScene, std::string aCheckpointName);
+	TeleporterComponent(std::string aScene, std::string aCheckpointName);
 	void Load();
 	void OnAwake() override;
 	void OnStart() override;

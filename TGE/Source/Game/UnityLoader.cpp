@@ -17,7 +17,7 @@
 #include "BoxColliderComponent.h"
 #include "AnimatedMeshComponent.h"
 #include "MeleeComponent.h"
-#include "SceneLoaderComponent.h"
+#include "TeleporterComponent.h"
 #ifdef _DEBUG
 #include "BaseDebugger.h"
 #endif // _DEBUG
@@ -119,7 +119,7 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 		}
 		else if (type == "scene_loader")
 		{
-			gameObject->AddComponent<SceneLoaderComponent>(data["scene"], data["spawn_name"]);
+			gameObject->AddComponent<TeleporterComponent>(data["scene"], data["spawn_name"]);
 		}
 	}
 

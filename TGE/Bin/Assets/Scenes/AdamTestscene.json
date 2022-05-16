@@ -34,15 +34,15 @@
       "children": []
     },
     {
-      "name": "SceneLoader",
-      "tag": 10,
+      "name": "SpawnPoint",
+      "tag": 0,
       "layer": 0,
-      "is_static": true,
+      "is_static": false,
       "transform": {
         "position": {
-          "x": -8.846564,
-          "y": 3.05000019,
-          "z": -8.329296
+          "x": -2.49,
+          "y": 7.07,
+          "z": -8.45
         },
         "rotation": {
           "x": 0.0,
@@ -58,12 +58,38 @@
       },
       "components": [
         {
-          "type": "scene_loader",
+          "type": "spawn_point",
           "data": {
-            "scene": "AdamTestScene",
-            "spawn_name": "default"
+            "name": "tree"
           }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Teleporter",
+      "tag": 10,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -2.422637,
+          "y": 4.24,
+          "z": -14.4264269
         },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
         {
           "type": "box_collider",
           "data": {
@@ -78,6 +104,13 @@
               "y": 1.0,
               "z": 1.0
             }
+          }
+        },
+        {
+          "type": "teleporter",
+          "data": {
+            "scene": "AdamTestscene",
+            "spawnpoint": "tree"
           }
         }
       ],
@@ -616,7 +649,7 @@
       "transform": {
         "position": {
           "x": -3.84096718,
-          "y": 3.05000019,
+          "y": 4.0,
           "z": -13.72
         },
         "rotation": {

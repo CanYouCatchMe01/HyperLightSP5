@@ -5,6 +5,7 @@
 
 class Button;
 enum class eButtonType;
+enum class Channels;
 
 enum class eArrowIndex
 {
@@ -28,17 +29,26 @@ public:
 	void RecieveEvent(const Input::eInputEvent aEvent, const float aValue) override;
 	void Render() override;
 	void InvokeButton(eButtonType aType);
+	void VolumeChange(Channels aChannel, int aModulus);
 
 private:
-	std::vector<Tga2D::Vector2ui> myScreenResolutions;
-	int myScreenResIndex;
 	bool myShouldChangeScreenRes=false;
 	bool myFullScreen = false;
-	std::vector<Button> myButtons;
-	std::vector<Button> myArrows;
-	eButtonType mySelectedButton;
+	bool myShouldChangeVolume = false;
+
+	float myVolumeChangeSpeed;
+	float myVolumeTimer = 0;
+
+	int myScreenResIndex;
 	int mySelectedButtonIndex;
 	int mySelectedArrow = 100;
+
+	eButtonType mySelectedButton;
+
+	std::vector<Tga2D::Vector2ui> myScreenResolutions;
+	std::vector<Button> myButtons;
+	std::vector<Button> myArrows;
+
 	Tga2D::SpriteSharedData mySharedData;
 	Tga2D::Sprite2DInstanceData mySpriteInstance = {};
 };

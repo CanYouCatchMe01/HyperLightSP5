@@ -177,6 +177,7 @@
     <ClInclude Include="..\Source\Game\GameWorld.h" />
     <ClInclude Include="..\Source\Game\Gamepad.h" />
     <ClInclude Include="..\Source\Game\Hud.h" />
+    <ClInclude Include="..\Source\Game\MapState.h" />
     <ClInclude Include="..\Source\Game\MeleeComponent.h" />
     <ClInclude Include="..\Source\Game\InputHandler.h" />
     <ClInclude Include="..\Source\Game\InputManager.h" />
@@ -196,7 +197,7 @@
     <ClInclude Include="..\Source\Game\RenderManager.h" />
     <ClInclude Include="..\Source\Game\RenderObjectManager.h" />
     <ClInclude Include="..\Source\Game\Scene.h" />
-    <ClInclude Include="..\Source\Game\SceneLoaderComponent.h" />
+    <ClInclude Include="..\Source\Game\TeleporterComponent.h" />
     <ClInclude Include="..\Source\Game\SceneManager.h" />
     <ClInclude Include="..\Source\Game\State.h" />
     <ClInclude Include="..\Source\Game\StateStack.h" />
@@ -228,6 +229,7 @@
     <ClCompile Include="..\Source\Game\GameWorld.cpp" />
     <ClCompile Include="..\Source\Game\Gamepad.cpp" />
     <ClCompile Include="..\Source\Game\Hud.cpp" />
+    <ClCompile Include="..\Source\Game\MapState.cpp" />
     <ClCompile Include="..\Source\Game\MeleeComponent.cpp" />
     <ClCompile Include="..\Source\Game\InputHandler.cpp" />
     <ClCompile Include="..\Source\Game\InputManager.cpp" />
@@ -244,7 +246,7 @@
     <ClCompile Include="..\Source\Game\RenderManager.cpp" />
     <ClCompile Include="..\Source\Game\RenderObjectManager.cpp" />
     <ClCompile Include="..\Source\Game\Scene.cpp" />
-    <ClCompile Include="..\Source\Game\SceneLoaderComponent.cpp" />
+    <ClCompile Include="..\Source\Game\TeleporterComponent.cpp" />
     <ClCompile Include="..\Source\Game\SceneManager.cpp" />
     <ClCompile Include="..\Source\Game\State.cpp" />
     <ClCompile Include="..\Source\Game\StateStack.cpp" />

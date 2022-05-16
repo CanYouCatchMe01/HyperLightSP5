@@ -14,6 +14,7 @@ enum class eTag
 	charge,
 	flute,
 	sceneLoader,
+	teleporter,
 };
 enum class eLayer
 {

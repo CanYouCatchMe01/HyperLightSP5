@@ -61,6 +61,7 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	myButtons[2].SetText(std::to_string((int)(myPollingStation->myAudioManager.get()->GetVolume(Channels::Master) * 100)));
 	myButtons[3].SetText(std::to_string((int)(myPollingStation->myAudioManager.get()->GetVolume(Channels::Music) * 100)));
 	myButtons[4].SetText(std::to_string((int)(myPollingStation->myAudioManager.get()->GetVolume(Channels::SFX) * 100)));
+	myVolumeChangeSpeed = .1f;
 }
 
 OptionsState::~OptionsState()
@@ -77,13 +78,36 @@ OptionsState::~OptionsState()
 void OptionsState::Init()
 {}
 
-PopInfo OptionsState::Update(const float /*aDeltaTime*/)
+PopInfo OptionsState::Update(const float aDeltaTime)
 {
 	if (!myIsActive)
 	{
 		myIsActive = true;
 	}
+	if (myShouldChangeVolume)
+	{
+		myVolumeTimer += aDeltaTime;
+		if (myVolumeChangeSpeed < myVolumeTimer)
+		{
+			myVolumeTimer = 0;
+			int index = mySelectedArrow % 2;
+			switch (mySelectedButton)
+			{
+			case eButtonType::MasterVol:
+				VolumeChange(Channels::Master, index);
+				break;
+			case eButtonType::MusicVol:
+				VolumeChange(Channels::Music, index);
+				break;
+			case eButtonType::SFXVol:
+				VolumeChange(Channels::SFX, index);
+				break;
+			default:
+				break;
+			}
+		}
 
+	}
 	if (myShouldChangeScreenRes)
 	{
 		Tga2D::Engine::GetInstance()->SetResolution(myScreenResolutions[myScreenResIndex], true);
@@ -117,13 +141,6 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 					myShouldChangeScreenRes = true;
 				}
 				break;
-			case eButtonType::MasterVol:
-				break;
-			case eButtonType::MusicVol:
-				break;
-			case eButtonType::SFXVol:
-				//play a sfx sound
-				break;
 			default:
 				break;
 			}
@@ -143,12 +160,6 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 					myShouldChangeScreenRes = true;
 				}
 				break;
-			case eButtonType::MasterVol:
-				break;
-			case eButtonType::MusicVol:
-				break;
-			case eButtonType::SFXVol:
-				break;
 			default:
 				break;
 			}
@@ -160,39 +171,53 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 	case Input::eInputEvent::eMenuLeft:
 		if (mySelectedButton == eButtonType::Resolution)
 		{
-			changeSettings((int)eArrowIndex::eResDown);
+			mySelectedArrow = (int)eArrowIndex::eResDown;
+			changeSettings(mySelectedArrow);
 		}
 		else if (mySelectedButton == eButtonType::MasterVol)
 		{
-			changeSettings((int)eArrowIndex::eMasterDown);
+			myShouldChangeVolume = true;
+			mySelectedArrow = (int)eArrowIndex::eMasterDown;
 		}
 		else if (mySelectedButton == eButtonType::MusicVol)
 		{
-			changeSettings((int)eArrowIndex::eMusicDown);
+			myShouldChangeVolume = true;
+			mySelectedArrow = (int)eArrowIndex::eMusicDown;
 		}
 		else if (mySelectedButton == eButtonType::SFXVol)
 		{
-			changeSettings((int)eArrowIndex::eSFXDown);
+			myShouldChangeVolume = true;
+			mySelectedArrow = (int)eArrowIndex::eSFXDown;
 		}
+		myArrows[(int)mySelectedArrow].SetState(eState::Selected);
+		if(mySelectedButton!=eButtonType::SFXVol)
+			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 		break;
 
 	case Input::eInputEvent::eMenuRight:
 		if (mySelectedButton == eButtonType::Resolution)
 		{
-			changeSettings((int)eArrowIndex::eResUp);
+			mySelectedArrow = (int)eArrowIndex::eResUp;
+			changeSettings(mySelectedArrow);
 		}
 		else if (mySelectedButton == eButtonType::MasterVol)
 		{
-			changeSettings((int)eArrowIndex::eMasterUp);
+			myShouldChangeVolume = true;
+			mySelectedArrow = (int)eArrowIndex::eMasterUp;
 		}
 		else if (mySelectedButton == eButtonType::MusicVol)
 		{
-			changeSettings((int)eArrowIndex::eMusicUp);
+			myShouldChangeVolume = true;
+			mySelectedArrow = (int)eArrowIndex::eMusicUp;
 		}
 		else if (mySelectedButton == eButtonType::SFXVol)
 		{
-			changeSettings((int)eArrowIndex::eSFXUp);
+			myShouldChangeVolume = true;
+			mySelectedArrow = (int)eArrowIndex::eSFXUp;
 		}
+		myArrows[(int)mySelectedArrow].SetState(eState::Selected);
+		if (mySelectedButton != eButtonType::SFXVol)
+			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 		break;
 
 	case Input::eInputEvent::eMenuDown:
@@ -206,15 +231,14 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 			{
 				mySelectedButtonIndex++;
 				myButtons[mySelectedButtonIndex].SetState(eState::Selected);
-				mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
 				
 			}
 			else
 			{
 				mySelectedButtonIndex = 0;
 				myButtons[mySelectedButtonIndex].SetState(eState::Selected);
-				mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
 			}
+			mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
 			myButtons[mySelectedButtonIndex].SetActiveColour();
 			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 			//play sound here
@@ -232,14 +256,13 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 			{
 				mySelectedButtonIndex--;
 				myButtons[mySelectedButtonIndex].SetState(eState::Selected);
-				mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
 			}
 			else
 			{
 				mySelectedButtonIndex = (int)myButtons.size() - 1;
 				myButtons[mySelectedButtonIndex].SetState(eState::Selected);
-				mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
 			}
+			mySelectedButton = myButtons[mySelectedButtonIndex].GetType();
 			myButtons[mySelectedButtonIndex].SetActiveColour();
 			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 			//play sound here
@@ -249,21 +272,29 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 	case Input::eInputEvent::eReleaseArrowUp:
 		if (mySelectedArrow < myArrows.size())
 			myArrows[mySelectedArrow].SetState(eState::None);
+		myShouldChangeVolume = false;
 		break;
 
 	case Input::eInputEvent::eReleaseArrowDown:
 		if (mySelectedArrow < myArrows.size())
 			myArrows[mySelectedArrow].SetState(eState::None);
+		myShouldChangeVolume = false;
 		break;
 
 	case Input::eInputEvent::eReleaseArrowRight:
 		if (mySelectedArrow < myArrows.size())
 			myArrows[mySelectedArrow].SetState(eState::None);
+		myShouldChangeVolume = false;
+		if (mySelectedButton == eButtonType::SFXVol)
+			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_player_attack);
 		break;
 
 	case Input::eInputEvent::eReleaseArrowLeft:
 		if (mySelectedArrow < myArrows.size())
 			myArrows[mySelectedArrow].SetState(eState::None);
+		myShouldChangeVolume = false;
+		if (mySelectedButton == eButtonType::SFXVol)
+			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_player_attack);
 		break;
 
 	case Input::eInputEvent::eSelect:
@@ -307,5 +338,28 @@ void OptionsState::InvokeButton(eButtonType aType)
 		break;
 	default:
 		break;
+	}
+}
+
+void OptionsState::VolumeChange(Channels aChannel, int aModulus)
+{
+	float volume = myPollingStation->myAudioManager.get()->GetVolume(aChannel) * 100;
+	if (aModulus == 0)//lower volume
+	{
+		volume--;
+		if (volume < 0)
+			volume = 0;
+
+		myPollingStation->myAudioManager.get()->SetChannelVolume(aChannel, volume / 100);
+		myButtons[mySelectedButtonIndex].SetText(std::to_string((int)volume));
+	}
+	else if (aModulus == 1)//raise volume
+	{
+		volume++;
+		if (volume > 100)
+			volume = 100;
+
+		myPollingStation->myAudioManager.get()->SetChannelVolume(aChannel, volume / 100);
+		myButtons[mySelectedButtonIndex].SetText(std::to_string((int)volume));
 	}
 }

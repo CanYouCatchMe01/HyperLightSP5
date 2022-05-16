@@ -162,6 +162,34 @@ class Converter
             result.Add("type", "animated_mesh");
             result.Add("data", ConvertToJSON((Animation)aComponent));
         }
+        else if (aComponent.GetType() == typeof(Teleporter))
+        {
+            result.Add("type", "teleporter");
+            result.Add("data", ConvertToJSON((Teleporter)aComponent));
+        }
+        else if (aComponent.GetType() == typeof(SpawnPoint))
+        {
+            result.Add("type", "spawn_point");
+            result.Add("data", ConvertToJSON((SpawnPoint)aComponent));
+        }
+
+        return result;
+    }
+
+    public static JObject ConvertToJSON(SpawnPoint aSpawnPoint)
+    {
+        JObject result = new JObject();
+
+        result.Add("name", aSpawnPoint.spawnPointName);
+
+        return result;
+    }
+    public static JObject ConvertToJSON(Teleporter aTeleporter)
+    {
+        JObject result = new JObject();
+
+        result.Add("scene", aTeleporter.sceneToLoad.name);
+        result.Add("spawnpoint", aTeleporter.spawnPointName);
 
         return result;
     }

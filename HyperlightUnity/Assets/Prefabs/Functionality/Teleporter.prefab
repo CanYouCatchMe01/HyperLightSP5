@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 731648698045254801}
-  - component: {fileID: 1249380604354261122}
   - component: {fileID: 2979404290112584956}
+  - component: {fileID: 500368710184326944}
   m_Layer: 0
-  m_Name: SceneLoader
-  m_TagString: sceneLoader
+  m_Name: Teleporter
+  m_TagString: teleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -32,36 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1249380604354261122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5421859228555147411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4207025edc3df8148a3dac71b4db0b36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myScriptName: scene_loader
-  myList:
-  - myVariableType: 2
-    myVariableName: scene
-    myInt: 0
-    myFloat: 0
-    myString: AdamTestScene
-    myVector3: {x: 0, y: 0, z: 0}
-    myBool: 0
-    myColor: {r: 1, g: 1, b: 1, a: 1}
-  - myVariableType: 2
-    myVariableName: spawn_name
-    myInt: 0
-    myFloat: 0
-    myString: default
-    myVector3: {x: 0, y: 0, z: 0}
-    myBool: 0
-    myColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!65 &2979404290112584956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -75,3 +45,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &500368710184326944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5421859228555147411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc13f2bf0a9eb0a42b778f1d6ab51280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: {fileID: 0}
+  spawnPointName: 

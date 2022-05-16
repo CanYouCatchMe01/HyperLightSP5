@@ -126,7 +126,12 @@
     <ClCompile Include="..\Source\Game\AudioComponent.cpp">
       <Filter>Code\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Game\SceneLoaderComponent.cpp" />
+    <ClCompile Include="..\Source\Game\MapState.cpp">
+      <Filter>Code\StateStack\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\TeleporterComponent.cpp">
+      <Filter>Code\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\Game\Observer.h">
@@ -275,8 +280,11 @@
     <ClInclude Include="..\Source\Game\AudioComponent.h">
       <Filter>Code\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Game\SceneLoaderComponent.h">
+    <ClInclude Include="..\Source\Game\TeleporterComponent.h">
       <Filter>Code\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\MapState.h">
+      <Filter>Code\StateStack\States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

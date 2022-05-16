@@ -34,6 +34,225 @@
       "children": []
     },
     {
+      "name": "pf_z2_ground03 (22)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 1.03951216,
+          "y": -0.36588192,
+          "z": -1.25474119
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_z2_ground3",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 1.03951216,
+              "y": -0.36588192,
+              "z": -1.25474119
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone2/z2_Ground/a_z2_ground_03.fbx",
+                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "Collider 3",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 1.03951216,
+              "y": -0.36588192,
+              "z": -1.25474119
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Cube",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 2.57551217,
+                  "y": 1.13471806,
+                  "z": -2.72074127
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.382683218,
+                  "z": 0.0,
+                  "w": 0.9238797
+                },
+                "scale": {
+                  "x": 4.244501,
+                  "y": 2.9860127,
+                  "z": 0.117968872
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "Cube (1)",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 2.53951216,
+                  "y": 1.13411808,
+                  "z": -1.25474119
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 0.1
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "Cube (2)",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 4.039512,
+                  "y": 1.13411808,
+                  "z": -2.75474119
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.7071068,
+                  "z": 0.0,
+                  "w": 0.7071068
+                },
+                "scale": {
+                  "x": 3.000001,
+                  "y": 3.0,
+                  "z": 0.100000031
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Directional Light",
       "tag": 0,
       "layer": 0,
