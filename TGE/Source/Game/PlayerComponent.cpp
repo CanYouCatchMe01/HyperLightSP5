@@ -5,6 +5,7 @@
 #include "EnemyComponent.h"
 #include "PopcornEnemy.h"
 #include "AudioComponent.h"
+#include "AudioManager.h"
 
 PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed)
 {
@@ -53,9 +54,11 @@ void PlayerComponent::Movement(float aDT)
 	//increasing the volume when the player is moving
 	if (myDir == Tga2D::Vector3f(0.0f, 0.0f, 0.0f))
 	{
+		myWalkSound->setVolume(0.0f);
 	}
 	else
 	{
+		myWalkSound->setVolume(1.0f);
 	}
 
 	if (myDir.Length() > 0)
@@ -71,6 +74,7 @@ void PlayerComponent::Movement(float aDT)
 	if (myDash)
 	{
 		SetPosition(GetPosition() + myDashDir * myDashSpeed * aDT);
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_dash);
 		return;
 	}
 	myDir.y = -myGravity/mySpeed;
@@ -85,7 +89,7 @@ void PlayerComponent::Attack()
 		myAttackTimer = 0.1f;
 		myAttack = true;
 		//do the attack
-		myAudioComponent->PlayEvent(FSPRO::Event::sfx_player_attack);
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_attack);
 	}
 }
 
@@ -150,16 +154,16 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 	switch (aEvent)
 	{
 	case Input::eInputEvent::eMoveDown:
-		myDir.z -= 1.0f;
+		myDir -= myTransform->GetMatrix().GetForward();
 		break;
 	case Input::eInputEvent::eMoveUp:
-		myDir.z += 1.0f;
+		myDir += myTransform->GetMatrix().GetForward();
 		break;
 	case Input::eInputEvent::eMoveRight:
-		myDir.x += 1.0f;
+		myDir += myTransform->GetMatrix().GetRight();
 		break;
 	case Input::eInputEvent::eMoveLeft:
-		myDir.x -= 1.0f;
+		myDir -= myTransform->GetMatrix().GetRight();
 		break;
 	case Input::eInputEvent::eAttack:
 		if (myAttackTimer < 0.0f && !myHealing)
@@ -216,24 +220,25 @@ void PlayerComponent::OnAwake()
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eHeal, this);
 
 	myAudioComponent = myGameObject->AddComponent<AudioComponent>();
+	myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_walk_jungle);
 }
 void PlayerComponent::OnStart()
 {
 }
 void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 {
-	if (aOther->tag == "popcorn")
+	if (aOther->tag == eTag::popcorn)
 	{
 		std::cout << "player took damage\n";
 		TakeDamage(aOther->GetComponent<PopcornEnemy>()->GetAttackDmg());
 		aOther->GetComponent<PopcornEnemy>()->myIsStunned = true;
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
 	}
 }
 
 void PlayerComponent::OnCollisionExit(GameObject* aOther)
 {
-	
-	if (aOther->tag == "popcorn")
+	if (aOther->tag == eTag::popcorn)
 	{
 		aOther->GetComponent<PopcornEnemy>()->myIsStunned = false;
 	}
@@ -247,6 +252,11 @@ void PlayerComponent::OnDeath()
 void PlayerComponent::TakeDamage(int someDamage)
 {
 	myHp -= someDamage;
+	Message takeDmgMessage;
+	takeDmgMessage.myMsg = eMessageType::ePlayerTookDMG;
+	takeDmgMessage.aFloatValue = (float)myHp / (float)myMaxHp;
+	myPollingStation->myPostmaster->SendMsg(takeDmgMessage);
+
 	/*SoundEngine::PlayEvent(takeDamageSound?);*/
 	if (myHp <= 0) { OnDeath(); }
 	//chekded

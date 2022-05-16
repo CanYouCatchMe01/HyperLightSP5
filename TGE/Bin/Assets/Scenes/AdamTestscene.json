@@ -2,7 +2,8 @@
   "gameObjects": [
     {
       "name": "Main Camera",
-      "tag": "MainCamera",
+      "tag": 4,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -33,8 +34,215 @@
       "children": []
     },
     {
+      "name": "SceneLoader",
+      "tag": 10,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -8.846564,
+          "y": 3.05000019,
+          "z": -8.329296
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "scene_loader",
+          "data": {
+            "scene": "AdamTestScene",
+            "spawn_name": "default"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_oilBarrel",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -7.6898284,
+          "y": 3.07,
+          "z": -17.46
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_oilBarrel.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": -7.4505806E-08,
+              "y": 0.485316038,
+              "z": -2.98023224E-08
+            },
+            "size": {
+              "x": 0.5596143,
+              "y": 0.9706322,
+              "z": 0.5884132
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_crate_M",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -1.56,
+          "y": 3.05000019,
+          "z": -17.1656532
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_crate_M.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.5,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_crate_L",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -6.496806,
+          "y": 4.58501148,
+          "z": -15.8243523
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_crate_L.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.75,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.5,
+              "y": 1.5,
+              "z": 1.5
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "GameObject",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -76,7 +284,8 @@
     },
     {
       "name": "GameObject (1)",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -118,7 +327,8 @@
     },
     {
       "name": "a_z3_barrel_m",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -169,7 +379,8 @@
     },
     {
       "name": "a_z3_barrel_s",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -220,7 +431,8 @@
     },
     {
       "name": "a_z3_grass_s_many",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -255,7 +467,8 @@
     },
     {
       "name": "a_z3_TreeL",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -306,7 +519,8 @@
     },
     {
       "name": "Player",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -396,7 +610,8 @@
     },
     {
       "name": "a_z3_woodenStatue",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -447,7 +662,8 @@
     },
     {
       "name": "Directional Light",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -479,7 +695,8 @@
     },
     {
       "name": "Cube",
-      "tag": "Finish",
+      "tag": 2,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -530,13 +747,14 @@
     },
     {
       "name": "Cube (1)",
-      "tag": "Finish",
+      "tag": 2,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
           "x": 4.43,
           "y": 2.04,
-          "z": -12.79
+          "z": -12.75
         },
         "rotation": {
           "x": 0.0,
@@ -581,7 +799,8 @@
     },
     {
       "name": "Cube (2)",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -632,7 +851,8 @@
     },
     {
       "name": "Cube (4)",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -683,7 +903,8 @@
     },
     {
       "name": "Cube (5)",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -734,7 +955,8 @@
     },
     {
       "name": "Cube (6)",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -785,7 +1007,8 @@
     },
     {
       "name": "Slopecollider",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -826,8 +1049,61 @@
       "children": []
     },
     {
+      "name": "a_g_crate_M (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -1.875,
+          "y": 4.051,
+          "z": -17.1656532
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.23174791,
+          "z": 0.0,
+          "w": 0.9727759
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_crate_M.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.5,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "Cube (7)",
-      "tag": "Finish",
+      "tag": 2,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -869,99 +1145,6 @@
             "size": {
               "x": 1.0,
               "y": 1.0,
-              "z": 1.0
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "Slopecollider (1)",
-      "tag": "Untagged",
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -13.57,
-          "y": -2.13,
-          "z": -19.3
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.121869281,
-          "w": 0.9925462
-        },
-        "scale": {
-          "x": 12.4000006,
-          "y": 1.9400003,
-          "z": 2.81
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 1.0,
-              "y": 1.73,
-              "z": 1.0
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "Cube (8)",
-      "tag": "deathbox",
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -4.63,
-          "y": -5.1,
-          "z": -12.79
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 105.2,
-          "y": 6.76,
-          "z": 136.33
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 1.0,
-              "y": 0.99999994,
               "z": 1.0
             }
           }

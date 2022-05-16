@@ -7,13 +7,31 @@ using UnityEditor;
 
 class Converter
 {
+    public static int GetTagIndex(string aTag)
+    {
+        for (int i = 0; i < UnityEditorInternal.InternalEditorUtility.tags.Length; i++)
+        {
+            if (UnityEditorInternal.InternalEditorUtility.tags[i] == aTag)
+            {
+                return i;
+            }
+        }
+
+        Debug.LogError("Tag not found: " + aTag);
+        return 0; //return 0, so the TGE game will still run.
+    }
+    
     public static JObject ConvertToJSON(GameObject aGameObject)
     {
         JObject JGameObject = new JObject();
 
         //Every game object have the following properties
         JGameObject.Add("name", aGameObject.name);
-        JGameObject.Add("tag", aGameObject.tag);
+
+        //Get the tag index and layer index
+        JGameObject.Add("tag", GetTagIndex(aGameObject.tag));
+        JGameObject.Add("layer", aGameObject.layer);
+
         JGameObject.Add("is_static", aGameObject.isStatic);
         JGameObject.Add("transform", ConvertToJSON(aGameObject.transform));
 

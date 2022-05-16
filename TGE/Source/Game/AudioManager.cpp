@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "AudioManager.h"
-#include "../../Bin/Assets/FMOD/fmod_studio_guids.hpp"
 
 #ifdef _DEBUG
 	#include <exception>
@@ -56,8 +55,8 @@ void AudioManager::Init()
 	myContext.system->loadBankFile("Assets/FMOD/Master.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &myMasterBank);
 
 	myContext.system->getBusByID(&FSPRO::Bus::Master_Bus, &myChannels.at(Channels::Master));
-	myContext.system->getBusByID(&FSPRO::Bus::Musik, &myChannels.at(Channels::Music));
-	myContext.system->getBusByID(&FSPRO::Bus::FX, &myChannels.at(Channels::SFX));
+	myContext.system->getBusByID(&FSPRO::Bus::music, &myChannels.at(Channels::Music));
+	myContext.system->getBusByID(&FSPRO::Bus::sfx, &myChannels.at(Channels::SFX));
 
 	myChannels.at(Channels::Master)->setVolume(1.0f);
 	myChannels.at(Channels::Music)->setVolume(0.5f);
@@ -90,8 +89,6 @@ void AudioManager::Update()
 void AudioManager::SetListenerTransform(const Tga2D::Transform& aTransform)
 {
 	myListenerTransform = &aTransform;
-	//myContext.system->setListenerAttributes(0, &myListenerAttributes);
-	//myContext.system->setListenerAttributes(0, &attrib);
 }
 
 void AudioManager::SetListenerTransform(const Tga2D::Transform* const aTransform)
@@ -99,19 +96,12 @@ void AudioManager::SetListenerTransform(const Tga2D::Transform* const aTransform
 	myListenerTransform = aTransform;
 }
 
-FMOD::Studio::EventInstance* AudioManager::PlayEvent(const FMOD_GUID anID, const bool /*aPlayOnce*/)
+FMOD::Studio::EventInstance* AudioManager::PlayEvent(const FMOD_GUID anID)
 {
-	FMOD::Studio::EventInstance* instance;
-	FMOD::Studio::EventDescription* eventDesc;
-	myContext.system->getEventByID(&anID, &eventDesc);
-	eventDesc->createInstance(&instance);
-
-	instance->start();
-	instance->release();
-	return instance;
+	return PlayEvent(anID, myListenerAttributes);
 }
 
-FMOD::Studio::EventInstance* AudioManager::PlayEvent(const FMOD_GUID anID, const FMOD_3D_ATTRIBUTES& a3Dattrib, const bool /*aPlayOnce*/)
+FMOD::Studio::EventInstance* AudioManager::PlayEvent(const FMOD_GUID anID, const FMOD_3D_ATTRIBUTES& a3Dattrib)
 {
 	FMOD::Studio::EventInstance* instance;
 	FMOD::Studio::EventDescription* eventDesc;

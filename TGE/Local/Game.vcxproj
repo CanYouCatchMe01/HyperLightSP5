@@ -196,6 +196,7 @@
     <ClInclude Include="..\Source\Game\RenderManager.h" />
     <ClInclude Include="..\Source\Game\RenderObjectManager.h" />
     <ClInclude Include="..\Source\Game\Scene.h" />
+    <ClInclude Include="..\Source\Game\SceneLoaderComponent.h" />
     <ClInclude Include="..\Source\Game\SceneManager.h" />
     <ClInclude Include="..\Source\Game\State.h" />
     <ClInclude Include="..\Source\Game\StateStack.h" />
@@ -243,6 +244,7 @@
     <ClCompile Include="..\Source\Game\RenderManager.cpp" />
     <ClCompile Include="..\Source\Game\RenderObjectManager.cpp" />
     <ClCompile Include="..\Source\Game\Scene.cpp" />
+    <ClCompile Include="..\Source\Game\SceneLoaderComponent.cpp" />
     <ClCompile Include="..\Source\Game\SceneManager.cpp" />
     <ClCompile Include="..\Source\Game\State.cpp" />
     <ClCompile Include="..\Source\Game\StateStack.cpp" />

@@ -17,6 +17,7 @@
 #include "BoxColliderComponent.h"
 #include "AnimatedMeshComponent.h"
 #include "MeleeComponent.h"
+#include "SceneLoaderComponent.h"
 #ifdef _DEBUG
 #include "BaseDebugger.h"
 #endif // _DEBUG
@@ -53,7 +54,18 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 	GameObject* gameObject = new GameObject(aScene);
 
 	gameObject->name = aGameObject["name"];
-	gameObject->tag = aGameObject["tag"];
+
+	//Need try and catch for old scenes, that has a uses a "string", instead of an "int"
+	try
+	{
+		gameObject->tag = aGameObject["tag"].get<eTag>();
+		gameObject->layer = aGameObject["layer"].get<eLayer>();
+	}
+	catch (const std::exception&)
+	{
+		ERROR_PRINT("%s", "You need to re-export your scene! No tag or layer found in json");
+	}
+	
 	gameObject->myPollingStation = aScene->myPollingStation;
 
 	gameObject->GetTransform() = CreateTransform(aGameObject["transform"]);
@@ -104,6 +116,10 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 		else if (type == "weapon")
 		{
 			gameObject->AddComponent<MeleeComponent>();
+		}
+		else if (type == "scene_loader")
+		{
+			gameObject->AddComponent<SceneLoaderComponent>(data["scene"], data["spawn_name"]);
 		}
 	}
 

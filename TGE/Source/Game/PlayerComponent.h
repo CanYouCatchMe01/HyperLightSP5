@@ -2,6 +2,8 @@
 #include "InputObserver.h"
 #include "InputMapperEvents.h"
 #include "Component.h"
+#include "Postmaster.h"
+#include "fmod_studio.hpp"
 
 
 class PlayerComponent : public Component, Input::InputObserver
@@ -67,8 +69,11 @@ private:
 	int myAttacks = 0;
 	int myHp = myMaxHp;
 	int myHealingItems = 0;
-
+	
 	//Audio
 	class AudioComponent* myAudioComponent = nullptr;
+
+	//Save the walksound to increase and decrease the volume, when the player is moving
+	FMOD::Studio::EventInstance* myWalkSound = nullptr;
 };
 

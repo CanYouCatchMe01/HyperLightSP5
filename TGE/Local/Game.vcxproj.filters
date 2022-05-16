@@ -126,6 +126,7 @@
     <ClCompile Include="..\Source\Game\AudioComponent.cpp">
       <Filter>Code\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="..\Source\Game\SceneLoaderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\Game\Observer.h">
@@ -273,6 +274,9 @@
     </ClInclude>
     <ClInclude Include="..\Source\Game\AudioComponent.h">
       <Filter>Code\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\SceneLoaderComponent.h">
+      <Filter>Code\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

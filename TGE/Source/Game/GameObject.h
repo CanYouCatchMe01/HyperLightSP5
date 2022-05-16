@@ -7,6 +7,8 @@
 #include "DebugObserver.h"
 #endif // _DEBUG
 
+#include "../../Bin/Assets/TagsAndLayers.h"
+
 namespace CapNCrunch
 {
 	class UnityLoader;
@@ -102,5 +104,6 @@ private:
 #endif //_DEBUG
 public:
 	std::string name;
-	std::string tag;
+	eTag tag;
+	eLayer layer;
 };

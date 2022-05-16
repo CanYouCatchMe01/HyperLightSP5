@@ -2,7 +2,8 @@
   "gameObjects": [
     {
       "name": "Main Camera",
-      "tag": "MainCamera",
+      "tag": 4,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -34,7 +35,8 @@
     },
     {
       "name": "a_z3_barrel_m",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -85,7 +87,8 @@
     },
     {
       "name": "a_z1_ground5",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -120,7 +123,8 @@
     },
     {
       "name": "a_z3_woodenStatue",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -144,7 +148,7 @@
         {
           "type": "mesh",
           "data": {
-            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue.fbx",
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_s.fbx",
             "albedo": "",
             "normal": "",
             "reflective": ""
@@ -171,7 +175,8 @@
     },
     {
       "name": "Player",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -261,7 +266,8 @@
     },
     {
       "name": "a_z3_barrel_s",
-      "tag": "popcorn",
+      "tag": 7,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -308,17 +314,6 @@
           }
         },
         {
-          "type": "popcorn_enemy",
-          "data": {
-            "max_hp": 5,
-            "speed": 5.0,
-            "attack_speed": 2.0,
-            "detection_radius": 5.0,
-            "idle_speed": 2.0,
-            "attack_damage": 1
-          }
-        },
-        {
           "type": "box_collider",
           "data": {
             "is_trigger": true,
@@ -333,13 +328,25 @@
               "z": 1.00109863
             }
           }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 5,
+            "speed": 5.0,
+            "attack_speed": 2.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1
+          }
         }
       ],
       "children": []
     },
     {
       "name": "a_z3_grass_s_many",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -374,7 +381,8 @@
     },
     {
       "name": "a_z3_TreeL",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -425,7 +433,8 @@
     },
     {
       "name": "Directional Light",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -457,7 +466,8 @@
     },
     {
       "name": "Cube",
-      "tag": "Finish",
+      "tag": 2,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -508,7 +518,8 @@
     },
     {
       "name": "Cube (1)",
-      "tag": "Finish",
+      "tag": 2,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -559,7 +570,8 @@
     },
     {
       "name": "Cube (2)",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -610,7 +622,8 @@
     },
     {
       "name": "Cube (4)",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -661,7 +674,8 @@
     },
     {
       "name": "Cube (5)",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -712,7 +726,8 @@
     },
     {
       "name": "Cube (6)",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
@@ -763,7 +778,8 @@
     },
     {
       "name": "Slopecollider",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {

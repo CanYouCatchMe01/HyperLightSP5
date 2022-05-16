@@ -6,12 +6,10 @@
 
 AudioComponent::~AudioComponent()
 {
-	Stop();
 }
 
 void AudioComponent::OnAwake()
 {
-	myEventInstance = nullptr;
 }
 
 void AudioComponent::OnStart()
@@ -19,6 +17,25 @@ void AudioComponent::OnStart()
 
 void AudioComponent::OnUpdate(const float /*aDeltaTime*/)
 {
+	//Loop through all the events and delete the ones that are finished
+	for (int i = 0; i < myEventInstances.size(); i++)
+	{
+		FMOD_STUDIO_PLAYBACK_STATE state;
+		myEventInstances[i]->getPlaybackState(&state);
+
+		if (state == FMOD_STUDIO_PLAYBACK_STATE::FMOD_STUDIO_PLAYBACK_STOPPED)
+		{
+			myEventInstances[i]->release();
+
+			//swap myEventInstances[i] with the last element
+			std::swap(myEventInstances[i], myEventInstances[myEventInstances.size() - 1]);
+
+			//pop the last element
+			myEventInstances.pop_back();
+		}
+	}
+	
+	//set the 3Dattribues
 	Tga2D::Vector3f forward, up;
 	forward = myTransform->GetMatrix().GetForward().GetNormalized();
 	up = myTransform->GetMatrix().GetUp().GetNormalized();
@@ -27,61 +44,15 @@ void AudioComponent::OnUpdate(const float /*aDeltaTime*/)
 	my3Dattributes.forward = { forward.x, forward.y, forward.z };
 	my3Dattributes.up = { up.x, up.y, up.z};
 
-	myEventInstance->set3DAttributes(&my3Dattributes);
-	//myEventInstance->getParameterByName("Health", &value);
+	for(auto& audioEvent : myEventInstances)
+	{
+		audioEvent->set3DAttributes(&my3Dattributes);
+	}
 }
 
-void AudioComponent::PlayEvent(FMOD_GUID aEvent, bool aStopPrevious)
+FMOD::Studio::EventInstance* AudioComponent::PlayEvent3D(FMOD_GUID aEvent)
 {
-	if (aStopPrevious && myEventInstance)
-	{
-		myEventInstance->stop( FMOD_STUDIO_STOP_ALLOWFADEOUT);
-	}
-
-	myEventInstance = myPollingStation->myAudioManager->PlayEvent(aEvent, my3Dattributes);
-}
-
-void AudioComponent::SetParameter(const char* aName, const float aValue)
-{
-	if (!myEventInstance)
-	{
-		return;
-	}
-	myEventInstance->setParameterByName(aName, aValue);
-}
-
-void AudioComponent::Stop()
-{
-	if (!myEventInstance)
-	{
-		return;
-	}
-	myEventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-}
-
-void AudioComponent::Pause()
-{
-	if (!myEventInstance)
-	{
-		return;
-	}
-	myEventInstance->setPaused(true);
-}
-
-void AudioComponent::Resume()
-{
-	if (!myEventInstance)
-	{
-		return;
-	}
-	myEventInstance->setPaused(false);
-}
-
-void AudioComponent::SetVolume(float aVolume)
-{
-	if (!myEventInstance)
-	{
-		return;
-	}
-	myEventInstance->setVolume(aVolume);
+	FMOD::Studio::EventInstance* audioEvent = myPollingStation->myAudioManager->PlayEvent(aEvent, my3Dattributes);
+	myEventInstances.push_back(audioEvent);
+	return audioEvent;
 }

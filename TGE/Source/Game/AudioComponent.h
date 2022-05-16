@@ -12,16 +12,9 @@ public:
 	void OnStart() override;
 	void OnUpdate(const float aDeltaTime) override;
 
-	void PlayEvent(FMOD_GUID aEvent, bool aStopPrevious=true);
-
-	void SetParameter(const char* aName, const float value);
-
-	void Stop();
-	void Pause();
-	void Resume();
-	void SetVolume(float aVolume);
+	FMOD::Studio::EventInstance* PlayEvent3D(FMOD_GUID aEvent);
 
 private:
-	FMOD::Studio::EventInstance* myEventInstance;
+	std::vector<FMOD::Studio::EventInstance*> myEventInstances;
 	FMOD_3D_ATTRIBUTES my3Dattributes;
 };

@@ -29,8 +29,11 @@ public:
 	void SetListenerTransform(const Tga2D::Transform& aTransform);
 	void SetListenerTransform(const Tga2D::Transform* const aTransform);
 
-	FMOD::Studio::EventInstance* PlayEvent(const FMOD_GUID aEventID, const bool aPlayOnce = false);
-	FMOD::Studio::EventInstance* PlayEvent(const FMOD_GUID anID, const FMOD_3D_ATTRIBUTES& a3Dattrib, const bool aPlayOnce = false);
+	//Play2D right by the listener
+	FMOD::Studio::EventInstance* PlayEvent(const FMOD_GUID aEventID);
+	
+	//Play3D
+	FMOD::Studio::EventInstance* PlayEvent(const FMOD_GUID anID, const FMOD_3D_ATTRIBUTES& a3Dattrib);
 	void StopEvent(const FMOD_GUID anID);
 	void StopAllEvents();
 	void PauseAllEvents();
