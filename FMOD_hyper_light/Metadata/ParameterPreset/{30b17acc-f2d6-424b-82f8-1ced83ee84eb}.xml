@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="ParameterPreset" id="{30b17acc-f2d6-424b-82f8-1ced83ee84eb}">
 		<property name="name">
-			<value>Badlands Parameter</value>
+			<value>Intensity</value>
 		</property>
 		<relationship name="folder">
 			<destination>{fe27b63e-83f1-4128-a90e-05c16583975a}</destination>

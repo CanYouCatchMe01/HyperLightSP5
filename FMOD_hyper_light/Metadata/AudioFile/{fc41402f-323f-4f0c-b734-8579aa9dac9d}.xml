@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fc41402f-323f-4f0c-b734-8579aa9dac9d}">
+		<property name="assetPath">
+			<value>Enemy Guitar Hit 2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.5985624999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8728dd84-aca8-44bb-8a96-e57a3ddbb506}</destination>
+		</relationship>
+	</object>
+</objects>

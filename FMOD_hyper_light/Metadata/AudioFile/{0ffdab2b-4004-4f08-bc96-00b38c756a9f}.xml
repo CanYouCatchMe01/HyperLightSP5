@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{0ffdab2b-4004-4f08-bc96-00b38c756a9f}">
 		<property name="assetPath">
-			<value>Great Wide Open_220514.wav - compshootout @ 48000 1.mp3</value>
+			<value>Music/Great Wide Open_220514.wav - compshootout @ 48000 1.mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
