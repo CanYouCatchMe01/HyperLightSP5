@@ -8,10 +8,10 @@
 #include "PollingStation.h"
 #include "Postmaster.h"
 
-UIElement::UIElement(Tga2D::Vector2f aPosition, eElementType anElementType, PollingStation* aPollingStation)
+UIElement::UIElement(Tga2D::Vector2f aPosition, eElementType anElementType, PollingStation* aPollingStation, Tga2D::Vector2f aSizeMultiplier)
 {
 	myPollingStation = aPollingStation;
-	myStartSizeMultiplier = { .4f,.2f };
+	myStartSizeMultiplier = aSizeMultiplier;
 	float healthBarFillVariable1 = 3.5f / myStartSizeMultiplier.x;
 	float healthBarFillVariable2 = (myStartSizeMultiplier.x) / (1.f / 3.f);
 	mySpriteInstance.mySizeMultiplier = myStartSizeMultiplier;

@@ -19,6 +19,7 @@ public:
 	std::unique_ptr<class BaseDebugger> myDebugger;
 #endif // _DEBUG
 	std::unique_ptr <class AudioManager> myAudioManager;
+	std::unique_ptr <class GameDataManager> myGameDataManager;
 
 private:
 

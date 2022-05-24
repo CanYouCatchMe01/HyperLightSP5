@@ -5,8 +5,8 @@
 
 Hud::Hud(PollingStation* aPollingStation)
 	:
-	myHealthBar({ 0.12f,0.1f }, eElementType::eHealthBar, aPollingStation),
-	myHealthKits({ 0.12f,0.1f }, eElementType::eHealthKit, aPollingStation)
+	myHealthBar({ 0.12f,0.1f }, eElementType::eHealthBar, aPollingStation, { .4f, .2f }),
+	myHealthKits({ 0.12f,0.1f }, eElementType::eHealthKit, aPollingStation, { .4f, .2f })
 {}
 
 Hud::~Hud()

@@ -38,8 +38,6 @@ private:
 		eExit
 	};
 
-	eCollisionState myCollisionState = eCollisionState::eNone;
-
 	bool myDrawHitbox = false;
 
 	Vector3 myLastPos;
@@ -54,4 +52,6 @@ private:
 	Tga2D::Transform myTransform;
 	SetOfNormals myNormals;
 	SetOfCorners myCorners;
+
+	std::unordered_map<GameObject*, eCollisionState> myCurrentlyColliding;
 };

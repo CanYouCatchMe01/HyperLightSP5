@@ -6,6 +6,7 @@
 #include "PauseMenuState.h"
 #include "SceneManager.h"
 #include "Hud.h"
+#include "MapState.h"
 #include <iostream>
 #include <tga2d/graphics/Camera.h>
 
@@ -13,31 +14,24 @@ GameState::GameState(StateStack& aStateStack, PollingStation* aPollingStation)
     :
     State(aStateStack, aPollingStation), myHud(aPollingStation)
 {
-    myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::ePause, this);
-    myPopInfo.myShouldPop = false;
+    SetPollingStation(aPollingStation);
+    myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eEscape, this);
+    myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMap, this);
 }
 
 GameState::~GameState()
 {
-    myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::ePause, this);
+    myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eEscape, this);
+    myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMap, this);
 }
 
-PopInfo GameState::Update(const float aDeltaTime)
+int GameState::Update(const float aDeltaTime)
 {
     myIsActive = true;
 
     myPollingStation->mySceneManager->Update(aDeltaTime);
- 
-    //to test sending of hurt message
-    if (GetAsyncKeyState('T'))
-    {
-        Message test = { this,eMessageType::ePlayerTookDMG };
-        test.aFloatValue = (float)20/(float)25;
-        myPollingStation->myPostmaster.get()->SendMsg(test);
-    }
-    
 
-    return myPopInfo;
+    return myNumberOfPops;
 }
 
 void GameState::Init()
@@ -57,10 +51,13 @@ void GameState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aVal
     {
         switch (aEvent)
         {
-        case Input::eInputEvent::ePause:
+        case Input::eInputEvent::eEscape:
             myStateStack.PushState(new PauseMenuState(myStateStack, myPollingStation));
             myIsActive = false;
             break;
+        case Input::eInputEvent::eMap:
+            myStateStack.PushState(new MapState(myStateStack, myPollingStation));
+            myIsActive = false;
         default:
             break;
         }

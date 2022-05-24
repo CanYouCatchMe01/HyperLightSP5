@@ -24,7 +24,7 @@ void CameraComponent::OnAwake()
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveUp, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveRight, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveDown, this);
-
+	SetPollingStation(myPollingStation);
 	myPollingStation->myAudioManager->SetListenerTransform(myTransform);
 }
 

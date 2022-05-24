@@ -99,9 +99,25 @@ class Converter
 
     public static JObject ConvertToJSON(Light aLight)
     {
-        JObject result = new JObject(
-            new JProperty("type", aLight.type)
-        );
+        JObject result = new JObject();
+        result.Add("type", (int)aLight.type);
+
+        switch (aLight.type)
+        {
+            case LightType.Directional:
+                {
+                    result.Add("color", ConvertToJSON(aLight.color));
+                    result.Add("intensity", aLight.intensity);
+                    break;
+                }
+            case LightType.Point:
+                {
+                    result.Add("color", ConvertToJSON(aLight.color));
+                    result.Add("intensity", aLight.intensity);
+                    result.Add("range", aLight.range);
+                    break;
+                }
+        }
 
         return result;
     }
@@ -172,10 +188,23 @@ class Converter
             result.Add("type", "spawn_point");
             result.Add("data", ConvertToJSON((SpawnPoint)aComponent));
         }
+        else if (aComponent.GetType() == typeof(CheckPoint))
+        {
+            result.Add("type", "check_point");
+            result.Add("data", ConvertToJSON((CheckPoint)aComponent));
+        }
 
         return result;
     }
+    public static JObject ConvertToJSON(CheckPoint aCheckPoint)
+    {
+        JObject result = new JObject();
 
+        result.Add("scene", aCheckPoint.spawnPointScene.name);
+        result.Add("name", aCheckPoint.spawnPointName);
+
+        return result;
+    }
     public static JObject ConvertToJSON(SpawnPoint aSpawnPoint)
     {
         JObject result = new JObject();

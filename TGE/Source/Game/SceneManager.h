@@ -15,10 +15,12 @@ public:
 	void Update(float aTimeDelta);
 	void Render();
 	void LoadScene(std::string aScenePath);
+	void LoadScene(std::string aScenePath, std::string aCheckPoint);
 	std::vector<class Scene*> myScenes;
 	std::vector<std::string> myScenePaths;
 	UnityLoader myUnityLoader;
 private:
 	RenderManager myRenderManager;
 	size_t myActiveScene = 0;
+	PollingStation* myPollingStation;
 };

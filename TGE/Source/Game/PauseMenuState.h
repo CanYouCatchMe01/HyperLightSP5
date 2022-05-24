@@ -11,7 +11,7 @@ class PauseMenuState : public State, public Input::InputObserver
 public:
 	PauseMenuState(StateStack& aStateStack, PollingStation* aPollingStation);
 	~PauseMenuState();
-	PopInfo Update(const float aDeltaTime);
+	int Update(const float aDeltaTime);
 	void Init();
 	void Render() override;
 	void InvokeButton(eButtonType aType);

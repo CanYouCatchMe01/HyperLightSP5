@@ -3,9 +3,9 @@
 #include "Scene.h"
 #include "PollingStation.h"
 
-SceneManager::SceneManager(PollingStation* aPollingStation) : myUnityLoader(aPollingStation)
+SceneManager::SceneManager(PollingStation* aPollingStation) : myUnityLoader(aPollingStation), myPollingStation(aPollingStation)
 {
-	LoadScene("ViktorTestScene");
+	LoadScene("AdamTestscene");
 
 	for (const auto& entry : std::filesystem::directory_iterator("Assets/Scenes"))
 	{
@@ -66,7 +66,22 @@ void SceneManager::Render()
 
 void SceneManager::LoadScene(std::string aScenePath)
 {
+	if (myScenes.size())
+		delete myScenes[myActiveScene];
+	
 	myScenes.push_back(myUnityLoader.CreateScene(aScenePath));
 	myActiveScene = myScenes.size() - 1;
 	myScenes[myActiveScene]->OnStart();
+}
+
+void SceneManager::LoadScene(std::string aScenePath, std::string aCheckPoint)
+{
+	if (myScenes.size())
+		delete myScenes[myActiveScene];
+
+	myScenes.push_back(myUnityLoader.CreateScene(aScenePath));
+	myActiveScene = myScenes.size() - 1;
+	myScenes[myActiveScene]->OnStart();
+	auto pos = myScenes[myActiveScene]->GetSpawnPointManager().GetSpawnPosition(aCheckPoint);
+	myPollingStation->myPlayer->GetTransform().SetPosition(pos);
 }

@@ -35,6 +35,9 @@ Scene::Scene(PollingStation* aPollingStation) : myPollingStation(aPollingStation
 Scene::~Scene()
 {
 	delete myDirectionalLight;
+
+	for (size_t i = 0; i < myGameObjects.size(); i++)
+		delete myGameObjects[i];
 }
 
 void Scene::Update(float aTimeDelta)
@@ -92,6 +95,11 @@ RenderObjectManager& Scene::GetRenderObjectManager()
 CollisionManager& Scene::GetCollisionManager()
 {
 	return myCollisionManager;
+}
+
+SpawnPointManager& Scene::GetSpawnPointManager()
+{
+	return mySpawnPointManager;
 }
 
 Tga2D::Camera& Scene::GetCamera()

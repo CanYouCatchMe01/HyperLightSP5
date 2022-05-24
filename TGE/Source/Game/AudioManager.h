@@ -31,14 +31,17 @@ public:
 
 	//Play2D right by the listener
 	FMOD::Studio::EventInstance* PlayEvent(const FMOD_GUID aEventID);
+	FMOD::Studio::EventInstance* PlayEvent(const char* anEvent);
 	
 	//Play3D
 	FMOD::Studio::EventInstance* PlayEvent(const FMOD_GUID anID, const FMOD_3D_ATTRIBUTES& a3Dattrib);
+	FMOD::Studio::EventInstance* PlayEvent(const char* anEvent, const FMOD_3D_ATTRIBUTES& a3Dattrib);
 	void StopEvent(const FMOD_GUID anID);
 	void StopAllEvents();
 	void PauseAllEvents();
 	void StartAllPausedEvents();
-	void SetLevelMusic(int aLevel, int aScene);
+	void SetMusic(const char* aMusicEvent);
+	void SetMusic(const FMOD_GUID anID);
 	FMOD::Studio::EventInstance* GetLevelMusic();
 	float GetVolume(const Channels aChannelID) const;
 	void SetChannelVolume(const Channels aChannelID, float aVolume);
@@ -47,25 +50,18 @@ public:
 	void UnmuteChannel(const Channels aChannelID);
 	void MuteAll();
 
-	inline bool GetFriday() { return myIsFriday; }
 private:
-	//AudioManager();
-	//~AudioManager();
 	AudioManager(const AudioManager&) = delete;
 	AudioManager operator=(const AudioManager&) = delete;
 private:
 
 	FMOD_3D_ATTRIBUTES myListenerAttributes;
 	Tga2D::Transform const* myListenerTransform;
-	FMOD::Studio::EventInstance* myLevelMusic;
-	int myCurrentLevel;
-	int myCurrentScene;
-
+	FMOD::Studio::EventInstance* myMusicInstance;
 
 	SoundContext myContext;
-	bool myIsFriday = false;
-	std::map<std::string, FMOD_GUID> mySounds;
 
 	std::map<Channels, FMOD::Studio::Bus*> myChannels;
 	FMOD::Studio::Bank* myMasterBank = nullptr;
+	FMOD::Studio::Bank* myMasterStringBank = nullptr;
 };

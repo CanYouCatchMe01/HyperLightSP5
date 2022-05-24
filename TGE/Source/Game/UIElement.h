@@ -7,13 +7,14 @@ class PollingStation;
 enum eElementType
 {
 	eHealthKit,
-	eHealthBar
+	eHealthBar,
+	eMapTeleporter
 };
 
 class UIElement : public Observer
 {
 public:
-	UIElement(Tga2D::Vector2f aPosition, eElementType anElementType, PollingStation* aPollingStation);
+	UIElement(Tga2D::Vector2f aPosition, eElementType anElementType, PollingStation* aPollingStation, Tga2D::Vector2f aSizeMultiplier);
 	~UIElement();
 	void Render();
 	void RecieveMsg(const Message& aMsg);

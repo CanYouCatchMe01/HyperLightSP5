@@ -118,31 +118,34 @@ bool OBB3D::Overlaps(float aMin1, float aMax1, float aMin2, float aMax2)
 
 void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
 {
+    if (!aOther.myIsTrigger)
+        return;
+
     if (aCollided && aOther.myIsTrigger)
     {
-        if (myCollisionState == eCollisionState::eNone)
+        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eNone)
         {
-            myCollisionState = eCollisionState::eEnter;
+            myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
             myParent->OnCollisionEnter(aOther.myParent);
             return;
         }
 
-        if (myCollisionState == eCollisionState::eEnter)
+        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eEnter)
         {
-            myCollisionState = eCollisionState::eStay;
+            myCurrentlyColliding[aOther.myParent] = eCollisionState::eStay;
             myParent->OnCollisionStay(aOther.myParent);
             return;
         }
 
-        if (myCollisionState == eCollisionState::eStay)
+        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eStay)
         {
             myParent->OnCollisionStay(aOther.myParent);
             return;
         }
 
-        if (myCollisionState == eCollisionState::eExit)
+        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eExit)
         {
-            myCollisionState = eCollisionState::eEnter;
+            myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
             myParent->OnCollisionEnter(aOther.myParent);
             return;
         }
@@ -150,17 +153,17 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
         return;
     }
 
-    if (aOther.myIsTrigger)
+    else if (!aCollided && aOther.myIsTrigger)
     {
-        if (myCollisionState == eCollisionState::eExit)
+        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eExit)
         {
-            myCollisionState = eCollisionState::eNone;
+            myCurrentlyColliding[aOther.myParent] = eCollisionState::eNone;
             return;
         }
 
-        if (myCollisionState != eCollisionState::eNone)
+        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eEnter || myCurrentlyColliding[aOther.myParent] == eCollisionState::eStay)
         {
-            myCollisionState = eCollisionState::eExit;
+            myCurrentlyColliding[aOther.myParent] = eCollisionState::eExit;
             myParent->OnCollisionExit(aOther.myParent);
         }
     }
@@ -214,8 +217,6 @@ void OBB3D::Calculate()
     );
 
     myTransform.SetScale(scale);
-
-    
 
     Vector3 up = myTransform.GetMatrix().GetUp() * mySize.y;
     Vector3 right = myTransform.GetMatrix().GetRight() * mySize.x;

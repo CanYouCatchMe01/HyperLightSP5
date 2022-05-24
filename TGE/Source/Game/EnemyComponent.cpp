@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "MeleeComponent.h"
 #include "PlayerComponent.h"
+#include "AudioComponent.h"
 
 EnemyComponent::EnemyComponent()
 {
@@ -14,6 +15,8 @@ void EnemyComponent::OnUpdate(float)
 
 void EnemyComponent::OnAwake()
 {
+	myAudioComponent = myGameObject->AddComponent<AudioComponent>();
+	myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_walk);
 }
 
 void EnemyComponent::OnStart()
@@ -25,6 +28,9 @@ void EnemyComponent::OnStart()
 
 void EnemyComponent::OnCollisionEnter(GameObject* aTrigger)
 {
+	if(aTrigger->GetComponent<PlayerComponent>()==nullptr)
+		return;
+
 	if (aTrigger->GetComponent<PlayerComponent>()->myAttack)
 	{
 		TakeDamage(aTrigger->GetComponent<MeleeComponent>()->myDamage);
@@ -60,6 +66,28 @@ Tga2D::Vector3f EnemyComponent::GetPosition()
 int EnemyComponent::GetAttackDmg()
 {
 	return myAttackDmg;
+}
+
+void EnemyComponent::StunEnemyForDuration(const float aDuration)
+{
+	aDuration;
+	// how does timer do.
+	// if timer dont?
+}
+
+bool EnemyComponent::IsStunned()
+{
+	return myIsStunned;
+}
+
+void EnemyComponent::StunEnemy()
+{
+	myIsStunned = true;
+}
+
+void EnemyComponent::AwakeEnemy()
+{
+	myIsStunned = false;
 }
 
 void EnemyComponent::IdleMovement(float aDt)
@@ -101,6 +129,7 @@ void EnemyComponent::IdleMovement(float aDt)
 	case 4:
 		// do nothing
 		SetPosition(GetPosition());
+		myWalkSound->setVolume(0.f);
 		break;
 	default:
 		break;

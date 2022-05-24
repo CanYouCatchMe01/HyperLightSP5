@@ -158,6 +158,7 @@ LRESULT CALLBACK WindowsWindow::WindowProc(HWND hWnd, UINT message, WPARAM wPara
 
 void Tga2D::WindowsWindow::SetResolution(Vector2ui aResolution)
 {
+	myResolution = aResolution;
 	::SetWindowPos(myWindowHandle, 0, 0, 0, aResolution.x, aResolution.y, SWP_NOMOVE | SWP_NOOWNERZORDER | SWP_NOZORDER);
 }
 

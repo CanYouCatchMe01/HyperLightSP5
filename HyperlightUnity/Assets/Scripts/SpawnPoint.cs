@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
+    [SerializeField] public string spawnPointName;
+    [SerializeField] public Color editorDrawColor = Color.cyan;
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.cyan;
+        Gizmos.color = editorDrawColor;
         Gizmos.DrawWireSphere(transform.position, 0.5f);
     }
 
-    [SerializeField] public string spawnPointName;
+    
 }

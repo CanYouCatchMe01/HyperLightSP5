@@ -24,6 +24,7 @@ void AudioManager::Init()
 #ifdef _DEBUG
 	//Copy .bank file
 	fs::copy_file("../../FMOD_hyper_light/Build/Desktop/Master.bank", "Assets/FMOD/Master.bank", fs::copy_options::overwrite_existing);
+	fs::copy_file("../../FMOD_hyper_light/Build/Desktop/Master.strings.bank", "Assets/FMOD/Master.strings.bank", fs::copy_options::overwrite_existing);
 	//Copy guids file
 	fs::copy_file("../../FMOD_hyper_light/fmod_studio_guids.hpp", "Assets/FMOD/fmod_studio_guids.hpp", fs::copy_options::overwrite_existing);
 #endif // _DEBUG
@@ -31,14 +32,6 @@ void AudioManager::Init()
 	myListenerAttributes = FMOD_3D_ATTRIBUTES();
 	myListenerAttributes.up = { 0,1,0 };
 	myListenerAttributes.forward = { 0,0,1 };
-
-	time_t now = time(0);
-	tm zone;
-	localtime_s(&zone, &now);
-	if (zone.tm_wday == 5)
-	{
-		myIsFriday = true;
-	}
 
 	myChannels.insert({ Channels::Master, nullptr });
 	myChannels.insert({ Channels::Music, nullptr });
@@ -53,18 +46,15 @@ void AudioManager::Init()
 	myContext.coreSystem->init(512, FMOD_INIT_NORMAL, 0);
 
 	myContext.system->loadBankFile("Assets/FMOD/Master.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &myMasterBank);
+	myContext.system->loadBankFile("Assets/FMOD/Master.strings.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &myMasterStringBank);
 
 	myContext.system->getBusByID(&FSPRO::Bus::Master_Bus, &myChannels.at(Channels::Master));
 	myContext.system->getBusByID(&FSPRO::Bus::music, &myChannels.at(Channels::Music));
 	myContext.system->getBusByID(&FSPRO::Bus::sfx, &myChannels.at(Channels::SFX));
 
 	myChannels.at(Channels::Master)->setVolume(1.0f);
-	myChannels.at(Channels::Music)->setVolume(0.5f);
-	myChannels.at(Channels::SFX)->setVolume(0.5f);
-
-	myLevelMusic = nullptr;
-	myCurrentLevel = 0;
-
+	myChannels.at(Channels::Music)->setVolume(1.0f);
+	myChannels.at(Channels::SFX)->setVolume(1.0f);
 }
 
 void AudioManager::Update()
@@ -101,11 +91,30 @@ FMOD::Studio::EventInstance* AudioManager::PlayEvent(const FMOD_GUID anID)
 	return PlayEvent(anID, myListenerAttributes);
 }
 
+FMOD::Studio::EventInstance* AudioManager::PlayEvent(const char* anEvent)
+{
+	return PlayEvent(anEvent, myListenerAttributes);
+}
+
 FMOD::Studio::EventInstance* AudioManager::PlayEvent(const FMOD_GUID anID, const FMOD_3D_ATTRIBUTES& a3Dattrib)
 {
 	FMOD::Studio::EventInstance* instance;
 	FMOD::Studio::EventDescription* eventDesc;
 	myContext.system->getEventByID(&anID, &eventDesc);
+	eventDesc->createInstance(&instance);
+
+	instance->set3DAttributes(&a3Dattrib);
+
+	instance->start();
+	instance->release();
+	return instance;
+}
+
+FMOD::Studio::EventInstance* AudioManager::PlayEvent(const char* anEvent, const FMOD_3D_ATTRIBUTES& a3Dattrib)
+{
+	FMOD::Studio::EventInstance* instance;
+	FMOD::Studio::EventDescription* eventDesc;
+	myContext.system->getEvent(anEvent, &eventDesc);
 	eventDesc->createInstance(&instance);
 
 	instance->set3DAttributes(&a3Dattrib);
@@ -145,67 +154,23 @@ void AudioManager::StartAllPausedEvents()
 }
 
 
-
-void AudioManager::SetLevelMusic(int aLevel, int aScene)
+void AudioManager::SetMusic(const char* aMusicEvent)
 {
-	if (myLevelMusic)
-	{
-		if (aLevel != myCurrentLevel || (myCurrentLevel == 1 && myCurrentScene == 1) || (aLevel == 1 && aScene == 1)
-			|| (aLevel == 4 && aScene == 4) || (myCurrentLevel == 4 && myCurrentScene == 4))
-			myLevelMusic->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-		else
-			return;
-	}
-	myCurrentLevel = aLevel;
-	myCurrentScene = aScene;
-	
-	//switch (aLevel)
-	//{
-	//case 0:
-	//	myLevelMusic = PlayEvent(FSPRO::Event::LevelMusic_MainMenu);
-	//	break;
-	//case 1:
-	//{
-	//	switch (aScene)
-	//	{
-	//	case 1:
-	//		myLevelMusic = PlayEvent(FSPRO::Event::LevelMusic_Level1Intro);
-	//		break;
-	//	default:
-	//		myLevelMusic = PlayEvent(FSPRO::Event::LevelMusic_Level1);
-	//		break;
-	//	}
-	//	break;
-	//}
-	//case 2:
-	//	myLevelMusic = PlayEvent(FSPRO::Event::LevelMusic_Level2);
-	//	break;
-	//case 3:
-	//	myLevelMusic = PlayEvent(FSPRO::Event::LevelMusic_Level3);
-	//	break;
-	//case 4:
-	//{
-	//	switch (aScene)
-	//	{
-	//	case 4:
-	//		myLevelMusic = PlayEvent(FSPRO::Event::LevelMusic_LevelOutro);
-	//		break;
-	//	default:
-	//		myLevelMusic = PlayEvent(FSPRO::Event::LevelMusic_Level4);
-	//		break;
-	//	}
-	//	break;
-	//}
-	//default:
-	//	myLevelMusic->stop(FMOD_STUDIO_STOP_MODE::FMOD_STUDIO_STOP_ALLOWFADEOUT);
-	//	break;
-	//}
+	myMusicInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+	myMusicInstance = PlayEvent(aMusicEvent);
+}
 
+void AudioManager::SetMusic(const FMOD_GUID anID)
+{
+	myMusicInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+	//myMusicInstance->setParameterByID(FMOD_studio_)
+	
+	myMusicInstance = PlayEvent(anID);
 }
 
 FMOD::Studio::EventInstance* AudioManager::GetLevelMusic()
 {
-	return myLevelMusic;
+	return myMusicInstance;
 }
 
 void AudioManager::SetChannelVolume(const Channels aChannelID, float aVolume)

@@ -1,4 +1,5 @@
 {
+  "name": "MarcusTestScene",
   "gameObjects": [
     {
       "name": "Main Camera",
@@ -253,37 +254,808 @@
       ]
     },
     {
-      "name": "Directional Light",
+      "name": "Player",
       "tag": 0,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": 0.0,
-          "y": 3.0,
-          "z": 0.0
+          "x": -37.9737358,
+          "y": 16.1303349,
+          "z": -24.5594368
         },
         "rotation": {
-          "x": 0.408217877,
-          "y": -0.234569684,
-          "z": 0.109381631,
-          "w": 0.8754261
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
         },
         "scale": {
           "x": 1.0,
           "y": 1.0,
-          "z": 0.99999994
+          "z": 1.0
         }
       },
-      "components": [
+      "components": [],
+      "children": [
         {
-          "type": "light",
-          "data": {
-            "type": 1
-          }
+          "name": "char_Hips",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": -37.9737358,
+              "y": 17.0312634,
+              "z": -24.5594368
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "char_LeftUpLeg",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": -38.11602,
+                  "y": 17.0060844,
+                  "z": -24.5894375
+                },
+                "rotation": {
+                  "x": 0.463802457,
+                  "y": 0.5337483,
+                  "z": 0.463802457,
+                  "w": 0.5337483
+                },
+                "scale": {
+                  "x": 0.99999994,
+                  "y": 0.99999994,
+                  "z": 1.0
+                }
+              },
+              "components": [],
+              "children": [
+                {
+                  "name": "char_LeftLeg",
+                  "tag": 0,
+                  "layer": 0,
+                  "is_static": false,
+                  "transform": {
+                    "position": {
+                      "x": -38.11602,
+                      "y": 16.5803356,
+                      "z": -24.5294361
+                    },
+                    "rotation": {
+                      "x": 0.5335077,
+                      "y": 0.464079171,
+                      "z": 0.5335077,
+                      "w": 0.464079171
+                    },
+                    "scale": {
+                      "x": 0.9999999,
+                      "y": 0.9999999,
+                      "z": 0.9999999
+                    }
+                  },
+                  "components": [],
+                  "children": [
+                    {
+                      "name": "char_LeftFoot",
+                      "tag": 0,
+                      "layer": 0,
+                      "is_static": false,
+                      "transform": {
+                        "position": {
+                          "x": -38.11602,
+                          "y": 16.22286,
+                          "z": -24.5794373
+                        },
+                        "rotation": {
+                          "x": 0.244058892,
+                          "y": 0.663652956,
+                          "z": 0.244058892,
+                          "w": 0.663652956
+                        },
+                        "scale": {
+                          "x": 1.0,
+                          "y": 1.0,
+                          "z": 1.0
+                        }
+                      },
+                      "components": [],
+                      "children": [
+                        {
+                          "name": "char_LeftToeBase",
+                          "tag": 0,
+                          "layer": 0,
+                          "is_static": false,
+                          "transform": {
+                            "position": {
+                              "x": -38.11602,
+                              "y": 16.1803341,
+                              "z": -24.5294361
+                            },
+                            "rotation": {
+                              "x": 0.0863966644,
+                              "y": 0.7018088,
+                              "z": 0.0863966644,
+                              "w": 0.7018088
+                            },
+                            "scale": {
+                              "x": 0.9999999,
+                              "y": 0.9999999,
+                              "z": 1.0
+                            }
+                          },
+                          "components": [],
+                          "children": [
+                            {
+                              "name": "char_LeftToeEnd",
+                              "tag": 0,
+                              "layer": 0,
+                              "is_static": false,
+                              "transform": {
+                                "position": {
+                                  "x": -38.11602,
+                                  "y": 16.1503353,
+                                  "z": -24.4094372
+                                },
+                                "rotation": {
+                                  "x": 5.96046448E-08,
+                                  "y": 0.0,
+                                  "z": 0.0,
+                                  "w": 1.0
+                                },
+                                "scale": {
+                                  "x": 1.0,
+                                  "y": 0.9999999,
+                                  "z": 0.9999999
+                                }
+                              },
+                              "components": [],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "char_RightUpLeg",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": -37.83145,
+                  "y": 17.0060844,
+                  "z": -24.5894375
+                },
+                "rotation": {
+                  "x": 0.5337483,
+                  "y": -0.463802457,
+                  "z": 0.5337483,
+                  "w": -0.463802457
+                },
+                "scale": {
+                  "x": 0.99999994,
+                  "y": 0.99999994,
+                  "z": 1.0
+                }
+              },
+              "components": [],
+              "children": [
+                {
+                  "name": "char_RightLeg",
+                  "tag": 0,
+                  "layer": 0,
+                  "is_static": false,
+                  "transform": {
+                    "position": {
+                      "x": -37.83145,
+                      "y": 16.5803356,
+                      "z": -24.5294361
+                    },
+                    "rotation": {
+                      "x": 0.464079171,
+                      "y": -0.5335077,
+                      "z": 0.464079171,
+                      "w": -0.5335077
+                    },
+                    "scale": {
+                      "x": 0.9999999,
+                      "y": 0.9999999,
+                      "z": 0.9999999
+                    }
+                  },
+                  "components": [],
+                  "children": [
+                    {
+                      "name": "char_RightFoot",
+                      "tag": 0,
+                      "layer": 0,
+                      "is_static": false,
+                      "transform": {
+                        "position": {
+                          "x": -37.83145,
+                          "y": 16.2228622,
+                          "z": -24.5794373
+                        },
+                        "rotation": {
+                          "x": 0.663652956,
+                          "y": -0.244058892,
+                          "z": 0.663652956,
+                          "w": -0.244058892
+                        },
+                        "scale": {
+                          "x": 1.0,
+                          "y": 1.0,
+                          "z": 1.0
+                        }
+                      },
+                      "components": [],
+                      "children": [
+                        {
+                          "name": "char_RightToeBase",
+                          "tag": 0,
+                          "layer": 0,
+                          "is_static": false,
+                          "transform": {
+                            "position": {
+                              "x": -37.83145,
+                              "y": 16.1803341,
+                              "z": -24.5294361
+                            },
+                            "rotation": {
+                              "x": 0.7018088,
+                              "y": -0.0863966644,
+                              "z": 0.7018088,
+                              "w": -0.0863966644
+                            },
+                            "scale": {
+                              "x": 0.9999999,
+                              "y": 0.9999999,
+                              "z": 1.0
+                            }
+                          },
+                          "components": [],
+                          "children": [
+                            {
+                              "name": "char_RightToeEnd",
+                              "tag": 0,
+                              "layer": 0,
+                              "is_static": false,
+                              "transform": {
+                                "position": {
+                                  "x": -37.83145,
+                                  "y": 16.1503353,
+                                  "z": -24.4094372
+                                },
+                                "rotation": {
+                                  "x": 1.0,
+                                  "y": 0.0,
+                                  "z": 0.0,
+                                  "w": -5.96046448E-08
+                                },
+                                "scale": {
+                                  "x": 1.0,
+                                  "y": 0.9999999,
+                                  "z": 0.9999999
+                                }
+                              },
+                              "components": [],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "char_Spine",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": -37.9737358,
+                  "y": 17.1612625,
+                  "z": -24.5594368
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [],
+              "children": [
+                {
+                  "name": "char_Spine1",
+                  "tag": 0,
+                  "layer": 0,
+                  "is_static": false,
+                  "transform": {
+                    "position": {
+                      "x": -37.9737358,
+                      "y": 17.2912636,
+                      "z": -24.5594368
+                    },
+                    "rotation": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0,
+                      "w": 1.0
+                    },
+                    "scale": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  },
+                  "components": [],
+                  "children": [
+                    {
+                      "name": "char_Spine2",
+                      "tag": 0,
+                      "layer": 0,
+                      "is_static": false,
+                      "transform": {
+                        "position": {
+                          "x": -37.9737358,
+                          "y": 17.4212627,
+                          "z": -24.5594368
+                        },
+                        "rotation": {
+                          "x": 0.0,
+                          "y": 0.0,
+                          "z": 0.0,
+                          "w": 1.0
+                        },
+                        "scale": {
+                          "x": 1.0,
+                          "y": 1.0,
+                          "z": 1.0
+                        }
+                      },
+                      "components": [],
+                      "children": [
+                        {
+                          "name": "char_Spine3",
+                          "tag": 0,
+                          "layer": 0,
+                          "is_static": false,
+                          "transform": {
+                            "position": {
+                              "x": -37.9737358,
+                              "y": 17.5512619,
+                              "z": -24.5594368
+                            },
+                            "rotation": {
+                              "x": 0.0,
+                              "y": 0.0,
+                              "z": 0.0,
+                              "w": 1.0
+                            },
+                            "scale": {
+                              "x": 1.0,
+                              "y": 1.0,
+                              "z": 1.0
+                            }
+                          },
+                          "components": [],
+                          "children": [
+                            {
+                              "name": "char_LeftShoulder",
+                              "tag": 0,
+                              "layer": 0,
+                              "is_static": false,
+                              "transform": {
+                                "position": {
+                                  "x": -38.03226,
+                                  "y": 17.5803356,
+                                  "z": -24.5094376
+                                },
+                                "rotation": {
+                                  "x": -0.011632015,
+                                  "y": -0.2563778,
+                                  "z": 0.043805927,
+                                  "w": 0.9655134
+                                },
+                                "scale": {
+                                  "x": 1.0,
+                                  "y": 0.99999994,
+                                  "z": 1.0
+                                }
+                              },
+                              "components": [],
+                              "children": [
+                                {
+                                  "name": "char_LeftArm",
+                                  "tag": 0,
+                                  "layer": 0,
+                                  "is_static": false,
+                                  "transform": {
+                                    "position": {
+                                      "x": -38.1197739,
+                                      "y": 17.57117,
+                                      "z": -24.5594368
+                                    },
+                                    "rotation": {
+                                      "x": -0.001596787,
+                                      "y": -0.00689736,
+                                      "z": 0.225535825,
+                                      "w": 0.97420913
+                                    },
+                                    "scale": {
+                                      "x": 0.99999994,
+                                      "y": 0.99999994,
+                                      "z": 1.0
+                                    }
+                                  },
+                                  "components": [],
+                                  "children": [
+                                    {
+                                      "name": "char_LeftForeArm",
+                                      "tag": 0,
+                                      "layer": 0,
+                                      "is_static": false,
+                                      "transform": {
+                                        "position": {
+                                          "x": -38.3202362,
+                                          "y": 17.4730873,
+                                          "z": -24.5622749
+                                        },
+                                        "rotation": {
+                                          "x": -0.00042437762,
+                                          "y": -0.00161206722,
+                                          "z": 0.25458163,
+                                          "w": 0.9670499
+                                        },
+                                        "scale": {
+                                          "x": 1.0,
+                                          "y": 1.00000012,
+                                          "z": 1.00000012
+                                        }
+                                      },
+                                      "components": [],
+                                      "children": [
+                                        {
+                                          "name": "char_LeftHand",
+                                          "tag": 0,
+                                          "layer": 0,
+                                          "is_static": false,
+                                          "transform": {
+                                            "position": {
+                                              "x": -38.54277,
+                                              "y": 17.3471928,
+                                              "z": -24.5630169
+                                            },
+                                            "rotation": {
+                                              "x": -0.0003029192,
+                                              "y": -0.00113816559,
+                                              "z": 0.2571986,
+                                              "w": 0.9663579
+                                            },
+                                            "scale": {
+                                              "x": 0.9999999,
+                                              "y": 1.0,
+                                              "z": 1.0
+                                            }
+                                          },
+                                          "components": [],
+                                          "children": [
+                                            {
+                                              "name": "char_LeftHandEnd",
+                                              "tag": 0,
+                                              "layer": 0,
+                                              "is_static": false,
+                                              "transform": {
+                                                "position": {
+                                                  "x": -38.6698151,
+                                                  "y": 17.2744122,
+                                                  "z": -24.5633163
+                                                },
+                                                "rotation": {
+                                                  "x": -1.02445483E-08,
+                                                  "y": -1.49011612E-08,
+                                                  "z": -9.778887E-09,
+                                                  "w": 1.00000012
+                                                },
+                                                "scale": {
+                                                  "x": 0.99999994,
+                                                  "y": 1.0,
+                                                  "z": 0.9999999
+                                                }
+                                              },
+                                              "components": [],
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "char_Neck",
+                              "tag": 0,
+                              "layer": 0,
+                              "is_static": false,
+                              "transform": {
+                                "position": {
+                                  "x": -37.9737358,
+                                  "y": 17.6303349,
+                                  "z": -24.5594368
+                                },
+                                "rotation": {
+                                  "x": 0.0,
+                                  "y": 0.0,
+                                  "z": 0.0,
+                                  "w": 1.0
+                                },
+                                "scale": {
+                                  "x": 1.0,
+                                  "y": 1.0,
+                                  "z": 1.0
+                                }
+                              },
+                              "components": [],
+                              "children": [
+                                {
+                                  "name": "char_Head",
+                                  "tag": 0,
+                                  "layer": 0,
+                                  "is_static": false,
+                                  "transform": {
+                                    "position": {
+                                      "x": -37.9737358,
+                                      "y": 17.7303352,
+                                      "z": -24.5594368
+                                    },
+                                    "rotation": {
+                                      "x": 0.0,
+                                      "y": 0.0,
+                                      "z": 0.0,
+                                      "w": 1.0
+                                    },
+                                    "scale": {
+                                      "x": 1.0,
+                                      "y": 1.0,
+                                      "z": 1.0
+                                    }
+                                  },
+                                  "components": [],
+                                  "children": [
+                                    {
+                                      "name": "char_HeadEnd",
+                                      "tag": 0,
+                                      "layer": 0,
+                                      "is_static": false,
+                                      "transform": {
+                                        "position": {
+                                          "x": -37.9737358,
+                                          "y": 17.9803352,
+                                          "z": -24.5594368
+                                        },
+                                        "rotation": {
+                                          "x": 0.0,
+                                          "y": 0.0,
+                                          "z": 0.0,
+                                          "w": 1.0
+                                        },
+                                        "scale": {
+                                          "x": 1.0,
+                                          "y": 1.0,
+                                          "z": 1.0
+                                        }
+                                      },
+                                      "components": [],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "char_RightShoulder",
+                              "tag": 0,
+                              "layer": 0,
+                              "is_static": false,
+                              "transform": {
+                                "position": {
+                                  "x": -37.91521,
+                                  "y": 17.5803356,
+                                  "z": -24.5094376
+                                },
+                                "rotation": {
+                                  "x": 0.9655134,
+                                  "y": -0.043805927,
+                                  "z": -0.2563778,
+                                  "w": 0.011632015
+                                },
+                                "scale": {
+                                  "x": 1.0,
+                                  "y": 0.99999994,
+                                  "z": 1.0
+                                }
+                              },
+                              "components": [],
+                              "children": [
+                                {
+                                  "name": "char_RightArm",
+                                  "tag": 0,
+                                  "layer": 0,
+                                  "is_static": false,
+                                  "transform": {
+                                    "position": {
+                                      "x": -37.8276978,
+                                      "y": 17.5711746,
+                                      "z": -24.5594368
+                                    },
+                                    "rotation": {
+                                      "x": 0.97420913,
+                                      "y": -0.225535825,
+                                      "z": -0.00689736,
+                                      "w": 0.001596788
+                                    },
+                                    "scale": {
+                                      "x": 0.99999994,
+                                      "y": 0.99999994,
+                                      "z": 1.0
+                                    }
+                                  },
+                                  "components": [],
+                                  "children": [
+                                    {
+                                      "name": "char_RightForeArm",
+                                      "tag": 0,
+                                      "layer": 0,
+                                      "is_static": false,
+                                      "transform": {
+                                        "position": {
+                                          "x": -37.6272354,
+                                          "y": 17.4730854,
+                                          "z": -24.5622749
+                                        },
+                                        "rotation": {
+                                          "x": 0.967049837,
+                                          "y": -0.2545816,
+                                          "z": -0.00161206722,
+                                          "w": 0.0004243804
+                                        },
+                                        "scale": {
+                                          "x": 0.99999994,
+                                          "y": 1.0,
+                                          "z": 0.9999999
+                                        }
+                                      },
+                                      "components": [],
+                                      "children": [
+                                        {
+                                          "name": "char_RightHand",
+                                          "tag": 0,
+                                          "layer": 0,
+                                          "is_static": false,
+                                          "transform": {
+                                            "position": {
+                                              "x": -37.4047,
+                                              "y": 17.3471947,
+                                              "z": -24.5630169
+                                            },
+                                            "rotation": {
+                                              "x": 0.966357946,
+                                              "y": -0.2571986,
+                                              "z": -0.00113816559,
+                                              "w": 0.000302921981
+                                            },
+                                            "scale": {
+                                              "x": 0.9999999,
+                                              "y": 1.00000036,
+                                              "z": 1.00000048
+                                            }
+                                          },
+                                          "components": [],
+                                          "children": [
+                                            {
+                                              "name": "char_RightHandEnd",
+                                              "tag": 0,
+                                              "layer": 0,
+                                              "is_static": false,
+                                              "transform": {
+                                                "position": {
+                                                  "x": -37.2776566,
+                                                  "y": 17.2744141,
+                                                  "z": -24.5633163
+                                                },
+                                                "rotation": {
+                                                  "x": 1.0,
+                                                  "y": 1.11758709E-08,
+                                                  "z": -1.49011612E-08,
+                                                  "w": 1.02445483E-08
+                                                },
+                                                "scale": {
+                                                  "x": 0.99999994,
+                                                  "y": 1.0,
+                                                  "z": 0.9999999
+                                                }
+                                              },
+                                              "components": [],
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Player",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": -37.9737358,
+              "y": 16.1303349,
+              "z": -24.5594368
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": []
         }
-      ],
-      "children": []
+      ]
     },
     {
       "name": "enHeltVanligKub",
@@ -358,21 +1130,61 @@
       "children": []
     },
     {
-      "name": "Player",
+      "name": "Directional Light",
       "tag": 0,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": 1.47,
-          "y": 1.77,
+          "x": 0.0,
+          "y": 3.0,
           "z": 0.0
         },
         "rotation": {
+          "x": 0.408217877,
+          "y": -0.234569684,
+          "z": 0.109381631,
+          "w": 0.8754261
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 0.956862748,
+              "b": 0.8392157,
+              "a": 1.0
+            },
+            "intensity": 1.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "BlockBlock2",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
           "x": 0.0,
+          "y": -10.02,
+          "z": 1.32
+        },
+        "rotation": {
+          "x": -0.529538,
           "y": 0.0,
           "z": 0.0,
-          "w": 1.0
+          "w": 0.8482863
         },
         "scale": {
           "x": 1.0,
@@ -384,39 +1196,10 @@
         {
           "type": "mesh",
           "data": {
-            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
-            "albedo": "",
+            "model": "Assets/Art/3D/Ground Blocks/Ground v1/BlockBlock2.fbx",
+            "albedo": "Assets/Art/3D/Ground Blocks/Ground v1/wangmap_c.dds",
             "normal": "",
             "reflective": ""
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 1.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 0.85,
-              "y": 1.64,
-              "z": 0.69
-            }
-          }
-        },
-        {
-          "type": "player",
-          "data": {
-            "max_hp": 5,
-            "max_healing": 3,
-            "max_attacks": 3,
-            "dash_time": 0.1,
-            "healing_time": 0.1,
-            "attack_time": 0.1,
-            "speed": 0.5,
-            "dash_speed": 3.0
           }
         }
       ],
@@ -473,21 +1256,21 @@
       "children": []
     },
     {
-      "name": "BlockBlock2",
+      "name": "HubMusic",
       "tag": 0,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
           "x": 0.0,
-          "y": -10.02,
-          "z": 1.32
+          "y": 0.0,
+          "z": 0.0
         },
         "rotation": {
-          "x": -0.529538,
+          "x": 0.0,
           "y": 0.0,
           "z": 0.0,
-          "w": 0.8482863
+          "w": 1.0
         },
         "scale": {
           "x": 1.0,
@@ -497,12 +1280,90 @@
       },
       "components": [
         {
-          "type": "mesh",
+          "type": "music_changer",
           "data": {
-            "model": "Assets/Art/3D/Ground Blocks/Ground v1/BlockBlock2.fbx",
-            "albedo": "Assets/Art/3D/Ground Blocks/Ground v1/wangmap_c.dds",
-            "normal": "",
-            "reflective": ""
+            "music_to_play": "event:/music/hub"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Directional Light (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.9304181,
+          "y": -0.06953009,
+          "z": 0.249304712,
+          "w": 0.259489864
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.00000024,
+          "z": 1.00000012
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 1.0
+            },
+            "intensity": 1.42
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Point Light",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 2,
+            "color": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 1.0
+            },
+            "intensity": 1.0,
+            "range": 10.0
           }
         }
       ],

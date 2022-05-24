@@ -147,6 +147,10 @@ namespace Input
 		{
 			TranslateActionToEvent(Input::eInputAction::eReleaseD, 1.f);
 		}
+		if (myInputManager.IsKeyPressed('M'))
+		{
+			TranslateActionToEvent(eInputAction::ePressM, 1.f);
+		}
 	}
 
 	void InputMapper::UpdateEvents(UINT message, WPARAM wParam, LPARAM lParam)
@@ -167,6 +171,7 @@ namespace Input
 
 	void InputMapper::AddObserver(const eInputEvent aEventToListenFor, InputObserver* aObserver)
 	{
+		aObserver->myRegisteredEvents.push_back(aEventToListenFor);
 		assert(aObserver != nullptr && "InputObsever is nullptr!");
 		myObservers[aEventToListenFor].push_back(aObserver);
 	}
@@ -175,6 +180,10 @@ namespace Input
 	{
 		assert(aObserver != nullptr && "InputObsever is nullptr!");
 		auto it = std::find(myObservers[aEventToListenFor].begin(), myObservers[aEventToListenFor].end(), aObserver);
-		myObservers[aEventToListenFor].erase(it);
+		if (it != myObservers[aEventToListenFor].end())
+		{
+			myObservers[aEventToListenFor].erase(it);
+		}
+
 	}
 }

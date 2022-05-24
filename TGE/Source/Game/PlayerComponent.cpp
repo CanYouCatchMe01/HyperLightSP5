@@ -6,11 +6,14 @@
 #include "PopcornEnemy.h"
 #include "AudioComponent.h"
 #include "AudioManager.h"
+#include "TeleporterComponent.h"
+#include "CheckPointComponent.h"
 
 PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed)
 {
+
 	myMaxHp = aMaxHp;
-	myHp = myMaxHp;
+	myPlayerData.CurrentHP = aMaxHp;
 	myMaxHealing = aMaxHealing;
 	myMaxAttacks = aMaxAttaks;
 	myDashTime = aDashTime;
@@ -18,6 +21,11 @@ PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, fl
 	myAttackTime = aAttackTime;
 	mySpeed = aSpeed;
 	myDashSpeed = aDashSpeed;
+}
+
+PlayerComponent::~PlayerComponent()
+{
+	myWalkSound->stop(FMOD_STUDIO_STOP_IMMEDIATE);
 }
 
 void PlayerComponent::OnUpdate(float aDT)
@@ -55,22 +63,47 @@ void PlayerComponent::Movement(float aDT)
 	if (myDir == Tga2D::Vector3f(0.0f, 0.0f, 0.0f))
 	{
 		myWalkSound->setVolume(0.0f);
-	}
-	else
-	{
-		myWalkSound->setVolume(1.0f);
+		return;
 	}
 
-	if (myDir.Length() > 0)
-	{
-		myDir.Normalize();
-	}
+	myWalkSound->setVolume(10.0f);
+	myCheckpointSound->setVolume(10.0f);
+	myDir.Normalize();
 	
-	
-	if (myDir.x != 0 || myDir.z != 0)
+	if ((myDir.x != 0 || myDir.z != 0))
 	{
+		if (myGoalRotation != (std::atan2(myDir.z, -myDir.x) * 57.2957795f) - 90)
+		{
+			if (myRotation > 360)
+			{
+				myRotation -= 360;
+			}
+			else if (myRotation < -360)
+			{
+				myRotation += 360;
+			}
+			myGoalRotation = (std::atan2(myDir.z, -myDir.x) * 57.2957795f) - 90;
+			myRotationDiff = myGoalRotation - myRotation;
+			myRotationTime = 0;
+			if (myRotationDiff > 180)
+			{
+				myRotationDiff = -(360 - myRotationDiff);
+			}
+			else if (myRotationDiff < -180)
+			{
+				myRotationDiff = (360 + myRotationDiff);
+			}
+		}
 		myLastDir = myDir;
 	}
+	if (myRotationTime < 1/myRotationSpeed)
+	{
+		myRotation += myRotationDiff * aDT*myRotationSpeed;
+		myTransform->SetRotation({ 0,myRotation,0 });
+		myRotationTime += aDT;
+	}
+
+
 	if (myDash)
 	{
 		SetPosition(GetPosition() + myDashDir * myDashSpeed * aDT);
@@ -90,6 +123,7 @@ void PlayerComponent::Attack()
 		myAttack = true;
 		//do the attack
 		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_attack);
+		//myAudioComponent->PlayEvent3D("event:/sfx/player/attack");
 	}
 }
 
@@ -154,16 +188,16 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 	switch (aEvent)
 	{
 	case Input::eInputEvent::eMoveDown:
-		myDir -= myTransform->GetMatrix().GetForward();
+		myDir -= myCameraRotation.GetForward();
 		break;
 	case Input::eInputEvent::eMoveUp:
-		myDir += myTransform->GetMatrix().GetForward();
+		myDir += myCameraRotation.GetForward();
 		break;
 	case Input::eInputEvent::eMoveRight:
-		myDir += myTransform->GetMatrix().GetRight();
+		myDir += myCameraRotation.GetRight();
 		break;
 	case Input::eInputEvent::eMoveLeft:
-		myDir -= myTransform->GetMatrix().GetRight();
+		myDir -= myCameraRotation.GetRight();
 		break;
 	case Input::eInputEvent::eAttack:
 		if (myAttackTimer < 0.0f && !myHealing)
@@ -210,6 +244,7 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 
 void PlayerComponent::OnAwake()
 {
+	myCameraRotation = myTransform->GetMatrix();
 	myPollingStation->myPlayer = myGameObject;
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveDown, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveLeft, this);
@@ -221,12 +256,24 @@ void PlayerComponent::OnAwake()
 
 	myAudioComponent = myGameObject->AddComponent<AudioComponent>();
 	myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_walk_jungle);
+	myCheckpointSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_world_checkpoint);
+	SetPollingStation(myPollingStation);
 }
 void PlayerComponent::OnStart()
 {
 }
 void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 {
+	if (aOther->tag == eTag::teleporter)
+	{
+		aOther->GetComponent<TeleporterComponent>()->Load();
+	}
+
+	if (aOther->tag == eTag::checkpoint)
+	{
+		aOther->GetComponent<CheckPointComponent>()->Save();
+	}
+
 	if (aOther->tag == eTag::popcorn)
 	{
 		std::cout << "player took damage\n";
@@ -246,7 +293,11 @@ void PlayerComponent::OnCollisionExit(GameObject* aOther)
 
 void PlayerComponent::OnDeath()
 {
-	// you ded, now what?
+	if (myPlayerData.myCheckpoint != nullptr)
+	{
+		myPlayerData.myCheckpoint->Load(); //causes crash
+	}
+
 }
 
 void PlayerComponent::TakeDamage(int someDamage)
@@ -257,7 +308,6 @@ void PlayerComponent::TakeDamage(int someDamage)
 	takeDmgMessage.aFloatValue = (float)myHp / (float)myMaxHp;
 	myPollingStation->myPostmaster->SendMsg(takeDmgMessage);
 
-	/*SoundEngine::PlayEvent(takeDamageSound?);*/
 	if (myHp <= 0) { OnDeath(); }
 	//chekded
 }

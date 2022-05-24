@@ -16,7 +16,10 @@ enum class eButtonType
 	SFXVol,
 	Credits,
 	Back,
+	MapBack,
 	Resume,
+	Teleport,
+	Hub,
 	ExitToMain,
 	Exit,
 };
@@ -40,7 +43,9 @@ public:
 	inline void SetSizeMultiplier(Tga2D::Vector2f aMultiplier) { mySpriteInstance.mySizeMultiplier = aMultiplier; }
 	void ToggleFullScreen();
 	void SetText(std::string aText);
+	void SetActiveTP(bool aStatus);
 private:
+	bool myIsTeleport = false;
 	bool myHasText = false;
 	Tga2D::Text myText;
 	eState myState;
@@ -48,6 +53,9 @@ private:
 
 	Tga2D::Texture* mySelectedTexture;
 	Tga2D::Texture* myDeselectedTexture;
+
+	Tga2D::Texture* myInactiveTexture;
+	Tga2D::Texture* myActiveTexture;
 
 	Tga2D::SpriteSharedData mySharedData;
 	Tga2D::Sprite2DInstanceData mySpriteInstance = {};

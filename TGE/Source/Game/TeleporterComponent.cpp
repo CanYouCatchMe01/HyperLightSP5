@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TeleporterComponent.h"
 #include "SceneManager.h"
+#include "Scene.h"
 
 TeleporterComponent::TeleporterComponent(std::string aScene, std::string aCheckpointName)
 {
@@ -10,7 +11,12 @@ TeleporterComponent::TeleporterComponent(std::string aScene, std::string aCheckp
 
 void TeleporterComponent::Load()
 {
-	myPollingStation->mySceneManager->LoadScene(mySceneToLoad);
+	if (myScene->name == mySceneToLoad)
+	{
+		myPollingStation->myPlayer->GetTransform().SetPosition(myScene->GetSpawnPointManager().GetSpawnPosition(myCheckPointToLoad));
+		return;
+	}
+	myPollingStation->mySceneManager->LoadScene(mySceneToLoad, myCheckPointToLoad);
 }
 
 void TeleporterComponent::OnAwake()

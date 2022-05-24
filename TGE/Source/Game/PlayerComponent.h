@@ -4,12 +4,13 @@
 #include "Component.h"
 #include "Postmaster.h"
 #include "fmod_studio.hpp"
-
-
+#include <Tga2d/Math/Matrix.h>
+#include "GameDataManager.h"
 class PlayerComponent : public Component, Input::InputObserver
 {
 public:
 	PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed);
+	~PlayerComponent();
 	void OnUpdate(float aDT) override;
 	void Movement(float aDT);
 	void Attack();
@@ -41,9 +42,15 @@ public:
 	void TakeDamage(int someDamage);
 
 
-
+	PlayerData myPlayerData;
 	bool myAttack = false;
 private:
+	Tga2D::Matrix4x4f myCameraRotation;
+	float myRotation = 0;
+	float myGoalRotation = 0;
+	float myRotationDiff = 0;
+	float myRotationTime = 0;
+	float myRotationSpeed = 12; //Higher is faster.
 	int myMaxHp = 5;
 	int myMaxHealing = 3;
 	int myMaxAttacks = 3;
@@ -75,5 +82,6 @@ private:
 
 	//Save the walksound to increase and decrease the volume, when the player is moving
 	FMOD::Studio::EventInstance* myWalkSound = nullptr;
+	FMOD::Studio::EventInstance* myCheckpointSound = nullptr;
 };
 

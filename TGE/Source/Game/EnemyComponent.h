@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include "fmod_studio.hpp"
 
 class EnemyComponent : public Component
 {
@@ -14,8 +15,11 @@ public:
 	virtual void OnCollisionEnter(GameObject* aOther);
 	virtual void TakeDamage(int someDamage);
 	virtual int GetAttackDmg();
+	virtual void StunEnemyForDuration(const float aDuration);
+	virtual bool IsStunned();
+	virtual void StunEnemy();
+	virtual void AwakeEnemy();
 
-	virtual void Attack(float aDT, Tga2D::Vector3f aDirection) = 0;
 	virtual void OnDeath() = 0;
 
 protected:
@@ -46,6 +50,11 @@ protected:
 	float myMoveTimer = 0.0f;
 	float myMoveTime;
 
+	//Audio
+	class AudioComponent* myAudioComponent = nullptr;
+
+	//Save the walksound to increase and decrease the volume, when the player is moving
+	FMOD::Studio::EventInstance* myWalkSound = nullptr;
 public:
 	bool myIsStunned = false;
 };

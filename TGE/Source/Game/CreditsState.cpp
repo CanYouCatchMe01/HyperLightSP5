@@ -12,6 +12,7 @@ CreditsState::CreditsState(StateStack& aStateStack, PollingStation* aPollingStat
     :
     State(aStateStack, aPollingStation)
 {
+	SetPollingStation(aPollingStation);
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/PauseMenu/ui_pauseMenu_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
 	mySpriteInstance.mySizeMultiplier = { 2,1 };
@@ -24,7 +25,6 @@ CreditsState::CreditsState(StateStack& aStateStack, PollingStation* aPollingStat
 	myBackButton->SetState(eState::Selected);
 
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
-	myPopInfo.myShouldPop = false;
 }
 
 CreditsState::~CreditsState()
@@ -36,10 +36,10 @@ CreditsState::~CreditsState()
 void CreditsState::Init()
 {}
 
-PopInfo CreditsState::Update(const float /*aDeltaTime*/)
+int CreditsState::Update(const float /*aDeltaTime*/)
 {
 	myIsActive = true;
-    return myPopInfo;
+    return myNumberOfPops;
 }
 
 void CreditsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)
@@ -49,8 +49,7 @@ void CreditsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*a
 		switch (aEvent)
 		{
 		case Input::eInputEvent::eSelect:
-			myPopInfo.myShouldPop = true;
-			myPopInfo.myNumberOfPops = 1;
+			myNumberOfPops = 1;
 			break;
 		default:
 			break;

@@ -13,6 +13,7 @@ public:
 	void OnUpdate(const float aDeltaTime) override;
 
 	FMOD::Studio::EventInstance* PlayEvent3D(FMOD_GUID aEvent);
+	FMOD::Studio::EventInstance* PlayEvent3D(const char* aEvent);
 
 private:
 	std::vector<FMOD::Studio::EventInstance*> myEventInstances;

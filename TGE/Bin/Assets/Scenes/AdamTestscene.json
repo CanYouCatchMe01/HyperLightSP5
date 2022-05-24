@@ -1,4 +1,5 @@
 {
+  "name": "AdamTestscene",
   "gameObjects": [
     {
       "name": "Main Camera",
@@ -7,8 +8,8 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": 0.0,
-          "y": 10.04,
+          "x": -1.6,
+          "y": 8.12,
           "z": -24.65
         },
         "rotation": {
@@ -34,10 +35,91 @@
       "children": []
     },
     {
-      "name": "SpawnPoint",
+      "name": "Player",
       "tag": 0,
       "layer": 0,
       "is_static": false,
+      "transform": {
+        "position": {
+          "x": -1.951232,
+          "y": 3.05000019,
+          "z": -14.9568062
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
+            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
+            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.85,
+              "y": 1.64,
+              "z": 0.69
+            }
+          }
+        },
+        {
+          "type": "player",
+          "data": {
+            "max_hp": 5,
+            "max_healing": 3,
+            "max_attacks": 3,
+            "dash_time": 0.1,
+            "healing_time": 0.1,
+            "attack_time": 0.1,
+            "speed": 10.0,
+            "dash_speed": 30.0
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "size": {
+              "x": 1.54516709,
+              "y": 1.93430161,
+              "z": 1.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "SpawnPoint",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
       "transform": {
         "position": {
           "x": -2.49,
@@ -67,15 +149,15 @@
       "children": []
     },
     {
-      "name": "Teleporter",
-      "tag": 10,
+      "name": "CheckPoint",
+      "tag": 11,
       "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
-          "x": -2.422637,
-          "y": 4.24,
-          "z": -14.4264269
+          "x": -3.47,
+          "y": 2.12,
+          "z": -11.75
         },
         "rotation": {
           "x": 0.0,
@@ -85,8 +167,8 @@
         },
         "scale": {
           "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
+          "y": 10.15,
+          "z": 16.5
         }
       },
       "components": [
@@ -107,10 +189,10 @@
           }
         },
         {
-          "type": "teleporter",
+          "type": "check_point",
           "data": {
             "scene": "AdamTestscene",
-            "spawnpoint": "tree"
+            "name": "tree"
           }
         }
       ],
@@ -273,92 +355,6 @@
       "children": []
     },
     {
-      "name": "GameObject",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -0.7719168,
-          "y": 5.60199976,
-          "z": -5.29731464
-        },
-        "rotation": {
-          "x": 0.210691631,
-          "y": 0.6944324,
-          "z": -0.225031823,
-          "w": 0.6501795
-        },
-        "scale": {
-          "x": 10.9300022,
-          "y": 6.68000031,
-          "z": 0.460000157
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 0.57,
-              "y": 0.69,
-              "z": 0.65
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "GameObject (1)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": 1.68536329,
-          "y": 5.474,
-          "z": -5.297885
-        },
-        "rotation": {
-          "x": -0.199189022,
-          "y": 0.6575285,
-          "z": -0.186495677,
-          "w": -0.702281535
-        },
-        "scale": {
-          "x": 10.930006,
-          "y": 6.68000031,
-          "z": 0.460000217
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 0.57,
-              "y": 0.69,
-              "z": 0.65
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "a_z3_barrel_m",
       "tag": 0,
       "layer": 0,
@@ -414,7 +410,7 @@
       "name": "a_z3_barrel_s",
       "tag": 0,
       "layer": 0,
-      "is_static": false,
+      "is_static": true,
       "transform": {
         "position": {
           "x": -5.756049,
@@ -446,7 +442,7 @@
         {
           "type": "box_collider",
           "data": {
-            "is_trigger": true,
+            "is_trigger": false,
             "center": {
               "x": 0.0,
               "y": 0.388792217,
@@ -499,6 +495,49 @@
       "children": []
     },
     {
+      "name": "GameObject (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 1.68536329,
+          "y": 5.474,
+          "z": -5.297885
+        },
+        "rotation": {
+          "x": -0.199189022,
+          "y": 0.6575285,
+          "z": -0.186495677,
+          "w": -0.702281535
+        },
+        "scale": {
+          "x": 10.930006,
+          "y": 6.68000031,
+          "z": 0.460000217
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.57,
+              "y": 0.69,
+              "z": 0.65
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "a_z3_TreeL",
       "tag": 0,
       "layer": 0,
@@ -545,97 +584,6 @@
               "y": 5.19,
               "z": 1.83
             }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "Player",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -1.95,
-          "y": 5.08,
-          "z": -13.639
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 1.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 0.85,
-              "y": 2.0,
-              "z": 0.69
-            }
-          }
-        },
-        {
-          "type": "player",
-          "data": {
-            "max_hp": 5,
-            "max_healing": 3,
-            "max_attacks": 3,
-            "dash_time": 0.1,
-            "attack_time": 0.1,
-            "speed": 10.0,
-            "dash_speed": 30.0,
-            "healing_time": 5.0
-          }
-        },
-        {
-          "type": "animated_mesh",
-          "data": {
-            "albedo": "Assets/Materials/Mat Zone1/z1_matRocks_c.dds",
-            "normal": "Assets/Materials/Mat Zone1/z1_matRocks_n.dds",
-            "reflective": "Assets/Materials/Mat Zone1/z1_matRocks_m.dds",
-            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
-            "animations": [
-              {
-                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_test.fbx",
-                "name": "Take 001"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_test.fbx",
-                "name": "Take 001"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_test.fbx",
-                "name": "Take 001"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_test.fbx",
-                "name": "Take 001"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_test.fbx",
-                "name": "Take 001"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_test.fbx",
-                "name": "Take 001"
-              }
-            ]
           }
         }
       ],
@@ -720,7 +668,14 @@
         {
           "type": "light",
           "data": {
-            "type": 1
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 0.956862748,
+              "b": 0.8392157,
+              "a": 1.0
+            },
+            "intensity": 1.0
           }
         }
       ],
@@ -987,6 +942,58 @@
       "children": []
     },
     {
+      "name": "a_g_crate_M (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -1.875,
+          "y": 4.051,
+          "z": -17.1656532
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.23174791,
+          "z": 0.0,
+          "w": 0.9727759
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_crate_M.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.5,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "Cube (6)",
       "tag": 0,
       "layer": 0,
@@ -1074,58 +1081,6 @@
             "size": {
               "x": 1.0,
               "y": 1.73,
-              "z": 1.0
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "a_g_crate_M (1)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -1.875,
-          "y": 4.051,
-          "z": -17.1656532
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.23174791,
-          "z": 0.0,
-          "w": 0.9727759
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/GLOBAL/a_g_crate_M.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.5,
-              "z": 0.0
-            },
-            "size": {
-              "x": 1.0,
-              "y": 1.0,
               "z": 1.0
             }
           }

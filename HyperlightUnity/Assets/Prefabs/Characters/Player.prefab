@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4777051502834088455}
   - component: {fileID: 1756041234744711051}
   - component: {fileID: 7984606437278429532}
+  - component: {fileID: 6207600019432516923}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6b1f98491ff1eaf4dab7e34e97f897dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,3 +175,16 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!65 &6207600019432516923
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095668861209206057}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5451671, y: 1.9343016, z: 1}
+  m_Center: {x: 0, y: 1, z: 1}

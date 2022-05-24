@@ -15,6 +15,7 @@ PauseMenuState::PauseMenuState(StateStack& aStateStack, PollingStation* aPolling
 	:
 	State(aStateStack, aPollingStation)
 {
+	SetPollingStation(aPollingStation);
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/PauseMenu/ui_pauseMenu_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f};
 	mySpriteInstance.mySizeMultiplier={2,1};
@@ -40,7 +41,6 @@ PauseMenuState::PauseMenuState(StateStack& aStateStack, PollingStation* aPolling
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuDown, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
 
-	myPopInfo.myShouldPop = false;
 }
 
 PauseMenuState::~PauseMenuState()
@@ -55,10 +55,10 @@ PauseMenuState::~PauseMenuState()
 	}
 }
 
-PopInfo PauseMenuState::Update(const float /*aDeltaTime*/)
+int PauseMenuState::Update(const float /*aDeltaTime*/)
 {
 	myIsActive = true;
-	return myPopInfo;
+	return myNumberOfPops;
 }
 
 void PauseMenuState::Init()
@@ -81,16 +81,14 @@ void PauseMenuState::InvokeButton(eButtonType aType)
 	switch (aType)
 	{
 	case eButtonType::Resume:
-		myPopInfo.myNumberOfPops = 1;
-		myPopInfo.myShouldPop = true;
+		myNumberOfPops = 1;
 		break;
 	case eButtonType::Options:
 		myStateStack.PushState(new OptionsState(myStateStack, myPollingStation));
 		myIsActive = false;
 		break;
 	case eButtonType::ExitToMain:
-		myPopInfo.myNumberOfPops = 2;
-		myPopInfo.myShouldPop = true;
+		myNumberOfPops = 2;
 		Tga2D::Engine::GetInstance()->GetGraphicsEngine().SetCamera(Tga2D::Camera());
 		break;
 	case eButtonType::Exit:
@@ -102,62 +100,64 @@ void PauseMenuState::InvokeButton(eButtonType aType)
 
 void PauseMenuState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)
 {
-	if (myIsActive)
+	if (!myIsActive)
 	{
-		switch (aEvent)
+		return;
+	}
+
+	switch (aEvent)
+	{
+	case Input::eInputEvent::eMenuDown:
+
+		for (size_t i = 0; i < myButtons.size(); i++) //Cycle down
 		{
-		case Input::eInputEvent::eMenuDown:
-
-			for (size_t i = 0; i < myButtons.size(); i++) //Cycle down
+			if (myButtons[i]->GetState() == eState::Selected)
 			{
-				if (myButtons[i]->GetState() == eState::Selected)
+				myButtons[i]->SetState(eState::None);
+
+				if (i < myButtons.size() - 1)
 				{
-					myButtons[i]->SetState(eState::None);
-
-					if (i < myButtons.size() - 1)
-					{
-						myButtons[i + 1]->SetState(eState::Selected);
-						mySelectedType = myButtons[i + 1]->GetType();
-					}
-					else
-					{
-						myButtons[0]->SetState(eState::Selected);
-						mySelectedType = myButtons[0]->GetType();
-					}
-					return;
-
+					myButtons[i + 1]->SetState(eState::Selected);
+					mySelectedType = myButtons[i + 1]->GetType();
 				}
-			}
-			break;
-		case Input::eInputEvent::eMenuUp:
-
-			for (size_t i = 0; i < myButtons.size(); i++) //Cycle up
-			{
-				if (myButtons[i]->GetState() == eState::Selected)
+				else
 				{
-					myButtons[i]->SetState(eState::None);
-
-					if (i > 0)
-					{
-						myButtons[i - 1]->SetState(eState::Selected);
-						mySelectedType = myButtons[i - 1]->GetType();
-					}
-					else
-					{
-						myButtons[myButtons.size() - 1]->SetState(eState::Selected);
-						mySelectedType = myButtons[myButtons.size() - 1]->GetType();
-					}
-					return;
-
+					myButtons[0]->SetState(eState::Selected);
+					mySelectedType = myButtons[0]->GetType();
 				}
-			}
+				return;
 
-			break;
-		case Input::eInputEvent::eSelect:
-			InvokeButton(mySelectedType);
-			break;
-		default:
-			break;
+			}
 		}
+		break;
+	case Input::eInputEvent::eMenuUp:
+
+		for (size_t i = 0; i < myButtons.size(); i++) //Cycle up
+		{
+			if (myButtons[i]->GetState() == eState::Selected)
+			{
+				myButtons[i]->SetState(eState::None);
+
+				if (i > 0)
+				{
+					myButtons[i - 1]->SetState(eState::Selected);
+					mySelectedType = myButtons[i - 1]->GetType();
+				}
+				else
+				{
+					myButtons[myButtons.size() - 1]->SetState(eState::Selected);
+					mySelectedType = myButtons[myButtons.size() - 1]->GetType();
+				}
+				return;
+
+			}
+		}
+
+		break;
+	case Input::eInputEvent::eSelect:
+		InvokeButton(mySelectedType);
+		break;
+	default:
+		break;
 	}
 }

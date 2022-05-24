@@ -43,11 +43,11 @@ void StateStack::RenderUnderlyingState()
 
 void StateStack::UpdateState(const float aDeltaTime)
 {
-	PopInfo popInfo = myStateStack.top()->Update(aDeltaTime);
+	int popInfo = myStateStack.top()->Update(aDeltaTime);
 
-	if (popInfo.myShouldPop)
+	if (popInfo > 0)
 	{
-		for (size_t i = 0; i < popInfo.myNumberOfPops; i++)
+		for (size_t i = 0; i < popInfo; i++)
 		{
 			delete myStateStack.top();
 			myStateStack.pop();

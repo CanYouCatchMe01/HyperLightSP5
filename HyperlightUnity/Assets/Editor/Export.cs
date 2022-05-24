@@ -144,6 +144,7 @@ public class Export
         GameObject[] rootGameobjects = aScene.GetRootGameObjects();
 
         JObject jsonData = new JObject();
+        jsonData.Add("name", aScene.name);
         JArray gameObjects = new JArray();
 
         //Looping through all root game objects add recursively adding all their children

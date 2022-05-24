@@ -17,10 +17,12 @@ PopcornEnemy::PopcornEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float 
 
 void PopcornEnemy::OnUpdate(float aDt)
 {
-	float yPos = GetPosition().y;
-	SetPosition({GetPosition().x, yPos -= myGravity * aDt, GetPosition().z});
+	myWalkSound->setVolume(1.f);
 	myMoveTimer -= aDt;
 	CheckRadius();
+
+	float yPos = GetPosition().y;
+	SetPosition({ GetPosition().x, yPos -= myGravity * aDt, GetPosition().z });
 
 	// enemy behavior
 	if (!myIsStunned && !myIsInRange)
@@ -54,10 +56,6 @@ void PopcornEnemy::MoveAway(float aDT, Tga2D::Vector3f aDirection)
 	SetPosition(GetPosition() - aDirection * mySpeed * aDT);
 }
 
-
-void PopcornEnemy::Attack(float /*aDT*/, Tga2D::Vector3f /*aDirection*/)
-{
-}
 
 
 

@@ -129,8 +129,33 @@
     <ClCompile Include="..\Source\Game\MapState.cpp">
       <Filter>Code\StateStack\States</Filter>
     </ClCompile>
+    <ClCompile Include="..\Source\Game\GameDataManager.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\Timer.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\InputObserver.cpp" />
+    <ClCompile Include="..\Source\Game\MusicChangeComponent.cpp">
+      <Filter>Code\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\SpawnPointComponent.cpp">
+      <Filter>Code\Scene\Spawn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\SpawnPointManager.cpp">
+      <Filter>Code\Scene\Spawn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\CheckPointComponent.cpp">
+      <Filter>Code\Scene\Spawn</Filter>
+    </ClCompile>
     <ClCompile Include="..\Source\Game\TeleporterComponent.cpp">
-      <Filter>Code\Scene</Filter>
+      <Filter>Code\Scene\Spawn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\PointLightComponent.cpp">
+      <Filter>Code\Scene\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\DirectionalLightComponent.cpp">
+      <Filter>Code\Scene\Light</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -280,11 +305,35 @@
     <ClInclude Include="..\Source\Game\AudioComponent.h">
       <Filter>Code\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Game\TeleporterComponent.h">
-      <Filter>Code\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="..\Source\Game\MapState.h">
       <Filter>Code\StateStack\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\GameDataManager.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Timer.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\MusicChangeComponent.h">
+      <Filter>Code\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\SpawnPointComponent.h">
+      <Filter>Code\Scene\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\SpawnPointManager.h">
+      <Filter>Code\Scene\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\CheckPointComponent.h">
+      <Filter>Code\Scene\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\TeleporterComponent.h">
+      <Filter>Code\Scene\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\DirectionalLightComponent.h">
+      <Filter>Code\Scene\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\PointLightComponent.h">
+      <Filter>Code\Scene\Light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -344,6 +393,12 @@
     </Filter>
     <Filter Include="Code\Objects\Camera">
       <UniqueIdentifier>{e56ec12f-9104-4a13-9ed1-21f74b263da6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Scene\Light">
+      <UniqueIdentifier>{7c8644f4-7e14-4fee-bf60-307d5af408f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Scene\Spawn">
+      <UniqueIdentifier>{c050f84a-528d-4003-8359-6a4a0ca386ce}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,23 +1,28 @@
 #pragma once
 #include "EnemyComponent.h"
+#include "Timer.h"
 
 class ChargeEnemy : public EnemyComponent
 {
 
 public:
-	ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, int anAttackDamage);
+	ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float aChargeRadius, float aChargeTime, float anIdleSpeed, int anAttackDamage);
 	void OnUpdate(float aDt) override;
 
 private:
-	//void Charge(float aDT, Tga2D::Vector3f aDirection);
-	void Attack(float aDT, Tga2D::Vector3f aDirection);
+	void Charge();
+	void CheckChargeRadius();
 	void OnDeath() override;
 
-	Tga2D::Vector3f myAttackDirection;
+	Tga2D::Vector3f myChargeDirection;
 	int myHp;
 
-	float myTelegraph = 0.0f;
-	float myAttackTime = 0.0f;
+	Timer myChargeTimer;
+	Timer myDashTimer;
 
-	bool myAttacking = false;
+	float myChargeTime;
+	float myChargeRadius;
+
+	bool myIsDoneDashing = false;
+	bool myIsInAttackRange = false;
 };

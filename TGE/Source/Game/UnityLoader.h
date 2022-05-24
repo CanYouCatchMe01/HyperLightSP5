@@ -4,6 +4,16 @@
 #include <json.hpp>
 #include <tga2d/math/Transform.h>
 
+enum class eLight
+{
+    Spot,
+    Directional,
+    Point,
+    Area,
+    Rectangle,
+    Disc
+};
+
 class UnityLoader
 {
 public:

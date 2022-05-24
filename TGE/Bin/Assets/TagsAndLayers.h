@@ -13,8 +13,8 @@ enum class eTag
 	popcorn,
 	charge,
 	flute,
-	sceneLoader,
 	teleporter,
+	checkpoint,
 };
 enum class eLayer
 {

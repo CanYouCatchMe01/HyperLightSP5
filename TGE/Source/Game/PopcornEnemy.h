@@ -14,7 +14,6 @@ private:
 	void OnDeath() override;
 
 	void MoveAway(float aDT, Tga2D::Vector3f aDirection);
-	void Attack(float aDT, Tga2D::Vector3f aDirection);
 
 	Tga2D::Vector3f myAttackDirection;
 	int myHp;

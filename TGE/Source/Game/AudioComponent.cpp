@@ -56,3 +56,10 @@ FMOD::Studio::EventInstance* AudioComponent::PlayEvent3D(FMOD_GUID aEvent)
 	myEventInstances.push_back(audioEvent);
 	return audioEvent;
 }
+
+FMOD::Studio::EventInstance* AudioComponent::PlayEvent3D(const char* aEvent)
+{
+	FMOD::Studio::EventInstance* audioEvent = myPollingStation->myAudioManager->PlayEvent(aEvent, my3Dattributes);
+	myEventInstances.push_back(audioEvent);
+	return audioEvent;
+}

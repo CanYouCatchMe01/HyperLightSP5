@@ -7,7 +7,8 @@ TagManager:
   - popcorn
   - charge
   - flute
-  - sceneLoader
+  - teleporter
+  - checkpoint
   layers:
   - Default
   - TransparentFX

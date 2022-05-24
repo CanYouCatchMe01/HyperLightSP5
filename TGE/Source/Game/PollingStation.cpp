@@ -2,6 +2,7 @@
 #include "PollingStation.h"
 #include "SceneManager.h"
 #include "Postmaster.h"
+#include "GameDataManager.h"
 #include "GameObject.h"
 #ifdef _DEBUG
 #include "BaseDebugger.h"
@@ -25,7 +26,8 @@ void PollingStation::Init(HWND aHWND)
 	MapKeys();
 	mySceneManager = std::make_unique<SceneManager>(this);
 	myPostmaster = std::make_unique<Postmaster>();
-	
+	myGameDataManager = std::make_unique<GameDataManager>();
+
 }
 
 void PollingStation::Update()
@@ -52,7 +54,8 @@ void PollingStation::MapKeys()
 	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowLeft, Input::eInputEvent::eReleaseArrowLeft);
 	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowRight, Input::eInputEvent::eReleaseArrowRight);
 
-	myInputMapper.get()->MapEvent(Input::eInputAction::eKey_Escape, Input::eInputEvent::ePause);
+	myInputMapper.get()->MapEvent(Input::eInputAction::eKey_Escape, Input::eInputEvent::eEscape);
+	myInputMapper.get()->MapEvent(Input::eInputAction::ePressM, Input::eInputEvent::eMap);
 
 	//------------------------------------------For Menus------------------------------------------
 	myInputMapper.get()->MapEvent(Input::eInputAction::eKey_Enter, Input::eInputEvent::eSelect);

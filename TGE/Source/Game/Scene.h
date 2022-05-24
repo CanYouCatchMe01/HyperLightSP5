@@ -3,6 +3,7 @@
 #include "RenderObjectManager.h"
 #include "CollisionManager.h"
 #include <tga2d/graphics/Camera.h>
+#include "SpawnPointManager.h"
 
 namespace Tga2D
 {
@@ -16,12 +17,14 @@ public:
 	friend class UnityLoader;
 	friend class RenderManager;
 public:
+	std::string name;
 	Scene(class PollingStation* aPollingStation);
 	~Scene();
 	void Update(float aTimeDelta);
 	void OnStart();
 	RenderObjectManager& GetRenderObjectManager();
 	CollisionManager& GetCollisionManager();
+	SpawnPointManager& GetSpawnPointManager();
 	Tga2D::Camera& GetCamera();
 private:
 	//void AddImguiNode(class GameObject* aGameObject); // replaced with a prettier version.
@@ -33,4 +36,5 @@ private:
 	class PollingStation* myPollingStation;
 	RenderObjectManager myRenderObjectManager;
 	CollisionManager myCollisionManager;
+	SpawnPointManager mySpawnPointManager;
 };

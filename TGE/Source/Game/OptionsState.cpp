@@ -15,9 +15,11 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	:
 	State(aStateStack, aPollingStation)
 {
+	SetPollingStation(aPollingStation);
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/OptionsMenu/ui_optionsMenu_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
 	mySpriteInstance.myScaleSpritesWithAspectRatio = false;
+
 	float leftArrowX = 0.38f;
 	float rightArrowX = 0.62f;
 	float yPosition = 0.35f;
@@ -35,7 +37,7 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 		buttonIndex++;
 	}
 	yPosition += yIncrement;
-	myButtons.push_back(Button(eButtonType::Back,		{ 0.5f, yPosition }));
+	myButtons.push_back(Button(eButtonType::Back, { 0.5f, yPosition }));
 
 	myButtons[0].SetState(eState::Selected);
 	mySelectedButton = myButtons[0].GetType();
@@ -48,8 +50,6 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseArrowLeft, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseArrowRight, this);
-
-	myPopInfo.myShouldPop = false;
 
 	myScreenResolutions.push_back({ 960, 540 });
 	myScreenResolutions.push_back({ 1280,720 });
@@ -78,7 +78,7 @@ OptionsState::~OptionsState()
 void OptionsState::Init()
 {}
 
-PopInfo OptionsState::Update(const float aDeltaTime)
+int OptionsState::Update(const float aDeltaTime)
 {
 	if (!myIsActive)
 	{
@@ -114,7 +114,7 @@ PopInfo OptionsState::Update(const float aDeltaTime)
 		myShouldChangeScreenRes = false;
 	}
 
-	return myPopInfo;
+	return myNumberOfPops;
 }
 
 void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aValue)
@@ -138,8 +138,8 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 				{
 					myScreenResIndex--;
 					myButtons[mySelectedButtonIndex].SetText(std::to_string(myScreenResolutions[myScreenResIndex].x) + "x" + std::to_string(myScreenResolutions[myScreenResIndex].y));
-					myShouldChangeScreenRes = true;
 				}
+					myShouldChangeScreenRes = true;
 				break;
 			default:
 				break;
@@ -157,8 +157,8 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 				{
 					myScreenResIndex++;
 					myButtons[mySelectedButtonIndex].SetText(std::to_string(myScreenResolutions[myScreenResIndex].x) + "x" + std::to_string(myScreenResolutions[myScreenResIndex].y));
-					myShouldChangeScreenRes = true;
 				}
+					myShouldChangeScreenRes = true;
 				break;
 			default:
 				break;
@@ -333,8 +333,7 @@ void OptionsState::InvokeButton(eButtonType aType)
 		}
 		break;
 	case eButtonType::Back:
-		myPopInfo.myShouldPop = true;
-		myPopInfo.myNumberOfPops = 1;
+		myNumberOfPops = 1;
 		break;
 	default:
 		break;

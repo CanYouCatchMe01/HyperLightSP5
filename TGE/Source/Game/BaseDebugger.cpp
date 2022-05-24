@@ -32,12 +32,12 @@ void BaseDebugger::DebugUpdate()
 {
 
 
-	if (!ImGui::Begin("Debugger Menu"))
-	{
-		// Early out if the window is collapsed, as an optimization.
-		ImGui::End();
-		return;
-	}
+	//if (!ImGui::Begin("Debugger Menu"))
+	//{
+	//	// Early out if the window is collapsed, as an optimization.
+	//	ImGui::End();
+	//	return;
+	//}
 	if (ImGui::BeginTabBar("Boop"))
 	{
 		if (ImGui::BeginTabItem("Scenes"))
@@ -62,7 +62,7 @@ void BaseDebugger::DebugUpdate()
 		ImGui::EndTabBar();
 	}
 
-	ImGui::End();
+	//ImGui::End();
 
 
 }

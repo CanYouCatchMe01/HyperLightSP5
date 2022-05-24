@@ -18,6 +18,12 @@
 #include "AnimatedMeshComponent.h"
 #include "MeleeComponent.h"
 #include "TeleporterComponent.h"
+#include "SpawnPointComponent.h"
+#include "CheckPointComponent.h"
+#include "MusicChangeComponent.h"
+#include "DirectionalLightComponent.h"
+#include "PointLightComponent.h"
+
 #ifdef _DEBUG
 #include "BaseDebugger.h"
 #endif // _DEBUG
@@ -36,7 +42,18 @@ UnityLoader::~UnityLoader()
 class Scene* UnityLoader::CreateScene(std::string aPathToJson)
 {
 	Scene* scene = new Scene(myPollingStation);
+	
 	nlohmann::json j = nlohmann::json::parse(std::ifstream("Assets/Scenes/" + aPathToJson + ".json"));
+
+	try // Temporary
+	{
+		scene->name = j["name"];
+	}
+	catch (const std::exception&)
+	{
+		ERROR_PRINT("Scene outdated, please export");
+	}
+	
 
 	for (auto& gameObject : j["gameObjects"])
 	{
@@ -107,7 +124,7 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 		}
 		else if (type == "charge_enemy")
 		{
-			gameObject->AddComponent<ChargeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
+			gameObject->AddComponent<ChargeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["charge_radius"], data["charge_time"], data["idle_speed"], data["attack_damage"]);
 		}
 		else if (type == "flute_enemy")
 		{
@@ -117,9 +134,35 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 		{
 			gameObject->AddComponent<MeleeComponent>();
 		}
-		else if (type == "scene_loader")
+		else if (type == "teleporter")
 		{
-			gameObject->AddComponent<TeleporterComponent>(data["scene"], data["spawn_name"]);
+			gameObject->AddComponent<TeleporterComponent>(data["scene"], data["spawnpoint"]);
+		}
+		else if (type == "spawn_point")
+		{
+			gameObject->AddComponent<SpawnPointComponent>(data["name"]);
+		}
+		else if (type == "check_point")
+		{
+			gameObject->AddComponent<CheckPointComponent>(data["scene"], data["name"]);
+		}
+		else if (type == "music_changer")
+		{
+			gameObject->AddComponent<MusicChangeComponent>(data["music_to_play"]);
+		}
+		else if (type == "light")
+		{
+			switch (data["type"].get<eLight>())
+			{
+				case eLight::Directional:
+					gameObject->AddComponent<DirectionalLightComponent>(data["color"], data["intensity"]);
+					break;
+				case eLight::Point:
+					gameObject->AddComponent<PointLightComponent>(data["color"], data["intensity"], data["range"]);
+					break;
+			default:
+				break;
+			}
 		}
 	}
 

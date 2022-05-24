@@ -25,7 +25,7 @@ public:
 	OptionsState(StateStack& aStateStack, PollingStation* aPollingStation);
 	~OptionsState();
 	void Init() override;
-	PopInfo Update(const float aDeltaTime) override;
+	int Update(const float aDeltaTime) override;
 	void RecieveEvent(const Input::eInputEvent aEvent, const float aValue) override;
 	void Render() override;
 	void InvokeButton(eButtonType aType);
