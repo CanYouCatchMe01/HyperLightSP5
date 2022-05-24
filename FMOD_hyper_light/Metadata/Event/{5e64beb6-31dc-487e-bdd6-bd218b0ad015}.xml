@@ -100,7 +100,7 @@
 	<object class="MixerBusPanner" id="{92661f9b-5e1f-445d-94a7-39129626bbed}" />
 	<object class="SnapshotModule" id="{c7e940fd-7e5a-4d5c-bff6-f757f83188fa}">
 		<property name="length">
-			<value>3.8000000000000003</value>
+			<value>3.3500000000000001</value>
 		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{f1188c4e-0a46-4cd5-a83c-cf644d24c378}</destination>
@@ -215,7 +215,7 @@
 	<object class="SpatialiserEffect" id="{53c91462-6d0c-4d7d-a300-2edaeacc5ab9}" />
 	<object class="AutomationPoint" id="{b77c8e24-67ec-40c0-91bb-10c2526ec556}">
 		<property name="position">
-			<value>2.6751458333333331</value>
+			<value>2.2251458333333329</value>
 		</property>
 		<property name="value">
 			<value>100</value>
@@ -223,7 +223,7 @@
 	</object>
 	<object class="AutomationPoint" id="{768ac38a-6343-4877-aa29-3ec7786fe058}">
 		<property name="position">
-			<value>3.8000000000000003</value>
+			<value>3.3500000000000001</value>
 		</property>
 		<property name="value">
 			<value>0</value>

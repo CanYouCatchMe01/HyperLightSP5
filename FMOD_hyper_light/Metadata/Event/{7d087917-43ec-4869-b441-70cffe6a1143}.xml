@@ -92,6 +92,9 @@
 		<property name="length">
 			<value>0.45337499999999997</value>
 		</property>
+		<property name="volume">
+			<value>6</value>
+		</property>
 		<relationship name="sounds">
 			<destination>{cbb4d001-c115-4862-9372-15adc2a11706}</destination>
 			<destination>{747f98a8-4b04-4e98-a7c7-7d86da0cec20}</destination>
