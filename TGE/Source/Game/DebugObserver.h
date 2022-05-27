@@ -3,7 +3,6 @@
 #pragma once
 
 struct Message;
-
 class DebugObserver
 {
 public:

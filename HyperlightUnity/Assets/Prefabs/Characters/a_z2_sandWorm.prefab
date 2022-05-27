@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7454907615560787130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7799942454289546752}
+  - component: {fileID: 6598105246200082853}
+  - component: {fileID: 8968314522246137199}
+  - component: {fileID: 7760915105693817326}
+  - component: {fileID: 7760915105693817321}
+  - component: {fileID: 7760915105693817327}
+  m_Layer: 0
+  m_Name: a_z2_sandWorm
+  m_TagString: popcorn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7799942454289546752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454907615560787130}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.7224536, y: 3.05, z: -15.787}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6598105246200082853
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454907615560787130}
+  m_Mesh: {fileID: -3286333426938607154, guid: c1b57db07ed74c145bd6e4836426a023, type: 3}
+--- !u!23 &8968314522246137199
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454907615560787130}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d575997cb52cfe5469b445fed7a070e2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7760915105693817326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454907615560787130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9004838, y: 0.85586256, z: 3.0505126}
+  m_Center: {x: 0, y: 0.42118225, z: -0.34892333}
+--- !u!65 &7760915105693817321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454907615560787130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.07, y: 0.85, z: 3.71}
+  m_Center: {x: 0, y: 0.42118225, z: -0.23154485}
+--- !u!114 &7760915105693817327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454907615560787130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4207025edc3df8148a3dac71b4db0b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myScriptName: popcorn_enemy
+  myList:
+  - myVariableType: 0
+    myVariableName: max_hp
+    myInt: 1
+    myFloat: 0
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+  - myVariableType: 1
+    myVariableName: speed
+    myInt: 0
+    myFloat: 3
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+  - myVariableType: 1
+    myVariableName: attack_speed
+    myInt: 0
+    myFloat: 1
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+  - myVariableType: 1
+    myVariableName: detection_radius
+    myInt: 0
+    myFloat: 5
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+  - myVariableType: 1
+    myVariableName: idle_speed
+    myInt: 0
+    myFloat: 2
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+  - myVariableType: 0
+    myVariableName: attack_damage
+    myInt: 1
+    myFloat: 0
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}

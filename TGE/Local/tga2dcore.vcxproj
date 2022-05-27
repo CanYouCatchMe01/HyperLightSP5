@@ -171,7 +171,6 @@
     <ClInclude Include="..\Source\tga2dcore\tga2d\StepTimer.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\Timer.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\animation\Animation.h" />
-    <ClInclude Include="..\Source\tga2dcore\tga2d\animation\AnimationController.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\animation\Math\MathFunc.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\audio\audio.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\audio\audio_out.h" />
@@ -219,7 +218,6 @@
     <ClInclude Include="..\Source\tga2dcore\tga2d\math\color.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\math\vector2.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\math\vector4.h" />
-    <ClInclude Include="..\Source\tga2dcore\tga2d\model\AnimatedModelInstance.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\model\Model.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\model\ModelFactory.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\model\ModelInstance.h" />
@@ -295,7 +293,6 @@
     <ClCompile Include="..\Source\tga2dcore\tga2d\math\CommonMath.cpp" />
     <ClCompile Include="..\Source\tga2dcore\tga2d\math\FMath.cpp" />
     <ClCompile Include="..\Source\tga2dcore\tga2d\math\Transform.cpp" />
-    <ClCompile Include="..\Source\tga2dcore\tga2d\model\AnimatedModelInstance.cpp" />
     <ClCompile Include="..\Source\tga2dcore\tga2d\model\Model.cpp" />
     <ClCompile Include="..\Source\tga2dcore\tga2d\model\ModelFactory.cpp" />
     <ClCompile Include="..\Source\tga2dcore\tga2d\model\ModelInstance.cpp" />

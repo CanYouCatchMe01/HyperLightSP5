@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float aChargeRadius, float aChargeTime, float anIdleSpeed, int anAttackDamage)
+ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float aChargeRadius, float aChargeTime, float anIdleSpeed, int anAttackDamage, float aDashSpeed)
 {
 	myMaxHp = aMaxHp;
 	mySpeed = aSpeed;
@@ -13,7 +13,7 @@ ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aD
 	myChargeTime = aChargeTime;
 	myIdleSpeed = anIdleSpeed;
 	myAttackDmg = anAttackDamage;
-
+	myDashSpeed = aDashSpeed;
 
 	myChargeTimer.SetDuration(myChargeTime);
 	myChargeTimer.SetCallback([this]()
@@ -37,6 +37,8 @@ void ChargeEnemy::OnUpdate(float aDt)
 	myChargeTimer.Update(aDt);
 	myDashTimer.Update(aDt);
 	myWalkSound->setVolume(1.f);
+
+	myTakeDamageTimer -= aDt;
 
 	CheckRadius();
 	CheckChargeRadius();
@@ -76,11 +78,12 @@ void ChargeEnemy::Charge()
 	{
 		myChargeTimer.Start();
 		myChargeDirection.Normalize();
-		SetPosition(GetPosition() + myChargeDirection * 5.f * Tga2D::Engine::GetInstance()->GetDeltaTime());
+		SetPosition(GetPosition() + myChargeDirection * myDashSpeed * Tga2D::Engine::GetInstance()->GetDeltaTime());
 	}	
 }
 
 
 void ChargeEnemy::OnDeath()
 {
+	std::cout << "he dead (charge enemy)\n";
 }

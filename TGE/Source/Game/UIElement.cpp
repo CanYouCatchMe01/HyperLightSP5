@@ -7,6 +7,7 @@
 #include <tga2d/drawers/SpriteDrawer.h>
 #include "PollingStation.h"
 #include "Postmaster.h"
+#include "GameDataManager.h"
 
 UIElement::UIElement(Tga2D::Vector2f aPosition, eElementType anElementType, PollingStation* aPollingStation, Tga2D::Vector2f aSizeMultiplier)
 {
@@ -30,13 +31,14 @@ UIElement::UIElement(Tga2D::Vector2f aPosition, eElementType anElementType, Poll
 		break;
 	case eHealthBar:
 		myTextures.push_back(Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/HUD/ui_hud_healthBar_life.dds"));
-		myTextures.push_back(Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/HUD/ui_hud_healthBar_frame.dds"));
+		myTextures.push_back(Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/HUD/ui_hud_healthBar_frame_short.dds"));
 		mySharedDataOutline.myTexture = myTextures[1];
-		mySpriteInstanceHealth.mySizeMultiplier = { myStartSizeMultiplier.x, myStartSizeMultiplier.y };
+		mySpriteInstanceHealth.mySizeMultiplier = { myStartSizeMultiplier.x * 0.66f, myStartSizeMultiplier.y };
 		mySpriteInstanceHealth.myPivot = { (myStartSizeMultiplier.x / healthBarFillVariable2), 0.5f };
 		mySpriteInstanceHealth.myPosition = { aPosition.x- (mySpriteInstanceHealth.myPivot.x / healthBarFillVariable1),aPosition.y};
 
 		myPollingStation->myPostmaster->AddObserver(this, eMessageType::ePlayerTookDMG);
+		myPollingStation->myPostmaster->AddObserver(this, eMessageType::eHealthUpgrade);
 		break;
 	default:
 		break;
@@ -57,6 +59,7 @@ UIElement::~UIElement()
 		break;
 	case eHealthBar:
 		myPollingStation->myPostmaster->RemoveObserver(this, eMessageType::ePlayerTookDMG);
+		myPollingStation->myPostmaster->RemoveObserver(this, eMessageType::eHealthUpgrade);
 		break;
 	default:
 		break;
@@ -111,14 +114,22 @@ void UIElement::RecieveMsg(const Message& aMsg)
 	case eMessageType::ePlayerTookDMG:
 		if (myElementType == eElementType::eHealthBar && mySpriteInstanceHealth.mySizeMultiplier.x > 0)
 		{
-			mySpriteInstanceHealth.mySizeMultiplier = { (myStartSizeMultiplier.x * aMsg.aFloatValue), myStartSizeMultiplier.y };
+			if(!myPollingStation->myGameDataManager.get()->GetGameData().Upgrades[0])
+				mySpriteInstanceHealth.mySizeMultiplier = { (myStartSizeMultiplier.x * 0.66f * aMsg.aFloatValue), myStartSizeMultiplier.y };
+			else
+				mySpriteInstanceHealth.mySizeMultiplier = { (myStartSizeMultiplier.x * aMsg.aFloatValue), myStartSizeMultiplier.y };
 		}
 		if (mySpriteInstanceHealth.mySizeMultiplier.x < 0)
 		{
 			mySpriteInstanceHealth.mySizeMultiplier.x = 0;
 		}
 		break;
+	case eMessageType::eHealthUpgrade:
+		if (myElementType != eElementType::eHealthBar) break;
 
+			mySharedDataOutline.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/HUD/ui_hud_healthBar_frame.dds");
+			mySpriteInstanceHealth.mySizeMultiplier = { myStartSizeMultiplier.x, myStartSizeMultiplier.y };
+		break;
 	default:
 		break;
 	}

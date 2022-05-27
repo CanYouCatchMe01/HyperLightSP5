@@ -96,9 +96,6 @@
     <ClInclude Include="..\Source\tga2dcore\tga2d\animation\Animation.h">
       <Filter>tga2d\animation</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\tga2dcore\tga2d\animation\AnimationController.h">
-      <Filter>tga2d\animation</Filter>
-    </ClInclude>
     <ClInclude Include="..\Source\tga2dcore\tga2d\animation\Math\MathFunc.h">
       <Filter>tga2d\animation\Math</Filter>
     </ClInclude>
@@ -239,9 +236,6 @@
     </ClInclude>
     <ClInclude Include="..\Source\tga2dcore\tga2d\math\vector4.h">
       <Filter>tga2d\math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\tga2dcore\tga2d\model\AnimatedModelInstance.h">
-      <Filter>tga2d\model</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\tga2dcore\tga2d\model\Model.h">
       <Filter>tga2d\model</Filter>
@@ -447,9 +441,6 @@
     </ClCompile>
     <ClCompile Include="..\Source\tga2dcore\tga2d\math\Transform.cpp">
       <Filter>tga2d\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\tga2dcore\tga2d\model\AnimatedModelInstance.cpp">
-      <Filter>tga2d\model</Filter>
     </ClCompile>
     <ClCompile Include="..\Source\tga2dcore\tga2d\model\Model.cpp">
       <Filter>tga2d\model</Filter>

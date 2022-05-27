@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7219478117625334471}
   m_Layer: 0
-  m_Name: pf_z2_ground01
+  m_Name: pf_z2_ground_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,6 +84,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: bc3f46c629ed82842b2774cbe17716b4, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7577cabaf97f94042ae947d75a498735, type: 2}
+    - target: {fileID: -6453194582371610332, guid: bc3f46c629ed82842b2774cbe17716b4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2fd378a1a19171740993bf3c667c3997, type: 2}
+    - target: {fileID: -6453194582371610332, guid: bc3f46c629ed82842b2774cbe17716b4, type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 7577cabaf97f94042ae947d75a498735, type: 2}
     - target: {fileID: 919132149155446097, guid: bc3f46c629ed82842b2774cbe17716b4, type: 3}

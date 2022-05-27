@@ -3,6 +3,7 @@
 #include "StateStack.h"
 #include "Button.h"
 #include "GameDataManager.h"
+#include "AudioManager.h"
 
 #include <vector>
 
@@ -22,14 +23,14 @@ MapState::MapState(StateStack& aStateStack, PollingStation* aPollingStation)
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
 	mySpriteInstance.mySizeMultiplier = { 0.9f ,0.9f };
 
-	myButtons.push_back(Button(eButtonType::MapBack,  { 0.3f, 0.85f }));
+	myButtons.push_back(Button(eButtonType::MapBack, { 0.3f, 0.85f }));
 
 	myButtons.push_back(Button(eButtonType::Teleport, { 0.4f, 0.6f })); //nere till vänster (badlands 1)
 	myButtons.push_back(Button(eButtonType::Teleport, { 0.4f, 0.4f })); //uppe till vänster (badlands 2)
 	myButtons.push_back(Button(eButtonType::Teleport, { 0.6f, 0.6f })); //nere till höger (jungle 1)
 	myButtons.push_back(Button(eButtonType::Teleport, { 0.6f, 0.4f })); //uppe till höger (jungle 2)
 
-	myButtons.push_back(Button(eButtonType::Hub,	  { 0.5f, 0.8f }));
+	myButtons.push_back(Button(eButtonType::Hub, { 0.5f, 0.8f }));
 
 
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMap, this);
@@ -40,15 +41,29 @@ MapState::MapState(StateStack& aStateStack, PollingStation* aPollingStation)
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuRight, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
 
+	myTeleportPoints[0] = "Badlands 2";
+	myTeleportPoints[1] = "Badlands 3";
+	myTeleportPoints[2] = "Jungle 2";
+	myTeleportPoints[3] = "Jungle 3";
+	myTeleportPoints[4] = "Hub";
+
+
 	GameData currentData = aPollingStation->myGameDataManager.get()->GetGameData();
-
-
-	for (size_t i = 0; i < currentData.TeleporterStatus.size()-1; i++)
+	currentData;
+	for (size_t i = 1; i < currentData.TeleporterStatus.size(); i++)
 	{
-		myButtons[i+1].SetActiveTP(currentData.TeleporterStatus[i]);
+//		myButtons[i + 1].SetActiveTP(currentData.TeleporterStatus[i]);
+		myButtons[i].SetActiveTP(currentData.TeleporterStatus[i-1]);
+//		currentData.TeleporterStatus[i - 1] = true;
 	}
-	myCurrentSelection = eButtonIndex::eHub;
+	myPollingStation->myGameDataManager.get()->UpdateGameData(currentData);
 
+
+	GameData test = myPollingStation->myGameDataManager.get()->GetGameData();
+	test;
+
+
+	myCurrentSelection = eButtonIndex::eHub;
 }
 
 MapState::~MapState()
@@ -63,7 +78,8 @@ MapState::~MapState()
 }
 
 void MapState::Init()
-{}
+{
+}
 
 int MapState::Update(const float /*aDeltaTime*/)
 {
@@ -86,6 +102,19 @@ void MapState::Render()
 	}
 }
 
+void MapState::InvokeButton()
+{
+	GameData currentGameData = myPollingStation->myGameDataManager.get()->GetGameData();
+	if (myCurrentSelection == eButtonIndex::eBack)
+		return;
+
+	if (currentGameData.TeleporterStatus[myCurrentSelection-1])
+	{
+		myPollingStation->mySceneManager.get()->LoadScene(myTeleportPoints[myCurrentSelection-1], "Teleporter");
+		myNumberOfPops = 1;
+	}
+}
+
 void MapState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)
 {
 	if (!myIsActive)
@@ -101,9 +130,8 @@ void MapState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValu
 
 		if (myCurrentSelection == eButtonIndex::eBack)
 			break;
-		
-		myButtons[myCurrentSelection].SetState(eState::None);
 
+		myButtons[myCurrentSelection].SetState(eState::None);
 		if (myCurrentSelection == eButtonIndex::eHub)
 		{
 			myCurrentSelection = eButtonIndex::eBack;
@@ -116,7 +144,7 @@ void MapState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValu
 		{
 			myCurrentSelection--;
 		}
-
+		myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 		myButtons[myCurrentSelection].SetState(eState::Selected);
 
 		break;
@@ -125,7 +153,6 @@ void MapState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValu
 			break;
 
 		myButtons[myCurrentSelection].SetState(eState::None);
-
 		if (myCurrentSelection == eButtonIndex::eHub)
 		{
 			myCurrentSelection = eButtonIndex::eTPBadlands_1;
@@ -138,7 +165,7 @@ void MapState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValu
 		{
 			myCurrentSelection++;
 		}
-
+		myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 		myButtons[myCurrentSelection].SetState(eState::Selected);
 
 		break;
@@ -147,25 +174,23 @@ void MapState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValu
 			break;
 
 		myButtons[myCurrentSelection].SetState(eState::None);
-
 		if (myCurrentSelection > eButtonIndex::eTPBadlands_2 && myCurrentSelection < eButtonIndex::eHub)
 		{
 			myCurrentSelection -= 2;
 		}
-
 		else if (myCurrentSelection == eButtonIndex::eHub || (myCurrentSelection > 0 && myCurrentSelection < eButtonIndex::eTPJungle_1))
 		{
 			myCurrentSelection = eButtonIndex::eBack;
 		}
-
+		myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 		myButtons[myCurrentSelection].SetState(eState::Selected);
+
 		break;
 	case Input::eInputEvent::eMenuRight:
 		if (myCurrentSelection == eButtonIndex::eTPJungle_1 || myCurrentSelection == eButtonIndex::eTPJungle_2)
 			break;
 
 		myButtons[myCurrentSelection].SetState(eState::None);
-
 		if (myCurrentSelection > 0 && myCurrentSelection < eButtonIndex::eTPJungle_1)
 		{
 			myCurrentSelection += 2;
@@ -174,7 +199,7 @@ void MapState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValu
 		{
 			myCurrentSelection = eButtonIndex::eHub;
 		}
-
+		myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 		myButtons[myCurrentSelection].SetState(eState::Selected);
 
 		break;
@@ -183,6 +208,8 @@ void MapState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValu
 		{
 			myNumberOfPops = 1;
 		}
+		else
+			InvokeButton();
 		break;
 	default:
 		break;

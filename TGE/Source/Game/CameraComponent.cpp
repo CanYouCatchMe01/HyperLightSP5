@@ -25,7 +25,6 @@ void CameraComponent::OnAwake()
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveRight, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveDown, this);
 	SetPollingStation(myPollingStation);
-	myPollingStation->myAudioManager->SetListenerTransform(myTransform);
 }
 
 void CameraComponent::OnStart()
@@ -83,6 +82,7 @@ void CameraComponent::OnUpdate(const float /*aDeltaTime*/)
 	
 	//Set rendering camera
 	myCamera->SetTransform(*myTransform);
+	myPollingStation->myAudioManager->SetListenerTransform(myTransform);
 }
 
 void CameraComponent::SetTargetToFollow(Tga2D::Transform* aTargetToFollow)

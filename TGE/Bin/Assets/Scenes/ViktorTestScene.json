@@ -35,15 +35,15 @@
       "children": []
     },
     {
-      "name": "Player",
+      "name": "Player (1)",
       "tag": 5,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": -2.05409431,
-          "y": 3.05000019,
-          "z": -15.3142681
+          "x": -3.667292,
+          "y": 3.05543041,
+          "z": -15.2491436
         },
         "rotation": {
           "x": 0.0,
@@ -73,12 +73,12 @@
             "is_trigger": false,
             "center": {
               "x": 0.0,
-              "y": 1.0,
+              "y": 0.8975179,
               "z": 0.0
             },
             "size": {
               "x": 0.85,
-              "y": 1.64,
+              "y": 1.844964,
               "z": 0.69
             }
           }
@@ -93,13 +93,13 @@
             "healing_time": 0.1,
             "attack_time": 0.1,
             "speed": 5.0,
-            "dash_speed": 3.0
+            "dash_speed": 25.0
           }
         },
         {
           "type": "box_collider",
           "data": {
-            "is_trigger": false,
+            "is_trigger": true,
             "center": {
               "x": 0.0,
               "y": 1.0,
@@ -111,9 +111,204 @@
               "z": 1.0
             }
           }
+        },
+        {
+          "type": "weapon",
+          "data": {
+            "weapon_upgrade": false,
+            "weapon_damage": 1
+          }
         }
       ],
       "children": []
+    },
+    {
+      "name": "a_z2_sandWorm",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -4.72245359,
+          "y": 3.196,
+          "z": -15.787
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 0.6407,
+          "y": 0.6407,
+          "z": 0.469094336
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.421182245,
+              "z": -0.348923326
+            },
+            "size": {
+              "x": 0.9004838,
+              "y": 0.855862558,
+              "z": 3.05051255
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.421182245,
+              "z": -0.231544852
+            },
+            "size": {
+              "x": 1.07,
+              "y": 0.85,
+              "z": 3.71
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_enemy",
+      "tag": 8,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -6.06,
+          "y": 3.05,
+          "z": -14.29
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_z2_enemy",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": -6.06,
+              "y": 3.05,
+              "z": -14.29
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_enemy.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            },
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.03689517,
+                  "y": 0.929864943,
+                  "z": 0.0325423777
+                },
+                "size": {
+                  "x": 0.847654,
+                  "y": 1.87059057,
+                  "z": 0.7153184
+                }
+              }
+            },
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": true,
+                "center": {
+                  "x": 0.04499963,
+                  "y": 0.929864943,
+                  "z": 0.137464464
+                },
+                "size": {
+                  "x": 0.9458011,
+                  "y": 1.87059057,
+                  "z": 0.9251629
+                }
+              }
+            },
+            {
+              "type": "charge_enemy",
+              "data": {
+                "max_hp": 1,
+                "speed": 4.0,
+                "attack_speed": 1.0,
+                "detection_radius": 6.0,
+                "charge_radius": 5.0,
+                "charge_time": 1.0,
+                "idle_speed": 3.0,
+                "attack_damage": 1,
+                "dash_speed": 7.5
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
     },
     {
       "name": "SpawnPoint",
@@ -155,7 +350,7 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": -6.76101971,
+          "x": -8.92,
           "y": 3.05000019,
           "z": -15.5506668
         },
@@ -201,49 +396,13 @@
       "children": []
     },
     {
-      "name": "a_z1_ground5",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 4.67,
-          "y": 2.46,
-          "z": -17.79
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone1/z1_Ground/a_z1_ground5.fbx",
-            "albedo": "Assets/Materials/Mat Ground Blocks/z1_matGround_c.dds",
-            "normal": "",
-            "reflective": ""
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "a_z3_woodenStatue",
       "tag": 0,
       "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
-          "x": -3.84096718,
+          "x": -0.231,
           "y": 3.05000019,
           "z": -13.72
         },
@@ -289,15 +448,15 @@
       "children": []
     },
     {
-      "name": "enemy",
-      "tag": 8,
+      "name": "a_z1_ground5",
+      "tag": 0,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": -5.756049,
-          "y": 3.05000019,
-          "z": -11.66
+          "x": 4.67,
+          "y": 2.46,
+          "z": -17.79
         },
         "rotation": {
           "x": 0.0,
@@ -315,55 +474,10 @@
         {
           "type": "mesh",
           "data": {
-            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
-            "albedo": "",
+            "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone1/z1_Ground/a_z1_ground5.fbx",
+            "albedo": "Assets/Materials/Mat Ground Blocks/z1_matGround_c.dds",
             "normal": "",
             "reflective": ""
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.388792217,
-              "z": -0.0050842464
-            },
-            "size": {
-              "x": 0.6734036,
-              "y": 0.777584434,
-              "z": 0.6632351
-            }
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": -0.003145218,
-              "y": 0.388792217,
-              "z": -0.0281229019
-            },
-            "size": {
-              "x": 1.05703068,
-              "y": 0.777584434,
-              "z": 1.00109863
-            }
-          }
-        },
-        {
-          "type": "charge_enemy",
-          "data": {
-            "max_hp": 5,
-            "speed": 5.0,
-            "attack_speed": 2.0,
-            "detection_radius": 10.0,
-            "idle_speed": 2.0,
-            "attack_damage": 1,
-            "charge_radius": 5.0,
-            "charge_time": 2.0
           }
         }
       ],
@@ -484,7 +598,14 @@
         {
           "type": "light",
           "data": {
-            "type": 1
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 0.956862748,
+              "b": 0.8392157,
+              "a": 1.0
+            },
+            "intensity": 1.0
           }
         }
       ],

@@ -5,11 +5,9 @@
 #include <tga2d/graphics/Camera.h>
 #include "SpawnPointManager.h"
 
-namespace Tga2D
-{
-	class DirectionalLight;
-	class AmbientLight;
-}
+#include <tga2d/graphics/AmbientLight.h>
+#include <tga2d/graphics/DirectionalLight.h>
+
 
 class Scene
 {
@@ -26,13 +24,16 @@ public:
 	CollisionManager& GetCollisionManager();
 	SpawnPointManager& GetSpawnPointManager();
 	Tga2D::Camera& GetCamera();
+
+	void SetDirectionalLight(const Tga2D::DirectionalLight& aDirectionalLight);
+	void SetAmbientLight(const Tga2D::AmbientLight& anAmbientLight);
 private:
 	//void AddImguiNode(class GameObject* aGameObject); // replaced with a prettier version.
 	std::vector<class GameObject*> myGameObjects;
 
 	Tga2D::Camera myCamera;
-	Tga2D::DirectionalLight* myDirectionalLight;
-	Tga2D::AmbientLight* myAmbientLight;
+	Tga2D::DirectionalLight myDirectionalLight;
+	Tga2D::AmbientLight myAmbientLight;
 	class PollingStation* myPollingStation;
 	RenderObjectManager myRenderObjectManager;
 	CollisionManager myCollisionManager;

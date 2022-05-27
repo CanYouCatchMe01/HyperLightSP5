@@ -94,7 +94,7 @@ void ImGuiInterface::PreFrame()
 
 void ImGuiInterface::Render()
 {
-#ifdef _DEBUG
+#ifndef _RETAIL
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 #endif

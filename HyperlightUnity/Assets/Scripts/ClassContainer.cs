@@ -9,7 +9,8 @@ public enum TypeEnum
     String,
     Vector3,
     Bool,
-    Color
+    Color,
+    Texture
 }
 
 //This class is used by "LevelDesigners" to add custom values to a class
@@ -28,6 +29,7 @@ public class ClassContainer : MonoBehaviour
         public Vector3 myVector3;
         public bool myBool;
         public Color myColor = Color.white;
+        public Texture myTexture;
     }
 
     public string myScriptName; //Used to know what component in c++ this class should be sent to

@@ -12,10 +12,10 @@ struct GameData
 
 /*	If the teleporter is active set it to true
 	------Teleporter Order------
-		  0 = badlands1
-		  1 = badlands2
-		  2 = jungle 1
-		  3 = jungle 2
+		  0 = badlands 2
+		  1 = badlands 3
+		  2 = jungle 2
+		  3 = jungle 3
 		  4 = hub
 	----------------------------	*/
 
@@ -37,10 +37,12 @@ class GameDataManager
 public:
 	GameDataManager();
 	~GameDataManager();
-	inline void UpdateGameData(GameData someGameData) { myGameData = someGameData; }
+
+	inline void UpdateGameData(GameData someGameData)		{ myGameData = someGameData; }
 	inline void UpdatePlayerData(PlayerData somePlayerData) { myPlayerData = somePlayerData; }
-	inline GameData GetGameData() { return myGameData; }
-	inline PlayerData GetPlayerData() { return myPlayerData; }
+	inline GameData GetGameData()							{ return myGameData; }
+	inline PlayerData GetPlayerData()						{ return myPlayerData; }
+
 private:
 	GameData myGameData;
 	PlayerData myPlayerData;

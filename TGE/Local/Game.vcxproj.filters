@@ -110,7 +110,6 @@
     <ClCompile Include="..\Source\Game\FluteEnemy.cpp">
       <Filter>Code\GameObject Component</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Game\AnimatedMeshComponent.cpp" />
     <ClCompile Include="..\Source\Game\Hud.cpp">
       <Filter>Code\UI</Filter>
     </ClCompile>
@@ -154,8 +153,14 @@
     <ClCompile Include="..\Source\Game\PointLightComponent.cpp">
       <Filter>Code\Scene\Light</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Game\DirectionalLightComponent.cpp">
-      <Filter>Code\Scene\Light</Filter>
+    <ClCompile Include="..\Source\tga2dcore\tga2d\model\AnimatedModelInstance.cpp">
+      <Filter>Native TGA2.5D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\AnimationController.cpp">
+      <Filter>Code\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\AnimatedMeshComponent.cpp">
+      <Filter>Code\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -329,11 +334,17 @@
     <ClInclude Include="..\Source\Game\TeleporterComponent.h">
       <Filter>Code\Scene\Spawn</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Game\DirectionalLightComponent.h">
-      <Filter>Code\Scene\Light</Filter>
-    </ClInclude>
     <ClInclude Include="..\Source\Game\PointLightComponent.h">
       <Filter>Code\Scene\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\AnimationController.h">
+      <Filter>Code\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\tga2dcore\tga2d\model\AnimatedModelInstance.h">
+      <Filter>Native TGA2.5D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\tga2dcore\tga2d\animation\AnimationController.h">
+      <Filter>Code\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

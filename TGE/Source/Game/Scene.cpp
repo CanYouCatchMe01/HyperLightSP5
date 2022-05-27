@@ -6,10 +6,10 @@
 #include <json.hpp>
 #include "PollingStation.h"
 
-Scene::Scene(PollingStation* aPollingStation) : myPollingStation(aPollingStation)
+Scene::Scene(PollingStation* aPollingStation) : myPollingStation(aPollingStation), myAmbientLight(Tga2D::Color{ 1, 1, 1 }, 3000.0)
+, myDirectionalLight({}, Tga2D::Color{ 1, 1, 1 }, 1.0)
 {
-
-	myDirectionalLight = new Tga2D::DirectionalLight(
+	myDirectionalLight = Tga2D::DirectionalLight(
 		Tga2D::Transform{
 			Tga2D::Vector3f(0, 0, 0),
 			Tga2D::Rotator(0, 0, 0)
@@ -18,23 +18,16 @@ Scene::Scene(PollingStation* aPollingStation) : myPollingStation(aPollingStation
 		3000
 	);
 	
-
-
 	std::wstring cubeMap = L"Sprites/cube_1024_preblurred_angle3_Skansen3.dds";
-	myAmbientLight = new Tga2D::AmbientLight(
+	myAmbientLight = Tga2D::AmbientLight(
 		cubeMap,
 		Tga2D::Color{ 1.0f, 1.0f, 1.0f },
 		1.0f
 	);
-
-	Tga2D::Engine::GetInstance()->GetLightManager().SetDirectionalLight(*myDirectionalLight);
-	Tga2D::Engine::GetInstance()->GetLightManager().SetAmbientLight(*myAmbientLight);
-
 }
 
 Scene::~Scene()
 {
-	delete myDirectionalLight;
 
 	for (size_t i = 0; i < myGameObjects.size(); i++)
 		delete myGameObjects[i];
@@ -105,4 +98,16 @@ SpawnPointManager& Scene::GetSpawnPointManager()
 Tga2D::Camera& Scene::GetCamera()
 {
 	return myCamera;
+}
+
+void Scene::SetDirectionalLight(const Tga2D::DirectionalLight& aDirectionalLight)
+{
+	myDirectionalLight = aDirectionalLight;
+	//Tga2D::Engine::GetInstance()->GetLightManager().SetDirectionalLight(myDirectionalLight);
+}
+
+void Scene::SetAmbientLight(const Tga2D::AmbientLight& anAmbientLight)
+{
+	myAmbientLight = anAmbientLight;
+	//Tga2D::Engine::GetInstance()->GetLightManager().SetAmbientLight(myAmbientLight);
 }

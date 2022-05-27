@@ -8,7 +8,8 @@ enum class eMessageType
 {
 	ePlayerTookDMG,
 	ePlayerHealed,
-	ePlayerPickedUpHealth
+	ePlayerPickedUpHealth,
+	eHealthUpgrade,
 };
 
 

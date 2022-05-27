@@ -155,6 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\Game\AnimatedMeshComponent.h" />
+    <ClInclude Include="..\Source\Game\AnimationController.h" />
     <ClInclude Include="..\Source\Game\AudioComponent.h" />
     <ClInclude Include="..\Source\Game\AudioManager.h" />
     <ClInclude Include="..\Source\Game\BaseDebugger.h" />
@@ -170,7 +171,6 @@
     <ClInclude Include="..\Source\Game\Converter.h" />
     <ClInclude Include="..\Source\Game\CreditsState.h" />
     <ClInclude Include="..\Source\Game\DebugObserver.h" />
-    <ClInclude Include="..\Source\Game\DirectionalLightComponent.h" />
     <ClInclude Include="..\Source\Game\EnemyComponent.h" />
     <ClInclude Include="..\Source\Game\FluteEnemy.h" />
     <ClInclude Include="..\Source\Game\Game.h" />
@@ -214,9 +214,12 @@
     <ClInclude Include="..\Source\Game\resource.h" />
     <ClInclude Include="..\Source\Game\stdafx.h" />
     <ClInclude Include="..\Source\Game\targetver.h" />
+    <ClInclude Include="..\Source\tga2dcore\tga2d\animation\AnimationController.h" />
+    <ClInclude Include="..\Source\tga2dcore\tga2d\model\AnimatedModelInstance.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\Game\AnimatedMeshComponent.cpp" />
+    <ClCompile Include="..\Source\Game\AnimationController.cpp" />
     <ClCompile Include="..\Source\Game\AudioComponent.cpp" />
     <ClCompile Include="..\Source\Game\AudioManager.cpp" />
     <ClCompile Include="..\Source\Game\BaseDebugger.cpp" />
@@ -230,7 +233,6 @@
     <ClCompile Include="..\Source\Game\Component.cpp" />
     <ClCompile Include="..\Source\Game\ComponentDebugger.cpp" />
     <ClCompile Include="..\Source\Game\CreditsState.cpp" />
-    <ClCompile Include="..\Source\Game\DirectionalLightComponent.cpp" />
     <ClCompile Include="..\Source\Game\EnemyComponent.cpp" />
     <ClCompile Include="..\Source\Game\FluteEnemy.cpp" />
     <ClCompile Include="..\Source\Game\Game.cpp" />
@@ -272,6 +274,7 @@
     <ClCompile Include="..\Source\Game\stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Source\tga2dcore\tga2d\model\AnimatedModelInstance.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

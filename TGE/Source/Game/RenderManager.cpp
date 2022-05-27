@@ -29,16 +29,12 @@ void RenderManager::Render(Scene* aScene)
 
 	//Send light info to GPU
 	myGraphicsEngine.UpdateAndBindLightBuffer();
-	myForwardRenderer.SetEnvironmentMap(*aScene->myAmbientLight);
+	myForwardRenderer.SetEnvironmentMap(aScene->myAmbientLight);
+	myLightManager.SetDirectionalLight(aScene->myDirectionalLight);
 
 	myLightManager.ClearPointLights();
 
-	/*for (auto& pointLight : aScene->myPointLights)
-	{
-		myLightManager.AddPointLight(*pointLight);
-	}*/
-
-	//aScene->GetRenderObjectManager().AddPointLights(myLightManager);
+	aScene->GetRenderObjectManager().AddPointLights(myLightManager);
 
 	Tga2D::DX11::RenderStateManager->SetBlendState(Tga2D::BlendState::Disabled);
 	myIntermediateTexture.SetAsActiveTarget(&myIntermediateDepth);

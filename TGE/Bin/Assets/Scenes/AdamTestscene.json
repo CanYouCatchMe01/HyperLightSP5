@@ -36,7 +36,7 @@
     },
     {
       "name": "Player",
-      "tag": 0,
+      "tag": 5,
       "layer": 0,
       "is_static": false,
       "transform": {
@@ -59,26 +59,17 @@
       },
       "components": [
         {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
-            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
-            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
-            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds"
-          }
-        },
-        {
           "type": "box_collider",
           "data": {
             "is_trigger": false,
             "center": {
               "x": 0.0,
-              "y": 1.0,
+              "y": 0.8975179,
               "z": 0.0
             },
             "size": {
               "x": 0.85,
-              "y": 1.64,
+              "y": 1.844964,
               "z": 0.69
             }
           }
@@ -110,6 +101,25 @@
               "y": 1.93430161,
               "z": 1.0
             }
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
+            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
+            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                "name": "Take 001"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                "name": "Take 001"
+              }
+            ]
           }
         }
       ],

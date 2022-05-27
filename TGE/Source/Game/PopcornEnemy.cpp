@@ -19,6 +19,7 @@ void PopcornEnemy::OnUpdate(float aDt)
 {
 	myWalkSound->setVolume(1.f);
 	myMoveTimer -= aDt;
+	myTakeDamageTimer -= aDt;
 	CheckRadius();
 
 	float yPos = GetPosition().y;
@@ -35,19 +36,10 @@ void PopcornEnemy::OnUpdate(float aDt)
 	}
 }
 
-void PopcornEnemy::OnCollisionEnter(GameObject* aOther)
-{
-	PlayerComponent* player = aOther->GetComponent<PlayerComponent>();
-	std::cout << "that boi fine\n";
-	if (player != nullptr)
-	{
-		std::cout << "OUCH!\n";
-		player->TakeDamage(myAttackDmg);
-	}
-}
 
 void PopcornEnemy::OnDeath()
 {
+	std::cout << "he dead (popcorn enemy)\n";
 }
 
 void PopcornEnemy::MoveAway(float aDT, Tga2D::Vector3f aDirection)

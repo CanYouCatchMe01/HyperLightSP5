@@ -11,4 +11,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Zone 1 Tutorial and passage/Tutorial.unity
+    guid: 20d56bc43abc7144d8c0dbe053f066c9
+  - enabled: 1
+    path: Assets/Scenes/Zone 2 Badlands/Badlands 1.unity
+    guid: 23a7080fb2d1a1a4ebc3e75b3b6805a2
+  - enabled: 1
+    path: Assets/Scenes/Zone 2 Badlands/Badlands 2.unity
+    guid: 317dc33573719b94bb2e09ae9c82cd94
+  - enabled: 1
+    path: Assets/Scenes/Zone 2 Badlands/Badlands 3.unity
+    guid: 9caf95ab664dea140bae2b15d042c7b0
+  - enabled: 1
+    path: Assets/Scenes/Zone 1 Tutorial and passage/Passage.unity
+    guid: b9af829157af846488baa9b25bc68864
+  - enabled: 1
+    path: Assets/Scenes/Zone 1 Tutorial and passage/Hub.unity
+    guid: 0d3cb7565a4c25e4abe810ec1875b358
+  - enabled: 1
+    path: Assets/Scenes/Zone 3 Jungle/Jungle 1.unity
+    guid: a3a0f947d7a85ca49b011ac378807cdd
+  - enabled: 1
+    path: Assets/Scenes/Zone 3 Jungle/Jungle 2.unity
+    guid: 84935eb5f993a614194f2e9b6171137f
+  - enabled: 1
+    path: Assets/Scenes/Zone 3 Jungle/Jungle 3.unity
+    guid: 825f17aa53be2924b8f053640528fe7b
   m_configObjects: {}

@@ -90,6 +90,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: a_z2_ground_05
       objectReference: {fileID: 0}
+    - target: {fileID: 8802748818065821676, guid: 3e2382cf6d08ae44ca27df24a614a2b0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7577cabaf97f94042ae947d75a498735, type: 2}
+    - target: {fileID: 8802748818065821676, guid: 3e2382cf6d08ae44ca27df24a614a2b0, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2fd378a1a19171740993bf3c667c3997, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e2382cf6d08ae44ca27df24a614a2b0, type: 3}
 --- !u!4 &5062737933466182472 stripped

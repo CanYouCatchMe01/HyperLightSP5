@@ -10,12 +10,10 @@ public:
 
 private:
 
-	void OnCollisionEnter(GameObject* aOther) override;
 	void OnDeath() override;
 
 	void MoveAway(float aDT, Tga2D::Vector3f aDirection);
 
 	Tga2D::Vector3f myAttackDirection;
-	int myHp;
 };
 

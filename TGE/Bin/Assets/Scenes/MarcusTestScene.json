@@ -8,27 +8,27 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": 0.0,
-          "y": 4.07,
-          "z": -8.28
+          "x": 1.32,
+          "y": 3.62,
+          "z": 6.19
         },
         "rotation": {
           "x": 0.0,
-          "y": 0.0,
+          "y": -0.997579336,
           "z": 0.0,
-          "w": 1.0
+          "w": -0.06953756
         },
         "scale": {
-          "x": 1.0,
+          "x": 0.99999994,
           "y": 1.0,
-          "z": 1.0
+          "z": 0.99999994
         }
       },
       "components": [
         {
           "type": "camera",
           "data": {
-            "fov": 109.7
+            "fov": 90.0
           }
         }
       ],
@@ -82,18 +82,45 @@
               "z": 1.0
             }
           },
-          "components": [
+          "components": [],
+          "children": [
             {
-              "type": "mesh",
-              "data": {
-                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone2/z2_Ground/a_z2_ground_03.fbx",
-                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
-                "normal": "",
-                "reflective": ""
-              }
+              "name": "a_z2_groundBlock_03",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": 1.03951216,
+                  "y": -0.36588192,
+                  "z": -1.25474119
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [
+                {
+                  "type": "mesh",
+                  "data": {
+                    "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone2/z2_Ground/a_z2_ground_03.fbx",
+                    "albedo": "",
+                    "normal": "",
+                    "reflective": ""
+                  }
+                }
+              ],
+              "children": []
             }
-          ],
-          "children": []
+          ]
         },
         {
           "name": "Collider 3",
@@ -1295,19 +1322,19 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0
+          "x": 2.221,
+          "y": 1.8,
+          "z": -0.026
         },
         "rotation": {
-          "x": 0.9304181,
-          "y": -0.06953009,
-          "z": 0.249304712,
-          "w": 0.259489864
+          "x": -0.359281719,
+          "y": 0.779903054,
+          "z": -0.4541646,
+          "w": -0.23749201
         },
         "scale": {
-          "x": 1.0,
-          "y": 1.00000024,
+          "x": 1.00000036,
+          "y": 1.00000012,
           "z": 1.00000012
         }
       },
@@ -1318,8 +1345,8 @@
             "type": 1,
             "color": {
               "r": 1.0,
-              "g": 1.0,
-              "b": 1.0,
+              "g": 0.0,
+              "b": 0.180047989,
               "a": 1.0
             },
             "intensity": 1.42
@@ -1329,15 +1356,15 @@
       "children": []
     },
     {
-      "name": "Point Light",
+      "name": "AmbientLight",
       "tag": 0,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0
+          "x": 2.10039139,
+          "y": 4.23798752,
+          "z": 2.858007
         },
         "rotation": {
           "x": 0.0,
@@ -1353,17 +1380,18 @@
       },
       "components": [
         {
-          "type": "light",
+          "type": "ambient_light",
           "data": {
-            "type": 2,
             "color": {
-              "r": 1.0,
+              "r": 0.329682231,
               "g": 1.0,
-              "b": 1.0,
+              "b": 0.0,
               "a": 1.0
             },
-            "intensity": 1.0,
-            "range": 10.0
+            "cube_map": {
+              "texture": "Assets/Art/2D/cubemaps_skybox.dds"
+            },
+            "intensity": 3000.0
           }
         }
       ],

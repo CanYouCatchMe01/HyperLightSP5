@@ -3,6 +3,7 @@
 #include "StateStack.h"
 #include "OptionsState.h"
 #include "Button.h"
+#include "AudioManager.h"
 
 #include <vector>
 #include <tga2d/texture/TextureManager.h>
@@ -125,6 +126,7 @@ void PauseMenuState::RecieveEvent(const Input::eInputEvent aEvent, const float /
 					myButtons[0]->SetState(eState::Selected);
 					mySelectedType = myButtons[0]->GetType();
 				}
+				myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 				return;
 
 			}
@@ -148,8 +150,8 @@ void PauseMenuState::RecieveEvent(const Input::eInputEvent aEvent, const float /
 					myButtons[myButtons.size() - 1]->SetState(eState::Selected);
 					mySelectedType = myButtons[myButtons.size() - 1]->GetType();
 				}
+				myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 				return;
-
 			}
 		}
 
