@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{2f328478-e705-4304-a975-53ab9f5ed5e3}">
+	<object class="AudioFile" id="{72bfb63d-ed7b-47d3-b2ab-b7447aa34dd3}">
 		<property name="assetPath">
-			<value>SFX/enemy/Enemy Guitar Hit 4.wav</value>
+			<value>SFX/enemy/Octave Weapon 1.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>2.2851458333333334</value>
+			<value>0.72908333333333331</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{8728dd84-aca8-44bb-8a96-e57a3ddbb506}</destination>
