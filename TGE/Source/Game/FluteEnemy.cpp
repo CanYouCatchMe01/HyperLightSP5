@@ -17,6 +17,7 @@ void FluteEnemy::OnUpdate(float aDt)
 {
 	myWalkSound->setVolume(1.f);
 	myMoveTimer -= aDt;
+	myTakeDamageTimer -= aDt;
 	CheckRadius();
 
 	float yPos = GetPosition().y;
@@ -58,17 +59,15 @@ void FluteEnemy::IdleMovement(float aDt)
 	float currentRadius2 = (currentPosition.x - myStartPosition.x) * (currentPosition.x - myStartPosition.x) +
 		(currentPosition.z - myStartPosition.z) * (currentPosition.z - myStartPosition.z);
 
-	std::cout << "Position: " << currentPosition.x << " x " << currentPosition.z << " z" << std::endl;
-
-
 	Tga2D::Vector3f forwardDir = myTransform->GetMatrix().GetForward();
 	forwardDir.Normalize();
 
 	//Tga2D::Vector3f backwardDir = forwardDir * -1.f;
 	//Tga2D::Vector3f rightDir = myTransform->GetMatrix().GetRight();
 	//Tga2D::Vector3f leftDir = rightDir * -1.f;
-	if (!myHasTurned && currentRadius2 > myIdleRadius * myIdleRadius)
+	if (currentRadius2 > myIdleRadius * myIdleRadius)
 	{
+		std::cout << "Out of bounds" << std::endl;
 		std::vector<Tga2D::Vector3f> dirs = { myTransform->GetMatrix().GetForward(),//forward
 									  myTransform->GetMatrix().GetForward() * -1.f,	//backwards
 									  myTransform->GetMatrix().GetRight(),			//right
@@ -82,8 +81,14 @@ void FluteEnemy::IdleMovement(float aDt)
 			if (dir.Dot(currentDiff) > closest.Dot(currentDiff))
 				closest = dir;
 		}
-		std::cout << "X: " << closest.x << " Z: " << closest.z << '\n';
-		myTransform->SetRotation(closest);
+		if (!myHasTurned)
+		{
+			std::cout << "Turned" << std::endl;
+			float rotation = atan2(closest.x, closest.z) * 57.2f;
+			myTransform->SetRotation({ 0,rotation,0 });
+			myHasTurned = true;
+		}
+
 		SetPosition(GetPosition() + closest * myIdleSpeed * aDt);
 		return;
 	}

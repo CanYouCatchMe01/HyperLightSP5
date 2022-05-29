@@ -332,6 +332,18 @@ class Converter
         return result;
     }
 
+    public static JObject ConvertToJSON(Texture aTexture)
+    {
+        JObject result = new JObject();
+
+        string texturePath = AssetDatabase.GetAssetPath(aTexture);
+
+        result.Add("texture", Path.ChangeExtension(texturePath, ".dds"));
+        Export.AddDependency(texturePath);
+
+        return result;
+    }
+
     public static JObject ConvertToJSON(BoxCollider aBoxCollider)
     {
         JObject result = new JObject();
@@ -386,6 +398,11 @@ class Converter
                 case TypeEnum.Color:
                     {
                         data.Add(element.myVariableName, ConvertToJSON(element.myColor));
+                        break;
+                    }
+                case TypeEnum.Texture:
+                    {
+                        data.Add(element.myVariableName, ConvertToJSON(element.myTexture));
                         break;
                     }
             }

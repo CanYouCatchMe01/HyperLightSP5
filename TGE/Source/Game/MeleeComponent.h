@@ -1,23 +1,23 @@
 #pragma once
 #include "Component.h"
-#include "BoxColliderComponent.h"
+
 
 class MeleeComponent : public Component
 {
 public:
-	MeleeComponent();
+	MeleeComponent(bool aWeaponUpgrade, int someDamage);
 	~MeleeComponent();
 	void OnUpdate(float aDeltaTime) override;
-	int myDamage = 1;
-	int myAttackSpeed = 1; // lower is faster.
+	void TurnWeaponUpgradeOn();
+	bool myWeaponUpgrade;
+	int myAttackDamage;
 #ifdef _DEBUG
 	void DebugUpdate();
 #endif // _DEBUG
+
 	void OnAwake() override;
 
 	void OnStart() override;
+
 private:
-
-
-
 };

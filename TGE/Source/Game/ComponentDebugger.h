@@ -5,6 +5,7 @@
 class ComponentDebugger
 {
 public:
+
 	virtual void DebugUpdate();
 private:
 

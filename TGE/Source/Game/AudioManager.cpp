@@ -72,6 +72,8 @@ void AudioManager::Update()
 		myContext.system->setListenerAttributes(0, &myListenerAttributes);
 	}
 
+	//Need to set the music position where the camere is every frame
+	myMusicInstance->set3DAttributes(&myListenerAttributes);
 
 	myContext.system->update();
 }
@@ -153,7 +155,6 @@ void AudioManager::StartAllPausedEvents()
 	myChannels.at(Channels::Master)->setPaused(false);
 }
 
-
 void AudioManager::SetMusic(const char* aMusicEvent)
 {
 	myMusicInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
@@ -163,8 +164,6 @@ void AudioManager::SetMusic(const char* aMusicEvent)
 void AudioManager::SetMusic(const FMOD_GUID anID)
 {
 	myMusicInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-	//myMusicInstance->setParameterByID(FMOD_studio_)
-	
 	myMusicInstance = PlayEvent(anID);
 }
 

@@ -23,25 +23,32 @@ void EnemyComponent::OnStart()
 {
 	myTarget = myPollingStation->myPlayer;
 	myMoveTime = ((1000.f, 0.1f) * ((float)rand() / RAND_MAX)) + 0.1f;
+	// need to match with the hit cooldown of the player
+	myTakeDamageTime = 1.f;
 	myRandNum = -1;
 }
 
-void EnemyComponent::OnCollisionEnter(GameObject* aTrigger)
+void EnemyComponent::OnCollisionStay(GameObject* aTrigger)
 {
-	if(aTrigger->GetComponent<PlayerComponent>()==nullptr)
-		return;
-
-	if (aTrigger->GetComponent<PlayerComponent>()->myAttack)
+	if (myTakeDamageTimer < 0.f)
 	{
-		TakeDamage(aTrigger->GetComponent<MeleeComponent>()->myDamage);
-	}
+		if (aTrigger->tag == eTag::Player)
+		{
+			if (aTrigger->GetComponent<PlayerComponent>()->myAttack)
+			{
+				std::cout << "enemy took damage\n";
+				myTakeDamageTimer = myTakeDamageTime;
+				TakeDamage(aTrigger->GetComponent<MeleeComponent>()->myAttackDamage);
+			}
+		}
+	}	
 }
 
 void EnemyComponent::TakeDamage(int someDamage)
 {
 	myIsStunned = true;
-	myHp -= someDamage;
-	if (myHp <= 0) { OnDeath(); }
+	myMaxHp -= someDamage;
+	if (myMaxHp <= 0) { OnDeath(); }
 }
 
 void EnemyComponent::CheckRadius()
@@ -51,6 +58,48 @@ void EnemyComponent::CheckRadius()
 	float r2 = myDistanceToTarget.x * myDistanceToTarget.x + myDistanceToTarget.z * myDistanceToTarget.z;
 	// check if player is in range
 	myIsInRange = r2 < myDetectionRadius * myDetectionRadius;
+}
+
+void EnemyComponent::CorrectRotation(float aDeltaTime)
+{
+	if ((myDir.x != 0 || myDir.z != 0))
+	{
+		if (myGoalRotation != (std::atan2(myDir.z, -myDir.x) * 57.2957795f) - 90)
+		{
+			if (myRotation > 360)
+			{
+				myRotation -= 360;
+			}
+			else if (myRotation < -360)
+			{
+				myRotation += 360;
+			}
+			myGoalRotation = (std::atan2(myDir.z, -myDir.x) * 57.2957795f) - 90;
+			myRotationDiff = myGoalRotation - myRotation;
+			myRotationTime = 0;
+			if (myRotationDiff > 180)
+			{
+				myRotationDiff = -(360 - myRotationDiff);
+			}
+			else if (myRotationDiff < -180)
+			{
+				myRotationDiff = (360 + myRotationDiff);
+			}
+		}
+		myLastDir = myDir;
+	}
+	if (myRotationTime < 1 / myRotationSpeed)
+	{
+		myRotation += myRotationDiff * aDeltaTime * myRotationSpeed;
+		myTransform->SetRotation({ 0,myRotation,0 });
+		myRotationTime += aDeltaTime;
+	}
+	if (myRotationTime < 1 / myRotationSpeed)
+	{
+		myRotation += myRotationDiff * aDeltaTime * myRotationSpeed;
+		myTransform->SetRotation({ 0,myRotation,0 });
+		myRotationTime += aDeltaTime;
+	}
 }
 
 void EnemyComponent::SetPosition(const Tga2D::Vector3f& aPosition)
@@ -73,6 +122,8 @@ void EnemyComponent::StunEnemyForDuration(const float aDuration)
 	aDuration;
 	// how does timer do.
 	// if timer dont?
+	// 
+	// Have you tried?
 }
 
 bool EnemyComponent::IsStunned()

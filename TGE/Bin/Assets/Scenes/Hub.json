@@ -72,6 +72,56 @@
       ]
     },
     {
+      "name": "Teleporter",
+      "tag": 10,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -12.1,
+          "y": 0.79,
+          "z": 19.49
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 4.935551,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "teleporter",
+          "data": {
+            "scene": "Badlands 3",
+            "spawnpoint": "Badlands3S1"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "a_g_teleport",
       "tag": 0,
       "layer": 0,
@@ -278,7 +328,7 @@
         {
           "type": "box_collider",
           "data": {
-            "is_trigger": false,
+            "is_trigger": true,
             "center": {
               "x": 0.0,
               "y": 1.0,
@@ -355,7 +405,14 @@
         {
           "type": "light",
           "data": {
-            "type": 1
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 0.956862748,
+              "b": 0.8392157,
+              "a": 1.0
+            },
+            "intensity": 1.0
           }
         }
       ],
@@ -2180,6 +2237,56 @@
           "children": []
         }
       ]
+    },
+    {
+      "name": "Teleporter (1)",
+      "tag": 10,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 8.88,
+          "y": 0.79,
+          "z": 19.49
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 4.935551,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "teleporter",
+          "data": {
+            "scene": "Jungle 1",
+            "spawnpoint": ""
+          }
+        }
+      ],
+      "children": []
     }
   ]
 }

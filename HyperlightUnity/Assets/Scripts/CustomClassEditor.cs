@@ -60,6 +60,11 @@ public class CustomClassEditor : Editor
                         list[i].myColor = EditorGUILayout.ColorField("My Color", list[i].myColor);
                         break;
                     }
+                case TypeEnum.Texture:
+                    {
+                        list[i].myTexture = EditorGUILayout.ObjectField("My Texture", list[i].myTexture, typeof(Texture), true) as Texture;
+                        break;
+                    }
             }
 
             if (GUILayout.Button("Remove"))

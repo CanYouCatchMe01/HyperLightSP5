@@ -35,8 +35,821 @@
       "children": []
     },
     {
-      "name": "Player",
+      "name": "Teleporter",
+      "tag": 10,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -3.14451861,
+          "y": 3.94,
+          "z": -7.37
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 4.13665676,
+          "y": 1.82372785,
+          "z": 4.13665676
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "teleport_1",
+          "data": {
+            "scene": "Badlands 2"
+          }
+        }
+      ],
+      "children": [
+        {
+          "name": "SpawnPoint",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -3.31,
+              "y": 3.53,
+              "z": -7.39
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "spawn_point",
+              "data": {
+                "name": "teleporter"
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "a_g_teleport",
       "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -3.11,
+          "y": 3.06,
+          "z": -7.34
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.8986059,
+          "z": 0.0,
+          "w": 0.438756824
+        },
+        "scale": {
+          "x": 1.00000024,
+          "y": 1.0,
+          "z": 1.00000024
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_teleport.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Collider 4",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -42.81,
+          "y": 3.04999924,
+          "z": 4.58
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Collider 4",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -39.81,
+              "y": 4.549999,
+              "z": 1.57999992
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 6.0,
+              "y": 3.0,
+              "z": 6.0
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Collider 2",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -37.42,
+          "y": 3.04999924,
+          "z": 6.35
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Cube",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -33.2199974,
+              "y": 4.549999,
+              "z": 2.15999985
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.382682741,
+              "z": 0.0,
+              "w": 0.9238798
+            },
+            "scale": {
+              "x": 4.246631,
+              "y": 3.0,
+              "z": 0.853201866
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "GameObject",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -35.92,
+              "y": 4.549999,
+              "z": 1.8499999
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 3.0,
+              "y": 3.0,
+              "z": 3.0
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "GameObject (1)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -34.42,
+              "y": 4.549999,
+              "z": 4.85
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 6.0,
+              "y": 3.0,
+              "z": 3.0
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "pf_z2_ground_04",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -42.84641,
+          "y": 3.05000019,
+          "z": 4.575569
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_z2_ground_04",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": -42.84641,
+              "y": 3.05000019,
+              "z": 4.575569
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "a_z2_groundBlock_04",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": -42.84641,
+                  "y": 3.05000019,
+                  "z": 4.575569
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [
+                {
+                  "type": "mesh",
+                  "data": {
+                    "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone2/z2_Ground/a_z2_ground_04.fbx",
+                    "albedo": "Assets/Materials/Mat Ground Blocks/z2_matGround_c.dds",
+                    "normal": "Assets/Materials/Mat Ground Blocks/z2_matGround_n.dds",
+                    "reflective": "Assets/Materials/Mat Ground Blocks/z2_matGround_m.dds"
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p_z2_rock_l",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -22.26881,
+          "y": 3.05000019,
+          "z": 4.22977448
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON2/a_z2_rock_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone2/z2_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone2/z2_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone2/z2_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "pf_z2_ground_02",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -37.46,
+          "y": 3.05000019,
+          "z": 6.4
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_z2_ground_02",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": -37.46,
+              "y": 3.05000019,
+              "z": 6.4
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "a_z2_groundBlock_02",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": -37.46,
+                  "y": 3.05000019,
+                  "z": 6.4
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [
+                {
+                  "type": "mesh",
+                  "data": {
+                    "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone2/z2_Ground/a_z2_ground_02.fbx",
+                    "albedo": "Assets/Materials/Mat Ground Blocks/z2_matGroundTop_c.dds",
+                    "normal": "Assets/Materials/Mat Ground Blocks/z2_matGroundTop_n.dds",
+                    "reflective": "Assets/Materials/Mat Ground Blocks/z2_matGroundTop_m.dds"
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p_z2_grass_s_many",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -26.4420261,
+          "y": 3.05000019,
+          "z": -2.86907673
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON2/a_z2_grass_s_many.fbx",
+            "albedo": "Assets/Materials/Mat Zone2/z2_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone2/z2_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone2/z2_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z2_grass_l (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -26.3800583,
+          "y": 3.05000067,
+          "z": -0.0689067841
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON2/a_z2_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone2/z2_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone2/z2_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone2/z2_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z2_grass_l",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -22.86615,
+          "y": 3.05000019,
+          "z": 1.72144508
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON2/a_z2_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone2/z2_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone2/z2_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone2/z2_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z2_grass_s",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -21.391531,
+          "y": 3.05000067,
+          "z": 1.3746376
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON2/a_z2_grass_s.fbx",
+            "albedo": "Assets/Materials/Mat Zone2/z2_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone2/z2_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone2/z2_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z2_barrel_m",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -27.1365223,
+          "y": 3.05000019,
+          "z": 2.1544838
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON2/a_z2_barrel_m.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_ruin_01",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -8.911741,
+          "y": 3.04999971,
+          "z": 8.068682
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_ruin_01.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_tent_large",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -25.1439476,
+          "y": 3.05000019,
+          "z": 5.844387
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.651937366,
+          "z": 0.0,
+          "w": 0.7582728
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_tent_large.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Player",
+      "tag": 5,
       "layer": 0,
       "is_static": false,
       "transform": {
@@ -73,12 +886,12 @@
             "is_trigger": false,
             "center": {
               "x": 0.0,
-              "y": 1.0,
+              "y": 0.8975179,
               "z": 0.0
             },
             "size": {
               "x": 0.85,
-              "y": 1.64,
+              "y": 1.844964,
               "z": 0.69
             }
           }
@@ -89,17 +902,17 @@
             "max_hp": 5,
             "max_healing": 3,
             "max_attacks": 3,
-            "dash_time": 0.1,
+            "dash_time": 0.3,
             "healing_time": 0.1,
             "attack_time": 0.1,
             "speed": 5.0,
-            "dash_speed": 3.0
+            "dash_speed": 5.0
           }
         },
         {
           "type": "box_collider",
           "data": {
-            "is_trigger": false,
+            "is_trigger": true,
             "center": {
               "x": 0.0,
               "y": 1.0,
@@ -158,9 +971,9 @@
       "is_static": true,
       "transform": {
         "position": {
-          "x": -2.346747,
-          "y": 4.88499975,
-          "z": -5.06
+          "x": -18.49,
+          "y": 2.9,
+          "z": 10.36
         },
         "rotation": {
           "x": 0.0,
@@ -204,85 +1017,6 @@
       "children": []
     },
     {
-      "name": "enemy",
-      "tag": 8,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -24.2,
-          "y": 5.25,
-          "z": -11.66
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": -0.003145218,
-              "y": 0.388792217,
-              "z": -0.0281229019
-            },
-            "size": {
-              "x": 1.05703068,
-              "y": 0.777584434,
-              "z": 1.00109863
-            }
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.388792217,
-              "z": -0.0050842464
-            },
-            "size": {
-              "x": 0.6734036,
-              "y": 0.777584434,
-              "z": 0.6632351
-            }
-          }
-        },
-        {
-          "type": "flute_enemy",
-          "data": {
-            "max_hp": 5,
-            "speed": 5.0,
-            "attack_speed": 2.0,
-            "detection_radius": 10.0,
-            "idle_speed": 2.0,
-            "attack_damage": 1
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "a_z3_grass_s_many",
       "tag": 0,
       "layer": 0,
@@ -319,67 +1053,15 @@
       "children": []
     },
     {
-      "name": "a_z3_woodenStatue",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -3.84096718,
-          "y": 3.05000019,
-          "z": -13.72
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_s.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 1.280744,
-              "z": 0.0
-            },
-            "size": {
-              "x": 0.9865849,
-              "y": 2.561488,
-              "z": 0.4938808
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "a_z3_barrel_m",
       "tag": 0,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": -6.76101971,
+          "x": -21.41,
           "y": 3.05000019,
-          "z": -15.5506668
+          "z": -25.16
         },
         "rotation": {
           "x": 0.0,
@@ -423,39 +1105,6 @@
       "children": []
     },
     {
-      "name": "SpawnPoint",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -6.723,
-          "y": 6.38,
-          "z": -15.612
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "spawn_point",
-          "data": {
-            "name": "barrel"
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "Directional Light",
       "tag": 0,
       "layer": 0,
@@ -482,7 +1131,14 @@
         {
           "type": "light",
           "data": {
-            "type": 1
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 0.956862748,
+              "b": 0.8392157,
+              "a": 1.0
+            },
+            "intensity": 1.0
           }
         }
       ],
@@ -533,266 +1189,6 @@
             "size": {
               "x": 1.0,
               "y": 0.99999994,
-              "z": 1.0
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "Cube (1)",
-      "tag": 2,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": 4.43,
-          "y": 2.04,
-          "z": -12.79
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.27588895,
-          "w": 0.961189568
-        },
-        "scale": {
-          "x": 10.0,
-          "y": 6.22000027,
-          "z": 10.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
-            "albedo": "Assets/Materials/texture_test.dds",
-            "normal": "Assets/Materials/texture_test.dds",
-            "reflective": "Assets/Materials/texture_test.dds"
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "Cube (2)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -6.25,
-          "y": 2.648,
-          "z": -12.79
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
-            "albedo": "Assets/Materials/texture_test.dds",
-            "normal": "Assets/Materials/texture_test.dds",
-            "reflective": "Assets/Materials/texture_test.dds"
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "Cube (4)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -1.99,
-          "y": 3.56,
-          "z": -5.65
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.28049916,
-          "z": 0.0,
-          "w": 0.9598543
-        },
-        "scale": {
-          "x": 10.0,
-          "y": 2.65,
-          "z": 10.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "Cube (5)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -7.18,
-          "y": 2.9,
-          "z": -12.79
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
-            "albedo": "Assets/Materials/texture_test.dds",
-            "normal": "Assets/Materials/texture_test.dds",
-            "reflective": "Assets/Materials/texture_test.dds"
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "Cube (6)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -7.62,
-          "y": 3.14,
-          "z": -12.79
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/enHeltVanligKub.fbx",
-            "albedo": "Assets/Materials/texture_test.dds",
-            "normal": "Assets/Materials/texture_test.dds",
-            "reflective": "Assets/Materials/texture_test.dds"
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 1.0,
-              "y": 1.0,
               "z": 1.0
             }
           }
@@ -1254,87 +1650,6 @@
               "y": 0.99999994,
               "z": 1.0
             }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "enemy (1)",
-      "tag": 8,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -25.49,
-          "y": 3.05000019,
-          "z": -17.42
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.388792217,
-              "z": -0.0050842464
-            },
-            "size": {
-              "x": 0.6734036,
-              "y": 0.777584434,
-              "z": 0.6632351
-            }
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": -0.003145218,
-              "y": 0.388792217,
-              "z": -0.0281229019
-            },
-            "size": {
-              "x": 1.05703068,
-              "y": 0.777584434,
-              "z": 1.00109863
-            }
-          }
-        },
-        {
-          "type": "charge_enemy",
-          "data": {
-            "max_hp": 5,
-            "speed": 5.0,
-            "attack_speed": 2.0,
-            "detection_radius": 10.0,
-            "idle_speed": 2.0,
-            "attack_damage": 1,
-            "charge_radius": 5.0,
-            "charge_time": 2.0
           }
         }
       ],

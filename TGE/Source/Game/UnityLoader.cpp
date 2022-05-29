@@ -21,8 +21,9 @@
 #include "SpawnPointComponent.h"
 #include "CheckPointComponent.h"
 #include "MusicChangeComponent.h"
-#include "DirectionalLightComponent.h"
 #include "PointLightComponent.h"
+#include "tga2d/graphics/DirectionalLight.h"
+#include "tga2d/graphics/AmbientLight.h"
 
 #ifdef _DEBUG
 #include "BaseDebugger.h"
@@ -97,72 +98,93 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 		std::string type = comp["type"];
 		auto data = comp["data"];
 		
-		if (type == "mesh")
+		try //Trying if a component is crashing
 		{
-			gameObject->AddComponent<MeshComponent>(data["model"], data["albedo"], data["normal"], data["reflective"], aScene);
-		}
-		else if (type == "animated_mesh")
-		{
-			gameObject->AddComponent<AnimatedMeshComponent>(data["model"], data["albedo"], data["normal"], data["reflective"], data["animations"], aScene);
-		}
-		else if (type == "camera")
-		{
-			gameObject->AddComponent<CameraComponent>(&aScene->myCamera, data["fov"]);
-		}
-		else if (type == "player")
-		{
-			gameObject->AddComponent<PlayerComponent>(data["max_hp"], data["max_healing"], data["max_attacks"], data["dash_time"], data["healing_time"], data["attack_time"], data["speed"], data["dash_speed"]);
-		}
-		else if (type == "box_collider")
-		{
-			gameObject->AddComponent<BoxColliderComponent>(data["size"], data["center"], aGameObject["is_static"], data["is_trigger"]);
-			// TODO: Add box collider
-		}
-		else if (type == "popcorn_enemy")
-		{
-			gameObject->AddComponent<PopcornEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
-		}
-		else if (type == "charge_enemy")
-		{
-			gameObject->AddComponent<ChargeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["charge_radius"], data["charge_time"], data["idle_speed"], data["attack_damage"]);
-		}
-		else if (type == "flute_enemy")
-		{
-			gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
-		}
-		else if (type == "weapon")
-		{
-			gameObject->AddComponent<MeleeComponent>();
-		}
-		else if (type == "teleporter")
-		{
-			gameObject->AddComponent<TeleporterComponent>(data["scene"], data["spawnpoint"]);
-		}
-		else if (type == "spawn_point")
-		{
-			gameObject->AddComponent<SpawnPointComponent>(data["name"]);
-		}
-		else if (type == "check_point")
-		{
-			gameObject->AddComponent<CheckPointComponent>(data["scene"], data["name"]);
-		}
-		else if (type == "music_changer")
-		{
-			gameObject->AddComponent<MusicChangeComponent>(data["music_to_play"]);
-		}
-		else if (type == "light")
-		{
-			switch (data["type"].get<eLight>())
+			if (type == "mesh")
 			{
+				gameObject->AddComponent<MeshComponent>(data["model"], data["albedo"], data["normal"], data["reflective"], aScene);
+			}
+			else if (type == "animated_mesh")
+			{
+				gameObject->AddComponent<AnimatedMeshComponent>(data["model"], data["albedo"], data["normal"], data["reflective"], data["animations"], aScene);
+			}
+			else if (type == "camera")
+			{
+				gameObject->AddComponent<CameraComponent>(&aScene->myCamera, data["fov"]);
+			}
+			else if (type == "player")
+			{
+				gameObject->AddComponent<PlayerComponent>(data["max_hp"], data["max_healing"], data["max_attacks"], data["dash_time"], data["healing_time"], data["attack_time"], data["speed"], data["dash_speed"]);
+			}
+			else if (type == "box_collider")
+			{
+				gameObject->AddComponent<BoxColliderComponent>(data["size"], data["center"], aGameObject["is_static"], data["is_trigger"]);
+				// TODO: Add box collider
+			}
+			else if (type == "popcorn_enemy")
+			{
+				gameObject->AddComponent<PopcornEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
+			}
+			else if (type == "charge_enemy")
+			{
+				gameObject->AddComponent<ChargeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["charge_radius"], data["charge_time"], data["idle_speed"], data["attack_damage"], data["dash_speed"]);
+			}
+			else if (type == "flute_enemy")
+			{
+				gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
+			}
+			else if (type == "weapon")
+			{
+				gameObject->AddComponent<MeleeComponent>(data["weapon_upgrade"], data["weapon_damage"]);
+			}
+			else if (type == "teleporter")
+			{
+				//	gameObject->AddComponent<TeleporterComponent>(data["scene"], data["spawnpoint"]);
+			}
+			else if (type == "teleport_1")
+			{
+				gameObject->AddComponent<TeleporterComponent>(data["scene"]);
+			}
+			else if (type == "spawn_point")
+			{
+				gameObject->AddComponent<SpawnPointComponent>(data["name"]);
+			}
+			else if (type == "check_point")
+			{
+				gameObject->AddComponent<CheckPointComponent>(data["scene"], data["name"]);
+			}
+			else if (type == "music_changer")
+			{
+				gameObject->AddComponent<MusicChangeComponent>(data["music_to_play"]);
+			}
+			else if (type == "light")
+			{
+				switch (data["type"].get<eLight>())
+				{
 				case eLight::Directional:
-					gameObject->AddComponent<DirectionalLightComponent>(data["color"], data["intensity"]);
+					aScene->SetDirectionalLight(Tga2D::DirectionalLight(gameObject->GetTransform(), data["color"], data["intensity"]));
 					break;
 				case eLight::Point:
 					gameObject->AddComponent<PointLightComponent>(data["color"], data["intensity"], data["range"]);
 					break;
-			default:
-				break;
+				default:
+					break;
+				}
 			}
+			else if (type == "ambient_light")
+			{
+				std::string cubeMap = data["cube_map"]["texture"];
+				//string to wstring
+				std::wstring wCubeMap(cubeMap.begin(), cubeMap.end());
+
+				std::wstring cubeMapZoo = L"Assets/Art/2D/earth-cubemap.dds";
+
+				aScene->SetAmbientLight(Tga2D::AmbientLight(wCubeMap, data["color"].get<Tga2D::Color>(), data["intensity"].get<float>()));
+			}
+		}
+		catch (const std::exception&)
+		{
+			ERROR_PRINT("%s %s %s", "Component", type.c_str(), "crashed. The JSON file or the code is not right");
 		}
 	}
 

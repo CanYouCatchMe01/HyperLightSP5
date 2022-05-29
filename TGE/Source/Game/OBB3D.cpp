@@ -121,6 +121,9 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
     if (!aOther.myIsTrigger)
         return;
 
+    if (myIsTrigger)
+        return;
+
     if (aCollided && aOther.myIsTrigger)
     {
         if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eNone)

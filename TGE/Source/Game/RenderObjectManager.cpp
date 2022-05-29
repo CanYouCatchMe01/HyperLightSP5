@@ -7,6 +7,7 @@
 #include <functional>
 #include <utility>
 #include <tga2d/drawers/SpriteDrawer.h>
+#include "tga2d/light/LightManager.h"
 
 RenderObjectManager::RenderObjectManager()
 {
@@ -58,6 +59,50 @@ size_t RenderObjectManager::RegisterAnimatedModel(const wchar_t* aPath, std::wst
 
 	myAnimatedModels.push_back(Tga2D::ModelFactory::GetInstance().GetAnimatedModel(aPath, someTexturePaths));
 	return myAnimatedModels.size() - 1;
+}
+
+size_t RenderObjectManager::RegisterPointLight(const Tga2D::Color& aColor, const float anIntensity, float someRange)
+{
+	auto light = Tga2D::PointLight(
+		Tga2D::Transform{
+			Tga2D::Vector3f(0, 0, 0),
+			Tga2D::Rotator::Zero
+		},
+		aColor,
+		anIntensity, someRange
+	);
+
+	if (myEmptyPointLights.size())
+	{
+		size_t handle = *std::prev(myEmptyPointLights.end());
+		myEmptyPointLights.erase(std::prev(myEmptyPointLights.end()));
+		myPointLights[handle] = light;
+		return handle;
+	}
+
+	myPointLights.push_back(light);
+	return myPointLights.size() - 1;
+}
+
+Tga2D::PointLight* RenderObjectManager::GetPointLight(size_t aPointLight)
+{
+	return &myPointLights[aPointLight];
+}
+
+void RenderObjectManager::DestroyPointLight(size_t aPointLight)
+{
+	myEmptyPointLights.insert(aPointLight);
+}
+
+void RenderObjectManager::AddPointLights(Tga2D::LightManager& aLightManager)
+{
+	for (size_t i = 0; i != myPointLights.size(); ++i)
+	{
+		if (myEmptyPointLights.count(i))
+			continue;
+
+		aLightManager.AddPointLight(myPointLights[i]);
+	}
 }
 
 

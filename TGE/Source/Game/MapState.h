@@ -24,11 +24,12 @@ public:
 	void Init() override;
 	int Update(const float aDeltaTime) override;
 	void Render() override;
+	void InvokeButton();
 	void RecieveEvent(const Input::eInputEvent aEvent, const float aValue) override;
 private:
 	int myCurrentSelection;
 	Tga2D::SpriteSharedData mySharedData;
 	Tga2D::Sprite2DInstanceData mySpriteInstance = {};
-
+	std::string myTeleportPoints[5];
 	std::vector <Button> myButtons;
 };

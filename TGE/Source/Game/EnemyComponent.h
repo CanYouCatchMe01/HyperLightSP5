@@ -12,7 +12,7 @@ public:
 	void OnAwake() override;
 	void OnStart() override;
 
-	virtual void OnCollisionEnter(GameObject* aOther);
+	void OnCollisionStay(GameObject* aOther);
 	virtual void TakeDamage(int someDamage);
 	virtual int GetAttackDmg();
 	virtual void StunEnemyForDuration(const float aDuration);
@@ -24,10 +24,10 @@ public:
 
 protected:
 	virtual void CheckRadius();
+	void CorrectRotation(float aDeltaTime);
 
 	virtual void SetPosition(const Tga2D::Vector3f& aPosition);
 	virtual Tga2D::Vector3f GetPosition();
-	
 
 	virtual void IdleMovement(float aDt);
 	virtual void MoveTowardsPlayer(float aDT);
@@ -38,17 +38,23 @@ protected:
 	bool myIsDead = false;
 
 	int myMaxHp;
-	int myHp;
 	int myAttackDmg;
 	int myRandNum;
-
+	
+	float myTakeDamageTimer = 0.f;
+	float myTakeDamageTime;
 	float myGravity = 5.5f;
 	float mySpeed;
 	float myIdleSpeed;
 	float myAttackSpeed;
 	float myDetectionRadius;
-	float myMoveTimer = 0.0f;
+	float myMoveTimer = 0.f;
 	float myMoveTime;
+	float myRotation = 0;
+	float myGoalRotation = 0;
+	float myRotationDiff = 0;
+	float myRotationTime = 0;
+	float myRotationSpeed = 12; //Higher is faster.
 
 	//Audio
 	class AudioComponent* myAudioComponent = nullptr;
@@ -56,5 +62,7 @@ protected:
 	//Save the walksound to increase and decrease the volume, when the player is moving
 	FMOD::Studio::EventInstance* myWalkSound = nullptr;
 public:
+	Tga2D::Vector3f myDir;
+	Tga2D::Vector3f myLastDir;
 	bool myIsStunned = false;
 };

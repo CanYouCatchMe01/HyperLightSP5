@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6207600019432516923}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.85, y: 1.64, z: 0.69}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 0.85, y: 1.844964, z: 0.69}
+  m_Center: {x: 0, y: 0.8975179, z: 0}
 --- !u!114 &7984606437278429532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   - myVariableType: 1
     myVariableName: speed
     myInt: 0
-    myFloat: 0.5
+    myFloat: 5
     myString: 
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   - myVariableType: 1
     myVariableName: dash_speed
     myInt: 0
-    myFloat: 3
+    myFloat: 25
     myString: 
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0

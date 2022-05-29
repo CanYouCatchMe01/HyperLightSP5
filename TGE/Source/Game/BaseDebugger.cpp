@@ -22,7 +22,7 @@ void BaseDebugger::RemoveObserver(DebugObserver* anObserver)
 {
 	auto it = std::find(myObservers.begin(), myObservers.end(), anObserver);
 
-	if (it != myObservers.end())
+	if (it == myObservers.end())
 		return;
 
 	myObservers.erase(it);

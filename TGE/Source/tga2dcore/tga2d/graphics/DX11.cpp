@@ -6,7 +6,7 @@
 
 using namespace Tga2D;
 
-#define REPORT_DX_WARNINGS
+//#define REPORT_DX_WARNINGS
 
 ID3D11Device* DX11::Device;
 ID3D11DeviceContext* DX11::Context;

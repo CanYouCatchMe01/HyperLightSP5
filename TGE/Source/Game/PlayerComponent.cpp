@@ -4,10 +4,13 @@
 #include "GameObject.h"
 #include "EnemyComponent.h"
 #include "PopcornEnemy.h"
+#include "ChargeEnemy.h"
+#include "FluteEnemy.h"
 #include "AudioComponent.h"
 #include "AudioManager.h"
 #include "TeleporterComponent.h"
 #include "CheckPointComponent.h"
+#include "AnimatedMeshComponent.h"
 
 PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed)
 {
@@ -119,7 +122,7 @@ void PlayerComponent::Attack()
 {	
 	if (myAttackTimer < 0.0f)
 	{
-		myAttackTimer = 0.1f;
+		myAttackTimer = 0.2f;
 		myAttack = true;
 		//do the attack
 		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_attack);
@@ -260,13 +263,15 @@ void PlayerComponent::OnAwake()
 	SetPollingStation(myPollingStation);
 }
 void PlayerComponent::OnStart()
-{
-}
+{}
+
 void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 {
 	if (aOther->tag == eTag::teleporter)
 	{
-		aOther->GetComponent<TeleporterComponent>()->Load();
+		//Teleporter broken
+		aOther->GetComponent<TeleporterComponent>()->Activate();
+		return;
 	}
 
 	if (aOther->tag == eTag::checkpoint)
@@ -276,9 +281,25 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 
 	if (aOther->tag == eTag::popcorn)
 	{
-		std::cout << "player took damage\n";
+		std::cout << "player took damage by popcorn\n";
 		TakeDamage(aOther->GetComponent<PopcornEnemy>()->GetAttackDmg());
 		aOther->GetComponent<PopcornEnemy>()->myIsStunned = true;
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+	}
+
+	if (aOther->tag == eTag::charge)
+	{
+		std::cout << "player took damage by charge\n";
+		TakeDamage(aOther->GetComponent<ChargeEnemy>()->GetAttackDmg());
+		aOther->GetComponent<ChargeEnemy>()->myIsStunned = true;
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+	}
+
+	if (aOther->tag == eTag::flute)
+	{
+		std::cout << "player took damage by flute\n";
+		TakeDamage(aOther->GetComponent<FluteEnemy>()->GetAttackDmg());
+		aOther->GetComponent<FluteEnemy>()->myIsStunned = true;
 		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
 	}
 }
@@ -289,10 +310,21 @@ void PlayerComponent::OnCollisionExit(GameObject* aOther)
 	{
 		aOther->GetComponent<PopcornEnemy>()->myIsStunned = false;
 	}
+
+	if (aOther->tag == eTag::charge)
+	{
+		aOther->GetComponent<ChargeEnemy>()->myIsStunned = false;
+	}
+
+	if (aOther->tag == eTag::flute)
+	{
+		aOther->GetComponent<FluteEnemy>()->myIsStunned = false;
+	}
 }
 
 void PlayerComponent::OnDeath()
 {
+	std::cout << "player died\n";
 	if (myPlayerData.myCheckpoint != nullptr)
 	{
 		myPlayerData.myCheckpoint->Load(); //causes crash
