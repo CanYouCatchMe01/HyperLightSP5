@@ -8,6 +8,7 @@
 #include <tga2d/graphics/AmbientLight.h>
 #include <tga2d/graphics/DirectionalLight.h>
 
+class GameObject;
 
 class Scene
 {
@@ -27,9 +28,15 @@ public:
 
 	void SetDirectionalLight(const Tga2D::DirectionalLight& aDirectionalLight);
 	void SetAmbientLight(const Tga2D::AmbientLight& anAmbientLight);
+
+	void AddGameObject(GameObject* aGameObject);
+	void RemoveGameObject(GameObject* aGameObject);
+
 private:
 	//void AddImguiNode(class GameObject* aGameObject); // replaced with a prettier version.
-	std::vector<class GameObject*> myGameObjects;
+	std::vector<GameObject*> myGameObjects;
+	std::vector<GameObject*> myTempAddObjects;
+	std::vector<GameObject*> myTempRemoveObjects;
 
 	Tga2D::Camera myCamera;
 	Tga2D::DirectionalLight myDirectionalLight;

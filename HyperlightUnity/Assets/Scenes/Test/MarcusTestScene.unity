@@ -225,6 +225,7 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
   - myVariableType: 1
     myVariableName: my speed
     myInt: 0
@@ -234,6 +235,7 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
   - myVariableType: 3
     myVariableName: 'flying '
     myInt: 0
@@ -243,6 +245,7 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
   - myVariableType: 4
     myVariableName: jump
     myInt: 0
@@ -252,6 +255,7 @@ MonoBehaviour:
     myBool: 1
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
 --- !u!4 &385483229
 Transform:
   m_ObjectHideFlags: 0
@@ -289,6 +293,7 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
 --- !u!1 &894032167
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,6 +598,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac5f4631435fd6e4b8d3336072e3153a, type: 3}
+--- !u!1 &1622116499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1622116501}
+  - component: {fileID: 1622116500}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1622116500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622116499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4207025edc3df8148a3dac71b4db0b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myScriptName: scene_test
+  myList:
+  - myVariableType: 1
+    myVariableName: sdsd
+    myInt: 0
+    myFloat: 4
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+  - myVariableType: 7
+    myVariableName: load
+    myInt: 0
+    myFloat: 0
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
+    myScene: {fileID: 102900000, guid: 98dd69c9ab28fdb47819593352995179, type: 3}
+--- !u!4 &1622116501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622116499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.30972868, y: 5.8377175, z: -10.745808}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1646419376
 PrefabInstance:
   m_ObjectHideFlags: 0

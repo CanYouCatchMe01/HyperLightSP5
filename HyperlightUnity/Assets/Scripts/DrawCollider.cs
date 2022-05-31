@@ -7,6 +7,8 @@ public class DrawCollider : MonoBehaviour
 {
     // Start is called before the first frame update
     public static bool myDrawColliders;
+    public bool myAlwaysDraw = false;
+    public Color myColor = Color.red;
 
     [ExecuteInEditMode]
     private void Start()
@@ -16,7 +18,7 @@ public class DrawCollider : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!myDrawColliders)
+        if (!myDrawColliders && !myAlwaysDraw)
             return;
 
         var boxCollider = GetComponent<BoxCollider>();
@@ -50,7 +52,7 @@ public class DrawCollider : MonoBehaviour
         
 
         Handles.matrix = mat;
-        Handles.color = Color.red;
+        Handles.color = myColor;
         Handles.DrawWireCube(boxCollider.center, boxCollider.size);
     }
 }

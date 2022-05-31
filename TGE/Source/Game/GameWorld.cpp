@@ -24,15 +24,31 @@ GameWorld::~GameWorld()
 
 void GameWorld::Init(HWND aHWND)  
 {
+	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/tgalogo_W.dds");
+	mySpriteInstance.myPivot = { 0.5f,0.5f };
+	mySpriteInstance.myPosition= { 0.5f,0.5f };
+	mySpriteInstance.mySizeMultiplier = { 1.f,0.32f };
 	myPollingStation = new PollingStation;
 	myPollingStation->Init(aHWND);
 
 	myStateStack.Init(myPollingStation);
 	myStateStack.PushState(new MainMenuState(myStateStack, myPollingStation));
+#ifdef _RETAIL
+	Tga2D::Engine::GetInstance()->SetFullScreen(true);
+#endif
 }
 
 void GameWorld::Update(float aTimeDelta)
 {
+	if (myStartUp)
+	{
+		myStartUpTimer += aTimeDelta;
+		if (myStartUpTimer > myStartUpTime)
+			myStartUp = false;
+
+		return;
+	}
+
 #ifdef _DEBUG
 	myPollingStation->myDebugger.get()->DebugUpdate();
 #endif // _DEBUG
@@ -44,5 +60,10 @@ void GameWorld::Update(float aTimeDelta)
 
 void GameWorld::Render()
 {
+	if (myStartUp)
+	{
+		Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetSpriteDrawer().Draw(mySharedData, mySpriteInstance);
+		return;
+	}
 	myStateStack.RenderState();
 }

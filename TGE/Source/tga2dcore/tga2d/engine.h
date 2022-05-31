@@ -101,7 +101,7 @@ namespace Tga2D
             myUseLetterboxAndPillarbox		= true;
             myActivateDebugSystems			= DebugFeature::Fps | DebugFeature::Mem;
 			myPreferedMultiSamplingQuality	= MultiSamplingQuality::Off;
-			myClearColor					= TGA_DEFAULT_CRYSTAL_BLUE;
+			myClearColor					= {0,0,0,1}/*TGA_DEFAULT_CRYSTAL_BLUE*/;
         }
 
         callback_function myInitFunctionToCall;

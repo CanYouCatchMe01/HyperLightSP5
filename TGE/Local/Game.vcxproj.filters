@@ -162,6 +162,13 @@
     <ClCompile Include="..\Source\Game\AnimatedMeshComponent.cpp">
       <Filter>Code\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="..\Source\Game\TeleportActivator.cpp" />
+    <ClCompile Include="..\Source\Game\MusicParameterComponent.cpp">
+      <Filter>Code\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\BattleZone.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\Game\Observer.h">
@@ -345,6 +352,13 @@
     </ClInclude>
     <ClInclude Include="..\Source\tga2dcore\tga2d\animation\AnimationController.h">
       <Filter>Code\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\TeleportActivator.h" />
+    <ClInclude Include="..\Source\Game\MusicParameterComponent.h">
+      <Filter>Code\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\BattleZone.h">
+      <Filter>Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

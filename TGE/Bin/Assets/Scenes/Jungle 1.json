@@ -42,15 +42,741 @@
       "children": []
     },
     {
-      "name": "Player",
+      "name": "SpawnPoint (4)",
       "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -1.228,
+          "y": 4.22,
+          "z": -118.214
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
+            "name": "Jungle1Entry1"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Teleporter",
+      "tag": 10,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -1.22640753,
+          "y": 4.06,
+          "z": -118.948059
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 2.52773285,
+          "y": 2.0399,
+          "z": 2.0399
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "teleporter",
+          "data": {
+            "scene": "Jungle 2",
+            "spawnpoint": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "CheckPoint",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 0.270807743,
+          "y": 1.47,
+          "z": 0.265801132
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 10.224,
+          "y": 3.0569,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "check_point",
+          "data": {
+            "scene": "Jungle 1",
+            "name": "Jungle1Entry0"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "SpawnPoint",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 0.0338695645,
+          "y": 1.099,
+          "z": 12.8110428
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.706956744,
+          "z": 0.0,
+          "w": 0.7072568
+        },
+        "scale": {
+          "x": 1.00000012,
+          "y": 1.0,
+          "z": 1.00000012
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
+            "name": "Jungle1Entry0"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm (8)",
+      "tag": 7,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": -0.6,
+          "x": 4.09302855,
+          "y": 6.006748,
+          "z": -92.93989
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
           "y": 1.0,
-          "z": -0.57
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm (7)",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 7.31792831,
+          "y": 6.006749,
+          "z": -95.88517
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm (6)",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 6.87004375,
+          "y": 6.006749,
+          "z": -85.002594
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm (5)",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 2.32006049,
+          "y": 6.006749,
+          "z": -88.07734
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm (4)",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.110310078,
+          "y": 3.006748,
+          "z": -55.851757
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm (2)",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -4.97,
+          "y": 0.006749017,
+          "z": -13.6
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -2.0946703,
+          "y": 3.006749,
+          "z": -52.73737
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Player",
+      "tag": 5,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 8.0
         },
         "rotation": {
           "x": 0.0,
@@ -66,26 +792,17 @@
       },
       "components": [
         {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
-            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
-            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
-            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds"
-          }
-        },
-        {
           "type": "box_collider",
           "data": {
             "is_trigger": false,
             "center": {
               "x": 0.0,
-              "y": 1.0,
+              "y": 0.8975179,
               "z": 0.0
             },
             "size": {
               "x": 0.85,
-              "y": 1.64,
+              "y": 1.844964,
               "z": 0.69
             }
           }
@@ -100,7 +817,14 @@
             "healing_time": 0.1,
             "attack_time": 0.1,
             "speed": 10.0,
-            "dash_speed": 30.0
+            "dash_speed": 50.0
+          }
+        },
+        {
+          "type": "weapon",
+          "data": {
+            "weapon_upgrade": false,
+            "weapon_damage": 1
           }
         },
         {
@@ -118,6 +842,29 @@
               "z": 1.0
             }
           }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
+            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
+            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                "name": "Player_Dash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                "name": "Player_Idle"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                "name": "Player_Run"
+              }
+            ]
+          }
         }
       ],
       "children": [
@@ -128,9 +875,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": -5.48689556,
+              "x": -4.88689566,
               "y": 14.0,
-              "z": 3.97585273
+              "z": 12.5458527
             },
             "rotation": {
               "x": -0.176719144,
@@ -7667,6 +8414,1446 @@
               "x": 1.93087161,
               "y": 1.93087161,
               "z": 1.93087208
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (6)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 18.2830772,
+              "y": 2.92640257,
+              "z": -24.5008316
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.999521852,
+              "z": 0.0,
+              "w": 0.0309210084
+            },
+            "scale": {
+              "x": 1.98400009,
+              "y": 1.984,
+              "z": 1.98400009
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (7)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 20.282505,
+              "y": -0.0735998154,
+              "z": -28.844368
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.9808869,
+              "z": 0.0,
+              "w": 0.19457911
+            },
+            "scale": {
+              "x": 1.45260072,
+              "y": 1.4526,
+              "z": 1.45260072
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (8)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 13.97,
+              "y": -1.59039974,
+              "z": -26.03
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.9473787,
+              "z": 0.0,
+              "w": 0.32011503
+            },
+            "scale": {
+              "x": 1.67165208,
+              "y": 1.67165208,
+              "z": 1.67165208
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (7)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 24.57,
+              "y": 2.92640257,
+              "z": -27.84
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.6117356,
+              "z": 0.0,
+              "w": -0.7910623
+            },
+            "scale": {
+              "x": 0.8249868,
+              "y": 1.15135169,
+              "z": 0.8249868
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (8)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 30.4334564,
+              "y": 2.92640257,
+              "z": -26.14034
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.913799942,
+              "z": 0.0,
+              "w": -0.406164467
+            },
+            "scale": {
+              "x": 1.98399949,
+              "y": 1.984,
+              "z": 1.98399949
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (9)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 25.3947659,
+              "y": 8.36,
+              "z": -46.2051353
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.5405395,
+              "z": 0.0,
+              "w": 0.841318667
+            },
+            "scale": {
+              "x": 1.984,
+              "y": 1.984,
+              "z": 1.984
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (9)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 28.2843781,
+              "y": 5.35999727,
+              "z": -42.39537
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.671313941,
+              "z": 0.0,
+              "w": 0.7411732
+            },
+            "scale": {
+              "x": 1.45260048,
+              "y": 1.4526,
+              "z": 1.45260048
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (10)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 23.96696,
+              "y": 3.84319735,
+              "z": -50.77577
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.9797203,
+              "z": 0.0,
+              "w": -0.200370118
+            },
+            "scale": {
+              "x": 1.67165232,
+              "y": 1.67165208,
+              "z": 1.67165232
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (10)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 25.3787575,
+              "y": 8.36,
+              "z": -39.08648
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.363844246,
+              "z": 0.0,
+              "w": 0.931459844
+            },
+            "scale": {
+              "x": 0.8249869,
+              "y": 1.15135169,
+              "z": 0.8249869
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (11)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 21.11745,
+              "y": 8.36,
+              "z": -34.71496
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.121597841,
+              "z": 0.0,
+              "w": 0.9925795
+            },
+            "scale": {
+              "x": 1.98400021,
+              "y": 1.984,
+              "z": 1.98400021
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (12)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 25.27322,
+              "y": 8.36,
+              "z": -65.89642
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.440125227,
+              "z": 0.0,
+              "w": 0.897936463
+            },
+            "scale": {
+              "x": 1.984,
+              "y": 1.984,
+              "z": 1.984
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (11)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 27.2152138,
+              "y": 5.359997,
+              "z": -61.5269051
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.5815562,
+              "z": 0.0,
+              "w": 0.8135063
+            },
+            "scale": {
+              "x": 1.45260048,
+              "y": 1.4526,
+              "z": 1.45260048
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (12)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 24.928257,
+              "y": 3.84319687,
+              "z": -70.67247
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.996270239,
+              "z": 0.0,
+              "w": -0.0862884
+            },
+            "scale": {
+              "x": 1.67165232,
+              "y": 1.67165208,
+              "z": 1.67165232
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (13)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 23.63,
+              "y": 8.36,
+              "z": -58.97
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.468623549,
+              "z": 0.0,
+              "w": 0.883398
+            },
+            "scale": {
+              "x": 0.824986935,
+              "y": 1.15135169,
+              "z": 0.824986935
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (14)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 18.4821186,
+              "y": 8.36,
+              "z": -55.68856
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.00655926438,
+              "z": 0.0,
+              "w": 0.9999785
+            },
+            "scale": {
+              "x": 1.98400021,
+              "y": 1.984,
+              "z": 1.98400021
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (15)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 25.40291,
+              "y": 6.13680267,
+              "z": -87.43249
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.705575168,
+              "z": 0.0,
+              "w": 0.708635151
+            },
+            "scale": {
+              "x": 1.98400021,
+              "y": 1.984,
+              "z": 1.98400021
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (13)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 29.6047058,
+              "y": 3.13679981,
+              "z": -85.15019
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.8123298,
+              "z": 0.0,
+              "w": 0.5831983
+            },
+            "scale": {
+              "x": 1.45260012,
+              "y": 1.4526,
+              "z": 1.45260012
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (14)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 22.22,
+              "y": 1.61999989,
+              "z": -91.01
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.915562451,
+              "z": 0.0,
+              "w": -0.402175874
+            },
+            "scale": {
+              "x": 1.67165232,
+              "y": 1.67165208,
+              "z": 1.67165232
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (16)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 28.3190117,
+              "y": 6.13680267,
+              "z": -80.93845
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.159551173,
+              "z": 0.0,
+              "w": 0.987189651
+            },
+            "scale": {
+              "x": 0.8249868,
+              "y": 1.15135169,
+              "z": 0.8249868
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (17)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 26.23535,
+              "y": 6.13680267,
+              "z": -75.2002945
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.327877134,
+              "z": 0.0,
+              "w": 0.9447204
+            },
+            "scale": {
+              "x": 1.98400033,
+              "y": 1.984,
+              "z": 1.98400033
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (18)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 15.71,
+              "y": 5.07,
+              "z": -101.58
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.491819531,
+              "z": 0.0,
+              "w": 0.8706972
+            },
+            "scale": {
+              "x": 1.98399973,
+              "y": 1.984,
+              "z": 1.98399973
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (15)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 10.9341478,
+              "y": 2.06999731,
+              "z": -101.344933
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.342218578,
+              "z": 0.0,
+              "w": 0.9396204
+            },
+            "scale": {
+              "x": 1.45260012,
+              "y": 1.4526,
+              "z": 1.45260012
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (16)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 20.28891,
+              "y": 0.5531974,
+              "z": -100.179
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.634433866,
+              "z": 0.0,
+              "w": 0.7729772
+            },
+            "scale": {
+              "x": 1.67165208,
+              "y": 1.67165208,
+              "z": 1.67165208
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (19)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 9.842584,
+              "y": 5.07,
+              "z": -105.611092
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.9936056,
+              "z": 0.0,
+              "w": 0.112906612
+            },
+            "scale": {
+              "x": 0.824986935,
+              "y": 1.15135169,
+              "z": 0.824986935
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (20)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 8.639026,
+              "y": 5.07,
+              "z": -111.596054
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.821112335,
+              "z": 0.0,
+              "w": 0.5707666
+            },
+            "scale": {
+              "x": 1.98400021,
+              "y": 1.984,
+              "z": 1.98400021
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (21)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 8.895852,
+              "y": 3.170003,
+              "z": -121.20507
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.491819531,
+              "z": 0.0,
+              "w": 0.8706972
+            },
+            "scale": {
+              "x": 1.98399973,
+              "y": 1.984,
+              "z": 1.98399973
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (17)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 4.12,
+              "y": 0.17,
+              "z": -120.97
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.342218578,
+              "z": 0.0,
+              "w": 0.9396204
+            },
+            "scale": {
+              "x": 1.45260012,
+              "y": 1.4526,
+              "z": 1.45260012
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeL (18)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 13.474762,
+              "y": -1.3468,
+              "z": -119.80407
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.634433866,
+              "z": 0.0,
+              "w": 0.7729772
+            },
+            "scale": {
+              "x": 1.67165208,
+              "y": 1.67165208,
+              "z": 1.67165208
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (22)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 3.02843571,
+              "y": 3.170003,
+              "z": -125.23616
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.9936056,
+              "z": 0.0,
+              "w": 0.112906612
+            },
+            "scale": {
+              "x": 0.824986935,
+              "y": 1.15135169,
+              "z": 0.824986935
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_TreeM (23)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 1.82487774,
+              "y": 3.170003,
+              "z": -131.22113
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.821112335,
+              "z": 0.0,
+              "w": 0.5707666
+            },
+            "scale": {
+              "x": 1.98400021,
+              "y": 1.984,
+              "z": 1.98400021
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_bush_01 (72)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 16.97,
+              "y": 2.6364,
+              "z": -19.79
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.9633826,
+              "z": 0.0,
+              "w": 0.268130779
+            },
+            "scale": {
+              "x": 5.517083,
+              "y": 5.51708031,
+              "z": 5.517083
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_bush_01 (73)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 24.74,
+              "y": 5.81,
+              "z": -35.28
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.8904991,
+              "z": 0.0,
+              "w": 0.454984963
+            },
+            "scale": {
+              "x": 5.51708031,
+              "y": 5.51708031,
+              "z": 5.51708031
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_bush_01 (74)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 26.42,
+              "y": 9.08,
+              "z": -44.81
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.9925897,
+              "z": 0.0,
+              "w": 0.121514447
+            },
+            "scale": {
+              "x": 5.51708269,
+              "y": 5.51708031,
+              "z": 5.51708269
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_bush_01 (75)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 24.41,
+              "y": 9.08,
+              "z": -54.52
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.9680919,
+              "z": 0.0,
+              "w": -0.25059554
+            },
+            "scale": {
+              "x": 5.517082,
+              "y": 5.51708031,
+              "z": 5.517082
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_bush_01 (76)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 24.41,
+              "y": 8.22,
+              "z": -61.25
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.5619034,
+              "z": 0.0,
+              "w": 0.8272029
+            },
+            "scale": {
+              "x": 5.51708126,
+              "y": 5.51708031,
+              "z": 5.51708126
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_bush_01 (77)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 31.73,
+              "y": 0.675940037,
+              "z": -68.79
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.3521714,
+              "z": 0.0,
+              "w": 0.9359355
+            },
+            "scale": {
+              "x": 8.219898,
+              "y": 8.219898,
+              "z": 8.219898
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_bush_01 (78)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 31.91,
+              "y": 2.04,
+              "z": -84.98
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.27133432,
+              "z": 0.0,
+              "w": 0.9624852
+            },
+            "scale": {
+              "x": 8.219899,
+              "y": 8.219898,
+              "z": 8.219899
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_bush_01 (79)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 25.16,
+              "y": 2.04,
+              "z": -101.89
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.27133432,
+              "z": 0.0,
+              "w": 0.9624852
+            },
+            "scale": {
+              "x": 8.219899,
+              "y": 8.219898,
+              "z": 8.219899
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_bush_01 (80)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 15.03,
+              "y": 2.04,
+              "z": -110.66
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.09813933,
+              "z": 0.0,
+              "w": 0.9951727
+            },
+            "scale": {
+              "x": 8.219897,
+              "y": 8.219898,
+              "z": 8.219897
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_z3_bush_01 (81)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 10.42,
+              "y": 0.6,
+              "z": -126.96
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.109956786,
+              "z": 0.0,
+              "w": 0.99393636
+            },
+            "scale": {
+              "x": 8.219897,
+              "y": 8.219898,
+              "z": 8.219897
             }
           },
           "components": [
@@ -33630,6 +35817,69 @@
                       "children": []
                     }
                   ]
+                },
+                {
+                  "name": "pf_z3_ground02 (1)",
+                  "tag": 0,
+                  "layer": 0,
+                  "is_static": false,
+                  "transform": {
+                    "position": {
+                      "x": 22.0,
+                      "y": 6.0,
+                      "z": -60.0
+                    },
+                    "rotation": {
+                      "x": 0.0,
+                      "y": 0.7071153,
+                      "z": 0.0,
+                      "w": 0.707098365
+                    },
+                    "scale": {
+                      "x": 1.00000024,
+                      "y": 1.0,
+                      "z": 1.00000024
+                    }
+                  },
+                  "components": [],
+                  "children": [
+                    {
+                      "name": "a_z3_ground_02",
+                      "tag": 0,
+                      "layer": 0,
+                      "is_static": false,
+                      "transform": {
+                        "position": {
+                          "x": 22.0,
+                          "y": 6.0,
+                          "z": -60.0
+                        },
+                        "rotation": {
+                          "x": 0.0,
+                          "y": 0.7071153,
+                          "z": 0.0,
+                          "w": 0.707098365
+                        },
+                        "scale": {
+                          "x": 1.00000024,
+                          "y": 1.0,
+                          "z": 1.00000024
+                        }
+                      },
+                      "components": [
+                        {
+                          "type": "mesh",
+                          "data": {
+                            "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_02.fbx",
+                            "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
+                            "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
+                            "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
+                          }
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
                 }
               ]
             },
@@ -40833,6 +43083,465 @@
           ]
         }
       ]
+    },
+    {
+      "name": "a_z2_sandWorm (1)",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 2.11,
+          "y": 3.006749,
+          "z": -52.73737
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm (3)",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 5.17,
+          "y": 0.006749017,
+          "z": -12.91
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "SpawnPoint (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 0.0338695645,
+          "y": 4.26,
+          "z": -30.11
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.706956744,
+          "z": 0.0,
+          "w": 0.7072568
+        },
+        "scale": {
+          "x": 1.00000012,
+          "y": 1.0,
+          "z": 1.00000012
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
+            "name": "Jungle1Spawn0"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "SpawnPoint (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 12.49,
+          "y": 7.3,
+          "z": -75.87
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.706956744,
+          "z": 0.0,
+          "w": 0.7072568
+        },
+        "scale": {
+          "x": 1.00000012,
+          "y": 1.0,
+          "z": 1.00000012
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
+            "name": "Jungle1Spawn1"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "SpawnPoint (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -9.96,
+          "y": 10.94,
+          "z": -73.53
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.706956744,
+          "z": 0.0,
+          "w": 0.7072568
+        },
+        "scale": {
+          "x": 1.00000012,
+          "y": 1.0,
+          "z": 1.00000012
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
+            "name": "Jungle1Spawn2"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "CheckPoint (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 16.77,
+          "y": 5.94,
+          "z": -77.32
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 13.1470413,
+          "y": 3.0569,
+          "z": 4.5307
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "check_point",
+          "data": {
+            "scene": "Jungle 1",
+            "name": "Jungle1Spawn1"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "CheckPoint (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -0.14,
+          "y": 3.67,
+          "z": -30.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 10.224,
+          "y": 3.0569,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "check_point",
+          "data": {
+            "scene": "Jungle 1",
+            "name": "Jungle1Spawn0"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "CheckPoint (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -9.66,
+          "y": 10.49,
+          "z": -73.97
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 13.1470413,
+          "y": 3.0569,
+          "z": 4.5307
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "check_point",
+          "data": {
+            "scene": "Jungle 1",
+            "name": "Jungle1Spawn2"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Teleporter (1)",
+      "tag": 10,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 0.87,
+          "y": 0.91,
+          "z": 16.44
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 2.52773285,
+          "y": 2.0399,
+          "z": 2.0399
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "teleporter",
+          "data": {
+            "scene": "Hub",
+            "spawnpoint": ""
+          }
+        }
+      ],
+      "children": []
     }
   ]
 }

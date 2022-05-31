@@ -40,8 +40,12 @@ public:
 	void StopAllEvents();
 	void PauseAllEvents();
 	void StartAllPausedEvents();
+	
+	//music
 	void SetMusic(const char* aMusicEvent);
 	void SetMusic(const FMOD_GUID anID);
+	FMOD::Studio::EventInstance* GetMusicInstance();
+	
 	FMOD::Studio::EventInstance* GetLevelMusic();
 	float GetVolume(const Channels aChannelID) const;
 	void SetChannelVolume(const Channels aChannelID, float aVolume);

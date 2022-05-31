@@ -9,8 +9,10 @@
 #include "AudioComponent.h"
 #include "AudioManager.h"
 #include "TeleporterComponent.h"
+#include "TeleportActivator.h"
 #include "CheckPointComponent.h"
 #include "AnimatedMeshComponent.h"
+#include "MusicParameterComponent.h"
 
 PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed)
 {
@@ -31,28 +33,36 @@ PlayerComponent::~PlayerComponent()
 	myWalkSound->stop(FMOD_STUDIO_STOP_IMMEDIATE);
 }
 
-void PlayerComponent::OnUpdate(float aDT)
+void PlayerComponent::OnUpdate(float aDt)
 {
+	myTakeDamageTimer -= aDt;
+
 	if (!myStun && !myHealing && !myAttack)
 	{
-		Movement(aDT);
+		Movement(aDt);
+		myLastDir = myDir;
+		if (myDash && myDir.Y < 0)
+		{
+			myDash;
+		}
+		myDir = { 0.0f,0.0f,0.0f };
 	}
-	myStunTimer -= aDT;
+	myStunTimer -= aDt;
 	if (myStunTimer < 0)
 	{
 		myStun = false;
 	}
-	myDashTimer -= aDT;
+	myDashTimer -= aDt;
 	if (myDashTimer < 0)
 	{
 		myDash = false;
 	}
-	myAttackTimer -= aDT;
+	myAttackTimer -= aDt;
 	if (myAttackTimer < 0)
 	{
 		myAttack = false;
 	}
-	myHealTimer -= aDT;
+	myHealTimer -= aDt;
 	if (myHealTimer < 0)
 	{
 		myHealing = false;
@@ -63,14 +73,15 @@ void PlayerComponent::Movement(float aDT)
 {
 
 	//increasing the volume when the player is moving
-	if (myDir == Tga2D::Vector3f(0.0f, 0.0f, 0.0f))
+	if (myDir.x == 0 && myDir.z == 0)
 	{
+		//Commented out for game testing//
+		//myDir.y = -myGravity / mySpeed;
+		//SetPosition(GetPosition() + (myDir * aDT));
 		myWalkSound->setVolume(0.0f);
 		return;
 	}
-
 	myWalkSound->setVolume(10.0f);
-	myCheckpointSound->setVolume(10.0f);
 	myDir.Normalize();
 	
 	if ((myDir.x != 0 || myDir.z != 0))
@@ -97,7 +108,6 @@ void PlayerComponent::Movement(float aDT)
 				myRotationDiff = (360 + myRotationDiff);
 			}
 		}
-		myLastDir = myDir;
 	}
 	if (myRotationTime < 1/myRotationSpeed)
 	{
@@ -110,12 +120,12 @@ void PlayerComponent::Movement(float aDT)
 	if (myDash)
 	{
 		SetPosition(GetPosition() + myDashDir * myDashSpeed * aDT);
-		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_dash);
 		return;
 	}
-	myDir.y = -myGravity/mySpeed;
+	myDir.y = -myGravity / mySpeed;
 	SetPosition(GetPosition() + (myDir * mySpeed * aDT));
-	myDir = { 0.0f,0.0f,0.0f };
+
+
 }
 
 void PlayerComponent::Attack()
@@ -126,7 +136,6 @@ void PlayerComponent::Attack()
 		myAttack = true;
 		//do the attack
 		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_attack);
-		//myAudioComponent->PlayEvent3D("event:/sfx/player/attack");
 	}
 }
 
@@ -169,6 +178,16 @@ void PlayerComponent::SetHp(int aHp)
 	}
 }
 
+void PlayerComponent::SetFullHP()
+{
+	myHp = myMaxHp;
+
+	Message takeDmgMessage;
+	takeDmgMessage.myMsg = eMessageType::ePlayerTookDMG;
+	takeDmgMessage.aFloatValue = (float)myHp / (float)myMaxHp;
+	myPollingStation->myPostmaster->SendMsg(takeDmgMessage);
+}
+
 int PlayerComponent::GetHealing()
 {
 	return myHealing;
@@ -188,6 +207,10 @@ void PlayerComponent::SetHealing(int aHealing)
 
 void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)
 {
+	if (myDir.y < 0)
+	{
+		myDir;
+	}
 	switch (aEvent)
 	{
 	case Input::eInputEvent::eMoveDown:
@@ -210,17 +233,15 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 		break;
 	case Input::eInputEvent::eDash:
 	{
-		if (myDashTimer < -0.1 && !myHealing)
+		if (myDashTimer < 0 && !myHealing)
 		{
 			myDashTimer = myDashTime;
 			myDash = true;
-			if (myDir.x == 0 && myDir.y == 0)
+			if (myLastDir.x != 0 || myLastDir.z != 0)
 			{
-				myDashDir = myLastDir;
-			}
-			else
-			{
-				myDashDir = myDir;
+				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_dash);
+				myDashDir.x = myLastDir.x;
+				myDashDir.z = myLastDir.z;
 			}
 		}
 		break;
@@ -259,18 +280,38 @@ void PlayerComponent::OnAwake()
 
 	myAudioComponent = myGameObject->AddComponent<AudioComponent>();
 	myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_walk_jungle);
-	myCheckpointSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_world_checkpoint);
+	myWalkSound->setVolume(0.0f);
 	SetPollingStation(myPollingStation);
 }
 void PlayerComponent::OnStart()
-{}
+{
+	myTakeDamageTime = 1.f;
+	auto animatedMesh = myGameObject->GetComponent<AnimatedMeshComponent>();
+	auto playerIdle = animatedMesh->AddTransition("Player_Idle", [this]()->bool {return true; });
+	auto playerRun = playerIdle->AddTransition("Player_Run", [this]()->bool {return (myLastDir.x != 0 || myLastDir.z != 0); });
+	auto playerDash = playerRun->AddTransition("Player_Dash", [this]()->bool {return myDash; });
+	playerRun->AddTransition(playerIdle, [this]()->bool {return (myLastDir.x == 0 && myLastDir.z == 0); });
+	playerDash->AddTransition(playerIdle, [this]()->bool {return (myLastDir.x == 0 && myLastDir.z == 0 && !myDash); });
+	playerDash->AddTransition(playerRun, [this]()->bool {return ((myLastDir.x != 0 || myLastDir.z != 0) && !myDash); });
+}
 
 void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 {
 	if (aOther->tag == eTag::teleporter)
 	{
-		//Teleporter broken
-		aOther->GetComponent<TeleporterComponent>()->Activate();
+		aOther->GetComponent<TeleporterComponent>()->Load();
+		return;
+	}
+
+	if (aOther->tag == eTag::teleportActivator)
+	{
+		aOther->GetComponent<TeleportActivator>()->Activate();
+		return;
+	}
+
+	if (aOther->tag == eTag::music_change_parameter)
+	{
+		aOther->GetComponent<MusicParameterComponent>()->ChangeParameter();
 		return;
 	}
 
@@ -278,29 +319,43 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 	{
 		aOther->GetComponent<CheckPointComponent>()->Save();
 	}
-
-	if (aOther->tag == eTag::popcorn)
+	if (myTakeDamageTimer < 0.f)
 	{
-		std::cout << "player took damage by popcorn\n";
-		TakeDamage(aOther->GetComponent<PopcornEnemy>()->GetAttackDmg());
-		aOther->GetComponent<PopcornEnemy>()->myIsStunned = true;
-		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
-	}
+		if (aOther->tag == eTag::popcorn)
+		{
+			if (aOther->GetComponent<PopcornEnemy>() != nullptr)
+			{
+				myTakeDamageTimer = myTakeDamageTime;
+				std::cout << "player took damage by popcorn\n";
+				TakeDamage(aOther->GetComponent<PopcornEnemy>()->GetAttackDmg());
+				aOther->GetComponent<PopcornEnemy>()->myIsStunned = true;
+				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+			}
+		}
 
-	if (aOther->tag == eTag::charge)
-	{
-		std::cout << "player took damage by charge\n";
-		TakeDamage(aOther->GetComponent<ChargeEnemy>()->GetAttackDmg());
-		aOther->GetComponent<ChargeEnemy>()->myIsStunned = true;
-		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
-	}
+		if (aOther->tag == eTag::charge)
+		{
+			if (aOther->GetComponent<ChargeEnemy>() != nullptr)
+			{
+				myTakeDamageTimer = myTakeDamageTime;
+				std::cout << "player took damage by charge\n";
+				TakeDamage(aOther->GetComponent<ChargeEnemy>()->GetAttackDmg());
+				aOther->GetComponent<ChargeEnemy>()->myIsStunned = true;
+				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+			}
+		}
 
-	if (aOther->tag == eTag::flute)
-	{
-		std::cout << "player took damage by flute\n";
-		TakeDamage(aOther->GetComponent<FluteEnemy>()->GetAttackDmg());
-		aOther->GetComponent<FluteEnemy>()->myIsStunned = true;
-		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+		if (aOther->tag == eTag::flute)
+		{
+			if (aOther->GetComponent<FluteEnemy>() != nullptr)
+			{
+				myTakeDamageTimer = myTakeDamageTime;
+				std::cout << "player took damage by flute\n";
+				TakeDamage(aOther->GetComponent<FluteEnemy>()->GetAttackDmg());
+
+				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+			}
+		}
 	}
 }
 
@@ -308,17 +363,26 @@ void PlayerComponent::OnCollisionExit(GameObject* aOther)
 {
 	if (aOther->tag == eTag::popcorn)
 	{
-		aOther->GetComponent<PopcornEnemy>()->myIsStunned = false;
+		if (aOther->GetComponent<PopcornEnemy>() != nullptr) 
+		{
+			aOther->GetComponent<PopcornEnemy>()->myIsStunned = false;
+		}
 	}
 
 	if (aOther->tag == eTag::charge)
 	{
-		aOther->GetComponent<ChargeEnemy>()->myIsStunned = false;
+		if (aOther->GetComponent<ChargeEnemy>() != nullptr) 
+		{
+			aOther->GetComponent<ChargeEnemy>()->myIsStunned = false;
+		}
 	}
 
 	if (aOther->tag == eTag::flute)
 	{
-		aOther->GetComponent<FluteEnemy>()->myIsStunned = false;
+		if (aOther->GetComponent<FluteEnemy>() != nullptr)
+		{
+			aOther->GetComponent<FluteEnemy>()->myIsStunned = false;
+		}
 	}
 }
 

@@ -3,7 +3,7 @@
   "gameObjects": [
     {
       "name": "Player",
-      "tag": 0,
+      "tag": 5,
       "layer": 0,
       "is_static": false,
       "transform": {
@@ -26,26 +26,17 @@
       },
       "components": [
         {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
-            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
-            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
-            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds"
-          }
-        },
-        {
           "type": "box_collider",
           "data": {
             "is_trigger": false,
             "center": {
               "x": 0.0,
-              "y": 1.0,
+              "y": 0.8975179,
               "z": 0.0
             },
             "size": {
               "x": 0.85,
-              "y": 1.64,
+              "y": 1.844964,
               "z": 0.69
             }
           }
@@ -64,6 +55,13 @@
           }
         },
         {
+          "type": "weapon",
+          "data": {
+            "weapon_upgrade": false,
+            "weapon_damage": 1
+          }
+        },
+        {
           "type": "box_collider",
           "data": {
             "is_trigger": true,
@@ -77,6 +75,29 @@
               "y": 1.93430161,
               "z": 1.0
             }
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
+            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
+            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                "name": "Player_Dash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                "name": "Player_Idle"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                "name": "Player_Run"
+              }
+            ]
           }
         }
       ],
@@ -342,6 +363,1686 @@
       },
       "components": [],
       "children": [
+        {
+          "name": "Collider 4 (5)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -40.0843964,
+              "y": 0.0,
+              "z": -38.9799957
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 4.5,
+              "y": 1.0,
+              "z": 0.49
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -26.5843964,
+                  "y": 1.5,
+                  "z": -40.4499969
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 27.0,
+                  "y": 3.0,
+                  "z": 2.94
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (4)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -39.9843979,
+              "y": 0.0,
+              "z": -21.0200043
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 0.54,
+              "y": 1.0,
+              "z": 3.55
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -38.3644,
+                  "y": 1.5,
+                  "z": -31.6700058
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 3.24000025,
+                  "y": 3.0,
+                  "z": 21.3
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (2)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -65.83,
+              "y": 0.0499992371,
+              "z": -10.7700043
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.382683426,
+              "z": 0.0,
+              "w": 0.923879564
+            },
+            "scale": {
+              "x": 1.41000009,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -64.96026,
+                  "y": 1.54999924,
+                  "z": -15.8823853
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.382683426,
+                  "z": 0.0,
+                  "w": 0.923879564
+                },
+                "scale": {
+                  "x": 8.460001,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (1)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -65.74,
+              "y": 0.0154037476,
+              "z": -10.75
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.382683426,
+              "z": 0.0,
+              "w": 0.923879564
+            },
+            "scale": {
+              "x": 1.42000008,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -64.84904,
+                  "y": 1.51540375,
+                  "z": -15.8835983
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.382683426,
+                  "z": 0.0,
+                  "w": 0.923879564
+                },
+                "scale": {
+                  "x": 8.52,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -70.09,
+              "y": 0.0153999329,
+              "z": -6.010002
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.49
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -67.09,
+                  "y": 1.51539993,
+                  "z": -10.4800034
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 8.940001
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (3)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -37.19,
+              "y": 0.0,
+              "z": -15.0100021
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 6.01,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -19.1599979,
+                  "y": 1.5,
+                  "z": -18.0100021
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 36.06,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (2)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -1.17000008,
+              "y": 0.11000061,
+              "z": -21.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 5.92
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 1.82999992,
+                  "y": 1.61000061,
+                  "z": -38.7600021
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 35.52
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (1)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -54.98,
+              "y": -1.0,
+              "z": -53.9799957
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 8.97,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -28.07,
+                  "y": 0.5,
+                  "z": -56.9799957
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 53.82,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -58.1228561,
+              "y": 0.0,
+              "z": -33.9400024
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 0.52,
+              "y": 1.0,
+              "z": 3.52
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -56.5628548,
+                  "y": 1.5,
+                  "z": -44.5
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 3.12,
+                  "y": 3.0,
+                  "z": 21.1199989
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (4)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -123.96,
+              "y": 0.0,
+              "z": -54.96
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 10.99,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -90.99,
+                  "y": 1.5,
+                  "z": -57.96
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 65.94,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (3)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -129.9,
+              "y": 0.0999984741,
+              "z": -39.0099945
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 2.66
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -126.899994,
+                  "y": 1.59999847,
+                  "z": -46.9899979
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 15.960001
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (2)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -123.97,
+              "y": 0.11000061,
+              "z": -33.0500031
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 3.98,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -112.03,
+                  "y": 1.61000061,
+                  "z": -36.0500031
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 23.8800011,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (1)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -105.93,
+              "y": 0.0153999329,
+              "z": 18.0599976
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 9.53
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -102.93,
+                  "y": 1.51539993,
+                  "z": -10.5299988
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 57.18
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -98.2,
+              "y": 0.130001068,
+              "z": 28.23
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.382683426,
+              "z": 0.0,
+              "w": 0.923879564
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.44
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -99.13338,
+                  "y": 1.63000107,
+                  "z": 23.053978
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.382683426,
+                  "z": 0.0,
+                  "w": 0.923879564
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 8.640001
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (1)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 19.885601,
+              "y": 0.115398407,
+              "z": 12.0099983
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 0.52,
+              "y": 1.0,
+              "z": 1.06
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 21.4456,
+                  "y": 1.61539841,
+                  "z": 8.829998
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 3.12,
+                  "y": 3.0,
+                  "z": 6.35999966
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 19.98,
+              "y": 0.08000183,
+              "z": 12.0800018
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.382683426,
+              "z": 0.0,
+              "w": 0.923879564
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 2.12
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 17.6041222,
+                  "y": 1.58000183,
+                  "z": 5.461483
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.382683426,
+                  "z": 0.0,
+                  "w": 0.923879564
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 12.7199993
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (5)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -93.8744,
+              "y": 0.0,
+              "z": 29.96
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 11.47,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -59.4644,
+                  "y": 1.5,
+                  "z": 26.96
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 68.82,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (4)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -17.3,
+              "y": 0.0200004578,
+              "z": 40.12
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.382683426,
+              "z": 0.0,
+              "w": 0.923879564
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 2.80000019
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -21.1183758,
+                  "y": 1.52000046,
+                  "z": 32.0589828
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.382683426,
+                  "z": 0.0,
+                  "w": 0.923879564
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 16.8000031
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (3)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -18.98,
+              "y": 0.115398407,
+              "z": 44.83
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.46
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -15.98,
+                  "y": 1.61539841,
+                  "z": 40.45
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 8.76
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (2)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -8.19,
+              "y": 0.115398407,
+              "z": 58.19
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.382683426,
+              "z": 0.0,
+              "w": 0.923879564
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 2.12
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -10.5658779,
+                  "y": 1.61539841,
+                  "z": 51.57148
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.382683426,
+                  "z": 0.0,
+                  "w": 0.923879564
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 12.7199993
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (1)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -3.97,
+              "y": 0.115398407,
+              "z": 59.93
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 3.5,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 6.53,
+                  "y": 1.61539841,
+                  "z": 56.93
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 21.0,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -4.0,
+              "y": 0.115398407,
+              "z": 60.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 3.48,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 6.440001,
+                  "y": 1.61539841,
+                  "z": 57.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 20.8800011,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (1)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 21.19,
+              "y": 0.0,
+              "z": 58.19
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.382683426,
+              "z": 0.0,
+              "w": 0.923879564
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 21.19,
+                  "y": 1.5,
+                  "z": 53.9473572
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.382683426,
+                  "z": 0.0,
+                  "w": 0.923879564
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 20.0,
+              "y": 0.115394592,
+              "z": 51.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 4.51
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 23.0,
+                  "y": 1.61539459,
+                  "z": 37.47
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 27.0600014
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
         {
           "name": "Collider 4 (1)",
           "tag": 0,
@@ -701,7 +2402,7 @@
             "position": {
               "x": -16.0,
               "y": 0.0,
-              "z": 21.0
+              "z": 36.08
             },
             "rotation": {
               "x": 0.0,
@@ -712,7 +2413,7 @@
             "scale": {
               "x": 1.0,
               "y": 1.0,
-              "z": 5.99
+              "z": 1.49
             }
           },
           "components": [],
@@ -726,7 +2427,7 @@
                 "position": {
                   "x": -14.5,
                   "y": 1.5,
-                  "z": 38.97
+                  "z": 40.55
                 },
                 "rotation": {
                   "x": 0.0,
@@ -737,7 +2438,7 @@
                 "scale": {
                   "x": 3.0,
                   "y": 3.0,
-                  "z": 35.94
+                  "z": 8.940001
                 }
               },
               "components": [
@@ -1124,15 +2825,15 @@
               "z": 21.0
             },
             "rotation": {
-              "x": 0.162069142,
-              "y": 0.6882831,
-              "z": -0.162069142,
-              "w": 0.6882831
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
             },
             "scale": {
               "x": 1.0,
               "y": 1.0,
-              "z": 1.1400001
+              "z": 1.14
             }
           },
           "components": [],
@@ -1144,20 +2845,20 @@
               "is_static": true,
               "transform": {
                 "position": {
-                  "x": 4.26422262,
-                  "y": -0.126205444,
-                  "z": 18.0
+                  "x": 4.56060171,
+                  "y": 0.0453987122,
+                  "z": 18.0018
                 },
                 "rotation": {
-                  "x": 0.162069142,
-                  "y": 0.6882831,
-                  "z": -0.162069142,
-                  "w": 0.6882831
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": -0.229200467,
+                  "w": 0.973379254
                 },
                 "scale": {
-                  "x": 6.0,
-                  "y": 2.99999976,
-                  "z": 6.84000063
+                  "x": 7.18999958,
+                  "y": 3.00000024,
+                  "z": 6.156
                 }
               },
               "components": [
@@ -1264,15 +2965,15 @@
               "z": 9.0
             },
             "rotation": {
-              "x": 0.160086378,
-              "y": -0.6887469,
-              "z": 0.160086378,
-              "w": 0.6887469
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
             },
             "scale": {
-              "x": 0.9999999,
+              "x": 1.0,
               "y": 1.0,
-              "z": 1.28999984
+              "z": 1.0
             }
           },
           "components": [],
@@ -1284,20 +2985,20 @@
               "is_static": true,
               "transform": {
                 "position": {
-                  "x": -18.8126678,
-                  "y": -0.05155945,
-                  "z": 12.0
+                  "x": -18.5043964,
+                  "y": 0.08539581,
+                  "z": 11.9700012
                 },
                 "rotation": {
-                  "x": 0.160086378,
-                  "y": -0.6887469,
-                  "z": 0.160086378,
-                  "w": 0.6887469
+                  "x": -0.160086334,
+                  "y": 0.688747,
+                  "z": 0.160086334,
+                  "w": 0.688747
                 },
                 "scale": {
-                  "x": 5.999999,
-                  "y": 3.0,
-                  "z": 7.73999929
+                  "x": 6.000002,
+                  "y": 3.00000024,
+                  "z": 7.09000158
                 }
               },
               "components": [
@@ -1673,76 +3374,6 @@
           ]
         },
         {
-          "name": "Floor (11)",
-          "tag": 0,
-          "layer": 0,
-          "is_static": true,
-          "transform": {
-            "position": {
-              "x": -76.03439,
-              "y": 0.145397186,
-              "z": -27.0
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0,
-              "w": 1.0
-            },
-            "scale": {
-              "x": 5.9,
-              "y": 1.0,
-              "z": 51.3
-            }
-          },
-          "components": [],
-          "children": [
-            {
-              "name": "Box",
-              "tag": 0,
-              "layer": 0,
-              "is_static": true,
-              "transform": {
-                "position": {
-                  "x": -73.0844,
-                  "y": -0.3546028,
-                  "z": -1.34999847
-                },
-                "rotation": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0,
-                  "w": 1.0
-                },
-                "scale": {
-                  "x": 5.9,
-                  "y": 1.0,
-                  "z": 51.3
-                }
-              },
-              "components": [
-                {
-                  "type": "box_collider",
-                  "data": {
-                    "is_trigger": false,
-                    "center": {
-                      "x": 0.0,
-                      "y": 0.0,
-                      "z": 0.0
-                    },
-                    "size": {
-                      "x": 1.0,
-                      "y": 1.0,
-                      "z": 1.0
-                    }
-                  }
-                }
-              ],
-              "children": []
-            }
-          ]
-        },
-        {
           "name": "Floor (12)",
           "tag": 0,
           "layer": 0,
@@ -1750,7 +3381,7 @@
           "transform": {
             "position": {
               "x": -100.5,
-              "y": 0.145397186,
+              "y": 0.0153999329,
               "z": -42.5
             },
             "rotation": {
@@ -1775,7 +3406,7 @@
               "transform": {
                 "position": {
                   "x": -81.35,
-                  "y": -0.3546028,
+                  "y": -0.484600067,
                   "z": -16.7600021
                 },
                 "rotation": {
@@ -1960,7 +3591,7 @@
           "transform": {
             "position": {
               "x": -124.0,
-              "y": 0.0,
+              "y": 0.115398407,
               "z": -55.0
             },
             "rotation": {
@@ -1972,7 +3603,7 @@
             "scale": {
               "x": 65.9,
               "y": 1.0,
-              "z": 15.7
+              "z": 30.3
             }
           },
           "components": [],
@@ -1985,8 +3616,8 @@
               "transform": {
                 "position": {
                   "x": -91.0499954,
-                  "y": -0.5,
-                  "z": -47.15
+                  "y": -0.3846016,
+                  "z": -39.85
                 },
                 "rotation": {
                   "x": 0.0,
@@ -1997,77 +3628,7 @@
                 "scale": {
                   "x": 65.9,
                   "y": 1.0,
-                  "z": 15.7
-                }
-              },
-              "components": [
-                {
-                  "type": "box_collider",
-                  "data": {
-                    "is_trigger": false,
-                    "center": {
-                      "x": 0.0,
-                      "y": 0.0,
-                      "z": 0.0
-                    },
-                    "size": {
-                      "x": 1.0,
-                      "y": 1.0,
-                      "z": 1.0
-                    }
-                  }
-                }
-              ],
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": "Floor (16)",
-          "tag": 0,
-          "layer": 0,
-          "is_static": true,
-          "transform": {
-            "position": {
-              "x": -55.5,
-              "y": 0.0,
-              "z": -56.5
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0,
-              "w": 1.0
-            },
-            "scale": {
-              "x": 54.6,
-              "y": 1.0,
-              "z": 35.7
-            }
-          },
-          "components": [],
-          "children": [
-            {
-              "name": "Box",
-              "tag": 0,
-              "layer": 0,
-              "is_static": true,
-              "transform": {
-                "position": {
-                  "x": -28.2,
-                  "y": -0.5,
-                  "z": -38.65
-                },
-                "rotation": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0,
-                  "w": 1.0
-                },
-                "scale": {
-                  "x": 54.6,
-                  "y": 1.0,
-                  "z": 35.7
+                  "z": 30.3
                 }
               },
               "components": [
@@ -2138,6 +3699,76 @@
                   "x": 9.8,
                   "y": 1.0,
                   "z": 15.8
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Floor (16)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -55.5,
+              "y": 0.0,
+              "z": -56.5
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 54.6,
+              "y": 1.0,
+              "z": 35.7
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Box",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -28.2,
+                  "y": -0.5,
+                  "z": -38.65
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 54.6,
+                  "y": 1.0,
+                  "z": 35.7
                 }
               },
               "components": [
@@ -2558,6 +4189,1266 @@
                   "x": 5.999999,
                   "y": 3.0,
                   "z": 7.73999929
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (1)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 5.42560244,
+              "y": 52.4554,
+              "z": 70.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.381393045,
+              "z": 0.0,
+              "w": 0.924413
+            },
+            "scale": {
+              "x": 2.12,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 12.0507317,
+                  "y": 53.9554,
+                  "z": 72.35738
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.381393045,
+                  "z": 0.0,
+                  "w": 0.924413
+                },
+                "scale": {
+                  "x": 12.7199993,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (3)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 14.41741,
+              "y": 52.4554,
+              "z": 118.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 0.5,
+              "y": 1.0,
+              "z": 4.49
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 15.91741,
+                  "y": 53.9554,
+                  "z": 104.53
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 26.9399986
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (4)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 11.425602,
+              "y": 52.4554,
+              "z": 121.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.3880786,
+              "z": 0.0,
+              "w": 0.9216263
+            },
+            "scale": {
+              "x": 0.5,
+              "y": 1.0,
+              "z": 0.700000048
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 13.9759731,
+                  "y": 53.9554,
+                  "z": 120.60553
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.3880786,
+                  "z": 0.0,
+                  "w": 0.9216263
+                },
+                "scale": {
+                  "x": 3.00000024,
+                  "y": 3.0,
+                  "z": 4.20000029
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (6)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -18.574398,
+              "y": 52.4554,
+              "z": 112.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.384698153,
+              "z": 0.0,
+              "w": 0.9230424
+            },
+            "scale": {
+              "x": 2.12,
+              "y": 1.0,
+              "z": -0.9499999
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -16.1208935,
+                  "y": 53.9554,
+                  "z": 118.523224
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.384698153,
+                  "z": 0.0,
+                  "w": 0.9230424
+                },
+                "scale": {
+                  "x": 12.7199993,
+                  "y": 3.0,
+                  "z": -5.7
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (8)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -22.574398,
+              "y": 52.4554,
+              "z": 107.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.389445484,
+              "z": 0.0,
+              "w": 0.9210496
+            },
+            "scale": {
+              "x": 1.00000012,
+              "y": 1.0,
+              "z": 2.79000044
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -26.48902,
+                  "y": 53.9554,
+                  "z": 99.01672
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.389445484,
+                  "z": 0.0,
+                  "w": 0.9210496
+                },
+                "scale": {
+                  "x": 6.000001,
+                  "y": 3.0,
+                  "z": 16.7400017
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (10)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -66.5743942,
+              "y": 52.4554,
+              "z": 70.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 12.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -30.574398,
+                  "y": 53.9554,
+                  "z": 67.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 72.0,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (11)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 5.42560244,
+              "y": 52.4554,
+              "z": 70.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.3842952,
+              "z": 0.0,
+              "w": 0.923210263
+            },
+            "scale": {
+              "x": 2.1,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 11.9935112,
+                  "y": 53.9554,
+                  "z": 72.35639
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": -0.3842952,
+                  "z": 0.0,
+                  "w": 0.923210263
+                },
+                "scale": {
+                  "x": 12.5999994,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -66.5743942,
+              "y": 52.4554,
+              "z": 70.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 11.99,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -30.6043968,
+                  "y": 53.9554,
+                  "z": 67.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 71.94,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (9)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -99.5743942,
+              "y": 52.4554,
+              "z": 97.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 11.52,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -65.0144,
+                  "y": 53.9554,
+                  "z": 94.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 69.12,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (7)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -24.574398,
+              "y": 52.4554,
+              "z": 112.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.49
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -21.574398,
+                  "y": 53.9554,
+                  "z": 107.53
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 8.940001
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (5)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -9.574398,
+              "y": 52.4554,
+              "z": 127.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 3.5,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 0.925602436,
+                  "y": 53.9554,
+                  "z": 124.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 21.0,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (2)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 14.41741,
+              "y": 52.4554,
+              "z": 79.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 0.5,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 15.91741,
+                  "y": 53.9554,
+                  "z": 76.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 3.0,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (12)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 15.6156025,
+              "y": 52.4554,
+              "z": 125.25
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.3778408,
+              "z": 0.0,
+              "w": 0.9258706
+            },
+            "scale": {
+              "x": 0.74999994,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 15.124176,
+                  "y": 53.9554,
+                  "z": 121.532341
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.3778408,
+                  "z": 0.0,
+                  "w": 0.9258706
+                },
+                "scale": {
+                  "x": 4.49999952,
+                  "y": 3.0,
+                  "z": 5.99999952
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (1)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 15.6156025,
+              "y": 52.4554,
+              "z": 125.25
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.3778408,
+              "z": 0.0,
+              "w": 0.9258706
+            },
+            "scale": {
+              "x": 0.74999994,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": 15.124176,
+                  "y": 53.9554,
+                  "z": 121.532341
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.3778408,
+                  "z": 0.0,
+                  "w": 0.9258706
+                },
+                "scale": {
+                  "x": 4.49999952,
+                  "y": 3.0,
+                  "z": 5.99999952
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (13)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -61.0143967,
+              "y": 0.0,
+              "z": 3.09999847
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 12.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -25.0143967,
+                  "y": 1.5,
+                  "z": 0.0999984741
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 72.0,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4 (14)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -16.194397,
+              "y": 0.0,
+              "z": -29.96
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 0.54,
+              "y": 1.0,
+              "z": 2.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -14.574398,
+                  "y": 1.5,
+                  "z": -35.96
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 3.24000025,
+                  "y": 3.0,
+                  "z": 12.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -61.13,
+              "y": 0.0,
+              "z": -14.93
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 6.27,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -42.3200035,
+                  "y": 1.5,
+                  "z": -17.93
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 37.62,
+                  "y": 3.0,
+                  "z": 6.0
+                }
+              },
+              "components": [
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": false,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Collider 4",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -61.470005,
+              "y": 0.570404053,
+              "z": 3.08000183
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.382683426,
+              "z": 0.0,
+              "w": 0.923879564
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 2.07000041
+            }
+          },
+          "components": [],
+          "children": [
+            {
+              "name": "Collider 4",
+              "tag": 0,
+              "layer": 0,
+              "is_static": true,
+              "transform": {
+                "position": {
+                  "x": -63.73982,
+                  "y": 2.070404,
+                  "z": -3.43244934
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.382683426,
+                  "z": 0.0,
+                  "w": 0.923879564
+                },
+                "scale": {
+                  "x": 6.0,
+                  "y": 3.0,
+                  "z": 12.4200029
                 }
               },
               "components": [
@@ -54040,69 +56931,6 @@
                   "x": 1.0,
                   "y": 1.0,
                   "z": 1.0
-                }
-              },
-              "components": [
-                {
-                  "type": "mesh",
-                  "data": {
-                    "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_01.fbx",
-                    "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
-                    "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
-                    "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
-                  }
-                }
-              ],
-              "children": []
-            }
-          ]
-        },
-        {
-          "name": "pf_z3_ground01 (564)",
-          "tag": 0,
-          "layer": 0,
-          "is_static": false,
-          "transform": {
-            "position": {
-              "x": -121.0,
-              "y": 3.0,
-              "z": -34.0
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 0.7071068,
-              "z": 0.0,
-              "w": 0.7071068
-            },
-            "scale": {
-              "x": 1.00000024,
-              "y": 1.0,
-              "z": 1.00000024
-            }
-          },
-          "components": [],
-          "children": [
-            {
-              "name": "a_z3_ground_01",
-              "tag": 0,
-              "layer": 0,
-              "is_static": false,
-              "transform": {
-                "position": {
-                  "x": -121.0,
-                  "y": 3.0,
-                  "z": -34.0
-                },
-                "rotation": {
-                  "x": 0.0,
-                  "y": 0.7071068,
-                  "z": 0.0,
-                  "w": 0.7071068
-                },
-                "scale": {
-                  "x": 1.00000024,
-                  "y": 1.0,
-                  "z": 1.00000024
                 }
               },
               "components": [

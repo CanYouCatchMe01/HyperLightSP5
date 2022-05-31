@@ -1,10 +1,11 @@
 #include "stdafx.h"
+#include <iostream>
 #include "PopcornEnemy.h"
 #include "PlayerComponent.h"
 #include "GameObject.h"
-#include <iostream>
+#include "Scene.h"
 
-PopcornEnemy::PopcornEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, int anAttackDamage)
+PopcornEnemy::PopcornEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, int anAttackDamage, float anIdleRadius)
 {
 	myMaxHp = aMaxHp;
 	mySpeed = aSpeed;
@@ -12,7 +13,7 @@ PopcornEnemy::PopcornEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float 
 	myDetectionRadius = aDetectionRadius;
 	myIdleSpeed = anIdleSpeed;
 	myAttackDmg = anAttackDamage;
-	
+	myIdleRadius = anIdleRadius;
 }
 
 void PopcornEnemy::OnUpdate(float aDt)
@@ -37,8 +38,16 @@ void PopcornEnemy::OnUpdate(float aDt)
 }
 
 
+void PopcornEnemy::MoveTowardsPlayer(float aDt)
+{
+	myDistanceToTarget.Normalize();
+	myTransform->SetRotation(myTransform->GetRotation() + myDistanceToTarget);
+	SetPosition(GetPosition() + Tga2D::Vector3f{ myDistanceToTarget.x, 0, myDistanceToTarget.z } *mySpeed * aDt);
+}
+
 void PopcornEnemy::OnDeath()
 {
+	myScene->RemoveGameObject(myGameObject);
 	std::cout << "he dead (popcorn enemy)\n";
 }
 

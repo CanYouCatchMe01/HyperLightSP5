@@ -29,6 +29,8 @@ public:
 	Transform(Vector3f somePosition, Rotator someRotation = Rotator::Zero, Vector3f someScale = Vector3f::One);
 	Transform(Vector3f somePosition, Quaternionf someRotation, Vector3f someScale = Vector3f::One);
 
+	bool operator==(const Transform& aRhs);
+
 	FORCEINLINE Vector3f GetPosition() const { return myPosition; }
 	FORCEINLINE Rotator GetRotation() const { return myRotation; }
 	FORCEINLINE Quatf GetQuaternion() const { return Quatf(GetMatrix()); } 

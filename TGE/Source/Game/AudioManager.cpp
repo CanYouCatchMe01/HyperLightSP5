@@ -167,6 +167,11 @@ void AudioManager::SetMusic(const FMOD_GUID anID)
 	myMusicInstance = PlayEvent(anID);
 }
 
+FMOD::Studio::EventInstance* AudioManager::GetMusicInstance()
+{
+	return myMusicInstance;
+}
+
 FMOD::Studio::EventInstance* AudioManager::GetLevelMusic()
 {
 	return myMusicInstance;

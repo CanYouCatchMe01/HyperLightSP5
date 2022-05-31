@@ -22,6 +22,10 @@
 #include "CheckPointComponent.h"
 #include "MusicChangeComponent.h"
 #include "PointLightComponent.h"
+#include "BattleZone.h"
+#include "TeleportActivator.h"
+#include "MusicParameterComponent.h"
+
 #include "tga2d/graphics/DirectionalLight.h"
 #include "tga2d/graphics/AmbientLight.h"
 
@@ -123,15 +127,15 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			}
 			else if (type == "popcorn_enemy")
 			{
-				gameObject->AddComponent<PopcornEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
+				gameObject->AddComponent<PopcornEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"], data["idle_radius"]);
 			}
 			else if (type == "charge_enemy")
 			{
-				gameObject->AddComponent<ChargeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["charge_radius"], data["charge_time"], data["idle_speed"], data["attack_damage"], data["dash_speed"]);
+				gameObject->AddComponent<ChargeEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["charge_radius"], data["charge_time"], data["idle_speed"], data["attack_damage"], data["dash_speed"], data["idle_radius"]);
 			}
 			else if (type == "flute_enemy")
 			{
-				gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"]);
+				gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"], data["idle_radius"]);
 			}
 			else if (type == "weapon")
 			{
@@ -139,11 +143,11 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			}
 			else if (type == "teleporter")
 			{
-				//	gameObject->AddComponent<TeleporterComponent>(data["scene"], data["spawnpoint"]);
+				gameObject->AddComponent<TeleporterComponent>(data["scene"], data["spawnpoint"]);
 			}
 			else if (type == "teleport_1")
 			{
-				gameObject->AddComponent<TeleporterComponent>(data["scene"]);
+				gameObject->AddComponent<TeleportActivator>();
 			}
 			else if (type == "spawn_point")
 			{
@@ -156,6 +160,14 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			else if (type == "music_changer")
 			{
 				gameObject->AddComponent<MusicChangeComponent>(data["music_to_play"]);
+			}
+			else if (type == "music_parameter_changer")
+			{
+				gameObject->AddComponent<MusicParameterComponent>(data["parameter_name"], data["value"]);
+			}
+			else if (type == "battle_zone")
+			{
+				gameObject->AddComponent<BattleZone>();
 			}
 			else if (type == "light")
 			{

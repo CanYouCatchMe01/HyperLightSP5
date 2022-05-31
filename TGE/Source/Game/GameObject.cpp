@@ -11,7 +11,7 @@ void GameObject::OnCollisionEnter(GameObject* aOther)
 {
 	for (size_t i = 0; i < myComponents.size(); ++i)
 	{
-		myComponents[i]->OnCollisionEnter(aOther);
+ 		myComponents[i]->OnCollisionEnter(aOther);
 	}
 }
 

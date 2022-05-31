@@ -70,6 +70,7 @@ bool Game::Init(const std::wstring& aVersion, HWND aHWND)
 		Tga2D::DebugFeature::Drawcalls |
 		Tga2D::DebugFeature::Cpu |
 		Tga2D::DebugFeature::Filewatcher |
+		Tga2D::DebugFeature::Fps |
 		Tga2D::DebugFeature::OptimizeWarnings;
 
 #ifdef _RETAIL

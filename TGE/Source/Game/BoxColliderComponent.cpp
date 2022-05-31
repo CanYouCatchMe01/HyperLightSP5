@@ -7,6 +7,7 @@ BoxColliderComponent::BoxColliderComponent(Tga2D::Vector3f aSize, Tga2D::Vector3
 
 BoxColliderComponent::~BoxColliderComponent()
 {
+	myScene->GetCollisionManager().UnregisterBoxCollider(myHandle);
 }
 
 void BoxColliderComponent::OnAwake()
@@ -21,6 +22,11 @@ void BoxColliderComponent::OnStart()
 void BoxColliderComponent::OnUpdate(const float /*adeltatime*/)
 {
 	myScene->GetCollisionManager().GetOBB3D(myHandle)->SetTransform(*myTransform);
+}
+
+void BoxColliderComponent::SetAlwaysSendEvent(bool aState)
+{
+	myScene->GetCollisionManager().GetOBB3D(myHandle)->myAlwaysSendEvent = aState;
 }
 
 #ifdef _DEBUG

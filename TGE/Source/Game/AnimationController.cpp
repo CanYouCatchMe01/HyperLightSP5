@@ -21,6 +21,7 @@ AnimationController::Transition* AnimationController::AddTransition(std::string 
 
 AnimationController::Transition* AnimationController::AddTransition(Transition* aTransition, std::function<bool()> aFunction)
 {
+	aTransition->myHasCircleReferences = true;
 	myRootTransition.myNextStates.push_back({ aFunction, aTransition });
 	return myRootTransition.myNextStates.back().second;
 }
@@ -35,6 +36,15 @@ AnimationController::Transition::~Transition()
 {
 	for (auto& s : myNextStates)
 	{
+		if (s.second == nullptr)
+			continue;
+
+		if (s.second == &myAnimationController->myRootTransition)
+			continue;
+
+		if (s.second->myHasCircleReferences)
+			continue;
+
 		delete s.second;
 		s.second = nullptr;
 	}
@@ -63,6 +73,7 @@ AnimationController::Transition* AnimationController::Transition::AddTransition(
 
 AnimationController::Transition* AnimationController::Transition::AddTransition(Transition* aTransition, std::function<bool()> aFunction)
 {
+	aTransition->myHasCircleReferences = true;
 	myNextStates.push_back({ aFunction, aTransition });
 	return myNextStates.back().second;
 }

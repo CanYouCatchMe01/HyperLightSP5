@@ -9,6 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5289765894499578979}
+  - component: {fileID: 1271402205595169665}
+  - component: {fileID: 4124752561567329648}
+  - component: {fileID: 3485873638340813411}
+  - component: {fileID: 8653232419074968146}
+  - component: {fileID: 7895932597857104684}
   m_Layer: 0
   m_Name: a_z2_enemy
   m_TagString: charge
@@ -26,61 +31,25 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8530262367310617371}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5108877725656837288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8530262367310617371}
-  - component: {fileID: 8175384650126599340}
-  - component: {fileID: 5639101168719552562}
-  - component: {fileID: 7624336924436955352}
-  - component: {fileID: 5912165180205192683}
-  - component: {fileID: 6556816433264575753}
-  m_Layer: 0
-  m_Name: a_z2_enemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8530262367310617371
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5108877725656837288}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5289765894499578979}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8175384650126599340
+--- !u!33 &1271402205595169665
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5108877725656837288}
+  m_GameObject: {fileID: 95931111989311086}
   m_Mesh: {fileID: 3920717026203441490, guid: 5d4ff76360c474547ae9c067dc7bf799, type: 3}
---- !u!23 &5639101168719552562
+--- !u!23 &4124752561567329648
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5108877725656837288}
+  m_GameObject: {fileID: 95931111989311086}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -115,39 +84,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7624336924436955352
+--- !u!65 &3485873638340813411
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5108877725656837288}
+  m_GameObject: {fileID: 95931111989311086}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.847654, y: 1.8705906, z: 0.7153184}
   m_Center: {x: 0.03689517, y: 0.92986494, z: 0.032542378}
---- !u!65 &5912165180205192683
+--- !u!65 &8653232419074968146
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5108877725656837288}
+  m_GameObject: {fileID: 95931111989311086}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.9458011, y: 1.8705906, z: 0.9251629}
   m_Center: {x: 0.04499963, y: 0.92986494, z: 0.13746446}
---- !u!114 &6556816433264575753
+--- !u!114 &7895932597857104684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5108877725656837288}
+  m_GameObject: {fileID: 95931111989311086}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4207025edc3df8148a3dac71b4db0b36, type: 3}
@@ -163,6 +132,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: speed
     myInt: 0
@@ -171,6 +141,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: attack_speed
     myInt: 0
@@ -179,6 +150,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: detection_radius
     myInt: 0
@@ -187,6 +159,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: charge_radius
     myInt: 0
@@ -195,6 +168,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: charge_time
     myInt: 0
@@ -203,6 +177,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: idle_speed
     myInt: 0
@@ -211,6 +186,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 0
     myVariableName: attack_damage
     myInt: 1
@@ -219,6 +195,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: dash_speed
     myInt: 0
@@ -227,3 +204,13 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
+  - myVariableType: 1
+    myVariableName: idle_radius
+    myInt: 0
+    myFloat: 5
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}

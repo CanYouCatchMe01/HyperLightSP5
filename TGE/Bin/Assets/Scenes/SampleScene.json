@@ -1,8 +1,10 @@
 {
+  "name": "SampleScene",
   "gameObjects": [
     {
       "name": "Directional Light",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -26,7 +28,14 @@
         {
           "type": "light",
           "data": {
-            "type": 1
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 0.956862748,
+              "b": 0.8392157,
+              "a": 1.0
+            },
+            "intensity": 1.0
           }
         }
       ],
@@ -34,7 +43,8 @@
     },
     {
       "name": "enHeltVanligKub",
-      "tag": "Untagged",
+      "tag": 0,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
@@ -98,7 +108,8 @@
     },
     {
       "name": "Main Camera",
-      "tag": "MainCamera",
+      "tag": 4,
+      "layer": 0,
       "is_static": false,
       "transform": {
         "position": {

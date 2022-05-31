@@ -669,7 +669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &941460011
 PrefabInstance:
@@ -1449,7 +1449,7 @@ PrefabInstance:
     - target: {fileID: 500368710184326944, guid: 4e3758ebb2e57f14aac5e42e29e85e67, type: 3}
       propertyPath: sceneToLoad
       value: 
-      objectReference: {fileID: 102900000, guid: 9caf95ab664dea140bae2b15d042c7b0, type: 3}
+      objectReference: {fileID: 102900000, guid: 23a7080fb2d1a1a4ebc3e75b3b6805a2, type: 3}
     - target: {fileID: 500368710184326944, guid: 4e3758ebb2e57f14aac5e42e29e85e67, type: 3}
       propertyPath: spawnPointName
       value: Badlands1Entry0

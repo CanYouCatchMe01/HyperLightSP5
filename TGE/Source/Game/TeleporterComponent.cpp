@@ -3,44 +3,23 @@
 #include "SceneManager.h"
 #include "Scene.h"
 #include "GameDataManager.h"
+#include "PlayerComponent.h"
 
-TeleporterComponent::TeleporterComponent(std::string aScene)
+TeleporterComponent::TeleporterComponent(std::string aScene, std::string aCheckpointName)
 {
-	mySceneName = aScene;
+	mySceneToLoad = aScene;
+	myCheckPointToLoad = aCheckpointName;
 }
 
 void TeleporterComponent::Load()
 {
-	//if (myScene->name == mySceneToLoad)
-	//{
-	//	myPollingStation->myPlayer->GetTransform().SetPosition(myScene->GetSpawnPointManager().GetSpawnPosition(myCheckPointToLoad));
-	//	return;
-	//}
-	//myPollingStation->mySceneManager->LoadScene(mySceneToLoad, myCheckPointToLoad);
-}
-
-void TeleporterComponent::Activate()
-{
-	if (myIsActive) return;
-
-	std::string currentScene = myScene->name;
-	GameData currentData = myPollingStation->myGameDataManager.get()->GetGameData();
-	currentData.TeleporterStatus;
-
-	if (mySceneName == "Badlands 2")
-		currentData.TeleporterStatus[0] = true;
-	else if (mySceneName == "Badlands 3")
-		currentData.TeleporterStatus[1] = true;
-	else if (mySceneName == "Jungle 2")
-		currentData.TeleporterStatus[2] = true;
-	else if (mySceneName == "Jungle 3")
-		currentData.TeleporterStatus[3] = true;
-	else if (mySceneName == "Hub")
-		currentData.TeleporterStatus[4] = true;
-
-	myPollingStation->myGameDataManager.get()->UpdateGameData(currentData);
-
-	myIsActive = true;
+	if (myScene->name == mySceneToLoad)
+	{
+		myPollingStation->myPlayer->GetTransform().SetPosition(myScene->GetSpawnPointManager().GetSpawnPosition(myCheckPointToLoad));
+		myPollingStation->myPlayer->GetComponent<PlayerComponent>()->SetFullHP();
+		return;
+	}
+	myPollingStation->mySceneManager->LoadScene(mySceneToLoad, myCheckPointToLoad);
 }
 
 void TeleporterComponent::OnAwake()

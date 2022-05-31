@@ -18,24 +18,22 @@ void AudioComponent::OnStart()
 void AudioComponent::OnUpdate(const float /*aDeltaTime*/)
 {
 	//Loop through all the events and delete the ones that are finished
-	for (int i = 0; i < myEventInstances.size(); i++)
+	for (auto it = myEventInstances.begin(); it != myEventInstances.end();)
 	{
 		FMOD_STUDIO_PLAYBACK_STATE state;
-		myEventInstances[i]->getPlaybackState(&state);
-
+		(*it)->getPlaybackState(&state);
+		
 		if (state == FMOD_STUDIO_PLAYBACK_STATE::FMOD_STUDIO_PLAYBACK_STOPPED)
 		{
-			myEventInstances[i]->release();
-
-			//swap myEventInstances[i] with the last element
-			std::swap(myEventInstances[i], myEventInstances[myEventInstances.size() - 1]);
-
-			//pop the last element
-			myEventInstances.pop_back();
+			it = myEventInstances.erase(it);
+		}
+		else
+		{
+			++it;
 		}
 	}
 	
-	//set the 3Dattribues
+	//set the 3Dattributes
 	Tga2D::Vector3f forward, up;
 	forward = myTransform->GetMatrix().GetForward().GetNormalized();
 	up = myTransform->GetMatrix().GetUp().GetNormalized();

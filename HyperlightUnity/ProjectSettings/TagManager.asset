@@ -9,6 +9,11 @@ TagManager:
   - flute
   - teleporter
   - checkpoint
+  - gate
+  - teleportActivator
+  - battleZone
+  - music_change_parameter
+  - health_pickup
   layers:
   - Default
   - TransparentFX

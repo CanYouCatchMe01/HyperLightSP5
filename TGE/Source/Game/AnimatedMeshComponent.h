@@ -10,9 +10,6 @@ namespace Tga2D
 }
 
 class AnimatedMeshComponent : public Component
-#ifdef _DEBUG 
-	, public DebugObserver
-#endif
 {
 public:
 	AnimatedMeshComponent(const std::string& aMeshPath, const std::string& aAlbedoPath, const std::string& aNormalPath, const std::string& aReflectivePath, const nlohmann::json& aAnimationList, class Scene* aScene);

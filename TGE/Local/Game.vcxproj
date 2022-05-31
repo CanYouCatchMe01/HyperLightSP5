@@ -159,6 +159,7 @@
     <ClInclude Include="..\Source\Game\AudioComponent.h" />
     <ClInclude Include="..\Source\Game\AudioManager.h" />
     <ClInclude Include="..\Source\Game\BaseDebugger.h" />
+    <ClInclude Include="..\Source\Game\BattleZone.h" />
     <ClInclude Include="..\Source\Game\BoxColliderComponent.h" />
     <ClInclude Include="..\Source\Game\BulletComponent.h" />
     <ClInclude Include="..\Source\Game\Button.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="..\Source\Game\MainMenuState.h" />
     <ClInclude Include="..\Source\Game\MeshComponent.h" />
     <ClInclude Include="..\Source\Game\MusicChangeComponent.h" />
+    <ClInclude Include="..\Source\Game\MusicParameterComponent.h" />
     <ClInclude Include="..\Source\Game\OBB3D.h" />
     <ClInclude Include="..\Source\Game\Observer.h" />
     <ClInclude Include="..\Source\Game\OptionsState.h" />
@@ -204,6 +206,7 @@
     <ClInclude Include="..\Source\Game\Scene.h" />
     <ClInclude Include="..\Source\Game\SpawnPointComponent.h" />
     <ClInclude Include="..\Source\Game\SpawnPointManager.h" />
+    <ClInclude Include="..\Source\Game\TeleportActivator.h" />
     <ClInclude Include="..\Source\Game\TeleporterComponent.h" />
     <ClInclude Include="..\Source\Game\SceneManager.h" />
     <ClInclude Include="..\Source\Game\State.h" />
@@ -223,6 +226,7 @@
     <ClCompile Include="..\Source\Game\AudioComponent.cpp" />
     <ClCompile Include="..\Source\Game\AudioManager.cpp" />
     <ClCompile Include="..\Source\Game\BaseDebugger.cpp" />
+    <ClCompile Include="..\Source\Game\BattleZone.cpp" />
     <ClCompile Include="..\Source\Game\BoxColliderComponent.cpp" />
     <ClCompile Include="..\Source\Game\BulletComponent.cpp" />
     <ClCompile Include="..\Source\Game\Button.cpp" />
@@ -251,6 +255,7 @@
     <ClCompile Include="..\Source\Game\MainMenuState.cpp" />
     <ClCompile Include="..\Source\Game\MeshComponent.cpp" />
     <ClCompile Include="..\Source\Game\MusicChangeComponent.cpp" />
+    <ClCompile Include="..\Source\Game\MusicParameterComponent.cpp" />
     <ClCompile Include="..\Source\Game\OBB3D.cpp" />
     <ClCompile Include="..\Source\Game\OptionsState.cpp" />
     <ClCompile Include="..\Source\Game\PauseMenuState.cpp" />
@@ -264,6 +269,7 @@
     <ClCompile Include="..\Source\Game\Scene.cpp" />
     <ClCompile Include="..\Source\Game\SpawnPointComponent.cpp" />
     <ClCompile Include="..\Source\Game\SpawnPointManager.cpp" />
+    <ClCompile Include="..\Source\Game\TeleportActivator.cpp" />
     <ClCompile Include="..\Source\Game\TeleporterComponent.cpp" />
     <ClCompile Include="..\Source\Game\SceneManager.cpp" />
     <ClCompile Include="..\Source\Game\State.cpp" />
