@@ -22,7 +22,9 @@ public:
 
 public:
 	void SetTransform(Tga2D::Transform& aTransform);
+#ifdef _DEBUG
 	void Draw();
+#endif
 private:
 	void SetPosition(Tga2D::Vector3f aPos);
 	void SATTest(const Vector3 anAxis, const SetOfCorners& aPtSet, float& aMinExtent, float& aMaxExtent);
@@ -39,6 +41,7 @@ private:
 	};
 
 	bool myDrawHitbox = false;
+	bool myAlwaysSendEvent = false;
 
 	Vector3 myLastPos;
 

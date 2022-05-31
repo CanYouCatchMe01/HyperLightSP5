@@ -13,7 +13,7 @@ CreditsState::CreditsState(StateStack& aStateStack, PollingStation* aPollingStat
     State(aStateStack, aPollingStation)
 {
 	SetPollingStation(aPollingStation);
-	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/PauseMenu/ui_pauseMenu_background.dds");
+	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/Credits/ui_credits_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
 	mySpriteInstance.mySizeMultiplier = { 2,1 };
 

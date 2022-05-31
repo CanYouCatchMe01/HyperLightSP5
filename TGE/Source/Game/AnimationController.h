@@ -12,6 +12,7 @@ private:
 		Transition* AddTransition(Transition* aTransition, std::function<bool()> aFunction);
 
 		std::string myName;
+		bool myHasCircleReferences = false;
 		std::vector<std::pair<std::function<bool()>, Transition*>> myNextStates;
 		AnimationController* myAnimationController;
 	};

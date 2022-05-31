@@ -15,10 +15,6 @@ public:
 	void OnCollisionStay(GameObject* aOther);
 	virtual void TakeDamage(int someDamage);
 	virtual int GetAttackDmg();
-	virtual void StunEnemyForDuration(const float aDuration);
-	virtual bool IsStunned();
-	virtual void StunEnemy();
-	virtual void AwakeEnemy();
 
 	virtual void OnDeath() = 0;
 
@@ -30,17 +26,20 @@ protected:
 	virtual Tga2D::Vector3f GetPosition();
 
 	virtual void IdleMovement(float aDt);
-	virtual void MoveTowardsPlayer(float aDT);
+	virtual void MoveTowardsPlayer(float aDt);
 
+	Tga2D::Vector3f myStartPosition;
 	Tga2D::Vector3f myDistanceToTarget;
 	class GameObject* myTarget;
 	bool myIsInRange = false;
 	bool myIsDead = false;
+	bool myHasTurned = false;
 
 	int myMaxHp;
 	int myAttackDmg;
 	int myRandNum;
 	
+	float myIdleRadius;
 	float myTakeDamageTimer = 0.f;
 	float myTakeDamageTime;
 	float myGravity = 5.5f;

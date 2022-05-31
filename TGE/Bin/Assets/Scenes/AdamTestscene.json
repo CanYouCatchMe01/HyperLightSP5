@@ -88,6 +88,13 @@
           }
         },
         {
+          "type": "weapon",
+          "data": {
+            "weapon_upgrade": false,
+            "weapon_damage": 1
+          }
+        },
+        {
           "type": "box_collider",
           "data": {
             "is_trigger": true,
@@ -113,11 +120,11 @@
             "animations": [
               {
                 "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
-                "name": "Take 001"
+                "name": "Player_Idle"
               },
               {
                 "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
-                "name": "Take 001"
+                "name": "Player_Idle"
               }
             ]
           }

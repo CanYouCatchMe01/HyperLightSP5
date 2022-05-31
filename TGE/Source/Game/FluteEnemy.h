@@ -5,20 +5,16 @@ class FluteEnemy : public EnemyComponent
 {
 
 public:
-	FluteEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, int anAttackDamage);
+	FluteEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, int anAttackDamage, float anIdleRadius);
 	void OnUpdate(float aDt) override;
-	void OnAwake() override;
-private:
-	//void Charge(float aDT, Tga2D::Vector3f aDirection);
-	void Attack(float aDT, Tga2D::Vector3f aDirection);
-	void OnDeath() override;
-	void IdleMovement(float aDt) override;
 
-	float myIdleRadius;
-	Tga2D::Vector3f myStartPosition;
+private:
+	void MoveAwayFromPlayer(float aDt);
+	void ShootPlayer(float aDT, Tga2D::Vector3f aDirection);
+	void OnDeath() override;
+
 	Tga2D::Vector3f myAttackDirection;
 	int myHp;
 
-	bool myHasTurned = false;
 	bool myAttacking = false;
 };

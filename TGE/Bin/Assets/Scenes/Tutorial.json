@@ -38,6 +38,368 @@
       "children": []
     },
     {
+      "name": "Teleporter",
+      "tag": 10,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -1.4,
+          "y": 2.24,
+          "z": 65.59
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 5.1328,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "teleporter",
+          "data": {
+            "scene": "Hub",
+            "spawnpoint": "HubTeleport"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "CheckPoint",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 4.862772,
+          "y": -1.29809189,
+          "z": 31.51835
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 5.6209
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "check_point",
+          "data": {
+            "scene": "Tutorial",
+            "name": "TutorialSpawn1"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 11.7503433,
+          "y": -0.00999999,
+          "z": 34.2437935
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_healthPickup",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -2.09178114,
+          "y": 0.09,
+          "z": 31.2406349
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_g_healthPickup",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -2.09178114,
+              "y": 0.09,
+              "z": 31.2406349
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/GLOBAL/a_g_healthPickup.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "a_g_gate",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 7.32,
+          "y": -1.29809237,
+          "z": 31.72
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.707105756,
+          "z": 0.0,
+          "w": 0.707107842
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_g_gate",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 7.32,
+              "y": -1.29809237,
+              "z": 31.72
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.707105756,
+              "z": 0.0,
+              "w": 0.707107842
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/GLOBAL/a_g_gate.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_g_gateDoor",
+          "tag": 12,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 7.32,
+              "y": -1.29809237,
+              "z": 31.72
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.707105756,
+              "z": 0.0,
+              "w": 0.707107842
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/GLOBAL/a_g_gateDoor.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            },
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": true,
+                "center": {
+                  "x": 0.07813203,
+                  "y": 0.768206358,
+                  "z": 5.64411831
+                },
+                "size": {
+                  "x": 5.27755737,
+                  "y": 2.26641273,
+                  "z": 5.00387764
+                }
+              }
+            },
+            {
+              "type": "battle_zone",
+              "data": {}
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
       "name": "a_z3_flower_s",
       "tag": 0,
       "layer": 0,
@@ -908,9 +1270,9 @@
       "is_static": true,
       "transform": {
         "position": {
-          "x": 0.4595747,
+          "x": 0.26,
           "y": -1.29809284,
-          "z": -1.7922101
+          "z": -2.14
         },
         "rotation": {
           "x": 0.0,
@@ -928,7 +1290,7 @@
         {
           "type": "spawn_point",
           "data": {
-            "name": "Test1"
+            "name": "TutorialEntry"
           }
         }
       ],
@@ -1241,6 +1603,69 @@
         }
       ],
       "children": []
+    },
+    {
+      "name": "pf_z3_path_03 (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 1.25,
+          "y": -4.298092,
+          "z": -6.143389
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0,
+          "w": -3.5762784E-07
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_z3_path_03",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 1.25,
+              "y": -4.298092,
+              "z": -6.143389
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0,
+              "w": -3.5762784E-07
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Path/a_z3_path_03.fbx",
+                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matPath_c.dds",
+                "normal": "Assets/Materials/Mat Ground Blocks/z3_matPath_n.dds",
+                "reflective": "Assets/Materials/Mat Ground Blocks/z3_matPath_m.dds"
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
     },
     {
       "name": "Ground",
@@ -6629,9 +7054,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": 16.2216167,
+              "x": 15.9716167,
               "y": -4.298094,
-              "z": 11.4999886
+              "z": 11.7499886
             },
             "rotation": {
               "x": 0.0,
@@ -6654,9 +7079,9 @@
               "is_static": false,
               "transform": {
                 "position": {
-                  "x": 16.2216167,
+                  "x": 15.9716167,
                   "y": -4.298094,
-                  "z": 11.4999886
+                  "z": 11.7499886
                 },
                 "rotation": {
                   "x": 0.0,
@@ -6818,9 +7243,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": 13.2216349,
+              "x": 12.9716349,
               "y": -4.298094,
-              "z": 14.5000038
+              "z": 14.7500038
             },
             "rotation": {
               "x": 0.0,
@@ -6843,9 +7268,9 @@
               "is_static": false,
               "transform": {
                 "position": {
-                  "x": 13.2216349,
+                  "x": 12.9716349,
                   "y": -4.298094,
-                  "z": 14.5000038
+                  "z": 14.7500038
                 },
                 "rotation": {
                   "x": 0.0,
@@ -6964,6 +7389,69 @@
       },
       "components": [],
       "children": []
+    },
+    {
+      "name": "pf_z3_path_03 (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 4.249998,
+          "y": -4.298092,
+          "z": -9.143391
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0,
+          "w": -3.5762784E-07
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_z3_path_03",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 4.249998,
+              "y": -4.298092,
+              "z": -9.143391
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0,
+              "w": -3.5762784E-07
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Path/a_z3_path_03.fbx",
+                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matPath_c.dds",
+                "normal": "Assets/Materials/Mat Ground Blocks/z3_matPath_n.dds",
+                "reflective": "Assets/Materials/Mat Ground Blocks/z3_matPath_m.dds"
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
     },
     {
       "name": "Walls",
@@ -14661,21 +15149,21 @@
       ]
     },
     {
-      "name": "pf_z3_path_03 (1)",
+      "name": "pf_z3_ground_03 (1)",
       "tag": 0,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": 1.25,
-          "y": -4.298092,
-          "z": -6.143389
+          "x": 1.24,
+          "y": -4.298093,
+          "z": -3.13999987
         },
         "rotation": {
           "x": 0.0,
-          "y": 1.0,
+          "y": 0.0,
           "z": 0.0,
-          "w": -3.5762784E-07
+          "w": 1.0
         },
         "scale": {
           "x": 1.0,
@@ -14686,21 +15174,21 @@
       "components": [],
       "children": [
         {
-          "name": "a_z3_path_03",
+          "name": "a_z3_ground_03",
           "tag": 0,
           "layer": 0,
           "is_static": false,
           "transform": {
             "position": {
-              "x": 1.25,
-              "y": -4.298092,
-              "z": -6.143389
+              "x": 1.24,
+              "y": -4.298093,
+              "z": -3.13999987
             },
             "rotation": {
               "x": 0.0,
-              "y": 1.0,
+              "y": 0.0,
               "z": 0.0,
-              "w": -3.5762784E-07
+              "w": 1.0
             },
             "scale": {
               "x": 1.0,
@@ -14712,10 +15200,73 @@
             {
               "type": "mesh",
               "data": {
-                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Path/a_z3_path_03.fbx",
-                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matPath_c.dds",
-                "normal": "Assets/Materials/Mat Ground Blocks/z3_matPath_n.dds",
-                "reflective": "Assets/Materials/Mat Ground Blocks/z3_matPath_m.dds"
+                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_03.fbx",
+                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
+                "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
+                "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "pf_z3_ground_03 (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 4.24000072,
+          "y": -4.298093,
+          "z": -6.13999939
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0,
+          "w": 1.04308114E-07
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_z3_ground_03",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 4.24000072,
+              "y": -4.298093,
+              "z": -6.13999939
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0,
+              "w": 1.04308114E-07
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_03.fbx",
+                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
+                "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
+                "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
               }
             }
           ],
@@ -15245,9 +15796,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": 13.21596,
+              "x": 12.8859615,
               "y": -1.2980926,
-              "z": 11.5283413
+              "z": 11.7173424
             },
             "rotation": {
               "x": 0.0,
@@ -15258,7 +15809,7 @@
             "scale": {
               "x": 3.14940023,
               "y": 1.0,
-              "z": 2.99999976
+              "z": 3.14879966
             }
           },
           "components": [],
@@ -15270,9 +15821,9 @@
               "is_static": true,
               "transform": {
                 "position": {
-                  "x": 14.7906666,
+                  "x": 14.4606686,
                   "y": -1.7980926,
-                  "z": 13.0283966
+                  "z": 13.2917976
                 },
                 "rotation": {
                   "x": 0.0,
@@ -15283,7 +15834,7 @@
                 "scale": {
                   "x": 3.14940023,
                   "y": 1.0,
-                  "z": 2.99999976
+                  "z": 3.14879966
                 }
               },
               "components": [
@@ -15311,84 +15862,21 @@
       ]
     },
     {
-      "name": "pf_z3_path_03 (2)",
+      "name": "pf_z3_ground_03 (3)",
       "tag": 0,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": 4.249998,
-          "y": -4.298092,
-          "z": -9.143391
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 1.0,
-          "z": 0.0,
-          "w": -3.5762784E-07
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "a_z3_path_03",
-          "tag": 0,
-          "layer": 0,
-          "is_static": false,
-          "transform": {
-            "position": {
-              "x": 4.249998,
-              "y": -4.298092,
-              "z": -9.143391
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 1.0,
-              "z": 0.0,
-              "w": -3.5762784E-07
-            },
-            "scale": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
-            }
-          },
-          "components": [
-            {
-              "type": "mesh",
-              "data": {
-                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Path/a_z3_path_03.fbx",
-                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matPath_c.dds",
-                "normal": "Assets/Materials/Mat Ground Blocks/z3_matPath_n.dds",
-                "reflective": "Assets/Materials/Mat Ground Blocks/z3_matPath_m.dds"
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "pf_z3_ground_03 (1)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 1.24,
+          "x": 1.2400012,
           "y": -4.298093,
-          "z": -3.13999987
+          "z": -9.14
         },
         "rotation": {
           "x": 0.0,
-          "y": 0.0,
+          "y": 1.0,
           "z": 0.0,
-          "w": 1.0
+          "w": 1.04308114E-07
         },
         "scale": {
           "x": 1.0,
@@ -15405,15 +15893,78 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": 1.24,
+              "x": 1.2400012,
               "y": -4.298093,
-              "z": -3.13999987
+              "z": -9.14
             },
             "rotation": {
               "x": 0.0,
-              "y": 0.0,
+              "y": 1.0,
               "z": 0.0,
-              "w": 1.0
+              "w": 1.04308114E-07
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_03.fbx",
+                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
+                "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
+                "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "pf_z3_ground_03 (4)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 4.24000168,
+          "y": -4.298093,
+          "z": -12.1399994
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0,
+          "w": 1.04308114E-07
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_z3_ground_03",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": 4.24000168,
+              "y": -4.298093,
+              "z": -12.1399994
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0,
+              "w": 1.04308114E-07
             },
             "scale": {
               "x": 1.0,
@@ -19086,195 +19637,6 @@
       ]
     },
     {
-      "name": "pf_z3_ground_03 (2)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 4.24000072,
-          "y": -4.298093,
-          "z": -6.13999939
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 1.0,
-          "z": 0.0,
-          "w": 1.04308114E-07
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "a_z3_ground_03",
-          "tag": 0,
-          "layer": 0,
-          "is_static": false,
-          "transform": {
-            "position": {
-              "x": 4.24000072,
-              "y": -4.298093,
-              "z": -6.13999939
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 1.0,
-              "z": 0.0,
-              "w": 1.04308114E-07
-            },
-            "scale": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
-            }
-          },
-          "components": [
-            {
-              "type": "mesh",
-              "data": {
-                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_03.fbx",
-                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
-                "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
-                "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "pf_z3_ground_03 (3)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 1.2400012,
-          "y": -4.298093,
-          "z": -9.14
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 1.0,
-          "z": 0.0,
-          "w": 1.04308114E-07
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "a_z3_ground_03",
-          "tag": 0,
-          "layer": 0,
-          "is_static": false,
-          "transform": {
-            "position": {
-              "x": 1.2400012,
-              "y": -4.298093,
-              "z": -9.14
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 1.0,
-              "z": 0.0,
-              "w": 1.04308114E-07
-            },
-            "scale": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
-            }
-          },
-          "components": [
-            {
-              "type": "mesh",
-              "data": {
-                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_03.fbx",
-                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
-                "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
-                "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "pf_z3_ground_03 (4)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 4.24000168,
-          "y": -4.298093,
-          "z": -12.1399994
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 1.0,
-          "z": 0.0,
-          "w": 1.04308114E-07
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "a_z3_ground_03",
-          "tag": 0,
-          "layer": 0,
-          "is_static": false,
-          "transform": {
-            "position": {
-              "x": 4.24000168,
-              "y": -4.298093,
-              "z": -12.1399994
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 1.0,
-              "z": 0.0,
-              "w": 1.04308114E-07
-            },
-            "scale": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
-            }
-          },
-          "components": [
-            {
-              "type": "mesh",
-              "data": {
-                "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_03.fbx",
-                "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
-                "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
-                "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
       "name": "pf_z3_ground_03 (5)",
       "tag": 0,
       "layer": 0,
@@ -19401,41 +19763,8 @@
       ]
     },
     {
-      "name": "Main Camera",
-      "tag": 4,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 4.95999956,
-          "y": 12.3349075,
-          "z": -6.2
-        },
-        "rotation": {
-          "x": 0.353553385,
-          "y": -0.353553385,
-          "z": 0.1464466,
-          "w": 0.8535535
-        },
-        "scale": {
-          "x": 1.00000012,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "camera",
-          "data": {
-            "fov": 60.0
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "Player",
-      "tag": 0,
+      "tag": 5,
       "layer": 0,
       "is_static": false,
       "transform": {
@@ -19458,26 +19787,17 @@
       },
       "components": [
         {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
-            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
-            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
-            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds"
-          }
-        },
-        {
           "type": "box_collider",
           "data": {
             "is_trigger": false,
             "center": {
               "x": 0.0,
-              "y": 1.0,
+              "y": 0.8975179,
               "z": 0.0
             },
             "size": {
               "x": 0.85,
-              "y": 1.64,
+              "y": 1.844964,
               "z": 0.69
             }
           }
@@ -19496,6 +19816,13 @@
           }
         },
         {
+          "type": "weapon",
+          "data": {
+            "weapon_upgrade": false,
+            "weapon_damage": 1
+          }
+        },
+        {
           "type": "box_collider",
           "data": {
             "is_trigger": true,
@@ -19509,6 +19836,29 @@
               "y": 1.93430161,
               "z": 1.0
             }
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
+            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
+            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                "name": "Player_Dash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                "name": "Player_Idle"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                "name": "Player_Run"
+              }
+            ]
           }
         }
       ],
@@ -19581,6 +19931,39 @@
             "albedo": "Assets/Materials/Mat Zone2/z2_matGrass_c.dds",
             "normal": "Assets/Materials/Mat Zone2/z2_matGrass_n.dds",
             "reflective": "Assets/Materials/Mat Zone2/z2_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Main Camera",
+      "tag": 4,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 4.95999956,
+          "y": 12.3349075,
+          "z": -6.2
+        },
+        "rotation": {
+          "x": 0.353553385,
+          "y": -0.353553385,
+          "z": 0.1464466,
+          "w": 0.8535535
+        },
+        "scale": {
+          "x": 1.00000012,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "camera",
+          "data": {
+            "fov": 60.0
           }
         }
       ],
@@ -21021,6 +21404,746 @@
             "albedo": "",
             "normal": "",
             "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm (1)",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 16.65,
+          "y": -0.01,
+          "z": 34.2437935
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "SpawnPoint (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 12.0,
+          "y": -1.29809284,
+          "z": 19.31
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
+            "name": "TutorialSpawn0"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "SpawnPoint (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -2.07,
+          "y": -1.29809284,
+          "z": 30.93
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
+            "name": "TutorialSpawn1"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "CheckPoint (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 11.81,
+          "y": -0.98,
+          "z": 23.07
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.707105756,
+          "z": 0.0,
+          "w": 0.707107842
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 5.6209
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "check_point",
+          "data": {
+            "scene": "Tutorial",
+            "name": "TutorialSpawn0"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Point Light (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -3.97,
+          "y": 5.41,
+          "z": 3.28
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 2,
+            "color": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 1.0
+            },
+            "intensity": 8.04,
+            "range": 10.94
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_TreeM (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 1.35,
+          "y": -1.29809284,
+          "z": -16.49
+        },
+        "rotation": {
+          "x": -0.008460262,
+          "y": 0.112894952,
+          "z": 0.07424926,
+          "w": 0.9907927
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 0.99999994,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_TreeM (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 17.5,
+          "y": -4.718093,
+          "z": -13.6100006
+        },
+        "rotation": {
+          "x": 0.009898028,
+          "y": 0.112777978,
+          "z": -0.08686721,
+          "w": 0.98976624
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_TreeM (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 19.72,
+          "y": -1.42,
+          "z": -10.8
+        },
+        "rotation": {
+          "x": 0.009898028,
+          "y": 0.112777978,
+          "z": -0.08686721,
+          "w": 0.98976624
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_TreeM (4)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 22.5,
+          "y": -1.42000008,
+          "z": -8.14
+        },
+        "rotation": {
+          "x": 0.009898028,
+          "y": 0.112777978,
+          "z": -0.08686721,
+          "w": 0.98976624
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_TreeM (5)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 20.9,
+          "y": -1.42000008,
+          "z": -4.78000069
+        },
+        "rotation": {
+          "x": 0.009898028,
+          "y": 0.112777978,
+          "z": -0.08686721,
+          "w": 0.98976624
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_TreeM (6)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 23.83,
+          "y": -1.42000008,
+          "z": -5.24000072
+        },
+        "rotation": {
+          "x": 0.009898028,
+          "y": 0.112777978,
+          "z": -0.08686721,
+          "w": 0.98976624
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Point Light (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -8.83,
+          "y": 6.9,
+          "z": -6.27
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 2,
+            "color": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 1.0
+            },
+            "intensity": 8.04,
+            "range": 10.94
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Point Light (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.34,
+          "y": 2.26,
+          "z": -0.72
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 2,
+            "color": {
+              "r": 1.0,
+              "g": 0.383419365,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "intensity": 8.04,
+            "range": 10.94
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Point Light (4)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.34,
+          "y": 2.26,
+          "z": -9.51
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 2,
+            "color": {
+              "r": 1.0,
+              "g": 0.383419365,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "intensity": 8.04,
+            "range": 10.94
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Point Light (5)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 8.05,
+          "y": 2.26,
+          "z": -8.7
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 2,
+            "color": {
+              "r": 1.0,
+              "g": 0.383419365,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "intensity": 8.04,
+            "range": 10.94
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Point Light (6)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 13.01,
+          "y": 0.91,
+          "z": 2.46
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 2,
+            "color": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 1.0
+            },
+            "intensity": 8.04,
+            "range": 10.94
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Point Light (7)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 13.01,
+          "y": 4.06,
+          "z": 7.05
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 2,
+            "color": {
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 1.0
+            },
+            "intensity": 8.04,
+            "range": 10.94
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Point Light (8)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 16.44,
+          "y": 2.26,
+          "z": -9.06
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 2,
+            "color": {
+              "r": 1.0,
+              "g": 0.383419365,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "intensity": 8.04,
+            "range": 10.94
           }
         }
       ],

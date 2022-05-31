@@ -50,8 +50,8 @@ bool OBB3D::Collides(OBB3D& anOther)
     Tga2D::Vector3f vecToObstacle = anOther.myTransform.GetPosition() - myTransform.GetPosition();
 
 
-    // OLD
-    /*if (maximumOverlap > 0)
+     //OLD
+    /*if (minimumOverlap > 0)
     {
         correction = maxTv * maximumOverlap;
         Vector3 n = correction.GetNormalized();
@@ -63,29 +63,49 @@ bool OBB3D::Collides(OBB3D& anOther)
         }
     }*/
 
+    if (maximumOverlap <= myMaxStepHeight && maximumOverlap > 0)
+        correction = maxTv * maximumOverlap;
+
     if (vecToObstacle.Dot(correction) < 0)
         correction *= -1.0f;
 
     // NEW FIX FOR SLOPES AND EDGES, check if not a level plane and if the length is smaller than max step height
 
     //bool walkingIntoWall = myTransform.GetMatrix().GetUp().GetNormalized().Dot(correction.GetNormalized()) == 0;
-    bool walkingOnSlopeOrStep = myTransform.GetMatrix().GetUp().GetNormalized().Dot(correction.GetNormalized()) != 1 && correction.Length() < myMaxStepHeight;
 
-    if (walkingOnSlopeOrStep)
+    Vector3 thisUp = myTransform.GetMatrix().GetUp();
+    Vector3 thatUp = anOther.myTransform.GetMatrix().GetUp();
+
+    float dot = thisUp.GetNormalized().Dot(thatUp.GetNormalized());
+    bool slope = dot < 1.5f && dot > 0.5f && !(dot > 0.999f && dot < 1.001f);
+
+
+
+    bool stair = maximumOverlap <= myMaxStepHeight && maximumOverlap > 0 && !slope;
+    stair = maximumOverlap <= myMaxStepHeight && maximumOverlap > 0 && !slope;
+
+    //std::cout << slope << '\n';
+
+    if (slope && !stair)
     {
         correction.x = 0;
         correction.z = 0;
     }
-    
+    /*else if (stair)
+    {
+        correction = maxTv * maximumOverlap;
+        if (vecToObstacle.Dot(correction) < 0)
+            correction *= -1.0f;
+    }*/
 
     if (myIsStatic)
     {
         anOther.myParent->GetTransform().SetPosition(anOther.myParent->GetTransform().GetPosition() + correction);
-        //anOther.SetPosition(anOther.myTransform.GetPosition() + correction);
+        anOther.SetPosition(anOther.myTransform.GetPosition() + correction);
         return true;
     }
     myParent->GetTransform().SetPosition(myParent->GetTransform().GetPosition() - correction);
-    //SetPosition(myTransform.GetPosition() - correction);
+    SetPosition(myTransform.GetPosition() - correction);
     return true;
 }
 
@@ -105,8 +125,6 @@ void OBB3D::SATTest(const Vector3 anAxis, const SetOfCorners& aPtSet, float& aMi
         float dotVal = point.Dot(anAxis);
         aMinExtent = std::min(aMinExtent, dotVal);
         aMaxExtent = std::max(aMaxExtent, dotVal);
-      /*  if (dotVal < aMinExtent)  aMinExtent = dotVal;
-        if (dotVal > aMaxExtent)  aMaxExtent = dotVal;*/
     }
 }
 
@@ -118,35 +136,33 @@ bool OBB3D::Overlaps(float aMin1, float aMax1, float aMin2, float aMax2)
 
 void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
 {
-    if (!aOther.myIsTrigger)
+    if (!aOther.myIsTrigger || myIsTrigger && !myAlwaysSendEvent)
         return;
 
-    if (myIsTrigger)
-        return;
-
+    eCollisionState state = myCurrentlyColliding[aOther.myParent];
     if (aCollided && aOther.myIsTrigger)
     {
-        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eNone)
+        if (state == eCollisionState::eNone)
         {
             myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
             myParent->OnCollisionEnter(aOther.myParent);
             return;
         }
 
-        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eEnter)
+        if (state == eCollisionState::eEnter)
         {
-            myCurrentlyColliding[aOther.myParent] = eCollisionState::eStay;
+            state = eCollisionState::eStay;
             myParent->OnCollisionStay(aOther.myParent);
             return;
         }
 
-        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eStay)
+        if (state == eCollisionState::eStay)
         {
             myParent->OnCollisionStay(aOther.myParent);
             return;
         }
 
-        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eExit)
+        if (state == eCollisionState::eExit)
         {
             myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
             myParent->OnCollisionEnter(aOther.myParent);
@@ -158,13 +174,13 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
 
     else if (!aCollided && aOther.myIsTrigger)
     {
-        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eExit)
+        if (state == eCollisionState::eExit)
         {
             myCurrentlyColliding[aOther.myParent] = eCollisionState::eNone;
             return;
         }
 
-        if (myCurrentlyColliding[aOther.myParent] == eCollisionState::eEnter || myCurrentlyColliding[aOther.myParent] == eCollisionState::eStay)
+        if (state == eCollisionState::eEnter || myCurrentlyColliding[aOther.myParent] == eCollisionState::eStay)
         {
             myCurrentlyColliding[aOther.myParent] = eCollisionState::eExit;
             myParent->OnCollisionExit(aOther.myParent);
@@ -194,7 +210,7 @@ bool OBB3D::GetMTVTranslation(OBB3D& aOtherObb, Vector3& aMtv, float& aMinTransl
         aMaxTranslation;
         aMaxTv;
 
-        // OLD
+        //OLD
         /*if (translation > aMaxTranslation && translation < myMaxStepHeight)
         {
             if (aOtherObb.myTransform.GetMatrix().GetUp().GetNormalized().Dot(normal) > 0)
@@ -204,6 +220,21 @@ bool OBB3D::GetMTVTranslation(OBB3D& aOtherObb, Vector3& aMtv, float& aMinTransl
             }
         }*/
     }
+
+    {
+        Vector3 up(0, 1, 0);
+        float shape1Min, shape1Max, shape2Min, shape2Max;
+        SATTest(up, myCorners, shape1Min, shape1Max);
+        SATTest(up, aOtherObb.myCorners, shape2Min, shape2Max);
+
+        float translation = std::min(shape1Max, shape2Max) - std::max(shape1Min, shape2Min);
+        if (translation > aMinTranslation && translation < myMaxStepHeight)
+        {
+            aMaxTranslation = translation;
+            aMaxTv = up;
+        }   
+    }
+    
 
     return true;
 }
@@ -259,11 +290,15 @@ void OBB3D::Calculate()
 
 void OBB3D::SetTransform(Tga2D::Transform& aTransform)
 {
+    if (myTransform == aTransform)
+        return;
+
     myLastPos = aTransform.GetPosition();
     myTransform = aTransform;
     Calculate();
 }
 
+#ifdef _DEBUG
 void OBB3D::Draw()
 {
     if (!myDrawHitbox) return;
@@ -327,4 +362,6 @@ void OBB3D::Draw()
         Tga2D::Vector2f transformed = { pos.x * 0.5f + 0.5f, pos.y * -0.5f + 0.5f };
         Tga2D::Engine::GetInstance()->GetDebugDrawer().DrawArrow(transformed, arrowHeadPosTransformed, Tga2D::Color(1, 0, 0, 1), 0.35f);
     }
+
 }
+#endif // _DEBUG

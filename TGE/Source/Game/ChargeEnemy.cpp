@@ -1,9 +1,11 @@
 #include "stdafx.h"
-#include "ChargeEnemy.h"
 #include <iostream>
+#include "ChargeEnemy.h"
+#include "Scene.h"
 
 
-ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float aChargeRadius, float aChargeTime, float anIdleSpeed, int anAttackDamage, float aDashSpeed)
+
+ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float aChargeRadius, float aChargeTime, float anIdleSpeed, int anAttackDamage, float aDashSpeed, float anIdleRadius)
 {
 	myMaxHp = aMaxHp;
 	mySpeed = aSpeed;
@@ -14,6 +16,7 @@ ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aD
 	myIdleSpeed = anIdleSpeed;
 	myAttackDmg = anAttackDamage;
 	myDashSpeed = aDashSpeed;
+	myIdleRadius = anIdleRadius;
 
 	myChargeTimer.SetDuration(myChargeTime);
 	myChargeTimer.SetCallback([this]()
@@ -49,11 +52,13 @@ void ChargeEnemy::OnUpdate(float aDt)
 	if (!myIsInRange)
 	{
 		myChargeTimer.Stop();
+		myIsDoneDashing = false;
 		IdleMovement(aDt);
 	}
 	else if (!myIsInAttackRange && myIsInRange)
 	{
 		myChargeTimer.Stop();
+		myIsDoneDashing = false;
 		MoveTowardsPlayer(aDt);
 	}
 	else if (myIsInAttackRange && myIsInRange)
@@ -79,11 +84,12 @@ void ChargeEnemy::Charge()
 		myChargeTimer.Start();
 		myChargeDirection.Normalize();
 		SetPosition(GetPosition() + myChargeDirection * myDashSpeed * Tga2D::Engine::GetInstance()->GetDeltaTime());
-	}	
+	}
 }
 
 
 void ChargeEnemy::OnDeath()
 {
+	myScene->RemoveGameObject(myGameObject);
 	std::cout << "he dead (charge enemy)\n";
 }

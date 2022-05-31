@@ -41,6 +41,8 @@ MapState::MapState(StateStack& aStateStack, PollingStation* aPollingStation)
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuRight, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
 
+
+
 	myTeleportPoints[0] = "Badlands 2";
 	myTeleportPoints[1] = "Badlands 3";
 	myTeleportPoints[2] = "Jungle 2";
@@ -49,20 +51,11 @@ MapState::MapState(StateStack& aStateStack, PollingStation* aPollingStation)
 
 
 	GameData currentData = aPollingStation->myGameDataManager.get()->GetGameData();
-	currentData;
 	for (size_t i = 1; i < currentData.TeleporterStatus.size(); i++)
 	{
-//		myButtons[i + 1].SetActiveTP(currentData.TeleporterStatus[i]);
 		myButtons[i].SetActiveTP(currentData.TeleporterStatus[i-1]);
-//		currentData.TeleporterStatus[i - 1] = true;
 	}
 	myPollingStation->myGameDataManager.get()->UpdateGameData(currentData);
-
-
-	GameData test = myPollingStation->myGameDataManager.get()->GetGameData();
-	test;
-
-
 	myCurrentSelection = eButtonIndex::eHub;
 }
 

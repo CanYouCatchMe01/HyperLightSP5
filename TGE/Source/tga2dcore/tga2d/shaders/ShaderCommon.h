@@ -14,6 +14,7 @@ namespace Tga2D
 		Bones = 3,
 		Count,
 	};
+
 	struct SpriteShaderInstanceData
 	{
 		Matrix4x4f myTransform;

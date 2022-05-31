@@ -15,6 +15,10 @@ enum class eTag
 	flute,
 	teleporter,
 	checkpoint,
+	gate,
+	teleportActivator,
+	battleZone,
+	music_change_parameter,
 };
 enum class eLayer
 {

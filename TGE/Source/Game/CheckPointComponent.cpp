@@ -30,8 +30,10 @@ void CheckPointComponent::Save()
 	PlayerComponent* player = myPollingStation->myPlayer->GetComponent<PlayerComponent>(); 
 	player->myPlayerData.myCheckpoint = this;
 	myPlayerData.CurrentHP = player->myPlayerData.CurrentHP;
-//	PlayerData playerData(*player);
-//	myPlayerData = playerData;
+	/*player->myPlayerData.mySavePosition*/
+	/*player->SetPosition(player->myPlayerData.myCheckpoint->myTransform->GetPosition());*/
+	//PlayerData playerData(player);
+	//myPlayerData = playerData;
 }
 
 void CheckPointComponent::Load()

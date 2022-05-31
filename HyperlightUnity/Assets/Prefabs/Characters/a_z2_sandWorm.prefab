@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7454907615560787130}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.7224536, y: 3.05, z: -15.787}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9004838, y: 0.85586256, z: 3.0505126}
-  m_Center: {x: 0, y: 0.42118225, z: -0.34892333}
+  m_Size: {x: 0.7058015, y: 0.85586256, z: 1.7078323}
+  m_Center: {x: 0.00445199, y: 0.42118225, z: -0.3138399}
 --- !u!65 &7760915105693817321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -108,8 +108,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.07, y: 0.85, z: 3.71}
-  m_Center: {x: 0, y: 0.42118225, z: -0.23154485}
+  m_Size: {x: 0.9345498, y: 0.85, z: 1.9198799}
+  m_Center: {x: 0.0345881, y: 0.42118222, z: -0.2507944}
 --- !u!114 &7760915105693817327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: speed
     myInt: 0
@@ -140,6 +141,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: attack_speed
     myInt: 0
@@ -148,6 +150,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: detection_radius
     myInt: 0
@@ -156,6 +159,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 1
     myVariableName: idle_speed
     myInt: 0
@@ -164,6 +168,7 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
   - myVariableType: 0
     myVariableName: attack_damage
     myInt: 1
@@ -172,3 +177,13 @@ MonoBehaviour:
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
+  - myVariableType: 1
+    myVariableName: idle_radius
+    myInt: 0
+    myFloat: 5
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}

@@ -18,6 +18,11 @@ Transform::Transform(Vector3f somePosition, Quaternionf someRotation, Vector3f s
 {
 }
 
+bool Transform::operator==(const Transform& aRhs)
+{
+	return myPosition == aRhs.myPosition && myRotation == aRhs.myRotation && myScale == aRhs.myScale;
+}
+
 void Transform::SetPosition(Vector3f somePosition)
 {
 	myPosition = somePosition;

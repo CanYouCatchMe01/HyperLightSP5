@@ -2,6 +2,7 @@
 #include "PollingStation.h"
 #include "StateStack.h"
 #include "AudioManager.h"
+#include <tga2d/sprite/sprite.h>
 
 namespace Tga2D
 {
@@ -11,13 +12,17 @@ namespace Tga2D
 class GameWorld
 {
 public:
-	GameWorld(); 
+	GameWorld();
 	~GameWorld();
 	void Init(HWND aHWND);
-	void Update(float aTimeDelta); 
+	void Update(float aTimeDelta);
 	void Render();
 	PollingStation* myPollingStation;
 private:
-
+	bool myStartUp = true;
+	float myStartUpTimer = 0;
+	float myStartUpTime = 2.f;
 	StateStack myStateStack;
+	Tga2D::SpriteSharedData mySharedData;
+	Tga2D::Sprite2DInstanceData mySpriteInstance = {};
 };

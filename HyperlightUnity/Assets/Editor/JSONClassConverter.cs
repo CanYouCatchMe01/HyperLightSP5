@@ -360,6 +360,14 @@ class Converter
         return result;
     }
 
+    public static JObject ConvertToJSON(SceneAsset aScene)
+    {
+        JObject result = new JObject();
+        result.Add("name", aScene.name);
+
+        return result;
+    }
+
     public static JObject ConvertToJSON(ClassContainer aClassContainer)
     {
         JObject result = new JObject();
@@ -403,6 +411,11 @@ class Converter
                 case TypeEnum.Texture:
                     {
                         data.Add(element.myVariableName, ConvertToJSON(element.myTexture));
+                        break;
+                    }
+                case TypeEnum.Scene:
+                    {
+                        data.Add(element.myVariableName, ConvertToJSON((SceneAsset)element.myScene));
                         break;
                     }
             }

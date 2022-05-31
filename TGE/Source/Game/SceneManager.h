@@ -21,7 +21,8 @@ public:
 	std::vector<std::string> myScenePaths;
 	UnityLoader myUnityLoader;
 private:
-	RenderManager myRenderManager;
+	int32_t mySceneToDelete = -1; // Used to delete scene after the update
 	size_t myActiveScene = 0;
+	RenderManager myRenderManager;
 	PollingStation* myPollingStation;
 };

@@ -113,7 +113,7 @@ public class Export
             ExportScene(currentScene);
         }
         ExportDependencies();
-
+        ExportTagsAndLayersEnumFile();
         EditorSceneManager.OpenScene(initiallyOpened); // Load the scene you first had opened
     }
 

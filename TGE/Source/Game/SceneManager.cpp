@@ -5,7 +5,7 @@
 
 SceneManager::SceneManager(PollingStation* aPollingStation) : myUnityLoader(aPollingStation), myPollingStation(aPollingStation)
 {
-	LoadScene("AdamTestscene");
+	LoadScene("Badlands 2");
 
 	for (const auto& entry : std::filesystem::directory_iterator("Assets/Scenes"))
 	{
@@ -35,8 +35,15 @@ void SceneManager::Update(float aTimeDelta)
 		std::cout << 1 / aTimeDelta << '\n';
 		timer = 0.0f;
 	}*/
-	
+
+
 	myScenes[myActiveScene]->Update(aTimeDelta);
+
+	if (mySceneToDelete >= 0)
+	{
+		delete myScenes[mySceneToDelete];
+		mySceneToDelete = -1;
+	}
 
 //#ifdef _DEBUG // Replaced with prettier version.
 //	ImGui::Begin("Scenes");
@@ -67,7 +74,7 @@ void SceneManager::Render()
 void SceneManager::LoadScene(std::string aScenePath)
 {
 	if (myScenes.size())
-		delete myScenes[myActiveScene];
+		mySceneToDelete = static_cast<int32_t>(myActiveScene);
 	
 	myScenes.push_back(myUnityLoader.CreateScene(aScenePath));
 	myActiveScene = myScenes.size() - 1;
@@ -77,7 +84,8 @@ void SceneManager::LoadScene(std::string aScenePath)
 void SceneManager::LoadScene(std::string aScenePath, std::string aCheckPoint)
 {
 	if (myScenes.size())
-		delete myScenes[myActiveScene];
+		mySceneToDelete = static_cast<int32_t>(myActiveScene);
+		
 
 	myScenes.push_back(myUnityLoader.CreateScene(aScenePath));
 	myActiveScene = myScenes.size() - 1;

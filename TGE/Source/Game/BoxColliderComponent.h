@@ -3,9 +3,6 @@
 #include "DebugObserver.h"
 
 class BoxColliderComponent : public Component 
-#ifdef _DEBUG 
-	, public DebugObserver 
-#endif
 {
 public:
 	BoxColliderComponent(Tga2D::Vector3f aSize, Tga2D::Vector3f aCenter, bool aIsStatic, bool aIsTrigger);
@@ -16,6 +13,7 @@ public:
 	virtual void OnStart() override;
 
 	virtual void OnUpdate(const float aDeltaTime) override;
+	void SetAlwaysSendEvent(bool aState);
 
 #ifdef _DEBUG
 	void DebugUpdate() override;
@@ -23,6 +21,7 @@ public:
 
 
 private:
+	
 	bool myDrawHitbox = false;
 	bool myIsStatic;
 	bool myIsTrigger;

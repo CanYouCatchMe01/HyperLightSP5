@@ -65,6 +65,11 @@ public class CustomClassEditor : Editor
                         list[i].myTexture = EditorGUILayout.ObjectField("My Texture", list[i].myTexture, typeof(Texture), true) as Texture;
                         break;
                     }
+                case TypeEnum.Scene:
+                    {
+                        list[i].myScene = EditorGUILayout.ObjectField("My Scene", list[i].myScene, typeof(SceneAsset), true) as SceneAsset;
+                        break;
+                    }
             }
 
             if (GUILayout.Button("Remove"))

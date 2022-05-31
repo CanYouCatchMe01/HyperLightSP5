@@ -17,6 +17,7 @@ void EnemyComponent::OnAwake()
 {
 	myAudioComponent = myGameObject->AddComponent<AudioComponent>();
 	myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_walk);
+	myStartPosition = GetPosition();
 }
 
 void EnemyComponent::OnStart()
@@ -38,7 +39,10 @@ void EnemyComponent::OnCollisionStay(GameObject* aTrigger)
 			{
 				std::cout << "enemy took damage\n";
 				myTakeDamageTimer = myTakeDamageTime;
-				TakeDamage(aTrigger->GetComponent<MeleeComponent>()->myAttackDamage);
+				if (aTrigger->GetComponent<MeleeComponent>() != nullptr)
+				{
+					TakeDamage(aTrigger->GetComponent<MeleeComponent>()->myAttackDamage);
+				}
 			}
 		}
 	}	
@@ -117,67 +121,89 @@ int EnemyComponent::GetAttackDmg()
 	return myAttackDmg;
 }
 
-void EnemyComponent::StunEnemyForDuration(const float aDuration)
-{
-	aDuration;
-	// how does timer do.
-	// if timer dont?
-	// 
-	// Have you tried?
-}
-
-bool EnemyComponent::IsStunned()
-{
-	return myIsStunned;
-}
-
-void EnemyComponent::StunEnemy()
-{
-	myIsStunned = true;
-}
-
-void EnemyComponent::AwakeEnemy()
-{
-	myIsStunned = false;
-}
-
 void EnemyComponent::IdleMovement(float aDt)
 {
-	// choose a random direction or stand still.
-	// choose a random time for said action to occur.
-	// set position
-	Tga2D::Vector3f forwardDir = myTransform->GetMatrix().GetForward();
-	Tga2D::Vector3f backwardDir = forwardDir * -1.f;
-	Tga2D::Vector3f rightDir = myTransform->GetMatrix().GetRight();
-	Tga2D::Vector3f leftDir = rightDir * -1.f;
+	Tga2D::Vector3f currentPosition = GetPosition();
+	float currentRadius2 = (currentPosition.x - myStartPosition.x) * (currentPosition.x - myStartPosition.x) +
+		(currentPosition.z - myStartPosition.z) * (currentPosition.z - myStartPosition.z);
 
-	if (myMoveTimer < 0.f)
+	Tga2D::Vector3f forwardDir = myTransform->GetMatrix().GetForward();
+	forwardDir.Normalize();
+
+	//Tga2D::Vector3f backwardDir = forwardDir * -1.f;
+	//Tga2D::Vector3f rightDir = myTransform->GetMatrix().GetRight();
+	//Tga2D::Vector3f leftDir = rightDir * -1.f;
+	if (currentRadius2 > myIdleRadius * myIdleRadius)
 	{
-		myRandNum = rand() % 5;
+		/*std::cout << "Out of bounds" << std::endl;*/
+		std::vector<Tga2D::Vector3f> dirs = { myTransform->GetMatrix().GetForward(),//forward
+									  myTransform->GetMatrix().GetForward() * -1.f,	//backwards
+									  myTransform->GetMatrix().GetRight(),			//right
+									  myTransform->GetMatrix().GetRight() * -1.f };	//left
+
+		Tga2D::Vector3f currentDiff = myStartPosition - currentPosition;
+
+		Tga2D::Vector3f closest;
+		for (Tga2D::Vector3f& dir : dirs)
+		{
+			if (dir.Dot(currentDiff) > closest.Dot(currentDiff))
+				closest = dir;
+		}
+		if (!myHasTurned)
+		{
+			std::cout << "Turned" << std::endl;
+			float rotation = atan2(closest.x, closest.z) * 57.2f;
+			myTransform->SetRotation({ 0,rotation,0 });
+			myHasTurned = true;
+		}
+
+		SetPosition(GetPosition() + closest * myIdleSpeed * aDt);
+		return;
+	}
+	else if (myMoveTimer < 0.f)
+	{
+		myHasTurned = false;
+		myRandNum = rand() % 6;
 
 		myMoveTime = ((4.f, 0.75f) * ((float)rand() / RAND_MAX)) + 0.75f;
 		myMoveTimer = myMoveTime;
 	}
 
+	Tga2D::Rotator currentRotation = myTransform->GetRotation();
+
 	switch (myRandNum)
 	{
 	case 0:
-		forwardDir.Normalize();
+		if (!myHasTurned)
+			myHasTurned = true;
 		SetPosition(GetPosition() + forwardDir * myIdleSpeed * aDt);
 		break;
 	case 1:
-		backwardDir.Normalize();
-		SetPosition(GetPosition() + backwardDir * myIdleSpeed * aDt);
+		if (!myHasTurned)
+		{
+			myTransform->SetRotation({ 0, currentRotation.y - 180,0 });
+			myHasTurned = true;
+		}
+		SetPosition(GetPosition() + forwardDir * myIdleSpeed * aDt);
 		break;
 	case 2:
-		rightDir.Normalize();
-		SetPosition(GetPosition() + rightDir * myIdleSpeed * aDt);
+		if (!myHasTurned)
+		{
+			myTransform->SetRotation({ 0, currentRotation.y + 90,0 });
+			myHasTurned = true;
+		}
+		SetPosition(GetPosition() + forwardDir * myIdleSpeed * aDt);
 		break;
 	case 3:
-		leftDir.Normalize();
-		SetPosition(GetPosition() + leftDir * myIdleSpeed * aDt);
+		if (!myHasTurned)
+		{
+			myTransform->SetRotation({ 0, currentRotation.y - 90,0 });
+			myHasTurned = true;
+		}
+		SetPosition(GetPosition() + forwardDir * myIdleSpeed * aDt);
 		break;
-	case 4:
+	case 4: //slightly higher chance to stand still
+	case 5:
 		// do nothing
 		SetPosition(GetPosition());
 		myWalkSound->setVolume(0.f);
@@ -185,12 +211,54 @@ void EnemyComponent::IdleMovement(float aDt)
 	default:
 		break;
 	}
+	//// choose a random direction or stand still.
+	//// choose a random time for said action to occur.
+	//// set position
+	//Tga2D::Vector3f forwardDir = myTransform->GetMatrix().GetForward();
+	//Tga2D::Vector3f backwardDir = forwardDir * -1.f;
+	//Tga2D::Vector3f rightDir = myTransform->GetMatrix().GetRight();
+	//Tga2D::Vector3f leftDir = rightDir * -1.f;
+
+	//if (myMoveTimer < 0.f)
+	//{
+	//	myRandNum = rand() % 5;
+
+	//	myMoveTime = ((4.f, 0.75f) * ((float)rand() / RAND_MAX)) + 0.75f;
+	//	myMoveTimer = myMoveTime;
+	//}
+
+	//switch (myRandNum)
+	//{
+	//case 0:
+	//	forwardDir.Normalize();
+	//	SetPosition(GetPosition() + forwardDir * myIdleSpeed * aDt);
+	//	break;
+	//case 1:
+	//	backwardDir.Normalize();
+	//	SetPosition(GetPosition() + backwardDir * myIdleSpeed * aDt);
+	//	break;
+	//case 2:
+	//	rightDir.Normalize();
+	//	SetPosition(GetPosition() + rightDir * myIdleSpeed * aDt);
+	//	break;
+	//case 3:
+	//	leftDir.Normalize();
+	//	SetPosition(GetPosition() + leftDir * myIdleSpeed * aDt);
+	//	break;
+	//case 4:
+	//	// do nothing
+	//	SetPosition(GetPosition());
+	//	myWalkSound->setVolume(0.f);
+	//	break;
+	//default:
+	//	break;
+	//}
 }
 
 void EnemyComponent::MoveTowardsPlayer(float aDt)
 {
 	myDistanceToTarget.Normalize();
-	SetPosition(GetPosition() + Tga2D::Vector3f{ myDistanceToTarget.x, 0, myDistanceToTarget.z } * mySpeed * aDt);
+	SetPosition(GetPosition() + myDistanceToTarget * mySpeed * aDt);
 }
 
 

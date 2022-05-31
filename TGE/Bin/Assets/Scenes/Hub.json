@@ -114,8 +114,41 @@
         {
           "type": "teleporter",
           "data": {
-            "scene": "Badlands 3",
-            "spawnpoint": "Badlands3S1"
+            "scene": "Badlands 1",
+            "spawnpoint": "Badlands1Entry0"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "SpawnPoint",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -0.09725952,
+          "y": 0.0100002289,
+          "z": -0.6688943
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
+            "name": "HubTeleport"
           }
         }
       ],
@@ -265,7 +298,7 @@
     },
     {
       "name": "Player",
-      "tag": 0,
+      "tag": 5,
       "layer": 0,
       "is_static": false,
       "transform": {
@@ -288,26 +321,17 @@
       },
       "components": [
         {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
-            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
-            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
-            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds"
-          }
-        },
-        {
           "type": "box_collider",
           "data": {
             "is_trigger": false,
             "center": {
               "x": 0.0,
-              "y": 1.0,
+              "y": 0.8975179,
               "z": 0.0
             },
             "size": {
               "x": 0.85,
-              "y": 1.64,
+              "y": 1.844964,
               "z": 0.69
             }
           }
@@ -326,6 +350,13 @@
           }
         },
         {
+          "type": "weapon",
+          "data": {
+            "weapon_upgrade": false,
+            "weapon_damage": 1
+          }
+        },
+        {
           "type": "box_collider",
           "data": {
             "is_trigger": true,
@@ -339,6 +370,29 @@
               "y": 1.93430161,
               "z": 1.0
             }
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
+            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
+            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                "name": "Player_Dash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                "name": "Player_Idle"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                "name": "Player_Run"
+              }
+            ]
           }
         }
       ],
@@ -377,46 +431,6 @@
           "children": []
         }
       ]
-    },
-    {
-      "name": "Directional Light",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 0.0,
-          "y": 3.0,
-          "z": 0.0
-        },
-        "rotation": {
-          "x": 0.408217877,
-          "y": -0.234569684,
-          "z": 0.109381631,
-          "w": 0.8754261
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 0.99999994
-        }
-      },
-      "components": [
-        {
-          "type": "light",
-          "data": {
-            "type": 1,
-            "color": {
-              "r": 1.0,
-              "g": 0.956862748,
-              "b": 0.8392157,
-              "a": 1.0
-            },
-            "intensity": 1.0
-          }
-        }
-      ],
-      "children": []
     },
     {
       "name": "Collider 1 (1)",
@@ -557,6 +571,46 @@
           "children": []
         }
       ]
+    },
+    {
+      "name": "Directional Light",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 3.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.408217877,
+          "y": -0.234569684,
+          "z": 0.109381631,
+          "w": 0.8754261
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 0.956862748,
+              "b": 0.8392157,
+              "a": 1.0
+            },
+            "intensity": 1.0
+          }
+        }
+      ],
+      "children": []
     },
     {
       "name": "Collider 1 (3)",
@@ -2282,7 +2336,7 @@
           "type": "teleporter",
           "data": {
             "scene": "Jungle 1",
-            "spawnpoint": ""
+            "spawnpoint": "Jungle1Entry0"
           }
         }
       ],

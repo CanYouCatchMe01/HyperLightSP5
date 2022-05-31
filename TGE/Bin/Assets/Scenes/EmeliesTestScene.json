@@ -35,15 +35,15 @@
       "children": []
     },
     {
-      "name": "Teleporter",
-      "tag": 10,
+      "name": "TeleportActivator",
+      "tag": 13,
       "layer": 0,
-      "is_static": true,
+      "is_static": false,
       "transform": {
         "position": {
-          "x": -3.14451861,
-          "y": 3.94,
-          "z": -7.37
+          "x": -2.85446787,
+          "y": 3.61,
+          "z": -7.32990074
         },
         "rotation": {
           "x": 0.0,
@@ -52,9 +52,9 @@
           "w": 1.0
         },
         "scale": {
-          "x": 4.13665676,
-          "y": 1.82372785,
-          "z": 4.13665676
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
         }
       },
       "components": [
@@ -68,17 +68,15 @@
               "z": 0.0
             },
             "size": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
+              "x": 4.13665676,
+              "y": 1.82372785,
+              "z": 4.13665771
             }
           }
         },
         {
           "type": "teleport_1",
-          "data": {
-            "scene": "Badlands 2"
-          }
+          "data": {}
         }
       ],
       "children": [
@@ -89,9 +87,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": -3.31,
-              "y": 3.53,
-              "z": -7.39
+              "x": -2.85446787,
+              "y": 3.61,
+              "z": -7.32990074
             },
             "rotation": {
               "x": 0.0,
@@ -109,8 +107,127 @@
             {
               "type": "spawn_point",
               "data": {
-                "name": "teleporter"
+                "name": "teleport"
               }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "a_g_gate",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -11.01,
+          "y": 3.05000019,
+          "z": -4.52
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.9809363,
+          "z": 0.0,
+          "w": 0.194329619
+        },
+        "scale": {
+          "x": 0.99999994,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "a_g_gate",
+          "tag": 0,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": -11.01,
+              "y": 3.05000019,
+              "z": -4.52
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.9809363,
+              "z": 0.0,
+              "w": 0.194329619
+            },
+            "scale": {
+              "x": 0.99999994,
+              "y": 1.0,
+              "z": 0.99999994
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/GLOBAL/a_g_gate.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "a_g_gateDoor",
+          "tag": 12,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": -11.01,
+              "y": 3.05000019,
+              "z": -4.52
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.9809363,
+              "z": 0.0,
+              "w": 0.194329619
+            },
+            "scale": {
+              "x": 0.99999994,
+              "y": 1.0,
+              "z": 0.99999994
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/GLOBAL/a_g_gateDoor.fbx",
+                "albedo": "",
+                "normal": "",
+                "reflective": ""
+              }
+            },
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": true,
+                "center": {
+                  "x": 0.07813203,
+                  "y": 0.768206358,
+                  "z": 5.64411831
+                },
+                "size": {
+                  "x": 5.27755737,
+                  "y": 2.26641273,
+                  "z": 5.00387764
+                }
+              }
+            },
+            {
+              "type": "battle_zone",
+              "data": {}
             }
           ],
           "children": []
@@ -872,15 +989,6 @@
       },
       "components": [
         {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
-            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
-            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
-            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds"
-          }
-        },
-        {
           "type": "box_collider",
           "data": {
             "is_trigger": false,
@@ -910,6 +1018,13 @@
           }
         },
         {
+          "type": "weapon",
+          "data": {
+            "weapon_upgrade": false,
+            "weapon_damage": 1
+          }
+        },
+        {
           "type": "box_collider",
           "data": {
             "is_trigger": true,
@@ -923,6 +1038,29 @@
               "y": 1.93430161,
               "z": 1.0
             }
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
+            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
+            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                "name": "Player_Dash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                "name": "Player_Idle"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                "name": "Player_Run"
+              }
+            ]
           }
         }
       ],
@@ -1650,6 +1788,55 @@
               "y": 0.99999994,
               "z": 1.0
             }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "SpawnArea",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -14.57,
+          "y": 3.67840624,
+          "z": -18.01
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 1.38936472,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 5.0,
+              "y": 1.0,
+              "z": 5.0
+            }
+          }
+        },
+        {
+          "type": "SceneTransition",
+          "data": {
+            "": 0
           }
         }
       ],

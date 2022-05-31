@@ -35,44 +35,38 @@ Scene::~Scene()
 
 void Scene::Update(float aTimeDelta)
 {
-	
-
+	//Update
 	for (size_t i = 0; i < myGameObjects.size(); ++i)
 		myGameObjects[i]->Update(aTimeDelta);
 
 	myCollisionManager.Update();
 
-	//if (ImGui::Begin("Object Hierarchy")) // Removed for a prettier debugger.
-	//{
-	//	for (auto& go : myGameObjects)
-	//	{
-	//		AddImguiNode(go);
-	//	}
+	//Remove objects
+	for (auto& gameObject : myTempRemoveObjects)
+	{
+		auto it = myGameObjects.begin();
+		while (it != myGameObjects.end())
+		{
+			if (*it == gameObject)
+			{
+				delete *it;
+				it = myGameObjects.erase(it);
+			}
+			else
+			{
+				++it;
+			}
+		}
+	}
+	myTempRemoveObjects.clear();
 
-	//}
-	//ImGui::End();
+	//Add objects
+	for (auto& gameObject : myTempAddObjects)
+	{
+		myGameObjects.push_back(gameObject);
+	}
+	myTempAddObjects.clear();
 }
-
-//void Scene::AddImguiNode(GameObject* aGameObject) // Replaced with a prettier debugger.
-//{
-//	if (ImGui::TreeNode(aGameObject->name.c_str()))
-//	{
-//		Tga2D::Transform& transform = aGameObject->GetTransform();
-//		ImGui::Text("Tranform");
-//		ImGui::DragFloat3("position", (float*)&transform, 0.1f);
-//		ImGui::DragFloat3("rotation", (float*)(&transform) + 3, 0.1f);
-//		ImGui::DragFloat3("scale", (float*)(&transform) + 6, 0.1f);
-//
-//		ImGui::Separator();
-//		ImGui::Text("Children");
-//		for (auto& child : aGameObject->myChildren)
-//		{
-//			AddImguiNode(child);
-//		}
-//
-//		ImGui::TreePop();
-//	}
-//}
 
 void Scene::OnStart()
 {
@@ -110,4 +104,14 @@ void Scene::SetAmbientLight(const Tga2D::AmbientLight& anAmbientLight)
 {
 	myAmbientLight = anAmbientLight;
 	//Tga2D::Engine::GetInstance()->GetLightManager().SetAmbientLight(myAmbientLight);
+}
+
+void Scene::AddGameObject(GameObject* aGameObject)
+{
+	myTempAddObjects.push_back(aGameObject);
+}
+
+void Scene::RemoveGameObject(GameObject* aGameObject)
+{
+	myTempRemoveObjects.push_back(aGameObject);
 }

@@ -11,8 +11,8 @@ class PlayerComponent : public Component, Input::InputObserver
 public:
 	PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed);
 	~PlayerComponent();
-	void OnUpdate(float aDT) override;
-	void Movement(float aDT);
+	void OnUpdate(float aDt) override;
+	void Movement(float aDt);
 	void Attack();
 
 	void PickupHealing();
@@ -22,6 +22,7 @@ public:
 
 	int GetHp();
 	void SetHp(int aHp);
+	void SetFullHP();
 
 	int GetHealing();
 	void SetHealing(int aHealing);
@@ -60,10 +61,13 @@ private:
 	float myGravity = 10.0f;
 	float mySpeed = 0.5f;
 	float myDashSpeed = 3.0f;
+	float myTakeDamageTimer = 0.f;
+	float myTakeDamageTime;
 
 	Tga2D::Vector3f myDir = { 0.0f,0.0f,0.0f };
 	Tga2D::Vector3f myLastDir = { 0.0f,0.0f,0.0f };
 	Tga2D::Vector3f myDashDir = { 0.0f,0.0f,0.0f };
+
 	float myDashTimer = 0.0f;
 	float myAttackTimer = 0.0f;
 	float myHealTimer = 0.0f;

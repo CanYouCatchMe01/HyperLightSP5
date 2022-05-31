@@ -1,5 +1,4 @@
 #pragma once
-#include "Observer.h"
 #include <tga2d/sprite/sprite.h>
 
 class PollingStation;
@@ -11,21 +10,21 @@ enum eElementType
 	eMapTeleporter
 };
 
-class UIElement : public Observer
+class UIElement
 {
 public:
-	UIElement(Tga2D::Vector2f aPosition, eElementType anElementType, PollingStation* aPollingStation, Tga2D::Vector2f aSizeMultiplier);
+	UIElement(Tga2D::Vector2f aPosition, Tga2D::Vector2f aSizeMultiplier, std::wstring aTexturePath);
 	~UIElement();
 	void Render();
-	void RecieveMsg(const Message& aMsg);
+	void ChangeTexture(std::wstring aTexturePath);
+	void ChangeSizeMultiplier(Tga2D::Vector2f aSizeMultiplier);
+	void SetPivot(Tga2D::Vector2f aPosition);
+	void SetPosition(Tga2D::Vector2f aPosition);
+	inline Tga2D::Vector2f GetSizeMultiplier() { return mySpriteInstance.mySizeMultiplier; }
 private:
 	Tga2D::Vector2f myStartSizeMultiplier;
-	PollingStation* myPollingStation;
-	int myNumberOfHealthKits;
-	std::vector<Tga2D::Texture*> myTextures;
-	eElementType myElementType;
+	Tga2D::Texture* myTexture;
+
 	Tga2D::SpriteSharedData mySharedData;
-	Tga2D::SpriteSharedData mySharedDataOutline;
-	Tga2D::Sprite2DInstanceData mySpriteInstanceHealth = {};
 	Tga2D::Sprite2DInstanceData mySpriteInstance = {};
 };
