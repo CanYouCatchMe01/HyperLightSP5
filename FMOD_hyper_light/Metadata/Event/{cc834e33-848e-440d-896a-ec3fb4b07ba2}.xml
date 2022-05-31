@@ -519,7 +519,9 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{cb688271-4b6a-48ff-88c1-dfe895799480}">
 		<relationship name="effects">
+			<destination>{bb11293e-1511-48aa-9c30-dc1da6dc8b8a}</destination>
 			<destination>{ccc4671e-ae06-45b9-ba3f-f152f322547e}</destination>
+			<destination>{13c9a231-89d6-4729-8572-c18d41885df7}</destination>
 			<destination>{bc5e6c17-69bd-495b-9249-ec9ad788e9fe}</destination>
 		</relationship>
 	</object>
@@ -648,7 +650,55 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{6ca151d7-9190-40b6-b12a-c0d4408856c0}" />
+	<object class="MultibandEqEffect" id="{bb11293e-1511-48aa-9c30-dc1da6dc8b8a}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="filterTypeB">
+			<value>4</value>
+		</property>
+		<property name="filterTypeC">
+			<value>8</value>
+		</property>
+		<property name="filterTypeD">
+			<value>9</value>
+		</property>
+		<property name="filterTypeE">
+			<value>7</value>
+		</property>
+		<property name="frequencyA">
+			<value>2550.40649</value>
+		</property>
+		<property name="frequencyB">
+			<value>21</value>
+		</property>
+		<property name="frequencyC">
+			<value>7000</value>
+		</property>
+		<property name="frequencyD">
+			<value>340</value>
+		</property>
+		<property name="frequencyE">
+			<value>120</value>
+		</property>
+		<property name="qualityD">
+			<value>0.599999964</value>
+		</property>
+		<property name="gainA">
+			<value>2</value>
+		</property>
+		<property name="gainC">
+			<value>2</value>
+		</property>
+		<property name="gainD">
+			<value>-1</value>
+		</property>
+		<property name="gainE">
+			<value>2</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{ccc4671e-ae06-45b9-ba3f-f152f322547e}" />
+	<object class="LoudnessMeter" id="{13c9a231-89d6-4729-8572-c18d41885df7}" />
 	<object class="SpatialiserEffect" id="{bc5e6c17-69bd-495b-9249-ec9ad788e9fe}" />
 	<object class="MixerBusFader" id="{1a459e8f-3fdc-4d36-95e5-8b1a24c9e873}" />
 	<object class="AutomationCurve" id="{50ad7b38-207a-4647-bc21-e629bd271e73}">
