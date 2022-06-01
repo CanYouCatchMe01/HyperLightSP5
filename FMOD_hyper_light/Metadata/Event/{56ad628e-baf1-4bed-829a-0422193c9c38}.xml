@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{56ad628e-baf1-4bed-829a-0422193c9c38}">
 		<property name="name">
-			<value>checkpoint</value>
+			<value>checkpoint tutorial</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -124,16 +124,12 @@
 	<object class="MixerBusEffectChain" id="{4675e827-398f-4516-a3d3-552fd5783aaa}">
 		<relationship name="effects">
 			<destination>{d560ba4a-72cc-4a1e-874d-6cb606ed29d4}</destination>
-			<destination>{fa2b2f7c-323a-4ffa-8bad-07f8dca1ba20}</destination>
+			<destination>{9cecda37-4961-4c31-826d-c89c5d913f26}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f994b902-858a-4179-b024-84d57bf4b6d0}" />
 	<object class="MixerBusFader" id="{8e96c363-d260-4373-b155-b06a210de7f9}" />
 	<object class="SpatialiserEffect" id="{97a296e2-4137-4e43-9722-cd5b6fdbf5dd}" />
 	<object class="MixerBusFader" id="{d560ba4a-72cc-4a1e-874d-6cb606ed29d4}" />
-	<object class="PitchShifterEffect" id="{fa2b2f7c-323a-4ffa-8bad-07f8dca1ba20}">
-		<property name="pitch">
-			<value>0.560000002</value>
-		</property>
-	</object>
+	<object class="SpatialiserEffect" id="{9cecda37-4961-4c31-826d-c89c5d913f26}" />
 </objects>
