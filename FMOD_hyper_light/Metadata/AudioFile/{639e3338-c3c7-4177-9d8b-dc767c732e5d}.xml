@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{639e3338-c3c7-4177-9d8b-dc767c732e5d}">
 		<property name="assetPath">
-			<value>Even Bossier_220525.wav</value>
+			<value>Music/Even Bossier_220525.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
