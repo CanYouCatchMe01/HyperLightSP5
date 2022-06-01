@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{bb3b2e98-0666-46cb-ae4b-b06a3efc8f52}">
 		<property name="assetPath">
-			<value>Jungle skiss 3_220514.wav - compshootout @ 48000.mp3</value>
+			<value>Music/Jungle skiss 3_220514.wav - compshootout @ 48000.mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
