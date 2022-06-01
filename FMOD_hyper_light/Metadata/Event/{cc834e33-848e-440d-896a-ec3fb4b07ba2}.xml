@@ -676,13 +676,16 @@
 			<value>7000</value>
 		</property>
 		<property name="frequencyD">
-			<value>340</value>
+			<value>334.80011</value>
 		</property>
 		<property name="frequencyE">
 			<value>120</value>
 		</property>
-		<property name="qualityD">
+		<property name="qualityA">
 			<value>0.599999964</value>
+		</property>
+		<property name="qualityD">
+			<value>0.539999962</value>
 		</property>
 		<property name="gainA">
 			<value>2</value>
@@ -691,7 +694,7 @@
 			<value>2</value>
 		</property>
 		<property name="gainD">
-			<value>-1</value>
+			<value>-1.7226429</value>
 		</property>
 		<property name="gainE">
 			<value>2</value>
