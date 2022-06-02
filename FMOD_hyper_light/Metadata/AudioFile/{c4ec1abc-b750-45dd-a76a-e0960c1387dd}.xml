@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c4ec1abc-b750-45dd-a76a-e0960c1387dd}">
+		<property name="assetPath">
+			<value>SFX/interactable/Dry bush 3_220531.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3333333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8728dd84-aca8-44bb-8a96-e57a3ddbb506}</destination>
+		</relationship>
+	</object>
+</objects>

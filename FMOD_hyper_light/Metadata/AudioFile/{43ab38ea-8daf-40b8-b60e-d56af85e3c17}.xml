@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{43ab38ea-8daf-40b8-b60e-d56af85e3c17}">
+		<property name="assetPath">
+			<value>SFX/world/Bad Amb 1_220531.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>93.333333333333329</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8728dd84-aca8-44bb-8a96-e57a3ddbb506}</destination>
+		</relationship>
+	</object>
+</objects>
