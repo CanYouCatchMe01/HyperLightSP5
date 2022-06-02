@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{ee170251-c00a-4c02-a332-a104efe7ea4d}">
 		<property name="assetPath">
-			<value>Jungle Ambience NY.wav</value>
+			<value>SFX/world/Jungle Ambience NY.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{adef33c9-327a-4cb3-970e-f8b8f0770837}">
 		<property name="assetPath">
-			<value>Checkpoint Am7_220601.wav</value>
+			<value>SFX/world/Checkpoint Am7_220601.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
