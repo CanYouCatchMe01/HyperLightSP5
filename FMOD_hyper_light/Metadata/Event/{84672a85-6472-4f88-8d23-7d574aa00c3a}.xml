@@ -53,14 +53,14 @@
 			<destination>{c9622ae4-0926-4876-ab0c-dd3b47807d00}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{8e783bef-6dc3-4b8b-8f28-58d0a6fa01cb}</destination>
+			<destination>{7545612a-904e-4cbc-a3d1-9be02c6fdc43}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{5849b6b0-25e9-4cf2-9def-c7ff8fddb6ec}" />
 	<object class="MarkerTrack" id="{5359ae34-504d-4a2f-a76f-6f4c672c0e4f}" />
 	<object class="GroupTrack" id="{7fb28373-8561-4dae-a93a-29162b71e5f7}">
 		<relationship name="modules">
-			<destination>{f10130be-4f28-442f-a59e-ac27494d85d2}</destination>
+			<destination>{62089292-2cac-43b7-9ba9-833d35cd339b}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{96a1580e-3024-4675-be10-20d4069f8d34}</destination>
@@ -68,7 +68,7 @@
 	</object>
 	<object class="Timeline" id="{da6e94f3-5494-4700-ae35-d0dc38f371ad}">
 		<relationship name="modules">
-			<destination>{f10130be-4f28-442f-a59e-ac27494d85d2}</destination>
+			<destination>{62089292-2cac-43b7-9ba9-833d35cd339b}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{47089e12-ff69-4b0e-8920-947d14ead72a}</destination>
@@ -91,24 +91,21 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{c9622ae4-0926-4876-ab0c-dd3b47807d00}" />
-	<object class="SingleSound" id="{f10130be-4f28-442f-a59e-ac27494d85d2}">
+	<object class="SingleSound" id="{62089292-2cac-43b7-9ba9-833d35cd339b}">
 		<property name="isAsync">
 			<value>true</value>
 		</property>
 		<property name="length">
-			<value>80</value>
+			<value>88</value>
 		</property>
 		<property name="looping">
 			<value>true</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{3e1c7e46-1294-4f13-a7e5-9386668b2f5b}</destination>
+			<destination>{37ce1e78-b0b8-4362-a48a-97192c057c12}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{96a1580e-3024-4675-be10-20d4069f8d34}">
-		<property name="volume">
-			<value>-4</value>
-		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -127,7 +124,7 @@
 			<value>0</value>
 		</property>
 		<property name="length">
-			<value>80</value>
+			<value>88</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{da6e94f3-5494-4700-ae35-d0dc38f371ad}</destination>

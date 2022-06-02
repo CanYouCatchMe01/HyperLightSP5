@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{61ad0aa5-b5f8-4719-84cd-dec80f6d9e6d}">
+	<object class="AudioFile" id="{97149097-2e6b-4556-9574-2018b0bea5e3}">
 		<property name="assetPath">
-			<value>SFX/world/Wooden door closes 1 Rvb.wav</value>
+			<value>SFX/world/Worm Low 3.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +14,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>2.6666666666666665</value>
+			<value>13.680624999999999</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{8728dd84-aca8-44bb-8a96-e57a3ddbb506}</destination>

@@ -224,7 +224,7 @@
 			<value>-5</value>
 		</property>
 		<property name="name">
-			<value>Amb</value>
+			<value>Drone</value>
 		</property>
 		<relationship name="automators">
 			<destination>{9d6867bc-84e3-4b2e-a94d-52a5e0588c7e}</destination>
