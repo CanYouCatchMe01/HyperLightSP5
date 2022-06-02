@@ -107,7 +107,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{f06264be-b3e8-447e-a0a6-c2832f1a1a9e}">
 		<property name="volume">
-			<value>0.5</value>
+			<value>1</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -125,6 +125,7 @@
 	<object class="MixerBusEffectChain" id="{35e79b2e-c003-4252-a5da-13f7693c02c3}">
 		<relationship name="effects">
 			<destination>{ef499a5e-db6d-4456-a9f3-e6d38dc598db}</destination>
+			<destination>{36c75e7c-cf62-4d2b-9594-131fac79650a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{6c1fe996-dab3-4435-8e55-42f0950d0297}" />
@@ -165,6 +166,17 @@
 	</object>
 	<object class="MixerBusPanner" id="{fe494c96-3d4e-44a8-a167-651209272cf4}" />
 	<object class="MixerBusFader" id="{ef499a5e-db6d-4456-a9f3-e6d38dc598db}" />
+	<object class="MixerSend" id="{36c75e7c-cf62-4d2b-9594-131fac79650a}">
+		<property name="level">
+			<value>-18.5</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{cb2e2f1d-1203-4383-8e54-0d725becb51d}</destination>
+		</relationship>
+	</object>
 	<object class="ParamEqEffect" id="{750d66e2-a4e5-4730-ad3a-3bf2acafec85}">
 		<property name="centreFrequency">
 			<value>1150</value>
