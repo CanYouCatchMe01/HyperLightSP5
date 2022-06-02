@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{5622d4f5-a6d3-4838-8c85-b19753a9ee48}">
+	<object class="AudioFile" id="{ad301854-6a40-484f-8a52-233ebe263b16}">
 		<property name="assetPath">
-			<value>SFX/player/Startsteg Badlands_1.wav</value>
+			<value>SFX/player/Startsteg Badlands_2.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{a56eccd8-22b8-4031-9b87-0d198670786e}">
+	<object class="AudioFile" id="{c492683c-63c0-418c-b219-642ae63c8845}">
 		<property name="assetPath">
 			<value>SFX/player/Loopsteg Badlands_3.wav</value>
 		</property>
