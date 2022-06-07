@@ -1,6 +1,14 @@
 #pragma once
 #include "OBB3D.h"
 #include <set>
+#include "SparseSet.hpp"
+
+struct Ray
+{
+	Vector3 origin;
+	Vector3 dir;
+	float distance;
+};
 
 class CollisionManager
 {
@@ -13,8 +21,10 @@ public:
 	OBB3D* GetOBB3D(size_t aHandle);
 	void Update();
 	void Render();
+	bool TestRay(Ray aRay);
+	Vector3 ClosestPoint(Ray aRay, Vector3 pos);
 
 private:
-	std::set<size_t> myEmptyColliders;
-	std::vector<OBB3D> myOBBColliders;
+	SparseSet<bool> myIsColliderStatic;
+	SparseSet<OBB3D> myOBBColliders;
 };

@@ -4,9 +4,16 @@
 #include "MeleeComponent.h"
 #include "PlayerComponent.h"
 #include "AudioComponent.h"
+#include "BattleZone.h"
 
 EnemyComponent::EnemyComponent()
 {
+}
+
+EnemyComponent::~EnemyComponent()
+{
+	if (myBattleZone != nullptr)
+		myBattleZone->RemoveEnemy();
 }
 
 void EnemyComponent::OnUpdate(float)
@@ -16,8 +23,9 @@ void EnemyComponent::OnUpdate(float)
 void EnemyComponent::OnAwake()
 {
 	myAudioComponent = myGameObject->AddComponent<AudioComponent>();
-	myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_walk);
+	myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_walk_badlands);
 	myStartPosition = GetPosition();
+	myWalkSound->setVolume(0.0f);
 }
 
 void EnemyComponent::OnStart()
@@ -27,6 +35,29 @@ void EnemyComponent::OnStart()
 	// need to match with the hit cooldown of the player
 	myTakeDamageTime = 1.f;
 	myRandNum = -1;
+}
+
+void EnemyComponent::SetIsGrounded(bool aIsGrounded)
+{
+	myIsGrounded = aIsGrounded;
+}
+
+void EnemyComponent::OnCollisionEnter(GameObject* aOther)
+{
+	if (aOther->tag == eTag::gate)
+	{
+		myBattleZone = aOther->GetComponent<BattleZone>();
+		myBattleZone->AddEnemy();
+	}
+}
+
+void EnemyComponent::OnCollisionExit(GameObject* aOther)
+{
+	if (aOther->tag == eTag::gate)
+	{
+		aOther->GetComponent<BattleZone>()->RemoveEnemy();
+		myBattleZone = nullptr;
+	}
 }
 
 void EnemyComponent::OnCollisionStay(GameObject* aTrigger)
@@ -45,7 +76,7 @@ void EnemyComponent::OnCollisionStay(GameObject* aTrigger)
 				}
 			}
 		}
-	}	
+	}
 }
 
 void EnemyComponent::TakeDamage(int someDamage)
@@ -258,7 +289,7 @@ void EnemyComponent::IdleMovement(float aDt)
 void EnemyComponent::MoveTowardsPlayer(float aDt)
 {
 	myDistanceToTarget.Normalize();
-	SetPosition(GetPosition() + myDistanceToTarget * mySpeed * aDt);
+	SetPosition({ GetPosition().x + myDistanceToTarget.x * mySpeed * aDt, GetPosition().y, GetPosition().z + myDistanceToTarget.z * mySpeed * aDt });
 }
 
 

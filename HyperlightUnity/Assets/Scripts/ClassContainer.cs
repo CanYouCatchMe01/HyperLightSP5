@@ -12,7 +12,8 @@ public enum TypeEnum
     Bool,
     Color,
     Texture,
-    Scene
+    Scene,
+    GameObject,
 }
 
 //This class is used by "LevelDesigners" to add custom values to a class
@@ -33,6 +34,7 @@ public class ClassContainer : MonoBehaviour
         public Color myColor = Color.white;
         public Texture myTexture;
         public UnityEngine.Object myScene;
+        public GameObject myGameObject;
     }
 
     public string myScriptName; //Used to know what component in c++ this class should be sent to

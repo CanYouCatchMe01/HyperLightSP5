@@ -10,7 +10,7 @@ public:
 	void OnUpdate(float aDt) override;
 
 private:
-	void Charge();
+	void Charge(float aDt);
 	void CheckChargeRadius();
 	void OnDeath() override;
 

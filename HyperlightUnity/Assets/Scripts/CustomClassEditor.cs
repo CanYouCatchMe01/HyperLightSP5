@@ -70,6 +70,11 @@ public class CustomClassEditor : Editor
                         list[i].myScene = EditorGUILayout.ObjectField("My Scene", list[i].myScene, typeof(SceneAsset), true) as SceneAsset;
                         break;
                     }
+                case TypeEnum.GameObject:
+                    {
+                        list[i].myGameObject = EditorGUILayout.ObjectField("My GameObject", list[i].myGameObject, typeof(GameObject), true) as GameObject;
+                        break;
+                    }
             }
 
             if (GUILayout.Button("Remove"))

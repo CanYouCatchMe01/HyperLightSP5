@@ -58,6 +58,7 @@
     <IntDir>..\Temp\Game\Debug\</IntDir>
     <TargetName>Game_Debug</TargetName>
     <TargetExt>.lib</TargetExt>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>..\Lib\</OutDir>
@@ -94,6 +95,11 @@
     <Lib>
       <AdditionalLibraryDirectories>..\Lib;..\Source\External\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
+    <PreBuildEvent>
+      <Command>copy /y "..\..\FMOD_hyper_light\Build\Desktop\Master.bank" "..\Bin\Assets\FMOD\"
+copy /y "..\..\FMOD_hyper_light\Build\Desktop\Master.strings.bank" "..\Bin\Assets\FMOD\"
+copy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -164,6 +170,8 @@
     <ClInclude Include="..\Source\Game\BulletComponent.h" />
     <ClInclude Include="..\Source\Game\Button.h" />
     <ClInclude Include="..\Source\Game\CameraComponent.h" />
+    <ClInclude Include="..\Source\Game\CassetTapeComponent.h" />
+    <ClInclude Include="..\Source\Game\CassetTapeShowerComponent.h" />
     <ClInclude Include="..\Source\Game\ChargeEnemy.h" />
     <ClInclude Include="..\Source\Game\CheckPointComponent.h" />
     <ClInclude Include="..\Source\Game\CollisionManager.h" />
@@ -180,6 +188,8 @@
     <ClInclude Include="..\Source\Game\GameState.h" />
     <ClInclude Include="..\Source\Game\GameWorld.h" />
     <ClInclude Include="..\Source\Game\Gamepad.h" />
+    <ClInclude Include="..\Source\Game\Hashing.h" />
+    <ClInclude Include="..\Source\Game\HashMap.hpp" />
     <ClInclude Include="..\Source\Game\Hud.h" />
     <ClInclude Include="..\Source\Game\MapState.h" />
     <ClInclude Include="..\Source\Game\MeleeComponent.h" />
@@ -204,6 +214,7 @@
     <ClInclude Include="..\Source\Game\RenderManager.h" />
     <ClInclude Include="..\Source\Game\RenderObjectManager.h" />
     <ClInclude Include="..\Source\Game\Scene.h" />
+    <ClInclude Include="..\Source\Game\SparseSet.hpp" />
     <ClInclude Include="..\Source\Game\SpawnPointComponent.h" />
     <ClInclude Include="..\Source\Game\SpawnPointManager.h" />
     <ClInclude Include="..\Source\Game\TeleportActivator.h" />
@@ -231,6 +242,8 @@
     <ClCompile Include="..\Source\Game\BulletComponent.cpp" />
     <ClCompile Include="..\Source\Game\Button.cpp" />
     <ClCompile Include="..\Source\Game\CameraComponent.cpp" />
+    <ClCompile Include="..\Source\Game\CassetTapeComponent.cpp" />
+    <ClCompile Include="..\Source\Game\CassetTapeShowerComponent.cpp" />
     <ClCompile Include="..\Source\Game\ChargeEnemy.cpp" />
     <ClCompile Include="..\Source\Game\CheckPointComponent.cpp" />
     <ClCompile Include="..\Source\Game\CollisionManager.cpp" />
@@ -245,6 +258,7 @@
     <ClCompile Include="..\Source\Game\GameState.cpp" />
     <ClCompile Include="..\Source\Game\GameWorld.cpp" />
     <ClCompile Include="..\Source\Game\Gamepad.cpp" />
+    <ClCompile Include="..\Source\Game\Hashing.cpp" />
     <ClCompile Include="..\Source\Game\Hud.cpp" />
     <ClCompile Include="..\Source\Game\InputObserver.cpp" />
     <ClCompile Include="..\Source\Game\MapState.cpp" />

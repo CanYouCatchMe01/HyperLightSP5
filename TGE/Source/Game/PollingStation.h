@@ -15,9 +15,9 @@ public:
 	std::unique_ptr<class SceneManager> mySceneManager;
 	std::unique_ptr<Input::InputMapper> myInputMapper;
 	std::unique_ptr<Postmaster> myPostmaster;
-#ifdef _DEBUG
+#ifndef _RETAIL
 	std::unique_ptr<class BaseDebugger> myDebugger;
-#endif // _DEBUG
+#endif // _RETAIL
 	std::unique_ptr <class AudioManager> myAudioManager;
 	std::unique_ptr <class GameDataManager> myGameDataManager;
 

@@ -6,7 +6,7 @@
 class GameState : public State , public Input::InputObserver
 {
 public:
-	GameState(StateStack& aStateStack, PollingStation* aPollingStation);
+	GameState(StateStack& aStateStack, PollingStation* aPollingStation, const std::string& aSceneName);
 	~GameState();
 	int Update(const float aDeltaTime) override;
 	void Init() override;

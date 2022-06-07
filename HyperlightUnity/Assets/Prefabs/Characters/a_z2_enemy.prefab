@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 526229275764842431, guid: 5d4ff76360c474547ae9c067dc7bf799, type: 3}
+  - {fileID: 2100000, guid: 38bb22d9f6d268345b32ffcbe9717971, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,6 +133,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: speed
     myInt: 0
@@ -142,6 +144,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: attack_speed
     myInt: 0
@@ -151,15 +155,19 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: detection_radius
     myInt: 0
-    myFloat: 6
+    myFloat: 7.5
     myString: 
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: charge_radius
     myInt: 0
@@ -169,6 +177,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: charge_time
     myInt: 0
@@ -178,6 +188,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: idle_speed
     myInt: 0
@@ -187,6 +199,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 0
     myVariableName: attack_damage
     myInt: 1
@@ -196,6 +210,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: dash_speed
     myInt: 0
@@ -205,12 +221,16 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: idle_radius
     myInt: 0
-    myFloat: 5
+    myFloat: 10
     myString: 
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}

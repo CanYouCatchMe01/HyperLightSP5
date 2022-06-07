@@ -3,11 +3,11 @@
 #include <tga2d/math/Transform.h>
 #include "Component.h"
 #include "BoxColliderComponent.h"
-#ifdef _DEBUG
+#ifndef _RETAIL
 #include "DebugObserver.h"
-#endif // _DEBUG
+#endif // _RETAIL
 
-#include "../../Bin/Assets/TagsAndLayers.h"
+#include "TagsAndLayers.h"
 
 namespace CapNCrunch
 {
@@ -17,9 +17,9 @@ namespace CapNCrunch
 class Emitter;
 
 class GameObject
-#ifdef _DEBUG
+#ifndef _RETAIL
 	: DebugObserver
-#endif // _DEBUG
+#endif // _RETAIL
 {
 public:
 	friend class Scene;
@@ -87,9 +87,9 @@ public:
 	inline Tga2D::Transform& GetTransform() { return myTransform; }
 	inline Scene* GetParentScene() { return myScene; }
 	PollingStation* GetPollingStation() { return myPollingStation; }
-#ifdef _DEBUG
+#ifndef _RETAIL
 	void DebugUpdate() override;
-#endif // _DEBUG
+#endif // _RETAIL
 protected:
 	virtual ~GameObject(); //Protected för att bara en scen för förstöra gameobjects, mvh elias
 private:
@@ -99,9 +99,9 @@ private:
 	Scene* myScene;
 	Tga2D::Transform myTransform;
 	std::vector<class Component*> myComponents;
-#ifdef _DEBUG
+#ifndef _RETAIL
 	bool myPoppedOut = false;
-#endif //_DEBUG
+#endif //_RETAIL
 public:
 	std::string name;
 	eTag tag;

@@ -2,10 +2,10 @@
 #include "GameObject.h"
 #include <tga2d/engine.h>
 #include <tga2d/drawers/DebugDrawer.h>
-#ifdef _DEBUG
+#ifndef _RETAIL
 #include "BaseDebugger.h"
 #include "imgui/imgui.h"
-#endif //_DEBUG
+#endif //_RETAIL
 
 void GameObject::OnCollisionEnter(GameObject* aOther)
 {
@@ -33,14 +33,21 @@ void GameObject::OnCollisionExit(GameObject* aOther)
 
 GameObject::~GameObject()
 {
-#ifdef _DEBUG
+#ifndef _RETAIL
 	myPollingStation->myDebugger.get()->RemoveObserver(this);
-#endif // _DEBUG
+#endif // _RETAIL
+
 	for (auto& component : myComponents)
 	{
 		delete component;
 	}
 	myComponents.clear();
+
+	for (auto& child : myChildren)
+	{
+		delete child;
+	}
+	myChildren.clear();
 }
 
 GameObject::GameObject(const GameObject& aRhs)
@@ -83,7 +90,7 @@ void GameObject::OnStart()
 	}
 }
 
-#ifdef _DEBUG
+#ifndef _RETAIL
 void GameObject::DebugUpdate()
 {
 	ImGui::Checkbox(name.c_str(), &myPoppedOut);
@@ -138,7 +145,7 @@ void GameObject::DebugUpdate()
 		ImGui::End();
 	}
 }
-#endif // _DEBUG
+#endif // _RETAIL
 
 
 

@@ -14,6 +14,7 @@
 #include "PopcornEnemy.h"
 #include "ChargeEnemy.h"
 #include "FluteEnemy.h"
+#include "BulletComponent.h"
 #include "BoxColliderComponent.h"
 #include "AnimatedMeshComponent.h"
 #include "MeleeComponent.h"
@@ -25,6 +26,8 @@
 #include "BattleZone.h"
 #include "TeleportActivator.h"
 #include "MusicParameterComponent.h"
+#include "CassetTapeShowerComponent.h"
+#include "CassetTapeComponent.h"
 
 #include "tga2d/graphics/DirectionalLight.h"
 #include "tga2d/graphics/AmbientLight.h"
@@ -135,7 +138,11 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			}
 			else if (type == "flute_enemy")
 			{
-				gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["attack_damage"], data["idle_radius"]);
+				gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["runaway_radius"], data["bullet"]);
+			}
+			else if (type == "bullet")
+			{
+				gameObject->AddComponent<BulletComponent>(data["speed"], data["attack_damage"]);
 			}
 			else if (type == "weapon")
 			{
@@ -168,6 +175,14 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			else if (type == "battle_zone")
 			{
 				gameObject->AddComponent<BattleZone>();
+			}
+			else if (type == "show_casset_tape")
+			{
+				gameObject->AddComponent<CassetTapeShowerComponent>(data["wait_seconds"], data["casset"]);
+			}
+			else if (type == "casset_tape")
+			{
+				gameObject->AddComponent<CassetTapeComponent>(data["number"].get<int>());
 			}
 			else if (type == "light")
 			{

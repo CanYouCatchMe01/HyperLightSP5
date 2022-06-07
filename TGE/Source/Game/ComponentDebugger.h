@@ -1,4 +1,4 @@
-#ifdef _DEBUG
+#ifndef _RETAIL
 #pragma once
 
 
@@ -10,5 +10,5 @@ public:
 private:
 
 };
-#endif // _DEBUG
+#endif // _RETAIL
 

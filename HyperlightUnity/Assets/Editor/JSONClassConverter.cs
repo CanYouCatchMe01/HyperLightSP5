@@ -418,6 +418,11 @@ class Converter
                         data.Add(element.myVariableName, ConvertToJSON((SceneAsset)element.myScene));
                         break;
                     }
+                case TypeEnum.GameObject:
+                    {
+                        data.Add(element.myVariableName, ConvertToJSON(element.myGameObject));
+                        break;
+                    }
             }
         }
 

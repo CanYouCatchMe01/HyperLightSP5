@@ -4,6 +4,7 @@ namespace Input
 	enum class eInputAction
 	{
 		eKey_Space,
+		eKey_C,
 		eKey_Escape,
 		eKey_X,
 		eHoldArrowKeyUp,

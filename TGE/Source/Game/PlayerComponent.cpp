@@ -5,7 +5,7 @@
 #include "EnemyComponent.h"
 #include "PopcornEnemy.h"
 #include "ChargeEnemy.h"
-#include "FluteEnemy.h"
+#include "BulletComponent.h"
 #include "AudioComponent.h"
 #include "AudioManager.h"
 #include "TeleporterComponent.h"
@@ -13,12 +13,18 @@
 #include "CheckPointComponent.h"
 #include "AnimatedMeshComponent.h"
 #include "MusicParameterComponent.h"
+#include "Scene.h"
+#include "GameDataManager.h"
+#include "SceneManager.h"
+#include "CassetTapeComponent.h"
+#include "GameDataManager.h"
+#include "CollisionManager.h"
 
 PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed)
 {
 
-	myMaxHp = aMaxHp;
-	myPlayerData.CurrentHP = aMaxHp;
+	myPlayerData.myMaxHP = aMaxHp;
+	myPlayerData.myCurrentHP = aMaxHp;
 	myMaxHealing = aMaxHealing;
 	myMaxAttacks = aMaxAttaks;
 	myDashTime = aDashTime;
@@ -30,7 +36,6 @@ PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, fl
 
 PlayerComponent::~PlayerComponent()
 {
-	myWalkSound->stop(FMOD_STUDIO_STOP_IMMEDIATE);
 }
 
 void PlayerComponent::OnUpdate(float aDt)
@@ -72,12 +77,14 @@ void PlayerComponent::OnUpdate(float aDt)
 void PlayerComponent::Movement(float aDT)
 {
 
+
+
 	//increasing the volume when the player is moving
 	if (myDir.x == 0 && myDir.z == 0)
 	{
 		//Commented out for game testing//
-		//myDir.y = -myGravity / mySpeed;
-		//SetPosition(GetPosition() + (myDir * aDT));
+		/*myDir.y = -myGravity / mySpeed;
+		SetPosition(GetPosition() + (myDir * aDT));*/
 		myWalkSound->setVolume(0.0f);
 		return;
 	}
@@ -135,7 +142,7 @@ void PlayerComponent::Attack()
 		myAttackTimer = 0.2f;
 		myAttack = true;
 		//do the attack
-		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_attack);
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_swing);
 	}
 }
 
@@ -143,7 +150,7 @@ void PlayerComponent::PickupHealing()
 {
 	if (myHealingItems >= myMaxHealing)
 	{
-		myHp = myMaxHp;
+		myHealingItems = myMaxHealing;
 	}
 	else
 	{
@@ -164,27 +171,27 @@ void PlayerComponent::SetPosition(Tga2D::Vector3f aPosition)
 
 int PlayerComponent::GetHp()
 {
-	return myHp;
+	return myPlayerData.myCurrentHP;
 }
 void PlayerComponent::SetHp(int aHp)
 {
-	if (aHp > myMaxHp)
+	if (aHp > myPlayerData.myMaxHP)
 	{
-		myHp = myMaxHp;
+		myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
 	}
 	else
 	{
-		myHp = myMaxHp;
+		myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
 	}
 }
 
 void PlayerComponent::SetFullHP()
 {
-	myHp = myMaxHp;
+	myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
 
 	Message takeDmgMessage;
 	takeDmgMessage.myMsg = eMessageType::ePlayerTookDMG;
-	takeDmgMessage.aFloatValue = (float)myHp / (float)myMaxHp;
+	takeDmgMessage.aFloatValue = (float)myPlayerData.myCurrentHP / (float)myPlayerData.myMaxHP;
 	myPollingStation->myPostmaster->SendMsg(takeDmgMessage);
 }
 
@@ -207,10 +214,6 @@ void PlayerComponent::SetHealing(int aHealing)
 
 void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)
 {
-	if (myDir.y < 0)
-	{
-		myDir;
-	}
 	switch (aEvent)
 	{
 	case Input::eInputEvent::eMoveDown:
@@ -249,12 +252,23 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 	case Input::eInputEvent::eHeal:
 		if (!myHealing && !myAttack && !myDash)
 		{
-			if (myHealingItems > 0)
+			if (myHealingItems > 0 && myPlayerData.myCurrentHP != myPlayerData.myMaxHP)
 			{
 				myHealing = true;
 				myHealTimer = myHealingTime;
 				myHealingItems--;
-				myHp = myMaxHp;
+				myPlayerData.myCurrentHP++;
+
+				INFO_PRINT("%s %i", "Player HP", myPlayerData);
+
+				//Audio
+				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_healing);
+
+				//Send message to UI
+				Message message;
+				message.myMsg = eMessageType::ePlayerHealed;
+				message.aFloatValue = (float)myPlayerData.myCurrentHP / (float)myPlayerData.myMaxHP;
+				myPollingStation->myPostmaster->SendMsg(message);
 			}
 			else
 			{
@@ -268,6 +282,7 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 
 void PlayerComponent::OnAwake()
 {
+	myPollingStation->myGameDataManager.get()->GetPlayerData().mySavePosition = myGameObject->GetTransform().GetPosition();
 	myCameraRotation = myTransform->GetMatrix();
 	myPollingStation->myPlayer = myGameObject;
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveDown, this);
@@ -290,9 +305,11 @@ void PlayerComponent::OnStart()
 	auto playerIdle = animatedMesh->AddTransition("Player_Idle", [this]()->bool {return true; });
 	auto playerRun = playerIdle->AddTransition("Player_Run", [this]()->bool {return (myLastDir.x != 0 || myLastDir.z != 0); });
 	auto playerDash = playerRun->AddTransition("Player_Dash", [this]()->bool {return myDash; });
+	/*auto playerAttack = playerRun->AddTransition("player_slash", [this]()->bool {return myAttack; });*/
 	playerRun->AddTransition(playerIdle, [this]()->bool {return (myLastDir.x == 0 && myLastDir.z == 0); });
 	playerDash->AddTransition(playerIdle, [this]()->bool {return (myLastDir.x == 0 && myLastDir.z == 0 && !myDash); });
 	playerDash->AddTransition(playerRun, [this]()->bool {return ((myLastDir.x != 0 || myLastDir.z != 0) && !myDash); });
+
 }
 
 void PlayerComponent::OnCollisionEnter(GameObject* aOther)
@@ -301,6 +318,34 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 	{
 		aOther->GetComponent<TeleporterComponent>()->Load();
 		return;
+	}
+
+	if (aOther->tag == eTag::health_pickup && myHealingItems < myMaxHealing)
+	{
+		myHealingItems++;
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_interact);
+
+		//HUD updates
+		Message message;
+		message.myMsg = eMessageType::ePlayerPickedUpHealth;
+		myPollingStation->myPostmaster->SendMsg(message);
+
+		myScene->RemoveGameObject(aOther);
+		return;
+	}
+
+	if (aOther->tag == eTag::cassette_tape)
+	{
+		INFO_PRINT("casset tape");
+		GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
+		const int& number = aOther->GetComponent<CassetTapeComponent>()->GetNumber();
+		gameData.myKeys[number] = true;
+		
+		myScene->RemoveGameObject(aOther);
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_interact);
+
+		//Load Hub if all keys are collected
+		myPollingStation->mySceneManager.get()->LoadScene("Hub");
 	}
 
 	if (aOther->tag == eTag::teleportActivator)
@@ -330,6 +375,8 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 				TakeDamage(aOther->GetComponent<PopcornEnemy>()->GetAttackDmg());
 				aOther->GetComponent<PopcornEnemy>()->myIsStunned = true;
 				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+
+				INFO_PRINT("%s %i", "Player HP", myPlayerData.myCurrentHP);
 			}
 		}
 
@@ -347,11 +394,13 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 
 		if (aOther->tag == eTag::flute)
 		{
-			if (aOther->GetComponent<FluteEnemy>() != nullptr)
+			auto bulletComponent = aOther->GetComponent<BulletComponent>();
+			if (bulletComponent != nullptr)
 			{
 				myTakeDamageTimer = myTakeDamageTime;
-				std::cout << "player took damage by flute\n";
-				TakeDamage(aOther->GetComponent<FluteEnemy>()->GetAttackDmg());
+				std::cout << "player took damage by flute bullet\n";
+				TakeDamage(bulletComponent->GetAttackDamage());
+				bulletComponent->RemoveBullet();
 
 				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
 			}
@@ -376,48 +425,46 @@ void PlayerComponent::OnCollisionExit(GameObject* aOther)
 			aOther->GetComponent<ChargeEnemy>()->myIsStunned = false;
 		}
 	}
-
-	if (aOther->tag == eTag::flute)
-	{
-		if (aOther->GetComponent<FluteEnemy>() != nullptr)
-		{
-			aOther->GetComponent<FluteEnemy>()->myIsStunned = false;
-		}
-	}
 }
 
 void PlayerComponent::OnDeath()
 {
 	std::cout << "player died\n";
-	if (myPlayerData.myCheckpoint != nullptr)
+	GameData gameData = myPollingStation->myGameDataManager.get()->GetGameData();
+	if (gameData.myCheckpoint != nullptr)
 	{
-		myPlayerData.myCheckpoint->Load(); //causes crash
+		gameData.myCheckpoint->Load(); //causes crash
+		myGameObject->GetTransform().SetPosition(myPlayerData.mySavePosition);
+		return;
 	}
-
+	myPlayerData.mySavePosition = myPollingStation->myGameDataManager.get()->GetPlayerData().mySavePosition;
+	myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
+	myGameObject->GetTransform().SetPosition(myPlayerData.mySavePosition);
 }
 
 void PlayerComponent::TakeDamage(int someDamage)
 {
-	myHp -= someDamage;
+	myPlayerData.myCurrentHP -= someDamage;
+	if (myPlayerData.myCurrentHP <= 0) { OnDeath(); }
 	Message takeDmgMessage;
 	takeDmgMessage.myMsg = eMessageType::ePlayerTookDMG;
-	takeDmgMessage.aFloatValue = (float)myHp / (float)myMaxHp;
+	takeDmgMessage.aFloatValue = (float)myPlayerData.myCurrentHP / (float)myPlayerData.myMaxHP;
 	myPollingStation->myPostmaster->SendMsg(takeDmgMessage);
 
-	if (myHp <= 0) { OnDeath(); }
+
 	//chekded
 }
-#ifdef _DEBUG
+#ifndef _RETAIL
 void PlayerComponent::DebugUpdate()
 {
 	if (ImGui::CollapsingHeader("PlayerComponent"))
 	{
-		ImGui::InputInt("HP", &myHp);
+		ImGui::InputInt("HP", &myPlayerData.myCurrentHP);
 	}
 
 }
 
 
-#endif // _DEBUG
+#endif // _RETAIL
 
 

@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 3410843958402371129}
   - component: {fileID: 1799780788746797468}
   - component: {fileID: 4548332564590605654}
+  - component: {fileID: 8201745519041322322}
   m_Layer: 0
   m_Name: p_z2_barrel_s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3410843958402371129
 Transform:
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8201745519041322322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602535427213366403}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6734036, y: 0.77758443, z: 0.6734036}
+  m_Center: {x: 0, y: 0.38879222, z: 0}

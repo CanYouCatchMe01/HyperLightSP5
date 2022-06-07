@@ -28,6 +28,7 @@ void StateStack::PopState()
 {
 	if (myStateStack.empty())
 		return;
+	delete myStateStack.top();
 	myStateStack.pop();
 }
 

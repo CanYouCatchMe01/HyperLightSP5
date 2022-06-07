@@ -8,6 +8,7 @@
 #include <utility>
 #include <tga2d/drawers/SpriteDrawer.h>
 #include "tga2d/light/LightManager.h"
+#include <tga2d/graphics/GraphicsEngine.h>
 
 RenderObjectManager::RenderObjectManager()
 {
@@ -15,12 +16,43 @@ RenderObjectManager::RenderObjectManager()
 
 void RenderObjectManager::Render(Tga2D::ForwardRenderer& aForwardsRenderer)
 {
-	for (size_t i = 0; i != myModels.size(); ++i)
+#ifdef _DEBUG
+	static float angle = 1.2f;
+	static float distance = 300.f;
+	ImGui::Begin("Culling");
+	ImGui::DragFloat("Cull Angle", &angle, 0.01f, 0.f, 3.14f);
+	ImGui::DragFloat("Cull Distance", &distance, 10.f, 0.f, 1000000.f);
+	ImGui::End();
+#else
+	const float angle = 1.2f;
+	const float distance = 5.0f;
+#endif // DEBUG
+
+	const Tga2D::Camera& camera = Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetCamera();
+	const Tga2D::Vector3f cameraPos = camera.GetTransform().GetPosition();
+	const Tga2D::Vector3f forward = camera.GetTransform().GetMatrix().GetForward().GetNormalized();
+
+	for (size_t i = 0; i != myModels.size(); i++)
 	{
 		if (myEmptyModels.count(i))
 			continue;
 
-		aForwardsRenderer.Render(myModels[i]);
+		float modelRadius = myModels[i].GetModel()->GetMeshDataList()[0].myBounds.Radius;
+		const Tga2D::Vector3f modelPos = myModels[i].GetTransform().GetPosition();
+
+
+		Tga2D::Vector3f v = modelPos - cameraPos;
+		const float lenSq = v.Dot(v);
+		const float v1Len = v.Dot(forward);
+		const float distanceClosestPoint = cos(angle) * sqrt(lenSq - v1Len * v1Len) - v1Len * sin(angle);
+
+		const bool angleCull = distanceClosestPoint < modelRadius;
+		const bool distanceCull = v.Length() < distance;
+
+		if (angleCull || distanceCull)
+		{
+			aForwardsRenderer.Render(myModels[i]);
+		}
 	}
 
 	for (size_t i = 0; i != myAnimatedModels.size(); ++i)

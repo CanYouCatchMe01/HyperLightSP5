@@ -2,17 +2,17 @@
 #include "tga2d/math/Transform.h"
 #include "PollingStation.h"
 #include "ComponentDebugger.h"
-#ifdef _DEBUG
+#ifndef _RETAIL
 #include "imgui/imgui.h"
-#endif // _DEBUG
+#endif // _RETAIL
 
 
 class GameObject;
 
 class Component 
-#ifdef _DEBUG
+#ifndef _RETAIL
 	: ComponentDebugger
-#endif // _DEBUG
+#endif // _RETAIL
 
 {
 public:

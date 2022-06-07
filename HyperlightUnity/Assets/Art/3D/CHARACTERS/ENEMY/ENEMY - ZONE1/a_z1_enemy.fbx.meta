@@ -3,7 +3,12 @@ guid: 1bca14d7595090f4da7559f459c8335e
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Z1_mat_Enemy
+    second: {fileID: 2100000, guid: 891d4320ad474c847a28135c77c71e73, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

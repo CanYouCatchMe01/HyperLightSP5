@@ -1,5 +1,5 @@
 #include <stdafx.h>
-#ifdef _DEBUG
+#ifndef _RETAIL
 
 #include "ComponentDebugger.h"
 
@@ -7,4 +7,4 @@ void ComponentDebugger::DebugUpdate()
 {
 }
 
-#endif // _DEBUG
+#endif // _RETAIL

@@ -1,17 +1,20 @@
 #include "stdafx.h"
 #include "FluteEnemy.h"
 #include "Scene.h"
+#include "BulletComponent.h"
+#include "UnityLoader.h"
 
-FluteEnemy::FluteEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, int anAttackDamage, float anIdleRadius)
+FluteEnemy::FluteEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, float aRunawayRadius, nlohmann::json& anObject)
 {
 	myMaxHp = aMaxHp;
 	mySpeed = aSpeed;
 	myAttackSpeed = anAttackSpeed;
+	myAttackTimer = myAttackSpeed;
 	myDetectionRadius = aDetectionRadius;
 	myIdleSpeed = anIdleSpeed;
-	myAttackDmg = anAttackDamage;
 
-	myIdleRadius = anIdleRadius;
+	myRunawayRadius = aRunawayRadius;
+	myBullet = anObject;
 }
 
 void FluteEnemy::OnUpdate(float aDt)
@@ -21,34 +24,44 @@ void FluteEnemy::OnUpdate(float aDt)
 	myTakeDamageTimer -= aDt;
 	CorrectRotation(aDt);
 	CheckRadius();
+	
+	//check if player is too close
+	float r2 = myDistanceToTarget.x * myDistanceToTarget.x + myDistanceToTarget.z * myDistanceToTarget.z;
+	myRunaway = r2 < myRunawayRadius * myRunawayRadius;
 
-	float yPos = GetPosition().y;
-	SetPosition({ GetPosition().x, yPos /*-= myGravity * aDt*/, GetPosition().z });
-
-	if (!myIsInRange)
+	if (myRunaway)
 	{
-		IdleMovement(aDt);
+		MoveAwayFromPlayer(aDt);
+	}
+	else if (!myIsInRange)
+	{
+		// do nothing
 	}
 	else if (myIsInRange)
 	{
-		ShootPlayer(aDt, myDistanceToTarget);
+		ShootPlayer(aDt);
 	}
-	//else if (!myAttacking && myIsInRange)
-	//{
-	//	MoveTowardsPlayer(aDt);
-	//}
 }
 
 void FluteEnemy::MoveAwayFromPlayer(float aDt)
 {
 	myDistanceToTarget.Normalize();
-	SetPosition(GetPosition() - myDistanceToTarget * mySpeed * aDt);
+	SetPosition({ GetPosition().x - myDistanceToTarget.x * mySpeed * aDt, GetPosition().y, GetPosition().z - myDistanceToTarget.z * mySpeed * aDt });
 }
 
-void FluteEnemy::ShootPlayer(float aDt, Tga2D::Vector3f aDirection)
+void FluteEnemy::ShootPlayer(float aDt)
 {
-	aDt;
-	aDirection;
+	//create timer for attacking
+	myAttackTimer -= aDt;
+	if (myAttackTimer <= 0)
+	{
+		myAttackTimer = myAttackSpeed;
+		//create bullet
+		GameObject* tempBullet = myScene->CreateGameObject(myBullet);
+		tempBullet->GetComponent<BulletComponent>()->SetPosition({myTransform->GetPosition().x, myTransform->GetPosition().y + 1.5f, myTransform->GetPosition().z});
+		tempBullet->GetComponent<BulletComponent>()->SetDirection(myDistanceToTarget);
+		tempBullet->GetComponent<BulletComponent>()->OnUpdate(aDt);
+	}
 }
 
 void FluteEnemy::OnDeath()

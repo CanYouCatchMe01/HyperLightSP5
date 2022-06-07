@@ -4,6 +4,7 @@
 #include "PlayerComponent.h"
 #include "GameObject.h"
 #include "Scene.h"
+#include "AnimatedMeshComponent.h"
 
 PopcornEnemy::PopcornEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, int anAttackDamage, float anIdleRadius)
 {
@@ -23,9 +24,6 @@ void PopcornEnemy::OnUpdate(float aDt)
 	myTakeDamageTimer -= aDt;
 	CheckRadius();
 
-	float yPos = GetPosition().y;
-	SetPosition({ GetPosition().x, yPos -= myGravity * aDt, GetPosition().z });
-
 	// enemy behavior
 	if (!myIsStunned && !myIsInRange)
 	{
@@ -36,6 +34,13 @@ void PopcornEnemy::OnUpdate(float aDt)
 		MoveTowardsPlayer(aDt);
 	}
 }
+
+//void PopcornEnemy::OnStart()
+//{
+//	auto animatedMesh = myGameObject->GetComponent<AnimatedMeshComponent>();
+//	auto wormCrawl = animatedMesh->AddTransition("sandWorm_crawl", [this]()->bool { return true; });
+//	wormCrawl->AddTransition(wormCrawl, [this]()->bool { return ((myLastDir.x != 0 || myLastDir.z != 0) && !myIsStunned); });
+//}
 
 
 void PopcornEnemy::MoveTowardsPlayer(float aDt)
@@ -51,11 +56,6 @@ void PopcornEnemy::OnDeath()
 	std::cout << "he dead (popcorn enemy)\n";
 }
 
-void PopcornEnemy::MoveAway(float aDT, Tga2D::Vector3f aDirection)
-{
-	aDirection.Normalize();
-	SetPosition(GetPosition() - aDirection * mySpeed * aDT);
-}
 
 
 

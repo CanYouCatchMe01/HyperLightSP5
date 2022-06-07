@@ -10,9 +10,10 @@ void AnimationController::Update()
 		myRootTransition.Update();
 }
 
-AnimationController::Transition* AnimationController::AddTransition(std::string aName, std::function<bool()> aFunction)
+AnimationController::Transition* AnimationController::AddTransition(std::string aName, std::function<bool()> aFunction, float aSpeed)
 {
 	Transition* transition = new Transition();
+	transition->mySpeed = aSpeed;
 	transition->myName = std::move(aName);
 	transition->myAnimationController = this;
 	myRootTransition.myNextStates.push_back({ aFunction, transition });
@@ -62,9 +63,10 @@ void AnimationController::Transition::Update()
 	}
 }
 
-AnimationController::Transition* AnimationController::Transition::AddTransition(std::string aName, std::function<bool()> aFunction)
+AnimationController::Transition* AnimationController::Transition::AddTransition(std::string aName, std::function<bool()> aFunction, float aSpeed)
 {
 	Transition* transition = new Transition();
+	transition->mySpeed = aSpeed;
 	transition->myAnimationController = myAnimationController;
 	transition->myName = std::move(aName);
 	myNextStates.push_back({ aFunction, transition });

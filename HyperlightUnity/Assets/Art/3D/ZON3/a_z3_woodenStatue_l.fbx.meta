@@ -3,7 +3,12 @@ guid: d109e5a1bb993214a8d314e8e7b46bc3
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: z3_matWoodenStatue
+    second: {fileID: 2100000, guid: 7c6bffde2edf327429dd547294dc7fee, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

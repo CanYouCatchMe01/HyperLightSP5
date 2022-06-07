@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "GameDataManager.h"
 #include "PlayerComponent.h"
+#include "CheckPointComponent.h"
 
 TeleporterComponent::TeleporterComponent(std::string aScene, std::string aCheckpointName)
 {
@@ -24,6 +25,7 @@ void TeleporterComponent::Load()
 
 void TeleporterComponent::OnAwake()
 {
+	myGameObject->AddComponent<CheckPointComponent>(mySceneToLoad, myCheckPointToLoad);
 }
 
 void TeleporterComponent::OnStart()

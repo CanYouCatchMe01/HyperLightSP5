@@ -3,7 +3,12 @@ guid: 5ade50f1e5f88854c8f4582488aada03
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matOilBarrel
+    second: {fileID: 2100000, guid: f4078fcebd3f5664a9e40c97a5cae6dc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

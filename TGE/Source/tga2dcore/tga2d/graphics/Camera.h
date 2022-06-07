@@ -27,6 +27,8 @@ public:
 	void SetTransform(Transform someTransform);
 	void SetRotation(Rotator aRotation);
 	void SetPosition(Vector3f aPosition);
+	inline float GetFarPlane() const { return myFarPlane; };
+	inline float GetNearPlane() const { return myNearPlane; };
 
 	FORCEINLINE Transform GetTransform() const { return myTransform; }
 	FORCEINLINE Matrix4x4f GetProjection() const { return myProjection; }

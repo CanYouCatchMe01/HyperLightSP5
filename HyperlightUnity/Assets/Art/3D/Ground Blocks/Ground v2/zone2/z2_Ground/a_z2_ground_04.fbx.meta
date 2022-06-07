@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ground_m
-    second: {fileID: 2100000, guid: 44bd9efdd949ec94587a32f85168d38b, type: 2}
+      name: z2_matGround
+    second: {fileID: 2100000, guid: 7577cabaf97f94042ae947d75a498735, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: z1_matGroundBlock
-    second: {fileID: 2100000, guid: 7577cabaf97f94042ae947d75a498735, type: 2}
+      name: z2_matGroundTop
+    second: {fileID: 2100000, guid: 2fd378a1a19171740993bf3c667c3997, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

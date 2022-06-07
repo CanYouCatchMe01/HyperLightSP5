@@ -16,7 +16,7 @@ public:
 	
 	void LoadMesh(const std::wstring& someFilePath, std::wstring* someTexturePaths = nullptr);
 	void PlayAnimation(std::string aName);
-	inline AnimationController::Transition* AddTransition(std::string aName, std::function<bool()> aCondition) { return myAnimationController.AddTransition(aName, aCondition); }
+	inline AnimationController::Transition* AddTransition(std::string aName, std::function<bool()> aCondition, float aSpeed = 1.0f) { return myAnimationController.AddTransition(aName, aCondition, aSpeed); }
 	virtual void OnAwake() override;
 	virtual void OnStart() override;
 	virtual void OnUpdate(const float aDeltaTime) override;

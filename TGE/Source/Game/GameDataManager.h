@@ -6,9 +6,9 @@ class CheckPointComponent;
 struct GameData
 {
 	//If an upgrade is taken set it to true
-	std::bitset<2> Upgrades = { false };
+	std::bitset<2> myUpgrades = { false };
 
-	std::bitset<5> TeleporterStatus = { false }; 
+	std::bitset<5> myTeleporterStatus = { false }; 
 
 /*	If the teleporter is active set it to true
 	------Teleporter Order------
@@ -19,17 +19,19 @@ struct GameData
 		  4 = hub
 	----------------------------	*/
 
-	//If a collectible is taken set it to true
-	std::bitset<6> Collectibles = { false };
+	//If a keys is taken set it to true
+	std::bitset<2> myKeys = { false };
+	int myCurrentKeysAmount = 0;
+
+	CheckPointComponent* myCheckpoint = nullptr;
 };
 
 struct PlayerData
 {
-	CheckPointComponent* myCheckpoint = nullptr;
-	Tga2D::Vector3f mySavePosition = 0;
-	int MaxHP;
-	int CurrentHP;
-	int AttakDMG;
+	Tga2D::Vector3f mySavePosition;
+	int myMaxHP;
+	int myCurrentHP;
+	int myAttakDMG;
 };
 
 class GameDataManager
@@ -38,10 +40,8 @@ public:
 	GameDataManager();
 	~GameDataManager();
 
-	inline void UpdateGameData(GameData someGameData)		{ myGameData = someGameData; }
-	inline void UpdatePlayerData(PlayerData somePlayerData) { myPlayerData = somePlayerData; }
-	inline GameData GetGameData()							{ return myGameData; }
-	inline PlayerData GetPlayerData()						{ return myPlayerData; }
+	inline GameData& GetGameData()							{ return myGameData; }
+	inline PlayerData& GetPlayerData()						{ return myPlayerData; }
 
 private:
 	GameData myGameData;

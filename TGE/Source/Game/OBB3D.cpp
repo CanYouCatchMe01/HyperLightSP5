@@ -2,13 +2,13 @@
 #include "OBB3D.h"
 #include <tga2d/graphics/GraphicsEngine.h>
 #include <tga2d/graphics/Camera.h>
+#include "PlayerComponent.h"
+#include "EnemyComponent.h"
 
 OBB3D::OBB3D(Vector3 aSize, Vector3 anOffset, bool aIsStatic, bool aIsTrigger, GameObject* aParent) : myParent(aParent), myOffset(anOffset), myIsTrigger(aIsTrigger)
 {
     myIsStatic = aIsStatic;
     mySize = aSize;
-
-    myLastPos = myParent->GetTransform().GetPosition();
 
     Calculate();
 }
@@ -17,6 +17,14 @@ bool OBB3D::Collides(OBB3D& anOther)
 {
     if (myParent == anOther.myParent || myIsStatic && anOther.myIsStatic) // Skip if colliders are on the same parent
         return false;
+
+    float lenSqr = (myTransform.GetPosition() - anOther.myTransform.GetPosition()).LengthSqr();
+    if (lenSqr > anOther.myMaxRadiusSqr + myMaxRadiusSqr)
+    {
+        SetCollisionEvent(false, anOther);
+        anOther.SetCollisionEvent(false, *this);
+        return false;
+    }
 
     Vector3 mtv;
     Vector3 maxTv;
@@ -85,28 +93,56 @@ bool OBB3D::Collides(OBB3D& anOther)
     stair = maximumOverlap <= myMaxStepHeight && maximumOverlap > 0 && !slope;
 
     //std::cout << slope << '\n';
-
+    bool onground = false;
     if (slope && !stair)
     {
+        onground = true;
         correction.x = 0;
         correction.z = 0;
     }
-    /*else if (stair)
-    {
-        correction = maxTv * maximumOverlap;
-        if (vecToObstacle.Dot(correction) < 0)
-            correction *= -1.0f;
-    }*/
 
     if (myIsStatic)
     {
+        anOther.SetGrounded(true);
+        SetGrounded(true);
+
         anOther.myParent->GetTransform().SetPosition(anOther.myParent->GetTransform().GetPosition() + correction);
         anOther.SetPosition(anOther.myTransform.GetPosition() + correction);
         return true;
     }
-    myParent->GetTransform().SetPosition(myParent->GetTransform().GetPosition() - correction);
-    SetPosition(myTransform.GetPosition() - correction);
+    else if (anOther.myIsStatic)
+    {
+        anOther.SetGrounded(true);
+        SetGrounded(true);
+
+        myParent->GetTransform().SetPosition(myParent->GetTransform().GetPosition() - correction);
+        SetPosition(myTransform.GetPosition() - correction);
+    }
+
     return true;
+}
+
+void OBB3D::CallGrounded()
+{
+    if (myIsTrigger || myIsStatic)
+        return;
+
+    eTag parentTag = myParent->tag;
+    if (parentTag == eTag::Player)
+    {
+        myParent->GetComponent<PlayerComponent>()->SetGrounded(myIsGrounded);
+        return;
+    }
+    else if (parentTag == eTag::flute || parentTag == eTag::charge || parentTag == eTag::popcorn)
+    {
+        myParent->GetComponent<EnemyComponent>()->SetIsGrounded(myIsGrounded);
+        return;
+    }
+}
+
+void OBB3D::SetGrounded(bool aState)
+{
+    myIsGrounded |= aState;
 }
 
 void OBB3D::SetPosition(Tga2D::Vector3f aPos)
@@ -139,12 +175,33 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
     if (!aOther.myIsTrigger || myIsTrigger && !myAlwaysSendEvent)
         return;
 
-    eCollisionState state = myCurrentlyColliding[aOther.myParent];
+    eCollisionState state;
+    if (!myCurrentlyColliding.Size())
+    {
+        state = eCollisionState::eNone;
+    }
+    else
+    {
+        auto ptr = myCurrentlyColliding.Get(aOther.myParent);
+        if (ptr)
+        {
+            state = *myCurrentlyColliding.Get(aOther.myParent);
+        }
+        else
+        {
+            state = eCollisionState::eNone;
+        }
+    }
+
+   
+
+    //eCollisionState state = myCurrentlyColliding[aOther.myParent];
     if (aCollided && aOther.myIsTrigger)
     {
         if (state == eCollisionState::eNone)
         {
-            myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
+            myCurrentlyColliding.Insert(aOther.myParent, eCollisionState::eEnter);
+            //myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
             myParent->OnCollisionEnter(aOther.myParent);
             return;
         }
@@ -152,6 +209,7 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
         if (state == eCollisionState::eEnter)
         {
             state = eCollisionState::eStay;
+            myCurrentlyColliding.Insert(aOther.myParent, eCollisionState::eStay);
             myParent->OnCollisionStay(aOther.myParent);
             return;
         }
@@ -164,7 +222,8 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
 
         if (state == eCollisionState::eExit)
         {
-            myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
+            //myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
+            myCurrentlyColliding.Insert(aOther.myParent, eCollisionState::eEnter);
             myParent->OnCollisionEnter(aOther.myParent);
             return;
         }
@@ -176,13 +235,15 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
     {
         if (state == eCollisionState::eExit)
         {
-            myCurrentlyColliding[aOther.myParent] = eCollisionState::eNone;
+            myCurrentlyColliding.Insert(aOther.myParent, eCollisionState::eNone);
+            //myCurrentlyColliding[aOther.myParent] = eCollisionState::eNone;
             return;
         }
 
-        if (state == eCollisionState::eEnter || myCurrentlyColliding[aOther.myParent] == eCollisionState::eStay)
+        if (state == eCollisionState::eEnter || state == eCollisionState::eStay)
         {
-            myCurrentlyColliding[aOther.myParent] = eCollisionState::eExit;
+            myCurrentlyColliding.Insert(aOther.myParent, eCollisionState::eExit);
+            //myCurrentlyColliding[aOther.myParent] = eCollisionState::eExit;
             myParent->OnCollisionExit(aOther.myParent);
         }
     }
@@ -239,11 +300,17 @@ bool OBB3D::GetMTVTranslation(OBB3D& aOtherObb, Vector3& aMtv, float& aMinTransl
     return true;
 }
 
+Vector3 OBB3D::AveragePos()
+{
+    Vector3 sum;
+    for (auto& pos : myCorners)
+        sum += pos;
+
+    return sum / static_cast<float>(myCorners.size());
+}
+
 void OBB3D::Calculate()
 {
-    myNormals.clear();
-    myCorners.clear();
-
     Tga2D::Vector3f scale(
         myParent->GetTransform().GetScale().x,
         myParent->GetTransform().GetScale().y,
@@ -256,12 +323,26 @@ void OBB3D::Calculate()
     Vector3 right = myTransform.GetMatrix().GetRight() * mySize.x;
     Vector3 forward = myTransform.GetMatrix().GetForward() * mySize.z;
 
-    myNormals.push_back(up * 0.5f);
-    myNormals.push_back(up * -0.5f);
-    myNormals.push_back(right * 0.5f);
-    myNormals.push_back(right * -0.5f);
-    myNormals.push_back(forward * 0.5f);
-    myNormals.push_back(forward * -0.5f);
+    float upLen = up.LengthSqr();
+    float rightLen = right.LengthSqr();
+    float forwardLen = forward.LengthSqr();
+
+    float nLen = -FLT_MAX;
+    if (upLen > nLen)
+        nLen = upLen;
+    if (rightLen > nLen)
+        nLen = rightLen;
+    if (forwardLen > nLen)
+        nLen = forwardLen;
+
+    myMaxRadiusSqr = scale.LengthSqr() + nLen;
+
+    myNormals[0] = (up * 0.5f);
+    myNormals[1] = (up * -0.5f);
+    myNormals[2] = (right * 0.5f);
+    myNormals[3] = (right * -0.5f);
+    myNormals[4] = (forward * 0.5f);
+    myNormals[5] = (forward * -0.5f);
 
 
     /*Tga2D::Vector3f offset(
@@ -274,15 +355,15 @@ void OBB3D::Calculate()
 
     //auto pos = myTransform.GetPosition() + myOffset;
 
-    myCorners.push_back(pos + (up * 0.5f) + (forward * 0.5f) + (right * -0.5f)); // Top forward left
-    myCorners.push_back(pos + (up * 0.5f) + (forward * 0.5f) + (right * 0.5f)); // Top forward right
-    myCorners.push_back(pos + (up * 0.5f) + (forward * -0.5f) + (right * -0.5f)); // Top back left
-    myCorners.push_back(pos + (up * 0.5f) + (forward * -0.5f) + (right * 0.5f)); // Top back right
+    myCorners[0] = (pos + (up * 0.5f) + (forward * 0.5f) + (right * -0.5f)); // Top forward left
+    myCorners[1] = (pos + (up * 0.5f) + (forward * 0.5f) + (right * 0.5f)); // Top forward right
+    myCorners[2] = (pos + (up * 0.5f) + (forward * -0.5f) + (right * -0.5f)); // Top back left
+    myCorners[3] = (pos + (up * 0.5f) + (forward * -0.5f) + (right * 0.5f)); // Top back right
 
-    myCorners.push_back(pos + (up * -0.5f) + (forward * 0.5f) + (right * -0.5f)); // Bottom forward left
-    myCorners.push_back(pos + (up * -0.5f) + (forward * 0.5f) + (right * 0.5f)); // Bottom forward right
-    myCorners.push_back(pos + (up * -0.5f) + (forward * -0.5f) + (right * -0.5f)); // Bottom back left
-    myCorners.push_back(pos + (up * -0.5f) + (forward * -0.5f) + (right * 0.5f)); // Bottom back right
+    myCorners[4] = (pos + (up * -0.5f) + (forward * 0.5f) + (right * -0.5f)); // Bottom forward left
+    myCorners[5] = (pos + (up * -0.5f) + (forward * 0.5f) + (right * 0.5f)); // Bottom forward right
+    myCorners[6] = (pos + (up * -0.5f) + (forward * -0.5f) + (right * -0.5f)); // Bottom back left
+    myCorners[7] = (pos + (up * -0.5f) + (forward * -0.5f) + (right * 0.5f)); // Bottom back right
 
     for (auto& n : myNormals)
         n = n.GetNormalized();
@@ -293,7 +374,6 @@ void OBB3D::SetTransform(Tga2D::Transform& aTransform)
     if (myTransform == aTransform)
         return;
 
-    myLastPos = aTransform.GetPosition();
     myTransform = aTransform;
     Calculate();
 }

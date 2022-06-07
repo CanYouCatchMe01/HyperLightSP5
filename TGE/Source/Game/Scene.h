@@ -7,6 +7,7 @@
 
 #include <tga2d/graphics/AmbientLight.h>
 #include <tga2d/graphics/DirectionalLight.h>
+#include <json.hpp>
 
 class GameObject;
 
@@ -29,6 +30,8 @@ public:
 	void SetDirectionalLight(const Tga2D::DirectionalLight& aDirectionalLight);
 	void SetAmbientLight(const Tga2D::AmbientLight& anAmbientLight);
 
+	GameObject* CreateGameObject(nlohmann::json& json);
+	GameObject* CreateGameObject();
 	void AddGameObject(GameObject* aGameObject);
 	void RemoveGameObject(GameObject* aGameObject);
 

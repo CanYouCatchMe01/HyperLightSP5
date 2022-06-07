@@ -1,24 +1,29 @@
 #pragma once
 #include "Component.h"
 #include "fmod_studio.hpp"
+#include "BattleZone.h"
 
 class EnemyComponent : public Component
 {
 public:
 	EnemyComponent();
-	virtual ~EnemyComponent() = default;
+	~EnemyComponent();
 
 	void OnUpdate(float aDt) override;
 	void OnAwake() override;
 	void OnStart() override;
 
-	void OnCollisionStay(GameObject* aOther);
+	void SetIsGrounded(bool aIsGrounded);
+	void OnCollisionEnter(GameObject* aOther) override;
+	void OnCollisionExit(GameObject* aOther) override;
+	void OnCollisionStay(GameObject* aOther) override;
 	virtual void TakeDamage(int someDamage);
 	virtual int GetAttackDmg();
 
 	virtual void OnDeath() = 0;
 
 protected:
+	BattleZone* myBattleZone;
 	virtual void CheckRadius();
 	void CorrectRotation(float aDeltaTime);
 
@@ -34,6 +39,7 @@ protected:
 	bool myIsInRange = false;
 	bool myIsDead = false;
 	bool myHasTurned = false;
+	bool myIsGrounded = false;
 
 	int myMaxHp;
 	int myAttackDmg;

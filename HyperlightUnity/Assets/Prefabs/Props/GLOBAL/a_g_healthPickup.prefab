@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2775275358803050449}
   - component: {fileID: 1797913021}
   - component: {fileID: 3780101284206257331}
-  - component: {fileID: 1891079949068628622}
   m_Layer: 0
   m_Name: a_g_healthPickup
   m_TagString: health_pickup
@@ -42,7 +41,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6200138136050445808}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -61,20 +60,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAlwaysDraw: 1
   myColor: {r: 0.17477298, g: 1, b: 0, a: 1}
---- !u!114 &1891079949068628622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6200138136050445808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4207025edc3df8148a3dac71b4db0b36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myScriptName: health_pickup
-  myList: []
 --- !u!1001 &1640999674187994661
 PrefabInstance:
   m_ObjectHideFlags: 0

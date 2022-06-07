@@ -1,4 +1,4 @@
-#ifdef _DEBUG
+#ifndef _RETAIL
 
 #pragma once
 
@@ -8,4 +8,4 @@ class DebugObserver
 public:
 	virtual void DebugUpdate() = 0;
 };
-#endif // _DEBUG
+#endif // _RETAIL

@@ -1,11 +1,16 @@
 #include "stdafx.h"
 #include "AudioComponent.h"
-#include "../../Bin/Assets/FMOD/fmod_studio_guids.hpp"
+#include "fmod_studio_guids.hpp"
 #include "GameObject.h"
 #include "AudioManager.h"
 
 AudioComponent::~AudioComponent()
 {
+	for(auto& sound : myEventInstances)
+	{
+		sound->stop(FMOD_STUDIO_STOP_IMMEDIATE);
+		sound->release();
+	}
 }
 
 void AudioComponent::OnAwake()

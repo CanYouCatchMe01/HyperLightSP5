@@ -169,6 +169,13 @@
     <ClCompile Include="..\Source\Game\BattleZone.cpp">
       <Filter>Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\Source\Game\CassetTapeShowerComponent.cpp">
+      <Filter>Code\Objects\CassetTape</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\Hashing.cpp" />
+    <ClCompile Include="..\Source\Game\CassetTapeComponent.cpp">
+      <Filter>Code\Objects\CassetTape</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\Game\Observer.h">
@@ -360,6 +367,21 @@
     <ClInclude Include="..\Source\Game\BattleZone.h">
       <Filter>Code</Filter>
     </ClInclude>
+    <ClInclude Include="..\Source\Game\SparseSet.hpp">
+      <Filter>Code\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\CassetTapeShowerComponent.h">
+      <Filter>Code\Objects\CassetTape</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\HashMap.hpp">
+      <Filter>Code\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Hashing.h">
+      <Filter>Code\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\CassetTapeComponent.h">
+      <Filter>Code\Objects\CassetTape</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Code">
@@ -413,9 +435,6 @@
     <Filter Include="Code\Objects\Enemy">
       <UniqueIdentifier>{6a0b5830-6fe0-44e6-b7fa-89020de093a6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Code\Objects\Skybox">
-      <UniqueIdentifier>{9eda6807-d088-44a7-abb5-91555b1d0311}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Code\Objects\Camera">
       <UniqueIdentifier>{e56ec12f-9104-4a13-9ed1-21f74b263da6}</UniqueIdentifier>
     </Filter>
@@ -424,6 +443,9 @@
     </Filter>
     <Filter Include="Code\Scene\Spawn">
       <UniqueIdentifier>{c050f84a-528d-4003-8359-6a4a0ca386ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Objects\CassetTape">
+      <UniqueIdentifier>{439c51e5-e45a-4e0f-88d4-1c35d80117e8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

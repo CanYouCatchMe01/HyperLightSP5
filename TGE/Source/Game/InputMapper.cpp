@@ -51,6 +51,10 @@ namespace Input
 		{
 			TranslateActionToEvent(Input::eInputAction::eKey_X, 1.f);
 		}
+		if (myInputManager.IsKeyPressed('C'))
+		{
+			TranslateActionToEvent(Input::eInputAction::eKey_C, 1.f);
+		}
 		if (myInputManager.IsKeyHeld(VK_UP))
 		{
 			TranslateActionToEvent(Input::eInputAction::eHoldArrowKeyUp, 1.f);

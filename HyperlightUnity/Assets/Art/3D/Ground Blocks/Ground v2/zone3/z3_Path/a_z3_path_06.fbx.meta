@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: z1_matGroundBlock
     second: {fileID: 2100000, guid: ddd0e0d368f1a164f8a7aa229a899d00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: z3_matPath
+    second: {fileID: 2100000, guid: ddd0e0d368f1a164f8a7aa229a899d00, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

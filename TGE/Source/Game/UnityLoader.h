@@ -17,6 +17,7 @@ enum class eLight
 class UnityLoader
 {
 public:
+	friend class Scene;
 	UnityLoader(class PollingStation* aPollingStation);
 	~UnityLoader();
 

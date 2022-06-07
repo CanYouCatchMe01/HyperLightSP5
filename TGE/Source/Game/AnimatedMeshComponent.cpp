@@ -87,13 +87,21 @@ void AnimatedMeshComponent::OnStart()
 void AnimatedMeshComponent::OnUpdate(const float aDeltaTime)
 {
 	myAnimationController.Update();
+
 	if (myHasModel)
 	{
 		Tga2D::AnimatedModelInstance* model = myScene->GetRenderObjectManager().GetAnimatedModel(myModelHandle);
 		Tga2D::Transform scaled = *myTransform;
 		scaled.SetScale(scaled.GetScale() * 0.01f);
 		model->SetTransform(scaled);
-		model->Update(aDeltaTime);
+
+		float speed = 1.0f;
+
+		auto current = myAnimationController.myCurrent;
+		if (current)
+			speed = current->mySpeed;
+
+		model->Update(aDeltaTime * speed);
 	}
 	
 }

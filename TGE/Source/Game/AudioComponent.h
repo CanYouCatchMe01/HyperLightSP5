@@ -1,7 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "fmod.hpp"
-#include "../../Bin/Assets/FMOD/fmod_studio_guids.hpp"
+#include "fmod_studio_guids.hpp"
 #include "fmod_studio.hpp"
 
 class AudioComponent : public Component

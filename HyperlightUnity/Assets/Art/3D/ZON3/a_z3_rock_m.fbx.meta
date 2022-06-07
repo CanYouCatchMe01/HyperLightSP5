@@ -3,7 +3,12 @@ guid: 4e54fc1ecc3c6684e8fd1ae46c798a3b
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: z3_matRocks
+    second: {fileID: 2100000, guid: c71d4adb4e0ecb448881b49388d608ba, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

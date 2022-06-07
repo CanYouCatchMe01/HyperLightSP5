@@ -1,33 +1,42 @@
 #include "stdafx.h"
 #include "BulletComponent.h"
-#include "GameObject.h"
-#include "PlayerComponent.h"
+#include "Scene.h"
 
-BulletComponent::BulletComponent()
+BulletComponent::BulletComponent(float aSpeed, int someDamage)
 {
-	myDir = { 0.0f,0.0f,0.0f };
-	mySpeed = 0.0f;
-	myDamage = 0;
-}
-
-BulletComponent::BulletComponent(Tga2D::Vector3f aDirection, float aSpeed, int aDamedg)
-{
-	myDir = aDirection;
 	mySpeed = aSpeed;
-	myDamage = aDamedg;
+	myAttackDamage = someDamage;
 }
 
-void BulletComponent::OnUpdate(float aDT)
+void BulletComponent::OnAwake()
 {
-	myTransform->SetPosition(myTransform->GetPosition() + myDir * mySpeed * aDT);
 }
 
-void BulletComponent::OnCollisionEnter(GameObject* aOther)
+void BulletComponent::OnStart()
 {
-	PlayerComponent* a = aOther->GetComponent<PlayerComponent>();
-	if (a != nullptr)
-	{
-		a->TakeDamage(myDamage);
-		//destroy bullet
-	}
+}
+
+void BulletComponent::OnUpdate(float aDt)
+{
+	myTransform->SetPosition(myTransform->GetPosition() + myAttackDirection * mySpeed * aDt);
+}
+
+void BulletComponent::SetDirection(Tga2D::Vector3f aDirection)
+{
+	myAttackDirection = aDirection;
+}
+
+void BulletComponent::SetPosition(Tga2D::Vector3f aPosition)
+{
+	myTransform->SetPosition(aPosition);
+}
+
+void BulletComponent::RemoveBullet()
+{
+	myScene->RemoveGameObject(myGameObject);
+}
+
+int BulletComponent::GetAttackDamage()
+{
+	return myAttackDamage;
 }

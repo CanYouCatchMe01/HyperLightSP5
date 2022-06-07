@@ -10,19 +10,22 @@
 #include <iostream>
 #include <tga2d/graphics/Camera.h>
 
-GameState::GameState(StateStack& aStateStack, PollingStation* aPollingStation)
+GameState::GameState(StateStack& aStateStack, PollingStation* aPollingStation, const std::string& aSceneName)
 	:
 	State(aStateStack, aPollingStation), myHud(aPollingStation)
 {
 	SetPollingStation(aPollingStation);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eEscape, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMap, this);
+
+	myPollingStation->mySceneManager->LoadScene(aSceneName);
 }
 
 GameState::~GameState()
 {
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eEscape, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMap, this);
+	myPollingStation->mySceneManager->UnloadAllScenes();
 }
 
 int GameState::Update(const float aDeltaTime)

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#ifdef _DEBUG
+#ifndef _RETAIL
 
 
 #include "BaseDebugger.h"
@@ -7,6 +7,8 @@
 #include "SceneManager.h"
 #include "Scene.h"
 #include "UnityLoader.h"
+#include "StateStack.h"
+#include "GameState.h"
 
 BaseDebugger::BaseDebugger(PollingStation* aPollingStation)
 {
@@ -46,7 +48,7 @@ void BaseDebugger::DebugUpdate()
 			{
 				if (ImGui::Button(scene.c_str()))
 				{
-					myPollingStation->mySceneManager->LoadScene(scene);
+					myStateStack->PushState(new GameState(*myStateStack, myPollingStation, scene));
 				}
 			}
 			ImGui::EndTabItem();
@@ -66,4 +68,8 @@ void BaseDebugger::DebugUpdate()
 
 
 }
-#endif // _DEBUG
+void BaseDebugger::SetStateStack(StateStack* aStateStack)
+{
+	myStateStack = aStateStack;
+}
+#endif // _RETAIL

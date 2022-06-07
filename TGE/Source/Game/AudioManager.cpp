@@ -21,14 +21,6 @@ AudioManager::~AudioManager()
 
 void AudioManager::Init()
 {
-#ifdef _DEBUG
-	//Copy .bank file
-	fs::copy_file("../../FMOD_hyper_light/Build/Desktop/Master.bank", "Assets/FMOD/Master.bank", fs::copy_options::overwrite_existing);
-	fs::copy_file("../../FMOD_hyper_light/Build/Desktop/Master.strings.bank", "Assets/FMOD/Master.strings.bank", fs::copy_options::overwrite_existing);
-	//Copy guids file
-	fs::copy_file("../../FMOD_hyper_light/fmod_studio_guids.hpp", "Assets/FMOD/fmod_studio_guids.hpp", fs::copy_options::overwrite_existing);
-#endif // _DEBUG
-
 	myListenerAttributes = FMOD_3D_ATTRIBUTES();
 	myListenerAttributes.up = { 0,1,0 };
 	myListenerAttributes.forward = { 0,0,1 };

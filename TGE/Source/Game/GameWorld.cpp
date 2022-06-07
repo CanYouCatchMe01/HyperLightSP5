@@ -36,10 +36,18 @@ void GameWorld::Init(HWND aHWND)
 #ifdef _RETAIL
 	Tga2D::Engine::GetInstance()->SetFullScreen(true);
 #endif
+
+#ifdef _DEBUG
+	myPollingStation->myDebugger.get()->SetStateStack(&myStateStack);
+#endif // _DEBUG
 }
 
 void GameWorld::Update(float aTimeDelta)
 {
+#ifdef _DEBUG
+	myPollingStation->myDebugger.get()->DebugUpdate();
+#endif // _DEBUG
+
 	if (myStartUp)
 	{
 		myStartUpTimer += aTimeDelta;
@@ -48,11 +56,6 @@ void GameWorld::Update(float aTimeDelta)
 
 		return;
 	}
-
-#ifdef _DEBUG
-	myPollingStation->myDebugger.get()->DebugUpdate();
-#endif // _DEBUG
-
 
 	myStateStack.UpdateState(aTimeDelta);
 	myPollingStation->Update();

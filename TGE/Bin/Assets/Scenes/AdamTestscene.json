@@ -35,6 +35,42 @@
       "children": []
     },
     {
+      "name": "a_z3_ground_01",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -0.01,
+          "y": 1.53,
+          "z": -11.8800564
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_01.fbx",
+            "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
+            "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
+            "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "Player",
       "tag": 5,
       "layer": 0,
@@ -84,7 +120,66 @@
             "healing_time": 0.1,
             "attack_time": 0.1,
             "speed": 10.0,
-            "dash_speed": 30.0
+            "dash_speed": 30.0,
+            "bullet": {
+              "name": "a_g_bullet",
+              "tag": 9,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": -10.749,
+                  "y": 3.534,
+                  "z": -21.521
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [
+                {
+                  "type": "mesh",
+                  "data": {
+                    "model": "Assets/Art/3D/GLOBAL/a_g_bullet.fbx",
+                    "albedo": "",
+                    "normal": "",
+                    "reflective": ""
+                  }
+                },
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": true,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 0.209163815,
+                      "y": 0.209163815,
+                      "z": 0.209163815
+                    }
+                  }
+                },
+                {
+                  "type": "bullet",
+                  "data": {
+                    "attack_damage": 1,
+                    "speed": 5.0
+                  }
+                }
+              ],
+              "children": []
+            }
           }
         },
         {
@@ -243,9 +338,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/GLOBAL/a_g_oilBarrel.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone1/matOilBarrel_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/matOilBarrel_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/matOilBarrel_m.dds"
           }
         },
         {
@@ -726,9 +821,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/enHeltVanligKub.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
+            "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
+            "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
           }
         },
         {
@@ -778,9 +873,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/enHeltVanligKub.fbx",
-            "albedo": "Assets/Materials/texture_test.dds",
-            "normal": "Assets/Materials/texture_test.dds",
-            "reflective": "Assets/Materials/texture_test.dds"
+            "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
+            "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
+            "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
           }
         },
         {

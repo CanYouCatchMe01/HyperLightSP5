@@ -5,6 +5,7 @@
 #include <tga2d/light/LightManager.h>
 #include <json.hpp>
 #include "PollingStation.h"
+#include "SceneManager.h"
 
 Scene::Scene(PollingStation* aPollingStation) : myPollingStation(aPollingStation), myAmbientLight(Tga2D::Color{ 1, 1, 1 }, 3000.0)
 , myDirectionalLight({}, Tga2D::Color{ 1, 1, 1 }, 1.0)
@@ -28,7 +29,6 @@ Scene::Scene(PollingStation* aPollingStation) : myPollingStation(aPollingStation
 
 Scene::~Scene()
 {
-
 	for (size_t i = 0; i < myGameObjects.size(); i++)
 		delete myGameObjects[i];
 }
@@ -65,6 +65,7 @@ void Scene::Update(float aTimeDelta)
 	{
 		myGameObjects.push_back(gameObject);
 	}
+
 	myTempAddObjects.clear();
 }
 
@@ -104,6 +105,19 @@ void Scene::SetAmbientLight(const Tga2D::AmbientLight& anAmbientLight)
 {
 	myAmbientLight = anAmbientLight;
 	//Tga2D::Engine::GetInstance()->GetLightManager().SetAmbientLight(myAmbientLight);
+}
+
+GameObject* Scene::CreateGameObject(nlohmann::json& json)
+{
+	GameObject* go = myPollingStation->mySceneManager->myUnityLoader.CreateGameObject(json, this);
+	myGameObjects.push_back(go);
+	return go;
+}
+
+GameObject* Scene::CreateGameObject()
+{
+	myGameObjects.push_back(new GameObject(this));
+	return myGameObjects.back();
 }
 
 void Scene::AddGameObject(GameObject* aGameObject)

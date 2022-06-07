@@ -286,7 +286,7 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 			myArrows[mySelectedArrow].SetState(eState::None);
 		myShouldChangeVolume = false;
 		if (mySelectedButton == eButtonType::SFXVol)
-			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_player_attack);
+			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_player_slash);
 		break;
 
 	case Input::eInputEvent::eReleaseArrowLeft:
@@ -294,7 +294,7 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 			myArrows[mySelectedArrow].SetState(eState::None);
 		myShouldChangeVolume = false;
 		if (mySelectedButton == eButtonType::SFXVol)
-			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_player_attack);
+			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_player_slash);
 		break;
 
 	case Input::eInputEvent::eSelect:

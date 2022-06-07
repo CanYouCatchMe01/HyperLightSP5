@@ -144,7 +144,7 @@ void MainMenuState::InvokeButton(eButtonType aType)
 		switch (aType)
 		{
 		case eButtonType::Start:
-			myStateStack.PushState(new GameState(myStateStack, myPollingStation));
+			myStateStack.PushState(new GameState(myStateStack, myPollingStation, "Tutorial"));
 			break;
 		case eButtonType::Options:
 			myStateStack.PushState(new OptionsState(myStateStack, myPollingStation));

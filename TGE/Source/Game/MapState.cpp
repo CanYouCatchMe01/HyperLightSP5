@@ -50,12 +50,11 @@ MapState::MapState(StateStack& aStateStack, PollingStation* aPollingStation)
 	myTeleportPoints[4] = "Hub";
 
 
-	GameData currentData = aPollingStation->myGameDataManager.get()->GetGameData();
-	for (size_t i = 1; i < currentData.TeleporterStatus.size(); i++)
+	GameData& currentData = aPollingStation->myGameDataManager.get()->GetGameData();
+	for (size_t i = 1; i < currentData.myTeleporterStatus.size(); i++)
 	{
-		myButtons[i].SetActiveTP(currentData.TeleporterStatus[i-1]);
+		myButtons[i].SetActiveTP(currentData.myTeleporterStatus[i-1]);
 	}
-	myPollingStation->myGameDataManager.get()->UpdateGameData(currentData);
 	myCurrentSelection = eButtonIndex::eHub;
 }
 
@@ -101,7 +100,7 @@ void MapState::InvokeButton()
 	if (myCurrentSelection == eButtonIndex::eBack)
 		return;
 
-	if (currentGameData.TeleporterStatus[myCurrentSelection-1])
+	if (currentGameData.myTeleporterStatus[myCurrentSelection-1])
 	{
 		myPollingStation->mySceneManager.get()->LoadScene(myTeleportPoints[myCurrentSelection-1], "Teleporter");
 		myNumberOfPops = 1;

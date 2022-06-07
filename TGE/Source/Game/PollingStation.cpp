@@ -4,9 +4,9 @@
 #include "Postmaster.h"
 #include "GameDataManager.h"
 #include "GameObject.h"
-#ifdef _DEBUG
+#ifndef _RETAIL
 #include "BaseDebugger.h"
-#endif // _DEBUG
+#endif // _RETAIL
 
 #include "AudioManager.h"
 
@@ -16,17 +16,18 @@ PollingStation::PollingStation()
 
 void PollingStation::Init(HWND aHWND)
 {
-#ifdef _DEBUG
+#ifndef _RETAIL
 	myDebugger = std::make_unique<BaseDebugger>(this);
-#endif // _DEBUG
+#endif // _RETAIL
 
 	myAudioManager = std::make_unique<AudioManager>();
-
+	myGameDataManager = std::make_unique<GameDataManager>();
 	myInputMapper = std::make_unique<Input::InputMapper>(aHWND);
 	MapKeys();
+	myGameDataManager = std::make_unique<GameDataManager>();
 	mySceneManager = std::make_unique<SceneManager>(this);
 	myPostmaster = std::make_unique<Postmaster>();
-	myGameDataManager = std::make_unique<GameDataManager>();
+	
 
 }
 
@@ -48,6 +49,7 @@ void PollingStation::MapKeys()
 	myInputMapper.get()->MapEvent(Input::eInputAction::eHoldD, Input::eInputEvent::eMoveRight);
 	myInputMapper.get()->MapEvent(Input::eInputAction::eKey_X, Input::eInputEvent::eAttack);
 	myInputMapper.get()->MapEvent(Input::eInputAction::eKey_Space, Input::eInputEvent::eDash);
+	myInputMapper.get()->MapEvent(Input::eInputAction::eKey_C, Input::eInputEvent::eHeal);
 
 	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowUp, Input::eInputEvent::eReleaseArrowUp);
 	myInputMapper.get()->MapEvent(Input::eInputAction::eReleaseArrowDown, Input::eInputEvent::eReleaseArrowDown);

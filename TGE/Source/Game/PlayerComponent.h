@@ -26,15 +26,16 @@ public:
 
 	int GetHealing();
 	void SetHealing(int aHealing);
+	inline void SetGrounded(bool aIsGrounded) { myIsGrounded = aIsGrounded; };
 
 	void RecieveEvent(const Input::eInputEvent aEvent, const float aValue) override;
 
 	virtual void OnAwake() override;
 
 	virtual void OnStart() override;
-#ifdef _DEBUG
+#ifndef _RETAIL
 	void DebugUpdate() override;
-#endif // _DEBUG
+#endif // _RETAIL
 
 	void OnCollisionEnter(GameObject* aOther) override;
 	void OnCollisionExit(GameObject* aOther) override;
@@ -52,7 +53,6 @@ private:
 	float myRotationDiff = 0;
 	float myRotationTime = 0;
 	float myRotationSpeed = 12; //Higher is faster.
-	int myMaxHp = 5;
 	int myMaxHealing = 3;
 	int myMaxAttacks = 3;
 	float myDashTime = 0.1f;
@@ -74,11 +74,11 @@ private:
 	float myStunTimer = 0.0f;
 	bool myDash = false;
 	bool myStun = false;
+	bool myIsGrounded = false;
 
 	bool myHealing = false;
 	bool myNextAttack = false;
 	int myAttacks = 0;
-	int myHp = myMaxHp;
 	int myHealingItems = 0;
 	
 	//Audio

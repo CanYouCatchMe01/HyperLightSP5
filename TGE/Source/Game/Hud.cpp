@@ -31,6 +31,7 @@ Hud::Hud(PollingStation* aPollingStation)
 
 void Hud::RecieveMsg(const Message& aMsg)
 {
+	float healthValue = aMsg.aFloatValue;
 	switch (aMsg.myMsg)
 	{
 	case eMessageType::ePlayerHealed:
@@ -43,15 +44,17 @@ void Hud::RecieveMsg(const Message& aMsg)
 		break;
 
 	case eMessageType::ePlayerPickedUpHealth:
-		if (myNumberOfHealthKits > 3)
+		if (myNumberOfHealthKits < 3)
 			myNumberOfHealthKits++;
 
 		myHealthKits.ChangeTexture(myHealthCharges[myNumberOfHealthKits]);
 
 		break;
 	case eMessageType::ePlayerTookDMG:
-		aMsg.aFloatValue;
-		myHealthBar.ChangeSizeMultiplier({ myCurrentMultiplier.x * aMsg.aFloatValue, myCurrentMultiplier.y });
+		if (healthValue < 0)
+			healthValue = 0;
+
+		myHealthBar.ChangeSizeMultiplier({ myCurrentMultiplier.x * healthValue, myCurrentMultiplier.y });
 
 		break;
 	case eMessageType::eHealthUpgrade:

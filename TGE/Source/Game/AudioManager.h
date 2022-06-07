@@ -1,6 +1,6 @@
 #pragma once
 #include "fmod_studio.hpp"
-#include "../../Bin/Assets/FMOD/fmod_studio_guids.hpp"
+#include "fmod_studio_guids.hpp"
 #include <map>
 #include <tga2d/math/Transform.h>
 

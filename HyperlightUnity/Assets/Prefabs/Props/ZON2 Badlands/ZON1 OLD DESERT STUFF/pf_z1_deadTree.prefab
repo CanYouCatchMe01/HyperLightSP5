@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 951297983142347179}
   - component: {fileID: 3087014342456915297}
   m_Layer: 0
-  m_Name: a_z1_deadTree
+  m_Name: pf_z1_deadTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1732580053464874455, guid: 01b8726dda1d4a14e911f36d233d8252, type: 3}
+  - {fileID: 2100000, guid: 3a8bf84533900664bb497e0fbf9c7d85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
