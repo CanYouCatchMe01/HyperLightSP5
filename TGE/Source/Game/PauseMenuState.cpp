@@ -41,6 +41,7 @@ PauseMenuState::PauseMenuState(StateStack& aStateStack, PollingStation* aPolling
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuUp, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuDown, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eDash, this);
 
 }
 
@@ -49,6 +50,7 @@ PauseMenuState::~PauseMenuState()
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMenuUp, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMenuDown, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eSelect, this);
+	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eDash, this);
 
 	for (Button* b : myButtons)
 	{
@@ -156,6 +158,7 @@ void PauseMenuState::RecieveEvent(const Input::eInputEvent aEvent, const float /
 		}
 
 		break;
+	case Input::eInputEvent::eDash:	
 	case Input::eInputEvent::eSelect:
 		InvokeButton(mySelectedType);
 		break;

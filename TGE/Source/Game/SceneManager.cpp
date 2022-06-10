@@ -32,7 +32,6 @@ void SceneManager::Update(float aTimeDelta)
 
 	if (mySceneToDelete >= 0)
 	{
-		myPollingStation->myAudioManager->SetListenerTransform(nullptr);
 		delete myScenes[mySceneToDelete];
 		myScenes.erase(myScenes.begin() + mySceneToDelete);
 		myActiveScene = 0; //quick implement, maybe dont just set to 0

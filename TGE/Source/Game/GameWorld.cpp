@@ -17,16 +17,18 @@
 
 
 GameWorld::GameWorld()
-{}
+{
+}
 
-GameWorld::~GameWorld() 
-{}
+GameWorld::~GameWorld()
+{
+}
 
-void GameWorld::Init(HWND aHWND)  
+void GameWorld::Init(HWND aHWND)
 {
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/tgalogo_W.dds");
 	mySpriteInstance.myPivot = { 0.5f,0.5f };
-	mySpriteInstance.myPosition= { 0.5f,0.5f };
+	mySpriteInstance.myPosition = { 0.5f,0.5f };
 	mySpriteInstance.mySizeMultiplier = { 1.f,0.32f };
 	myPollingStation = new PollingStation;
 	myPollingStation->Init(aHWND);
@@ -47,23 +49,80 @@ void GameWorld::Update(float aTimeDelta)
 #ifdef _DEBUG
 	myPollingStation->myDebugger.get()->DebugUpdate();
 #endif // _DEBUG
-
-	if (myStartUp)
+	if (!myGroupStartUp)
 	{
+		myStateStack.UpdateState(aTimeDelta);
+		myPollingStation->Update();
+		return;
+	}
+	if (myTGAStartUp)
+	{
+		mySpriteInstance.myColor = { 1,1,1, myAlpha };
+		if (myFadeOut)
+		{
+			myAlpha -= aTimeDelta * 1.5f;
+
+			if (myAlpha <= -0.5f)
+			{
+				myFadeOut = false;
+				myTGAStartUp = false;
+				myAlpha = 0;
+				mySpriteInstance.mySize = { 0.5f,0.5f };
+				mySpriteInstance.mySizeMultiplier = 1.f;
+				myStartUpTimer = 0;
+				mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/groupLogo.dds");
+			}
+			return;
+		}
+
+		if (myAlpha < 1.5f)
+			myAlpha += aTimeDelta / 2;
+
+		if (myAlpha >= 1)
+		{
+			myAlpha = 1;
+		}
+
 		myStartUpTimer += aTimeDelta;
 		if (myStartUpTimer > myStartUpTime)
-			myStartUp = false;
+		{
+			myFadeOut = true;
+			myStartUpTimer = 0;
+		}
 
 		return;
 	}
+	if (myGroupStartUp)
+	{
+		mySpriteInstance.myColor = { 1,1,1, myAlpha };
+		if (myFadeOut)
+		{
+			myAlpha -= aTimeDelta * .5f;
 
-	myStateStack.UpdateState(aTimeDelta);
-	myPollingStation->Update();
+			if (myAlpha <= -0.75f)
+			{
+				myFadeOut = false;
+				myGroupStartUp = false;
+			}
+			return;
+		}
+
+		if (myAlpha < 1)
+			myAlpha += aTimeDelta / 2;
+
+		if (myAlpha > 1)
+		{
+			myFadeOut = true;
+		}
+		return;
+	}
+
+
 }
 
 void GameWorld::Render()
 {
-	if (myStartUp)
+	if (myTGAStartUp || myGroupStartUp)
 	{
 		Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetSpriteDrawer().Draw(mySharedData, mySpriteInstance);
 		return;

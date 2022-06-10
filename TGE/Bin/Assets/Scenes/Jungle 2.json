@@ -38,6 +38,123 @@
       "children": []
     },
     {
+      "name": "a_g_teleport",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -11.0,
+          "y": -1.16350245,
+          "z": -9.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.9508887,
+          "z": 0.0,
+          "w": 0.309533179
+        },
+        "scale": {
+          "x": 0.5000002,
+          "y": 0.5,
+          "z": 0.5000002
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_teleport.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/g_matTeleport_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/g_matTeleport_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/g_matTeleport_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "TeleportActivator",
+      "tag": 13,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -11.0,
+          "y": -0.58234787,
+          "z": -9.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.9508887,
+          "z": 0.0,
+          "w": 0.309533179
+        },
+        "scale": {
+          "x": 1.00000036,
+          "y": 1.0,
+          "z": 1.00000036
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 4.13665676,
+              "y": 1.82372785,
+              "z": 4.13665771
+            }
+          }
+        },
+        {
+          "type": "teleport_1",
+          "data": {}
+        }
+      ],
+      "children": [
+        {
+          "name": "SpawnPoint",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -11.0,
+              "y": -0.58234787,
+              "z": -9.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.9508887,
+              "z": 0.0,
+              "w": 0.309533179
+            },
+            "scale": {
+              "x": 1.00000036,
+              "y": 1.0,
+              "z": 1.00000036
+            }
+          },
+          "components": [
+            {
+              "type": "spawn_point",
+              "data": {
+                "name": "teleporter"
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
       "name": "a_z3_bush_02 (11)",
       "tag": 0,
       "layer": 0,
@@ -5389,15 +5506,6 @@
       },
       "components": [
         {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_enemy.fbx",
-            "albedo": "Assets/Materials/Mat characters/Z2_mat_Enemy_c.dds",
-            "normal": "Assets/Materials/Mat characters/Z2_mat_Enemy_n.dds",
-            "reflective": "Assets/Materials/Mat characters/Z2_mat_Enemy_m.dds"
-          }
-        },
-        {
           "type": "box_collider",
           "data": {
             "is_trigger": false,
@@ -5442,6 +5550,29 @@
             "attack_damage": 1,
             "dash_speed": 7.5,
             "idle_radius": 10.0
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/Z2_mat_Enemy_c.dds",
+            "normal": "Assets/Materials/Mat characters/Z2_mat_Enemy_n.dds",
+            "reflective": "Assets/Materials/Mat characters/Z2_mat_Enemy_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_enemy.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z2_enemy_charge_slash.fbx",
+                "name": "z2_enemy_charge_slash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_run.fbx",
+                "name": "Flute_Run"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_idle.fbx",
+                "name": "Flute_Idle"
+              }
+            ]
           }
         }
       ],
@@ -5681,9 +5812,9 @@
           "w": 1.0
         },
         "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
+          "x": 1.5,
+          "y": 1.5,
+          "z": 1.5
         }
       },
       "components": [
@@ -5716,7 +5847,49 @@
           "type": "bullet",
           "data": {
             "attack_damage": 1,
-            "speed": 5.0
+            "speed": 1.5
+          }
+        },
+        {
+          "type": "emitter",
+          "data": {
+            "texture": "Assets/Art/2D/particleNoteSprite.dds",
+            "startScale": 0.5,
+            "endScale": 2.0,
+            "minMass": 10.0,
+            "maxMass": 3.0,
+            "minTimeBetweenParticleSpawns": 0.1,
+            "maxTimeBetweenParticleSpawns": 0.1,
+            "minStartSpeed": 1.0,
+            "maxStartSpeed": 1.0,
+            "minAngle": -1.27,
+            "maxAngle": -1.87,
+            "minLifeTime": 0.5,
+            "maxLifeTime": 0.8,
+            "minSpawnOffsetDistance": 0.0,
+            "maxSpawnOffsetDistance": 0.0,
+            "acceleration": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "color": [
+              {
+                "r": 1.0,
+                "g": 0.9053073,
+                "b": 0.0,
+                "a": 1.0
+              },
+              {
+                "r": 0.6778572,
+                "g": 0.0,
+                "b": 0.7264151,
+                "a": 1.0
+              }
+            ],
+            "blendState": 2,
+            "emitTime": 0.0,
+            "gravity": -9.81
           }
         }
       ],
@@ -5788,9 +5961,9 @@
                   "w": 1.0
                 },
                 "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
                 }
               },
               "components": [
@@ -5823,7 +5996,49 @@
                   "type": "bullet",
                   "data": {
                     "attack_damage": 1,
-                    "speed": 5.0
+                    "speed": 1.5
+                  }
+                },
+                {
+                  "type": "emitter",
+                  "data": {
+                    "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                    "startScale": 0.5,
+                    "endScale": 2.0,
+                    "minMass": 10.0,
+                    "maxMass": 3.0,
+                    "minTimeBetweenParticleSpawns": 0.1,
+                    "maxTimeBetweenParticleSpawns": 0.1,
+                    "minStartSpeed": 1.0,
+                    "maxStartSpeed": 1.0,
+                    "minAngle": -1.27,
+                    "maxAngle": -1.87,
+                    "minLifeTime": 0.5,
+                    "maxLifeTime": 0.8,
+                    "minSpawnOffsetDistance": 0.0,
+                    "maxSpawnOffsetDistance": 0.0,
+                    "acceleration": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "color": [
+                      {
+                        "r": 1.0,
+                        "g": 0.9053073,
+                        "b": 0.0,
+                        "a": 1.0
+                      },
+                      {
+                        "r": 0.6778572,
+                        "g": 0.0,
+                        "b": 0.7264151,
+                        "a": 1.0
+                      }
+                    ],
+                    "blendState": 2,
+                    "emitTime": 0.0,
+                    "gravity": -9.81
                   }
                 }
               ],
@@ -69235,9 +69450,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": -9.99,
+          "x": -9.0,
           "y": -1.85,
-          "z": -8.73
+          "z": -5.0
         },
         "rotation": {
           "x": -0.0109408675,
@@ -69271,9 +69486,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": -9.443352,
+          "x": -8.258,
           "y": -1.90453339,
-          "z": -9.853287
+          "z": -11.159
         },
         "rotation": {
           "x": -0.0109408675,
@@ -77188,42 +77403,6 @@
       "children": []
     },
     {
-      "name": "a_z3_TreeL (9)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -4.8,
-          "y": -4.1,
-          "z": -18.1
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.2742949,
-          "z": 0.0,
-          "w": 0.961645663
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
-            "albedo": "Assets/Materials/Mat Zone3/z3_matTreeL_c.dds",
-            "normal": "Assets/Materials/Mat Zone3/z3_matTreeL_n.dds",
-            "reflective": "Assets/Materials/Mat Zone3/z3_matTreeL_m.dds"
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "a_z3_TreeL (10)",
       "tag": 0,
       "layer": 0,
@@ -80426,8 +80605,8 @@
       "transform": {
         "position": {
           "x": 7.789999,
-          "y": 4.81,
-          "z": -27.6600037
+          "y": 3.0,
+          "z": -31.0
         },
         "rotation": {
           "x": 0.0,
@@ -80451,8 +80630,8 @@
           "transform": {
             "position": {
               "x": 7.789999,
-              "y": 4.81,
-              "z": -27.6600037
+              "y": 3.0,
+              "z": -31.0
             },
             "rotation": {
               "x": 0.0,
@@ -80489,8 +80668,8 @@
       "transform": {
         "position": {
           "x": 1.42999935,
-          "y": 4.81,
-          "z": -27.6600037
+          "y": 3.0,
+          "z": -31.0
         },
         "rotation": {
           "x": 0.0,
@@ -80514,8 +80693,8 @@
           "transform": {
             "position": {
               "x": 1.42999935,
-              "y": 4.81,
-              "z": -27.6600037
+              "y": 3.0,
+              "z": -31.0
             },
             "rotation": {
               "x": 0.0,
@@ -80552,8 +80731,8 @@
       "transform": {
         "position": {
           "x": -4.770001,
-          "y": 4.81,
-          "z": -27.6600037
+          "y": 3.0,
+          "z": -31.0
         },
         "rotation": {
           "x": 0.0,
@@ -80577,8 +80756,8 @@
           "transform": {
             "position": {
               "x": -4.770001,
-              "y": 4.81,
-              "z": -27.6600037
+              "y": 3.0,
+              "z": -31.0
             },
             "rotation": {
               "x": 0.0,
@@ -80615,8 +80794,8 @@
       "transform": {
         "position": {
           "x": -11.1800013,
-          "y": 4.81,
-          "z": -27.6600037
+          "y": 3.0,
+          "z": -31.0
         },
         "rotation": {
           "x": 0.0,
@@ -80640,8 +80819,8 @@
           "transform": {
             "position": {
               "x": -11.1800013,
-              "y": 4.81,
-              "z": -27.6600037
+              "y": 3.0,
+              "z": -31.0
             },
             "rotation": {
               "x": 0.0,
@@ -80669,42 +80848,6 @@
           "children": []
         }
       ]
-    },
-    {
-      "name": "a_z3_TreeL (13)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -6.0,
-          "y": -4.0,
-          "z": 25.0
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.2742949,
-          "z": 0.0,
-          "w": 0.961645663
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
-            "albedo": "Assets/Materials/Mat Zone3/z3_matTreeL_c.dds",
-            "normal": "Assets/Materials/Mat Zone3/z3_matTreeL_n.dds",
-            "reflective": "Assets/Materials/Mat Zone3/z3_matTreeL_m.dds"
-          }
-        }
-      ],
-      "children": []
     },
     {
       "name": "pf_z3_ground_02 (170)",
@@ -82306,15 +82449,6 @@
       },
       "components": [
         {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_enemy.fbx",
-            "albedo": "Assets/Materials/Mat characters/Z2_mat_Enemy_c.dds",
-            "normal": "Assets/Materials/Mat characters/Z2_mat_Enemy_n.dds",
-            "reflective": "Assets/Materials/Mat characters/Z2_mat_Enemy_m.dds"
-          }
-        },
-        {
           "type": "box_collider",
           "data": {
             "is_trigger": false,
@@ -82359,6 +82493,29 @@
             "attack_damage": 1,
             "dash_speed": 7.5,
             "idle_radius": 10.0
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/Z2_mat_Enemy_c.dds",
+            "normal": "Assets/Materials/Mat characters/Z2_mat_Enemy_n.dds",
+            "reflective": "Assets/Materials/Mat characters/Z2_mat_Enemy_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_enemy.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z2_enemy_charge_slash.fbx",
+                "name": "z2_enemy_charge_slash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_run.fbx",
+                "name": "Flute_Run"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_idle.fbx",
+                "name": "Flute_Idle"
+              }
+            ]
           }
         }
       ],
@@ -82754,9 +82911,9 @@
                   "w": 1.0
                 },
                 "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
                 }
               },
               "components": [
@@ -82789,7 +82946,49 @@
                   "type": "bullet",
                   "data": {
                     "attack_damage": 1,
-                    "speed": 5.0
+                    "speed": 1.5
+                  }
+                },
+                {
+                  "type": "emitter",
+                  "data": {
+                    "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                    "startScale": 0.5,
+                    "endScale": 2.0,
+                    "minMass": 10.0,
+                    "maxMass": 3.0,
+                    "minTimeBetweenParticleSpawns": 0.1,
+                    "maxTimeBetweenParticleSpawns": 0.1,
+                    "minStartSpeed": 1.0,
+                    "maxStartSpeed": 1.0,
+                    "minAngle": -1.27,
+                    "maxAngle": -1.87,
+                    "minLifeTime": 0.5,
+                    "maxLifeTime": 0.8,
+                    "minSpawnOffsetDistance": 0.0,
+                    "maxSpawnOffsetDistance": 0.0,
+                    "acceleration": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "color": [
+                      {
+                        "r": 1.0,
+                        "g": 0.9053073,
+                        "b": 0.0,
+                        "a": 1.0
+                      },
+                      {
+                        "r": 0.6778572,
+                        "g": 0.0,
+                        "b": 0.7264151,
+                        "a": 1.0
+                      }
+                    ],
+                    "blendState": 2,
+                    "emitTime": 0.0,
+                    "gravity": -9.81
                   }
                 }
               ],
@@ -82889,9 +83088,9 @@
                   "w": 1.0
                 },
                 "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
                 }
               },
               "components": [
@@ -82924,7 +83123,49 @@
                   "type": "bullet",
                   "data": {
                     "attack_damage": 1,
-                    "speed": 5.0
+                    "speed": 1.5
+                  }
+                },
+                {
+                  "type": "emitter",
+                  "data": {
+                    "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                    "startScale": 0.5,
+                    "endScale": 2.0,
+                    "minMass": 10.0,
+                    "maxMass": 3.0,
+                    "minTimeBetweenParticleSpawns": 0.1,
+                    "maxTimeBetweenParticleSpawns": 0.1,
+                    "minStartSpeed": 1.0,
+                    "maxStartSpeed": 1.0,
+                    "minAngle": -1.27,
+                    "maxAngle": -1.87,
+                    "minLifeTime": 0.5,
+                    "maxLifeTime": 0.8,
+                    "minSpawnOffsetDistance": 0.0,
+                    "maxSpawnOffsetDistance": 0.0,
+                    "acceleration": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "color": [
+                      {
+                        "r": 1.0,
+                        "g": 0.9053073,
+                        "b": 0.0,
+                        "a": 1.0
+                      },
+                      {
+                        "r": 0.6778572,
+                        "g": 0.0,
+                        "b": 0.7264151,
+                        "a": 1.0
+                      }
+                    ],
+                    "blendState": 2,
+                    "emitTime": 0.0,
+                    "gravity": -9.81
                   }
                 }
               ],
@@ -83024,9 +83265,9 @@
                   "w": 1.0
                 },
                 "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
                 }
               },
               "components": [
@@ -83059,7 +83300,49 @@
                   "type": "bullet",
                   "data": {
                     "attack_damage": 1,
-                    "speed": 5.0
+                    "speed": 1.5
+                  }
+                },
+                {
+                  "type": "emitter",
+                  "data": {
+                    "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                    "startScale": 0.5,
+                    "endScale": 2.0,
+                    "minMass": 10.0,
+                    "maxMass": 3.0,
+                    "minTimeBetweenParticleSpawns": 0.1,
+                    "maxTimeBetweenParticleSpawns": 0.1,
+                    "minStartSpeed": 1.0,
+                    "maxStartSpeed": 1.0,
+                    "minAngle": -1.27,
+                    "maxAngle": -1.87,
+                    "minLifeTime": 0.5,
+                    "maxLifeTime": 0.8,
+                    "minSpawnOffsetDistance": 0.0,
+                    "maxSpawnOffsetDistance": 0.0,
+                    "acceleration": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "color": [
+                      {
+                        "r": 1.0,
+                        "g": 0.9053073,
+                        "b": 0.0,
+                        "a": 1.0
+                      },
+                      {
+                        "r": 0.6778572,
+                        "g": 0.0,
+                        "b": 0.7264151,
+                        "a": 1.0
+                      }
+                    ],
+                    "blendState": 2,
+                    "emitTime": 0.0,
+                    "gravity": -9.81
                   }
                 }
               ],
@@ -83354,7 +83637,7 @@
         "position": {
           "x": -102.0,
           "y": -0.25,
-          "z": 90.0
+          "z": 97.35
         },
         "rotation": {
           "x": 0.0,
@@ -83366,42 +83649,6 @@
           "x": 1.0,
           "y": 1.0,
           "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
-            "albedo": "Assets/Materials/Mat Zone3/z3_matTreeL_c.dds",
-            "normal": "Assets/Materials/Mat Zone3/z3_matTreeL_n.dds",
-            "reflective": "Assets/Materials/Mat Zone3/z3_matTreeL_m.dds"
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "a_z3_TreeL (21)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -5.8,
-          "y": -4.11,
-          "z": 64.7
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": -0.109734394,
-          "z": 0.0,
-          "w": 0.993961
-        },
-        "scale": {
-          "x": 1.5,
-          "y": 1.5,
-          "z": 1.5
         }
       },
       "components": [
@@ -97573,9 +97820,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": -8.42,
+          "x": -8.0,
           "y": -1.4,
-          "z": -9.38
+          "z": -9.0
         },
         "rotation": {
           "x": 0.0,
@@ -98917,9 +99164,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": 1.11,
+          "x": 3.0,
           "y": -0.76,
-          "z": -5.86
+          "z": -9.0
         },
         "rotation": {
           "x": 0.0,
@@ -98977,12 +99224,12 @@
             "center": {
               "x": 0.0,
               "y": 1.0,
-              "z": 1.0
+              "z": 1.03
             },
             "size": {
-              "x": 1.54516709,
-              "y": 1.93430161,
-              "z": 1.0
+              "x": 2.22,
+              "y": 1.85,
+              "z": 2.11
             }
           }
         },
@@ -99022,15 +99269,15 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": 6.76685429,
+              "x": 8.656855,
               "y": 11.24,
-              "z": -11.5168552
+              "z": -14.6568546
             },
             "rotation": {
-              "x": 0.397740334,
-              "y": -0.345404446,
-              "z": 0.164749429,
-              "w": 0.8338801
+              "x": 0.353553385,
+              "y": -0.353553385,
+              "z": 0.1464466,
+              "w": 0.8535535
             },
             "scale": {
               "x": 1.0,
@@ -99049,6 +99296,2238 @@
           "children": []
         }
       ]
+    },
+    {
+      "name": "a_z3_bush_01 (85)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -8.62,
+          "y": 4.913599,
+          "z": 28.51
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.968301535,
+          "z": 0.0,
+          "w": -0.2497842
+        },
+        "scale": {
+          "x": 6.41010046,
+          "y": 6.4101,
+          "z": 6.41010046
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (68)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -10.45,
+          "y": 8.19,
+          "z": 39.54
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.3525846,
+          "z": 0.0,
+          "w": -0.93578
+        },
+        "scale": {
+          "x": 3.39773965,
+          "y": 3.39774,
+          "z": 3.39773965
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (86)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -0.113563538,
+          "y": 4.913599,
+          "z": 21.4396858
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.646006763,
+          "z": 0.0,
+          "w": -0.7633318
+        },
+        "scale": {
+          "x": 6.410101,
+          "y": 6.4101,
+          "z": 6.410101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (41)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -9.614634,
+          "y": 10.2135992,
+          "z": 36.5818672
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.992305458,
+          "z": 0.0,
+          "w": -0.123814106
+        },
+        "scale": {
+          "x": 2.68301034,
+          "y": 2.68300986,
+          "z": 2.68301034
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (38)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -1.74706841,
+          "y": 11.4099989,
+          "z": 31.2908859
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.7912418,
+          "z": 0.0,
+          "w": 0.611503363
+        },
+        "scale": {
+          "x": 3.39773965,
+          "y": 3.39774,
+          "z": 3.39773965
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (40)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -6.07606,
+          "y": 12.0264006,
+          "z": 36.3268623
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.968301535,
+          "z": 0.0,
+          "w": -0.2497842
+        },
+        "scale": {
+          "x": 2.45344019,
+          "y": 2.45344,
+          "z": 2.45344019
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (39)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -0.602034569,
+          "y": 11.4099989,
+          "z": 25.3931465
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.9437582,
+          "z": 0.0,
+          "w": 0.330636531
+        },
+        "scale": {
+          "x": 2.78458047,
+          "y": 2.78458,
+          "z": 2.78458047
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (45)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 14.1915293,
+          "y": 11.4099989,
+          "z": 15.39346
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.9437582,
+          "z": 0.0,
+          "w": 0.330636531
+        },
+        "scale": {
+          "x": 2.78458047,
+          "y": 2.78458,
+          "z": 2.78458047
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (44)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 8.7175045,
+          "y": 12.0264006,
+          "z": 26.3271751
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.968301535,
+          "z": 0.0,
+          "w": -0.2497842
+        },
+        "scale": {
+          "x": 2.45344019,
+          "y": 2.45344,
+          "z": 2.45344019
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (43)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 13.0464954,
+          "y": 11.4099989,
+          "z": 21.2911987
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.7912418,
+          "z": 0.0,
+          "w": 0.611503363
+        },
+        "scale": {
+          "x": 3.39773965,
+          "y": 3.39774,
+          "z": 3.39773965
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (42)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 5.17893028,
+          "y": 10.2135992,
+          "z": 26.58218
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.992305458,
+          "z": 0.0,
+          "w": -0.123814106
+        },
+        "scale": {
+          "x": 2.68301034,
+          "y": 2.68300986,
+          "z": 2.68301034
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (88)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 14.68,
+          "y": 4.913599,
+          "z": 11.44
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.646006763,
+          "z": 0.0,
+          "w": -0.7633318
+        },
+        "scale": {
+          "x": 6.410101,
+          "y": 6.4101,
+          "z": 6.410101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (69)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 4.343564,
+          "y": 8.19,
+          "z": 29.5403137
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.3525846,
+          "z": 0.0,
+          "w": -0.93578
+        },
+        "scale": {
+          "x": 3.39773965,
+          "y": 3.39774,
+          "z": 3.39773965
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (87)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 6.173564,
+          "y": 4.913599,
+          "z": 18.5103149
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.968301535,
+          "z": 0.0,
+          "w": -0.2497842
+        },
+        "scale": {
+          "x": 6.41010046,
+          "y": 6.4101,
+          "z": 6.41010046
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (49)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -10.7536488,
+          "y": 10.9963989,
+          "z": 40.9243546
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.8101286,
+          "z": 0.0,
+          "w": 0.5862522
+        },
+        "scale": {
+          "x": 2.78458047,
+          "y": 2.78458,
+          "z": 2.78458047
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (48)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -9.35396,
+          "y": 11.6128006,
+          "z": 53.07148
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.999316037,
+          "z": 0.0,
+          "w": 0.03698044
+        },
+        "scale": {
+          "x": 2.45344114,
+          "y": 2.45344,
+          "z": 2.45344114
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (47)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -8.485475,
+          "y": 10.9963989,
+          "z": 46.4876366
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.5837917,
+          "z": 0.0,
+          "w": 0.8119035
+        },
+        "scale": {
+          "x": 3.39774,
+          "y": 3.39774,
+          "z": 3.39774
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (46)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -12.1764851,
+          "y": 9.799999,
+          "z": 55.2208481
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.9156883,
+          "z": 0.0,
+          "w": -0.401889384
+        },
+        "scale": {
+          "x": 2.68301058,
+          "y": 2.68300986,
+          "z": 2.68301058
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (90)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -12.5076933,
+          "y": 4.5,
+          "z": 37.34782
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.837005436,
+          "z": 0.0,
+          "w": -0.5471946
+        },
+        "scale": {
+          "x": 6.410101,
+          "y": 6.4101,
+          "z": 6.410101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (70)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -11.2573547,
+          "y": 7.77640152,
+          "z": 58.15406
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.605010331,
+          "z": 0.0,
+          "w": -0.7962177
+        },
+        "scale": {
+          "x": 3.39774013,
+          "y": 3.39774,
+          "z": 3.39774013
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (89)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -11.44,
+          "y": 4.37,
+          "z": 47.92
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.999316037,
+          "z": 0.0,
+          "w": 0.03698044
+        },
+        "scale": {
+          "x": 6.41010237,
+          "y": 6.4101,
+          "z": 6.41010237
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (53)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -9.181219,
+          "y": 11.4099989,
+          "z": 64.64
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.849736035,
+          "z": 0.0,
+          "w": 0.5272083
+        },
+        "scale": {
+          "x": 2.78457975,
+          "y": 2.78458,
+          "z": 2.78457975
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (52)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -9.517462,
+          "y": 12.0264006,
+          "z": 76.86284
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.999417841,
+          "z": 0.0,
+          "w": -0.0341170169
+        },
+        "scale": {
+          "x": 2.45344,
+          "y": 2.45344,
+          "z": 2.45344
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (51)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -7.72451544,
+          "y": 11.4099989,
+          "z": 70.46859
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.640004158,
+          "z": 0.0,
+          "w": 0.7683714
+        },
+        "scale": {
+          "x": 3.39773941,
+          "y": 3.39774,
+          "z": 3.39773941
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (50)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -12.6161442,
+          "y": 10.2135992,
+          "z": 78.59049
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.9419293,
+          "z": 0.0,
+          "w": -0.3358115
+        },
+        "scale": {
+          "x": 2.68301082,
+          "y": 2.68300986,
+          "z": 2.68301082
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (92)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -10.4106045,
+          "y": 4.913599,
+          "z": 60.850914
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.796010435,
+          "z": 0.0,
+          "w": -0.6052829
+        },
+        "scale": {
+          "x": 6.410099,
+          "y": 6.4101,
+          "z": 6.410099
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (71)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -12.1220579,
+          "y": 8.19,
+          "z": 81.62431
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.546907246,
+          "z": 0.0,
+          "w": -0.8371932
+        },
+        "scale": {
+          "x": 3.39774,
+          "y": 3.39774,
+          "z": 3.39774
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (91)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -15.1286278,
+          "y": 4.913599,
+          "z": 70.85536
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.999417841,
+          "z": 0.0,
+          "w": -0.0341170169
+        },
+        "scale": {
+          "x": 6.41010046,
+          "y": 6.4101,
+          "z": 6.41010046
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (94)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -15.5446348,
+          "y": 4.913599,
+          "z": 94.31905
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.9716125,
+          "z": 0.0,
+          "w": -0.236578047
+        },
+        "scale": {
+          "x": 6.410101,
+          "y": 6.4101,
+          "z": 6.410101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (72)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -17.073616,
+          "y": 8.19,
+          "z": 105.394821
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.3652926,
+          "z": 0.0,
+          "w": -0.9308928
+        },
+        "scale": {
+          "x": 3.39774013,
+          "y": 3.39774,
+          "z": 3.39774013
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (57)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -16.3191242,
+          "y": 10.2135992,
+          "z": 102.415054
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.9905278,
+          "z": 0.0,
+          "w": -0.137312874
+        },
+        "scale": {
+          "x": 2.68301129,
+          "y": 2.68300986,
+          "z": 2.68301129
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (56)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -8.598543,
+          "y": 11.4099989,
+          "z": 96.91181
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.7828429,
+          "z": 0.0,
+          "w": 0.622219443
+        },
+        "scale": {
+          "x": 3.39774,
+          "y": 3.39774,
+          "z": 3.39774
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (55)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -12.7887983,
+          "y": 12.0264006,
+          "z": 102.063789
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.9716125,
+          "z": 0.0,
+          "w": -0.236578047
+        },
+        "scale": {
+          "x": 2.45344067,
+          "y": 2.45344,
+          "z": 2.45344067
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (54)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -11.6,
+          "y": 9.59,
+          "z": 86.99
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.939169049,
+          "z": 0.0,
+          "w": 0.343455285
+        },
+        "scale": {
+          "x": 2.78458,
+          "y": 2.78458,
+          "z": 2.78458
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (61)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -81.75015,
+          "y": 9.95,
+          "z": 123.91
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.9967514,
+          "z": 0.0,
+          "w": -0.0805393457
+        },
+        "scale": {
+          "x": 2.78457975,
+          "y": 2.78458,
+          "z": 2.78457975
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (60)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -89.0,
+          "y": 10.0,
+          "z": 127.02
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.7837827,
+          "z": 0.0,
+          "w": -0.6210352
+        },
+        "scale": {
+          "x": 2.45344043,
+          "y": 2.45344,
+          "z": 2.45344043
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (59)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -86.89131,
+          "y": 7.65,
+          "z": 124.84
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.971253633,
+          "z": 0.0,
+          "w": 0.238047108
+        },
+        "scale": {
+          "x": 3.39774084,
+          "y": 3.39774,
+          "z": 3.39774084
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (58)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -91.56355,
+          "y": 8.187199,
+          "z": 124.567467
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.957245231,
+          "z": 0.0,
+          "w": 0.2892777
+        },
+        "scale": {
+          "x": 2.68300986,
+          "y": 2.68300986,
+          "z": 2.68300986
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (96)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -75.74,
+          "y": 7.09,
+          "z": 117.56
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.280904949,
+          "z": 0.0,
+          "w": -0.9597357
+        },
+        "scale": {
+          "x": 6.4101,
+          "y": 6.4101,
+          "z": 6.4101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (73)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -94.31737,
+          "y": 6.163599,
+          "z": 125.9331
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.05724169,
+          "z": 0.0,
+          "w": -0.998360336
+        },
+        "scale": {
+          "x": 3.39774,
+          "y": 3.39774,
+          "z": 3.39774
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (65)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -110.620605,
+          "y": 11.4099989,
+          "z": 113.935806
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.602883,
+          "z": 0.0,
+          "w": -0.7978296
+        },
+        "scale": {
+          "x": 2.78457975,
+          "y": 2.78458,
+          "z": 2.78457975
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (64)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -112.521515,
+          "y": 12.0264006,
+          "z": 101.857
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.0576420724,
+          "z": 0.0,
+          "w": -0.9983373
+        },
+        "scale": {
+          "x": 2.45344,
+          "y": 2.45344,
+          "z": 2.45344
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (63)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -113.116905,
+          "y": 11.4099989,
+          "z": 108.47113
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.8238052,
+          "z": 0.0,
+          "w": -0.566873
+        },
+        "scale": {
+          "x": 3.39774036,
+          "y": 3.39774,
+          "z": 3.39774036
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (62)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -109.790329,
+          "y": 10.2135992,
+          "z": 99.59267
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.420743167,
+          "z": 0.0,
+          "w": 0.9071799
+        },
+        "scale": {
+          "x": 2.68301,
+          "y": 2.68300986,
+          "z": 2.68301
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (97)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -108.7201,
+          "y": 4.913599,
+          "z": 117.43679
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.5297649,
+          "z": 0.0,
+          "w": -0.8481446
+        },
+        "scale": {
+          "x": 6.4101,
+          "y": 6.4101,
+          "z": 6.4101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (74)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -110.83,
+          "y": 8.19,
+          "z": 96.7
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.783533633,
+          "z": 0.0,
+          "w": -0.621349454
+        },
+        "scale": {
+          "x": 3.39774084,
+          "y": 3.39774,
+          "z": 3.39774084
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (95)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -105.907875,
+          "y": 4.913599,
+          "z": 106.73909
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.0576420724,
+          "z": 0.0,
+          "w": -0.9983373
+        },
+        "scale": {
+          "x": 6.4101,
+          "y": 6.4101,
+          "z": 6.4101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (99)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -105.907875,
+          "y": 4.913599,
+          "z": 84.87796
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.0576420724,
+          "z": 0.0,
+          "w": -0.9983373
+        },
+        "scale": {
+          "x": 6.4101,
+          "y": 6.4101,
+          "z": 6.4101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (77)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -106.31,
+          "y": 8.19,
+          "z": 74.12
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.783533633,
+          "z": 0.0,
+          "w": -0.621349454
+        },
+        "scale": {
+          "x": 3.39774084,
+          "y": 3.39774,
+          "z": 3.39774084
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (98)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -108.7201,
+          "y": 4.913599,
+          "z": 95.57566
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.5297649,
+          "z": 0.0,
+          "w": -0.8481446
+        },
+        "scale": {
+          "x": 6.4101,
+          "y": 6.4101,
+          "z": 6.4101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (76)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -109.790329,
+          "y": 10.2135992,
+          "z": 77.73154
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.420743167,
+          "z": 0.0,
+          "w": 0.9071799
+        },
+        "scale": {
+          "x": 2.68301,
+          "y": 2.68300986,
+          "z": 2.68301
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (75)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -113.116905,
+          "y": 11.4099989,
+          "z": 86.61
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.8238052,
+          "z": 0.0,
+          "w": -0.566873
+        },
+        "scale": {
+          "x": 3.39774036,
+          "y": 3.39774,
+          "z": 3.39774036
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (67)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -112.521515,
+          "y": 12.0264006,
+          "z": 79.99587
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.0576420724,
+          "z": 0.0,
+          "w": -0.9983373
+        },
+        "scale": {
+          "x": 2.45344,
+          "y": 2.45344,
+          "z": 2.45344
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (66)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -110.620605,
+          "y": 11.4099989,
+          "z": 92.07468
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.602883,
+          "z": 0.0,
+          "w": -0.7978296
+        },
+        "scale": {
+          "x": 2.78457975,
+          "y": 2.78458,
+          "z": 2.78457975
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (101)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -105.907875,
+          "y": 3.34360027,
+          "z": 45.16796
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.0576420724,
+          "z": 0.0,
+          "w": -0.9983373
+        },
+        "scale": {
+          "x": 6.4101,
+          "y": 6.4101,
+          "z": 6.4101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (82)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -110.83,
+          "y": 6.620001,
+          "z": 35.12887
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.783533633,
+          "z": 0.0,
+          "w": -0.621349454
+        },
+        "scale": {
+          "x": 3.39774084,
+          "y": 3.39774,
+          "z": 3.39774084
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (100)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -108.7201,
+          "y": 3.34360027,
+          "z": 55.86566
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.5297649,
+          "z": 0.0,
+          "w": -0.8481446
+        },
+        "scale": {
+          "x": 6.4101,
+          "y": 6.4101,
+          "z": 6.4101
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (81)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -109.790329,
+          "y": 8.6436,
+          "z": 38.0215378
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.420743167,
+          "z": 0.0,
+          "w": 0.9071799
+        },
+        "scale": {
+          "x": 2.68301,
+          "y": 2.68300986,
+          "z": 2.68301
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (80)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -113.116905,
+          "y": 9.84,
+          "z": 46.9
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.8238052,
+          "z": 0.0,
+          "w": -0.566873
+        },
+        "scale": {
+          "x": 3.39774036,
+          "y": 3.39774,
+          "z": 3.39774036
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (79)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -112.521515,
+          "y": 10.4564018,
+          "z": 40.2858734
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.0576420724,
+          "z": 0.0,
+          "w": -0.9983373
+        },
+        "scale": {
+          "x": 2.45344,
+          "y": 2.45344,
+          "z": 2.45344
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (78)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -110.620605,
+          "y": 9.84,
+          "z": 52.3646774
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.602883,
+          "z": 0.0,
+          "w": -0.7978296
+        },
+        "scale": {
+          "x": 2.78457975,
+          "y": 2.78458,
+          "z": 2.78457975
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_bush_01 (83)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -106.31,
+          "y": 8.19,
+          "z": 67.73
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.783533633,
+          "z": 0.0,
+          "w": -0.621349454
+        },
+        "scale": {
+          "x": 3.39774084,
+          "y": 3.39774,
+          "z": 3.39774084
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_bush_01.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
     }
   ]
 }

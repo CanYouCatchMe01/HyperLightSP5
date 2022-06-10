@@ -88,15 +88,12 @@ bool OBB3D::Collides(OBB3D& anOther)
     bool slope = dot < 1.5f && dot > 0.5f && !(dot > 0.999f && dot < 1.001f);
 
 
-
     bool stair = maximumOverlap <= myMaxStepHeight && maximumOverlap > 0 && !slope;
     stair = maximumOverlap <= myMaxStepHeight && maximumOverlap > 0 && !slope;
 
     //std::cout << slope << '\n';
-    bool onground = false;
     if (slope && !stair)
     {
-        onground = true;
         correction.x = 0;
         correction.z = 0;
     }
@@ -108,6 +105,7 @@ bool OBB3D::Collides(OBB3D& anOther)
 
         anOther.myParent->GetTransform().SetPosition(anOther.myParent->GetTransform().GetPosition() + correction);
         anOther.SetPosition(anOther.myTransform.GetPosition() + correction);
+
         return true;
     }
     else if (anOther.myIsStatic)
@@ -117,6 +115,7 @@ bool OBB3D::Collides(OBB3D& anOther)
 
         myParent->GetTransform().SetPosition(myParent->GetTransform().GetPosition() - correction);
         SetPosition(myTransform.GetPosition() - correction);
+
     }
 
     return true;

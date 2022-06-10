@@ -79,22 +79,22 @@ void CameraComponent::RecieveEvent(Input::eInputEvent aEvent, const float aValue
 
 void CameraComponent::OnUpdate(const float /*aDeltaTime*/)
 {
+	//If there is a player, then postion is on player, else position is on camera.
+	Tga2D::Transform listenerTransform = *myTransform;
+
 	//Follow Player
 	if (myPollingStation->myPlayer != nullptr)
 	{
-		
-
-
+		//Smooth camera
 		Tga2D::Vector3f targetPosition = myPollingStation->myPlayer->GetTransform().GetPosition() + myCameraOffset;
 		Tga2D::Vector3f smoothFollow = Vector3::Lerp(myTransform->GetPosition(), targetPosition, myCameraSpeed);
-
-
 		myTransform->SetPosition(smoothFollow);
+
+		//Set player position to the lister position
+		listenerTransform.SetPosition(myPollingStation->myPlayer->GetTransform().GetPosition()); 
 	}
 	
-	//Set rendering camera
-	//myCamera->SetTransform(*myTransform);
-	myPollingStation->myAudioManager->SetListenerTransform(myTransform);
+	myPollingStation->myAudioManager->SetListenerAttributes(listenerTransform);
 }
 
 void CameraComponent::SetTargetToFollow(Tga2D::Transform* aTargetToFollow)

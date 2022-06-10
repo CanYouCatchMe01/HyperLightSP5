@@ -4,7 +4,7 @@
 #include "Observer.h"
 #include "Hud.h"
 
-class GameState : public State , public Input::InputObserver, public Observer
+class GameState : public State, public Input::InputObserver, public Observer
 {
 public:
 	GameState(StateStack& aStateStack, PollingStation* aPollingStation, const std::string& aSceneName);
@@ -19,5 +19,6 @@ private:
 	float myStartDialogueTimer = 0.2f;
 	bool myIsTutorial = false;
 	bool myIsDialogue = false;
+	bool myGodModeActive = false;
 	Hud myHud;
 };

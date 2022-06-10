@@ -285,6 +285,13 @@ bool InputManager::IsPressed(InputAction anAction)
 
 		break;
 	}
+
+	case InputAction::GODMODE:
+		if (!input)
+			input = myKeyboard->IsKeyPressed('Q');
+		return input;
+		break;
+
 	case InputAction::RESET:
 		if (isXboxControl)
 		{

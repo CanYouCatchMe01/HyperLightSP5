@@ -96,9 +96,9 @@
       <AdditionalLibraryDirectories>..\Lib;..\Source\External\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>copy /y "..\..\FMOD_hyper_light\Build\Desktop\Master.bank" "..\Bin\Assets\FMOD\"
-copy /y "..\..\FMOD_hyper_light\Build\Desktop\Master.strings.bank" "..\Bin\Assets\FMOD\"
-copy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Command>
+      <Command>xcopy /y "..\..\FMOD_hyper_light\Build\Desktop\Master.bank" "..\Bin\Assets\FMOD\"
+xcopy /y "..\..\FMOD_hyper_light\Build\Desktop\Master.strings.bank" "..\Bin\Assets\FMOD\"
+xcopy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

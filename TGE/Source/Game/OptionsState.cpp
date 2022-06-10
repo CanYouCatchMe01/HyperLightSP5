@@ -50,6 +50,7 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuLeft, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuRight, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eDash, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseArrowLeft, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eReleaseArrowRight, this);
 
@@ -73,6 +74,7 @@ OptionsState::~OptionsState()
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMenuLeft, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMenuRight, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eSelect, this);
+	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eDash, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eReleaseArrowLeft, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eReleaseArrowRight, this);
 }
@@ -301,6 +303,7 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_player_slash);
 		break;
 
+	case Input::eInputEvent::eDash:
 	case Input::eInputEvent::eSelect:
 		InvokeButton(mySelectedButton);
 		myIsActive = false;

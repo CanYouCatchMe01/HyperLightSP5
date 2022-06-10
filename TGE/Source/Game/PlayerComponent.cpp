@@ -343,7 +343,7 @@ void PlayerComponent::OnStart()
 	auto playerIdle = animatedMesh->AddTransition("Player_Idle", [this]()->bool { return true; });
 	auto playerRun = playerIdle->AddTransition("Player_Run", [this]()->bool { return (myLastDir.x != 0 || myLastDir.z != 0); });
 	auto playerDash = playerRun->AddTransition("Player_Dash", [this]()->bool { return myDash; });
-	auto playerAttack = animatedMesh->AddTransition("Player_Slash", [this]()->bool { return myAttack; }, 2.1f);
+	auto playerAttack = animatedMesh->AddTransition("Player_Slash", [this]()->bool { return myAttack; });
 	playerRun->AddTransition(playerAttack, [this]()->bool { return myAttack; });
 	playerIdle->AddTransition(playerAttack, [this]()->bool { return myAttack; });
 	playerAttack->AddTransition(playerIdle, [this]()->bool { return (!myAttack && (myLastDir.x == 0 && myLastDir.z == 0)); });

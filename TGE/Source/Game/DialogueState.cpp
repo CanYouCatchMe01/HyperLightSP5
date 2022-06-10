@@ -38,8 +38,9 @@ DialogueState::DialogueState(StateStack& aStateStack, PollingStation* aPollingSt
 	}
 	else if (currentData.myKeys[0] || currentData.myKeys[1])
 	{
-		myDialogues.push_back("First key is got!");
-		myDialogues.push_back("Now find the last one pls.");
+		myDialogues.push_back("You did it!");
+		myDialogues.push_back("The essence has returned, but your quest is not done yet.");
+		myDialogues.push_back("There is still one more to find to restore music to the world. \nI believe in you.");
 	}
 	if (myDialogues.size() > 0)
 	{

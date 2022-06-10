@@ -47,8 +47,8 @@ void MeleeComponent::DebugUpdate()
 void MeleeComponent::OnAwake()
 {
 	myPollingStation->myPostmaster.get()->AddObserver(this, eMessageType::eWeaponUpgrade);
-	//if (myPollingStation->myGameDataManager.get()->GetGameData().myUpgrades[1])
-	//	TurnWeaponUpgradeOn();
+	if (myPollingStation->myGameDataManager.get()->GetGameData().myUpgrades[1])
+		TurnWeaponUpgradeOn();
 }
 void MeleeComponent::OnStart()
 {

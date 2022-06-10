@@ -42,6 +42,143 @@
       "children": []
     },
     {
+      "name": "p_g_amphitheatre_gate",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.41,
+          "y": 0.0,
+          "z": 16.99
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -5.53578066E-05,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_amphitheatre_gate.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_bullet",
+      "tag": 18,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 4.12149429,
+          "y": 0.0,
+          "z": -8.472039
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.5,
+          "y": 1.5,
+          "z": 1.5
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_bullet.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/matBullet_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/matBullet_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/matBullet_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.209163815,
+              "y": 0.209163815,
+              "z": 0.209163815
+            }
+          }
+        },
+        {
+          "type": "bullet",
+          "data": {
+            "attack_damage": 1,
+            "speed": 1.5
+          }
+        },
+        {
+          "type": "emitter",
+          "data": {
+            "texture": "Assets/Art/2D/particleNoteSprite.dds",
+            "startScale": 0.5,
+            "endScale": 2.0,
+            "minMass": 10.0,
+            "maxMass": 3.0,
+            "minTimeBetweenParticleSpawns": 0.1,
+            "maxTimeBetweenParticleSpawns": 0.1,
+            "minStartSpeed": 1.0,
+            "maxStartSpeed": 1.0,
+            "minAngle": -1.27,
+            "maxAngle": -1.87,
+            "minLifeTime": 0.5,
+            "maxLifeTime": 0.8,
+            "minSpawnOffsetDistance": 0.0,
+            "maxSpawnOffsetDistance": 0.0,
+            "acceleration": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "color": [
+              {
+                "r": 1.0,
+                "g": 0.9053073,
+                "b": 0.0,
+                "a": 1.0
+              },
+              {
+                "r": 0.6778572,
+                "g": 0.0,
+                "b": 0.7264151,
+                "a": 1.0
+              }
+            ],
+            "blendState": 2,
+            "emitTime": 0.0,
+            "gravity": -9.81
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "Floor (1)",
       "tag": 0,
       "layer": 0,
@@ -58446,8 +58583,8 @@
           "transform": {
             "position": {
               "x": 0.09186956,
-              "y": 5.33,
-              "z": -36.58
+              "y": 2.08,
+              "z": 8.77
             },
             "rotation": {
               "x": 0.0,
@@ -58814,39 +58951,6 @@
               "type": "check_point",
               "data": {
                 "scene": "Jungle 1",
-                "name": "Jungle1Entry0"
-              }
-            }
-          ],
-          "children": []
-        },
-        {
-          "name": "SpawnPoint",
-          "tag": 0,
-          "layer": 0,
-          "is_static": true,
-          "transform": {
-            "position": {
-              "x": 0.0338695645,
-              "y": 1.599,
-              "z": 12.8110428
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 0.706956744,
-              "z": 0.0,
-              "w": 0.7072568
-            },
-            "scale": {
-              "x": 1.00000012,
-              "y": 1.0,
-              "z": 1.00000012
-            }
-          },
-          "components": [
-            {
-              "type": "spawn_point",
-              "data": {
                 "name": "Jungle1Entry0"
               }
             }
@@ -60166,6 +60270,183 @@
       ]
     },
     {
+      "name": "a_z1_enemy (1)",
+      "tag": 9,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 1.0,
+          "y": 9.06,
+          "z": -61.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.118292153,
+              "y": 0.990060866,
+              "z": 0.0525337458
+            },
+            "size": {
+              "x": 1.39186227,
+              "y": 1.99098241,
+              "z": 1.26402307
+            }
+          }
+        },
+        {
+          "type": "flute_enemy",
+          "data": {
+            "max_hp": 2,
+            "speed": 3.0,
+            "detection_radius": 7.5,
+            "idle_speed": 1.0,
+            "runaway_radius": 3.0,
+            "bullet": {
+              "name": "a_g_bullet",
+              "tag": 18,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": -10.749,
+                  "y": 3.534,
+                  "z": -21.521
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
+                }
+              },
+              "components": [
+                {
+                  "type": "mesh",
+                  "data": {
+                    "model": "Assets/Art/3D/GLOBAL/a_g_bullet.fbx",
+                    "albedo": "Assets/Materials/Mat Zone1/matBullet_c.dds",
+                    "normal": "Assets/Materials/Mat Zone1/matBullet_n.dds",
+                    "reflective": "Assets/Materials/Mat Zone1/matBullet_m.dds"
+                  }
+                },
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": true,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 0.209163815,
+                      "y": 0.209163815,
+                      "z": 0.209163815
+                    }
+                  }
+                },
+                {
+                  "type": "bullet",
+                  "data": {
+                    "attack_damage": 1,
+                    "speed": 1.5
+                  }
+                },
+                {
+                  "type": "emitter",
+                  "data": {
+                    "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                    "startScale": 0.5,
+                    "endScale": 2.0,
+                    "minMass": 10.0,
+                    "maxMass": 3.0,
+                    "minTimeBetweenParticleSpawns": 0.1,
+                    "maxTimeBetweenParticleSpawns": 0.1,
+                    "minStartSpeed": 1.0,
+                    "maxStartSpeed": 1.0,
+                    "minAngle": -1.27,
+                    "maxAngle": -1.87,
+                    "minLifeTime": 0.5,
+                    "maxLifeTime": 0.8,
+                    "minSpawnOffsetDistance": 0.0,
+                    "maxSpawnOffsetDistance": 0.0,
+                    "acceleration": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "color": [
+                      {
+                        "r": 1.0,
+                        "g": 0.9053073,
+                        "b": 0.0,
+                        "a": 1.0
+                      },
+                      {
+                        "r": 0.6778572,
+                        "g": 0.0,
+                        "b": 0.7264151,
+                        "a": 1.0
+                      }
+                    ],
+                    "blendState": 2,
+                    "emitTime": 0.0,
+                    "gravity": -9.81
+                  }
+                }
+              ],
+              "children": []
+            }
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/Z1_mat_Enemy_c.dds",
+            "normal": "Assets/Materials/Mat characters/Z1_mat_Enemy_n.dds",
+            "reflective": "Assets/Materials/Mat characters/Z1_mat_Enemy_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE1/a_z1_enemy.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_idle.fbx",
+                "name": "Flute_Idle"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_shoot.fbx",
+                "name": "Flute_Shoot"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_run.fbx",
+                "name": "Flute_Run"
+              }
+            ]
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "Light",
       "tag": 0,
       "layer": 0,
@@ -60437,141 +60718,6 @@
           "children": []
         }
       ]
-    },
-    {
-      "name": "a_z1_enemy (1)",
-      "tag": 9,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 1.0,
-          "y": 9.06,
-          "z": -61.0
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.118292153,
-              "y": 0.990060866,
-              "z": 0.0525337458
-            },
-            "size": {
-              "x": 1.39186227,
-              "y": 1.99098241,
-              "z": 1.26402307
-            }
-          }
-        },
-        {
-          "type": "flute_enemy",
-          "data": {
-            "max_hp": 2,
-            "speed": 3.0,
-            "detection_radius": 7.5,
-            "idle_speed": 1.0,
-            "runaway_radius": 3.0,
-            "bullet": {
-              "name": "a_g_bullet",
-              "tag": 18,
-              "layer": 0,
-              "is_static": false,
-              "transform": {
-                "position": {
-                  "x": -10.749,
-                  "y": 3.534,
-                  "z": -21.521
-                },
-                "rotation": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0,
-                  "w": 1.0
-                },
-                "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              },
-              "components": [
-                {
-                  "type": "mesh",
-                  "data": {
-                    "model": "Assets/Art/3D/GLOBAL/a_g_bullet.fbx",
-                    "albedo": "Assets/Materials/Mat Zone1/matBullet_c.dds",
-                    "normal": "Assets/Materials/Mat Zone1/matBullet_n.dds",
-                    "reflective": "Assets/Materials/Mat Zone1/matBullet_m.dds"
-                  }
-                },
-                {
-                  "type": "box_collider",
-                  "data": {
-                    "is_trigger": true,
-                    "center": {
-                      "x": 0.0,
-                      "y": 0.0,
-                      "z": 0.0
-                    },
-                    "size": {
-                      "x": 0.209163815,
-                      "y": 0.209163815,
-                      "z": 0.209163815
-                    }
-                  }
-                },
-                {
-                  "type": "bullet",
-                  "data": {
-                    "attack_damage": 1,
-                    "speed": 5.0
-                  }
-                }
-              ],
-              "children": []
-            }
-          }
-        },
-        {
-          "type": "animated_mesh",
-          "data": {
-            "albedo": "Assets/Materials/Mat characters/Z1_mat_Enemy_c.dds",
-            "normal": "Assets/Materials/Mat characters/Z1_mat_Enemy_n.dds",
-            "reflective": "Assets/Materials/Mat characters/Z1_mat_Enemy_m.dds",
-            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE1/a_z1_enemy.fbx",
-            "animations": [
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_idle.fbx",
-                "name": "Flute_Idle"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_shoot.fbx",
-                "name": "Flute_Shoot"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_run.fbx",
-                "name": "Flute_Run"
-              }
-            ]
-          }
-        }
-      ],
-      "children": []
     },
     {
       "name": "a_z2_sandWorm (8)",
@@ -61155,9 +61301,9 @@
                   "w": 1.0
                 },
                 "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
                 }
               },
               "components": [
@@ -61190,7 +61336,49 @@
                   "type": "bullet",
                   "data": {
                     "attack_damage": 1,
-                    "speed": 5.0
+                    "speed": 1.5
+                  }
+                },
+                {
+                  "type": "emitter",
+                  "data": {
+                    "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                    "startScale": 0.5,
+                    "endScale": 2.0,
+                    "minMass": 10.0,
+                    "maxMass": 3.0,
+                    "minTimeBetweenParticleSpawns": 0.1,
+                    "maxTimeBetweenParticleSpawns": 0.1,
+                    "minStartSpeed": 1.0,
+                    "maxStartSpeed": 1.0,
+                    "minAngle": -1.27,
+                    "maxAngle": -1.87,
+                    "minLifeTime": 0.5,
+                    "maxLifeTime": 0.8,
+                    "minSpawnOffsetDistance": 0.0,
+                    "maxSpawnOffsetDistance": 0.0,
+                    "acceleration": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "color": [
+                      {
+                        "r": 1.0,
+                        "g": 0.9053073,
+                        "b": 0.0,
+                        "a": 1.0
+                      },
+                      {
+                        "r": 0.6778572,
+                        "g": 0.0,
+                        "b": 0.7264151,
+                        "a": 1.0
+                      }
+                    ],
+                    "blendState": 2,
+                    "emitTime": 0.0,
+                    "gravity": -9.81
                   }
                 }
               ],
@@ -61290,9 +61478,9 @@
                   "w": 1.0
                 },
                 "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
                 }
               },
               "components": [
@@ -61325,7 +61513,49 @@
                   "type": "bullet",
                   "data": {
                     "attack_damage": 1,
-                    "speed": 5.0
+                    "speed": 1.5
+                  }
+                },
+                {
+                  "type": "emitter",
+                  "data": {
+                    "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                    "startScale": 0.5,
+                    "endScale": 2.0,
+                    "minMass": 10.0,
+                    "maxMass": 3.0,
+                    "minTimeBetweenParticleSpawns": 0.1,
+                    "maxTimeBetweenParticleSpawns": 0.1,
+                    "minStartSpeed": 1.0,
+                    "maxStartSpeed": 1.0,
+                    "minAngle": -1.27,
+                    "maxAngle": -1.87,
+                    "minLifeTime": 0.5,
+                    "maxLifeTime": 0.8,
+                    "minSpawnOffsetDistance": 0.0,
+                    "maxSpawnOffsetDistance": 0.0,
+                    "acceleration": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "color": [
+                      {
+                        "r": 1.0,
+                        "g": 0.9053073,
+                        "b": 0.0,
+                        "a": 1.0
+                      },
+                      {
+                        "r": 0.6778572,
+                        "g": 0.0,
+                        "b": 0.7264151,
+                        "a": 1.0
+                      }
+                    ],
+                    "blendState": 2,
+                    "emitTime": 0.0,
+                    "gravity": -9.81
                   }
                 }
               ],
@@ -61511,9 +61741,9 @@
                   "w": 1.0
                 },
                 "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
                 }
               },
               "components": [
@@ -61546,7 +61776,49 @@
                   "type": "bullet",
                   "data": {
                     "attack_damage": 1,
-                    "speed": 5.0
+                    "speed": 1.5
+                  }
+                },
+                {
+                  "type": "emitter",
+                  "data": {
+                    "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                    "startScale": 0.5,
+                    "endScale": 2.0,
+                    "minMass": 10.0,
+                    "maxMass": 3.0,
+                    "minTimeBetweenParticleSpawns": 0.1,
+                    "maxTimeBetweenParticleSpawns": 0.1,
+                    "minStartSpeed": 1.0,
+                    "maxStartSpeed": 1.0,
+                    "minAngle": -1.27,
+                    "maxAngle": -1.87,
+                    "minLifeTime": 0.5,
+                    "maxLifeTime": 0.8,
+                    "minSpawnOffsetDistance": 0.0,
+                    "maxSpawnOffsetDistance": 0.0,
+                    "acceleration": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "color": [
+                      {
+                        "r": 1.0,
+                        "g": 0.9053073,
+                        "b": 0.0,
+                        "a": 1.0
+                      },
+                      {
+                        "r": 0.6778572,
+                        "g": 0.0,
+                        "b": 0.7264151,
+                        "a": 1.0
+                      }
+                    ],
+                    "blendState": 2,
+                    "emitTime": 0.0,
+                    "gravity": -9.81
                   }
                 }
               ],
@@ -61646,9 +61918,9 @@
                   "w": 1.0
                 },
                 "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
                 }
               },
               "components": [
@@ -61681,7 +61953,49 @@
                   "type": "bullet",
                   "data": {
                     "attack_damage": 1,
-                    "speed": 5.0
+                    "speed": 1.5
+                  }
+                },
+                {
+                  "type": "emitter",
+                  "data": {
+                    "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                    "startScale": 0.5,
+                    "endScale": 2.0,
+                    "minMass": 10.0,
+                    "maxMass": 3.0,
+                    "minTimeBetweenParticleSpawns": 0.1,
+                    "maxTimeBetweenParticleSpawns": 0.1,
+                    "minStartSpeed": 1.0,
+                    "maxStartSpeed": 1.0,
+                    "minAngle": -1.27,
+                    "maxAngle": -1.87,
+                    "minLifeTime": 0.5,
+                    "maxLifeTime": 0.8,
+                    "minSpawnOffsetDistance": 0.0,
+                    "maxSpawnOffsetDistance": 0.0,
+                    "acceleration": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "color": [
+                      {
+                        "r": 1.0,
+                        "g": 0.9053073,
+                        "b": 0.0,
+                        "a": 1.0
+                      },
+                      {
+                        "r": 0.6778572,
+                        "g": 0.0,
+                        "b": 0.7264151,
+                        "a": 1.0
+                      }
+                    ],
+                    "blendState": 2,
+                    "emitTime": 0.0,
+                    "gravity": -9.81
                   }
                 }
               ],
@@ -61953,9 +62267,9 @@
                   "w": 1.0
                 },
                 "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
+                  "x": 1.5,
+                  "y": 1.5,
+                  "z": 1.5
                 }
               },
               "components": [
@@ -61988,7 +62302,49 @@
                   "type": "bullet",
                   "data": {
                     "attack_damage": 1,
-                    "speed": 5.0
+                    "speed": 1.5
+                  }
+                },
+                {
+                  "type": "emitter",
+                  "data": {
+                    "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                    "startScale": 0.5,
+                    "endScale": 2.0,
+                    "minMass": 10.0,
+                    "maxMass": 3.0,
+                    "minTimeBetweenParticleSpawns": 0.1,
+                    "maxTimeBetweenParticleSpawns": 0.1,
+                    "minStartSpeed": 1.0,
+                    "maxStartSpeed": 1.0,
+                    "minAngle": -1.27,
+                    "maxAngle": -1.87,
+                    "minLifeTime": 0.5,
+                    "maxLifeTime": 0.8,
+                    "minSpawnOffsetDistance": 0.0,
+                    "maxSpawnOffsetDistance": 0.0,
+                    "acceleration": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "color": [
+                      {
+                        "r": 1.0,
+                        "g": 0.9053073,
+                        "b": 0.0,
+                        "a": 1.0
+                      },
+                      {
+                        "r": 0.6778572,
+                        "g": 0.0,
+                        "b": 0.7264151,
+                        "a": 1.0
+                      }
+                    ],
+                    "blendState": 2,
+                    "emitTime": 0.0,
+                    "gravity": -9.81
                   }
                 }
               ],
@@ -62955,20 +63311,20 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": -0.05,
-          "y": 0.506,
-          "z": -10.66
+          "x": 0.13,
+          "y": 0.0,
+          "z": 0.68
         },
         "rotation": {
           "x": 0.0,
-          "y": 0.9238465,
+          "y": 0.923879564,
           "z": 0.0,
-          "w": 0.382763416
+          "w": 0.382683426
         },
         "scale": {
-          "x": 1.00000048,
+          "x": 1.00000024,
           "y": 1.0,
-          "z": 1.00000048
+          "z": 1.00000024
         }
       },
       "components": [
@@ -62997,8 +63353,8 @@
             "dash_time": 0.1,
             "healing_time": 0.1,
             "attack_time": 0.1,
-            "speed": 5.0,
-            "dash_speed": 25.0
+            "speed": 7.0,
+            "dash_speed": 50.0
           }
         },
         {
@@ -63011,16 +63367,16 @@
         {
           "type": "box_collider",
           "data": {
-            "is_trigger": false,
+            "is_trigger": true,
             "center": {
               "x": 0.0,
               "y": 1.0,
-              "z": 1.0
+              "z": 1.03
             },
             "size": {
-              "x": 1.54516709,
-              "y": 1.93430161,
-              "z": 1.0
+              "x": 2.22,
+              "y": 1.85,
+              "z": 2.11
             }
           }
         },
@@ -63060,19 +63416,19 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": -4.936896,
-              "y": 13.506,
-              "z": -6.114147
+              "x": -5.526854,
+              "y": 12.0,
+              "z": 6.33685541
             },
             "rotation": {
-              "x": -0.176719144,
-              "y": -0.8194245,
-              "z": 0.4269249,
-              "w": -0.339188844
+              "x": 0.1464466,
+              "y": 0.8535535,
+              "z": -0.353553385,
+              "w": 0.353553385
             },
             "scale": {
-              "x": 1.00000036,
-              "y": 1.00000024,
+              "x": 1.00000024,
+              "y": 1.00000012,
               "z": 1.00000024
             }
           },

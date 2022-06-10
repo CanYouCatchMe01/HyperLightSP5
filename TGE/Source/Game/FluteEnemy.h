@@ -19,12 +19,11 @@ private:
 	Tga2D::Vector3f myAttackDirection;
 	int myHp;
 
-	Timer myAttackTimer;
 	nlohmann::json myBullet;
 	
 	float myRunawayRadius;
 	float myDoAttack = 0.f;
 	
-	bool myAttacking = false;
+	bool myIsAttacking = false;
 	bool myRunaway = false;
 };

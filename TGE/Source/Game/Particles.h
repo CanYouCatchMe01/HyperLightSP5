@@ -56,7 +56,6 @@ public:
 	void Render();
 	inline void SetTransform(Tga2D::Transform& aTransform) { myTransform = aTransform; }
 private:
-	float RandomFloat(float aLow, float aHigh);
 	void Emit(float aDeltaTime);
 
 	float myEmitTimer = 0.0f;

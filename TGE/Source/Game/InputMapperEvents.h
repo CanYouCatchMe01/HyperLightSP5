@@ -33,9 +33,12 @@ namespace Input
 		ePressW,
 		ePressS,
 		ePressD,
-		ePressA
-
+		ePressA,
 	//------For Menus------
+	//------For Cheaters------
+		ePressL
+	//------For Cheaters------
+
 	};
 
 	enum class eInputEvent
@@ -59,7 +62,10 @@ namespace Input
 		eMenuUp,
 		eMenuDown,
 		eMenuLeft,
-		eMenuRight
+		eMenuRight,
 	//------For Menus------
+	//------For Cheaters------
+		eGodMode
+	//------For Cheaters------
 	};
 }

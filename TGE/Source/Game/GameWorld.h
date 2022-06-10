@@ -19,7 +19,10 @@ public:
 	void Render();
 	PollingStation* myPollingStation;
 private:
-	bool myStartUp = true;
+	float myAlpha = -0.1f;
+	bool myTGAStartUp = true;
+	bool myGroupStartUp = true;
+	bool myFadeOut = false;
 	float myStartUpTimer = 0;
 	float myStartUpTime = 2.f;
 	StateStack myStateStack;

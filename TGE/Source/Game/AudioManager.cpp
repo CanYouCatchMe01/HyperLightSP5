@@ -51,33 +51,23 @@ void AudioManager::Init()
 
 void AudioManager::Update()
 {
-	if (myListenerTransform)
-	{
-		Tga2D::Vector3f forward, up;
-		forward = myListenerTransform->GetMatrix().GetForward().GetNormalized();
-		up = myListenerTransform->GetMatrix().GetUp().GetNormalized();
-
-		myListenerAttributes.position = { myListenerTransform->GetPosition().x, myListenerTransform->GetPosition().y, myListenerTransform->GetPosition().z };
-		myListenerAttributes.forward = { forward.x, forward.y, forward.z };
-		myListenerAttributes.up = { up.x, up.y, up.z };
-
-		myContext.system->setListenerAttributes(0, &myListenerAttributes);
-	}
-
 	//Need to set the music position where the camere is every frame
 	myMusicInstance->set3DAttributes(&myListenerAttributes);
 
 	myContext.system->update();
 }
 
-void AudioManager::SetListenerTransform(const Tga2D::Transform& aTransform)
+void AudioManager::SetListenerAttributes(const Tga2D::Transform& aTransform)
 {
-	myListenerTransform = &aTransform;
-}
+	Tga2D::Vector3f forward, up;
+	forward = aTransform.GetMatrix().GetForward().GetNormalized();
+	up = aTransform.GetMatrix().GetUp().GetNormalized();
 
-void AudioManager::SetListenerTransform(const Tga2D::Transform* const aTransform)
-{
-	myListenerTransform = aTransform;
+	myListenerAttributes.position = { aTransform.GetPosition().x, aTransform.GetPosition().y, aTransform.GetPosition().z };
+	myListenerAttributes.forward = { forward.x, forward.y, forward.z };
+	myListenerAttributes.up = { up.x, up.y, up.z };
+
+	myContext.system->setListenerAttributes(0, &myListenerAttributes);
 }
 
 FMOD::Studio::EventInstance* AudioManager::PlayEvent(const FMOD_GUID anID)

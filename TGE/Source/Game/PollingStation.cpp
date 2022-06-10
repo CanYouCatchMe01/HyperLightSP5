@@ -66,4 +66,8 @@ void PollingStation::MapKeys()
 	myInputMapper.get()->MapEvent(Input::eInputAction::ePressArrowKeyLeft, Input::eInputEvent::eMenuLeft);
 	myInputMapper.get()->MapEvent(Input::eInputAction::ePressArrowKeyRight, Input::eInputEvent::eMenuRight);
 	//------------------------------------------For Menus------------------------------------------
+
+	//-----------------------------------------For Cheaters----------------------------------------
+	myInputMapper.get()->MapEvent(Input::eInputAction::ePressL, Input::eInputEvent::eGodMode);
+	//-----------------------------------------For Cheaters----------------------------------------
 }

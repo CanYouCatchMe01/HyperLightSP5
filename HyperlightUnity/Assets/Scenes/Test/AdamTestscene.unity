@@ -966,27 +966,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6c95e7793c99b47b5b67141b1dd5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: 2c3d33f6393d59f44a28de5deea7a186, type: 3}
-  startScale: 0.5
-  endScale: 10
-  minMass: 20
+  texture: {fileID: 2800000, guid: cfc5df660d9b24a439849fd856c20fdd, type: 3}
+  startScale: 0.1
+  endScale: 0.15
+  minMass: 1
   maxMass: 1
-  minTimeBetweenParticleSpawns: 0.1
-  maxTimeBetweenParticleSpawns: 0.1
-  minStartSpeed: 1
-  maxStartSpeed: 3
-  minAngle: -1.27
-  maxAngle: -1.87
-  minLifeTime: 0.5
-  maxLifeTime: 4
-  minSpawnOffsetDistance: 5
-  maxSpawnOffsetDistance: 10
-  acceleration: {x: 0, y: 15, z: 10}
+  minTimeBetweenParticleSpawns: 0.001
+  maxTimeBetweenParticleSpawns: 0.001
+  minStartSpeed: 0
+  maxStartSpeed: 0
+  minAngle: 0
+  maxAngle: 0
+  minLifeTime: 100000000
+  maxLifeTime: 100000000
+  minSpawnOffsetDistance: 0
+  maxSpawnOffsetDistance: 1
+  acceleration: {x: 0, y: 0, z: 0}
   startColor: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}
   endColor: {r: 1, g: 1, b: 1, a: 1}
   blendState: 2
-  emitTime: 0
-  gravity: -9.81
+  emitTime: 1
+  gravity: 0
 --- !u!4 &894397691
 Transform:
   m_ObjectHideFlags: 0

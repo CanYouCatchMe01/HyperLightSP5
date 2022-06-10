@@ -41,6 +41,7 @@ MapState::MapState(StateStack& aStateStack, PollingStation* aPollingStation)
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuLeft, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuRight, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eDash, this);
 
 
 
@@ -68,6 +69,7 @@ MapState::~MapState()
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMenuLeft, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMenuRight, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eSelect, this);
+	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eDash, this);
 }
 
 void MapState::Init()
@@ -204,6 +206,7 @@ void MapState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValu
 
 		break;
 	case Input::eInputEvent::eSelect:
+	case Input::eInputEvent::eDash:
 		if (myCurrentSelection == eButtonIndex::eBack)
 		{
 			myNumberOfPops = 1;

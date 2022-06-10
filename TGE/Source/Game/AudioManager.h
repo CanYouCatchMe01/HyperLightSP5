@@ -26,8 +26,7 @@ public:
 	void Init();
 	void Update();
 
-	void SetListenerTransform(const Tga2D::Transform& aTransform);
-	void SetListenerTransform(const Tga2D::Transform* const aTransform);
+	void SetListenerAttributes(const Tga2D::Transform& aTransform);
 
 	//Play2D right by the listener
 	FMOD::Studio::EventInstance* PlayEvent(const FMOD_GUID aEventID);
@@ -60,7 +59,6 @@ private:
 private:
 
 	FMOD_3D_ATTRIBUTES myListenerAttributes;
-	Tga2D::Transform const* myListenerTransform;
 	FMOD::Studio::EventInstance* myMusicInstance;
 
 	SoundContext myContext;

@@ -28,15 +28,16 @@ MainMenuState::MainMenuState(StateStack& aStateStack, PollingStation* aPollingSt
 	mySharedData.myTexture->CalculateTextureSize();
 	mySharedData.mySamplerFilter = Tga2D::SamplerFilter::Bilinear;
 
+	float xPos = 0.75f;
 	float yPosition = 0.5f;
-	float yIncrement = 0.14f;
-	myButtons.push_back(Button(eButtonType::Start, { 0.5f, yPosition }));
+	float yIncrement = 0.1f;
+	myButtons.push_back(Button(eButtonType::Start, { xPos, yPosition }));
 	yPosition += yIncrement;
-	myButtons.push_back(Button(eButtonType::Options, { 0.5f, yPosition }));
+	myButtons.push_back(Button(eButtonType::Options, { xPos, yPosition }));
 	yPosition += yIncrement;
-	myButtons.push_back(Button(eButtonType::Credits, { 0.5f, yPosition }));
+	myButtons.push_back(Button(eButtonType::Credits, { xPos, yPosition }));
 	yPosition += yIncrement;
-	myButtons.push_back(Button(eButtonType::Exit, { 0.5f, yPosition }));
+	myButtons.push_back(Button(eButtonType::Exit, { xPos, yPosition }));
 
 	myButtons[0].SetState(eState::Selected);
 	mySelectedType = myButtons[0].GetType();
@@ -44,12 +45,18 @@ MainMenuState::MainMenuState(StateStack& aStateStack, PollingStation* aPollingSt
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuUp, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuDown, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eDash, this);
 
 	myPollingStation->myAudioManager.get()->SetMusic(FSPRO::Event::music_jungle);
 }
 
 MainMenuState::~MainMenuState()
-{}
+{
+	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMenuUp, this);
+	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMenuDown, this);
+	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eSelect, this);
+	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eDash, this);
+}
 
 void MainMenuState::Init()
 {}
@@ -117,6 +124,7 @@ void MainMenuState::RecieveEvent(const Input::eInputEvent aEvent, const float /*
 			}
 
 			break;
+		case Input::eInputEvent::eDash:
 		case Input::eInputEvent::eSelect:
 			InvokeButton(mySelectedType);
 			myIsActive = false;

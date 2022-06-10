@@ -25,11 +25,13 @@ CreditsState::CreditsState(StateStack& aStateStack, PollingStation* aPollingStat
 	myBackButton->SetState(eState::Selected);
 
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eDash, this);
 }
 
 CreditsState::~CreditsState()
 {
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eSelect, this);
+	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eDash, this);
 	delete myBackButton;
 }
 
@@ -49,6 +51,7 @@ void CreditsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*a
 	{
 		switch (aEvent)
 		{
+		case Input::eInputEvent::eDash:
 		case Input::eInputEvent::eSelect:
 			myNumberOfPops = 1;
 			break;

@@ -21,6 +21,7 @@ GameState::GameState(StateStack& aStateStack, PollingStation* aPollingStation, c
 	SetPollingStation(aPollingStation);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eEscape, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMap, this);
+	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eGodMode, this);
 
 	myPollingStation->myPostmaster.get()->AddObserver(this, eMessageType::ePickUpKey);
 
@@ -39,7 +40,6 @@ GameState::~GameState()
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eEscape, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMap, this);
 	myPollingStation->mySceneManager->UnloadAllScenes();
-	myPollingStation->myAudioManager->SetListenerTransform(nullptr); //Set to null so there is not an old camera
 }
 
 int GameState::Update(const float aDeltaTime)
@@ -82,6 +82,7 @@ void GameState::Render()
 
 void GameState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)
 {
+	GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
 	if (myIsActive)
 	{
 		switch (aEvent)
@@ -91,10 +92,19 @@ void GameState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aVal
 			myIsActive = false;
 			break;
 		case Input::eInputEvent::eMap:
-			if (myPollingStation->mySceneManager.get()->GetActiveScene()->name == "Tutorial") break;
+			if (myPollingStation->mySceneManager->GetActiveScene()->name == "Tutorial" && !myGodModeActive) break;
 
 			myStateStack.PushState(new MapState(myStateStack, myPollingStation));
 			myIsActive = false;
+			break;
+		case Input::eInputEvent::eGodMode:
+			myGodModeActive = true;
+			gameData.myTeleporterStatus[0] = true;
+			gameData.myTeleporterStatus[1] = true;
+			gameData.myTeleporterStatus[2] = true;
+			gameData.myTeleporterStatus[3] = true;
+			gameData.myTeleporterStatus[4] = true;
+			break;
 		default:
 			break;
 		}

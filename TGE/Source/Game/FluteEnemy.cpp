@@ -11,15 +11,11 @@ FluteEnemy::FluteEnemy(int aMaxHp, float aSpeed, float aDetectionRadius, float a
 	mySpeed = aSpeed;
 	myDetectionRadius = aDetectionRadius;
 	myIdleSpeed = anIdleSpeed;
-	myAttackSpeed = 1.f;
+	myAttackSpeed = 0.75f;
 	myRunawayRadius = aRunawayRadius;
 	myBullet = anObject;
 
-	myAttackTimer.SetDuration(1.f);
-	myAttackTimer.SetCallback([this]()
-		{
-			myDoAttack = 1.f;
-		});
+	myDoAttack = myAttackSpeed;
 }
 
 void FluteEnemy::OnUpdate(float aDt)
@@ -57,7 +53,7 @@ void FluteEnemy::OnStart()
 		auto fluteIdle = animatedMesh->AddTransition("Flute_Idle", [this]()->bool { return true; });
 		auto fluteShoot = fluteIdle->AddTransition("Flute_Shoot", [this]()->bool { return myIsInRange; });
 		auto fluteRun = fluteShoot->AddTransition("Flute_Run", [this]()->bool { return myRunaway; });
-
+		
 		fluteIdle->AddTransition(fluteShoot, [this]()->bool { return myIsInRange && !myRunaway; });
 		fluteIdle->AddTransition(fluteRun, [this]()->bool { return myRunaway; });
 		fluteShoot->AddTransition(fluteRun, [this]()->bool { return myRunaway; });
@@ -87,7 +83,8 @@ void FluteEnemy::ShootPlayer(float aDt)
 	myDoAttack -= aDt;
 	if (myDoAttack <= 0)
 	{
-		myDoAttack = myAttackSpeed;
+		myIsAttacking = true;
+		myDoAttack = myAttackSpeed + 0.25f;
 		//create bullet
 		GameObject* tempBullet = myScene->CreateGameObject(myBullet);
 		tempBullet->GetComponent<BulletComponent>()->SetPosition({myTransform->GetPosition().x, myTransform->GetPosition().y + 1.5f, myTransform->GetPosition().z});

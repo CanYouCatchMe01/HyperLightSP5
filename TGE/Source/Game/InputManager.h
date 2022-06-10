@@ -14,6 +14,7 @@ enum class InputAction
 	CLIMB,
 	RESET,
 	SELECT,
+	GODMODE,
 	BACK,
 	ESC,
 	DEBUG1,
