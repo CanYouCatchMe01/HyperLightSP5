@@ -1,3 +1,4 @@
+#pragma once
 #include <cstdio>
 
 template <typename T>
@@ -31,14 +32,23 @@ public:
         sparse[id] = size++;
     }
 
-    void Remove(size_t id)
+    void Remove(IdType id)
     {
         if (!Has(id)) return;
 
         size_t denseIndex = sparse[id];
+
+        size_t old = dense[size - 1];
         std::swap(dense[size - 1], dense[denseIndex]);
-        sparse[dense[denseIndex]] = denseIndex;
+        std::swap(mirror[size - 1], mirror[denseIndex]);
+
+        sparse[old] = denseIndex;
         --size;
+    }
+
+    T& Get(IdType id)
+    {
+        return mirror[sparse[id]];
     }
 
     inline bool Has(IdType id) const

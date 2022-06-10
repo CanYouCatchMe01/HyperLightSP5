@@ -35,19 +35,21 @@ void PopcornEnemy::OnUpdate(float aDt)
 	}
 }
 
-//void PopcornEnemy::OnStart()
-//{
-//	auto animatedMesh = myGameObject->GetComponent<AnimatedMeshComponent>();
-//	auto wormCrawl = animatedMesh->AddTransition("sandWorm_crawl", [this]()->bool { return true; });
-//	wormCrawl->AddTransition(wormCrawl, [this]()->bool { return ((myLastDir.x != 0 || myLastDir.z != 0) && !myIsStunned); });
-//}
-
-
-void PopcornEnemy::MoveTowardsPlayer(float aDt)
+void PopcornEnemy::OnStart()
 {
-	myDistanceToTarget.Normalize();
-	myTransform->SetRotation(myTransform->GetRotation() + myDistanceToTarget);
-	SetPosition(GetPosition() + Tga2D::Vector3f{ myDistanceToTarget.x, 0, myDistanceToTarget.z } *mySpeed * aDt);
+	auto animatedMesh = myGameObject->GetComponent<AnimatedMeshComponent>();
+	if (animatedMesh)
+	{
+		animatedMesh->AddTransition("sandWorm_crawl", [this]()->bool { return true; });
+		animatedMesh;
+	}
+	
+	myTarget = myPollingStation->myPlayer;
+	myMoveTime = ((1000.f, 0.1f) * ((float)rand() / RAND_MAX)) + 0.1f;
+	// need to match with the hit cooldown of the player
+	myTakeDamageTime = 1.f;
+	myRandNum = -1;
+	
 }
 
 void PopcornEnemy::OnDeath()

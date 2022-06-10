@@ -133,7 +133,7 @@ void OBB3D::CallGrounded()
         myParent->GetComponent<PlayerComponent>()->SetGrounded(myIsGrounded);
         return;
     }
-    else if (parentTag == eTag::flute || parentTag == eTag::charge || parentTag == eTag::popcorn)
+    else if (parentTag == eTag::charge || parentTag == eTag::flute || parentTag == eTag::popcorn)
     {
         myParent->GetComponent<EnemyComponent>()->SetIsGrounded(myIsGrounded);
         return;
@@ -149,6 +149,7 @@ void OBB3D::SetPosition(Tga2D::Vector3f aPos)
 {
     myTransform.SetPosition(aPos);
     Calculate();
+    myLastPos = myTransform.GetPosition();
 }
 
 void OBB3D::SATTest(const Vector3 anAxis, const SetOfCorners& aPtSet, float& aMinExtent, float& aMaxExtent)
@@ -175,32 +176,18 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
     if (!aOther.myIsTrigger || myIsTrigger && !myAlwaysSendEvent)
         return;
 
-    eCollisionState state;
-    if (!myCurrentlyColliding.Size())
+   /* eCollisionState state;
+    if (!myCurrentlyColliding.size())
     {
         state = eCollisionState::eNone;
-    }
-    else
-    {
-        auto ptr = myCurrentlyColliding.Get(aOther.myParent);
-        if (ptr)
-        {
-            state = *myCurrentlyColliding.Get(aOther.myParent);
-        }
-        else
-        {
-            state = eCollisionState::eNone;
-        }
-    }
+    }*/
 
-   
-
-    //eCollisionState state = myCurrentlyColliding[aOther.myParent];
+    eCollisionState state = myCurrentlyColliding[aOther.myParent];
     if (aCollided && aOther.myIsTrigger)
     {
         if (state == eCollisionState::eNone)
         {
-            myCurrentlyColliding.Insert(aOther.myParent, eCollisionState::eEnter);
+            myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
             //myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
             myParent->OnCollisionEnter(aOther.myParent);
             return;
@@ -209,7 +196,7 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
         if (state == eCollisionState::eEnter)
         {
             state = eCollisionState::eStay;
-            myCurrentlyColliding.Insert(aOther.myParent, eCollisionState::eStay);
+            myCurrentlyColliding[aOther.myParent] =  eCollisionState::eStay;
             myParent->OnCollisionStay(aOther.myParent);
             return;
         }
@@ -223,7 +210,7 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
         if (state == eCollisionState::eExit)
         {
             //myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
-            myCurrentlyColliding.Insert(aOther.myParent, eCollisionState::eEnter);
+            myCurrentlyColliding[aOther.myParent] = eCollisionState::eEnter;
             myParent->OnCollisionEnter(aOther.myParent);
             return;
         }
@@ -235,14 +222,14 @@ void OBB3D::SetCollisionEvent(bool aCollided, OBB3D& aOther)
     {
         if (state == eCollisionState::eExit)
         {
-            myCurrentlyColliding.Insert(aOther.myParent, eCollisionState::eNone);
+            myCurrentlyColliding[aOther.myParent] = eCollisionState::eNone;
             //myCurrentlyColliding[aOther.myParent] = eCollisionState::eNone;
             return;
         }
 
         if (state == eCollisionState::eEnter || state == eCollisionState::eStay)
         {
-            myCurrentlyColliding.Insert(aOther.myParent, eCollisionState::eExit);
+            myCurrentlyColliding[aOther.myParent] = eCollisionState::eExit;
             //myCurrentlyColliding[aOther.myParent] = eCollisionState::eExit;
             myParent->OnCollisionExit(aOther.myParent);
         }

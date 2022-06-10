@@ -11,6 +11,12 @@
 
 class GameObject;
 
+struct CameraContainer
+{
+	Tga2D::Camera myCamera;
+	GameObject* myCameraParent;
+};
+
 class Scene
 {
 public:
@@ -41,7 +47,7 @@ private:
 	std::vector<GameObject*> myTempAddObjects;
 	std::vector<GameObject*> myTempRemoveObjects;
 
-	Tga2D::Camera myCamera;
+	CameraContainer myCamera;
 	Tga2D::DirectionalLight myDirectionalLight;
 	Tga2D::AmbientLight myAmbientLight;
 	class PollingStation* myPollingStation;

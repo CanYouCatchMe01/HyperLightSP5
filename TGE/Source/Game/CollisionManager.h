@@ -25,6 +25,7 @@ public:
 	Vector3 ClosestPoint(Ray aRay, Vector3 pos);
 
 private:
+	size_t myNextColliderHandle = 0;
 	SparseSet<bool> myIsColliderStatic;
 	SparseSet<OBB3D> myOBBColliders;
 };

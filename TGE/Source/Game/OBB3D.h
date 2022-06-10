@@ -63,6 +63,7 @@ private:
 
 	Vector3 myOffset;
 	Vector3 mySize;
+	Vector3 myLastPos;
 
 	float myMaxStepHeight = 0.2f;
 	float myMaxRadiusSqr;
@@ -73,6 +74,6 @@ private:
 	SetOfCorners myCorners;
 
 	Tga2D::Transform myTransform;
-	CommonUtilities::HashMap<GameObject*, eCollisionState> myCurrentlyColliding;
+	std::unordered_map<GameObject*, eCollisionState> myCurrentlyColliding;
 	//std::unordered_map<GameObject*, eCollisionState> myCurrentlyColliding;
 };

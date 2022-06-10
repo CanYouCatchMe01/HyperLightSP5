@@ -48,7 +48,15 @@ void BaseDebugger::DebugUpdate()
 			{
 				if (ImGui::Button(scene.c_str()))
 				{
-					myStateStack->PushState(new GameState(*myStateStack, myPollingStation, scene));
+					//Checks if the current state is gamestate, then don't add a more gamestate
+					if (dynamic_cast<GameState*>(myStateStack->GetCurrentState()))
+					{
+						myPollingStation->mySceneManager.get()->LoadScene(scene);
+					}
+					else
+					{
+						myStateStack->PushState(new GameState(*myStateStack, myPollingStation, scene));
+					}
 				}
 			}
 			ImGui::EndTabItem();

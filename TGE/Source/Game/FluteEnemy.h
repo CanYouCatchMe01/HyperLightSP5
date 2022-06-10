@@ -1,14 +1,16 @@
 #pragma once
 #include "EnemyComponent.h"
 #include "json.hpp"
+#include "Timer.h"
 
 class FluteEnemy : public EnemyComponent
 {
 
 public:
-	FluteEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float anIdleSpeed, float anIdleRadius, nlohmann::json& anObject);
+	FluteEnemy(int aMaxHp, float aSpeed, float aDetectionRadius, float anIdleSpeed, float anIdleRadius, nlohmann::json& anObject);
+	
 	void OnUpdate(float aDt) override;
-
+	void OnStart() override;
 private:
 	void MoveAwayFromPlayer(float aDt);
 	void ShootPlayer(float aDT);
@@ -17,10 +19,12 @@ private:
 	Tga2D::Vector3f myAttackDirection;
 	int myHp;
 
+	Timer myAttackTimer;
 	nlohmann::json myBullet;
+	
 	float myRunawayRadius;
-
-	float myAttackTimer;
+	float myDoAttack = 0.f;
+	
 	bool myAttacking = false;
 	bool myRunaway = false;
 };

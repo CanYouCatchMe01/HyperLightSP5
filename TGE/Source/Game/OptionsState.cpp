@@ -5,6 +5,7 @@
 #include "tga2d/engine.h"
 #include "PollingStation.h"
 #include "AudioManager.h"
+#include "GameDataManager.h"
 #include <vector>
 #include <tga2d/texture/TextureManager.h>
 #include <tga2d/graphics/GraphicsEngine.h>
@@ -18,6 +19,7 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	SetPollingStation(aPollingStation);
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/OptionsMenu/ui_optionsMenu_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
+	mySpriteInstance.mySizeMultiplier = { 1.f,1.81f };
 	mySpriteInstance.myScaleSpritesWithAspectRatio = false;
 
 	float leftArrowX = 0.38f;
@@ -56,12 +58,12 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	myScreenResolutions.push_back({ 1920,1080 });
 	myScreenResolutions.push_back({ 2560,1440 });
 
-	myScreenResIndex = 1;
+	myScreenResIndex = myPollingStation->myGameDataManager.get()->GetGameData().myResolutionIndex;
 	myButtons[1].SetText(std::to_string(myScreenResolutions[myScreenResIndex].x) + "x" + std::to_string(myScreenResolutions[myScreenResIndex].y));
 	myButtons[2].SetText(std::to_string((int)(myPollingStation->myAudioManager.get()->GetVolume(Channels::Master) * 100)));
 	myButtons[3].SetText(std::to_string((int)(myPollingStation->myAudioManager.get()->GetVolume(Channels::Music) * 100)));
 	myButtons[4].SetText(std::to_string((int)(myPollingStation->myAudioManager.get()->GetVolume(Channels::SFX) * 100)));
-	myVolumeChangeSpeed = .1f;
+	myVolumeChangeSpeed = .03f;
 }
 
 OptionsState::~OptionsState()
@@ -112,6 +114,8 @@ int OptionsState::Update(const float aDeltaTime)
 	{
 		Tga2D::Engine::GetInstance()->SetResolution(myScreenResolutions[myScreenResIndex], true);
 		myShouldChangeScreenRes = false;
+		GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
+		gameData.myResolutionIndex = myScreenResIndex;
 	}
 
 	return myNumberOfPops;

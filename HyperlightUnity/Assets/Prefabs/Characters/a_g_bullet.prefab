@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7819323151624979602}
   - component: {fileID: 8881737674524383336}
   - component: {fileID: 8881737674524383337}
+  - component: {fileID: 2381544312976191474}
   m_Layer: 0
   m_Name: a_g_bullet
-  m_TagString: flute
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8611775885327459655}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -10.749, y: 3.534, z: -21.521}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8611775885327459655}
-  m_Mesh: {fileID: 2540817853737639666, guid: fa7246055be804a4e9ed1b323ea7ebae, type: 3}
+  m_Mesh: {fileID: 4864056309639282896, guid: fa7246055be804a4e9ed1b323ea7ebae, type: 3}
 --- !u!23 &7819323151624979602
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: fa7246055be804a4e9ed1b323ea7ebae, type: 3}
+  - {fileID: 2100000, guid: 5053e3c39f9a3534493e632c6c81d73d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,7 +125,7 @@ MonoBehaviour:
   - myVariableType: 1
     myVariableName: speed
     myInt: 0
-    myFloat: 5
+    myFloat: 1.5
     myString: 
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
@@ -132,3 +133,36 @@ MonoBehaviour:
     myTexture: {fileID: 0}
     myScene: {fileID: 0}
     myGameObject: {fileID: 0}
+--- !u!114 &2381544312976191474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8611775885327459655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6c95e7793c99b47b5b67141b1dd5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: f6a72f8915e7bb24f8b66f6121077311, type: 3}
+  startScale: 0.5
+  endScale: 2
+  minMass: 10
+  maxMass: 3
+  minTimeBetweenParticleSpawns: 0.1
+  maxTimeBetweenParticleSpawns: 0.1
+  minStartSpeed: 1
+  maxStartSpeed: 1
+  minAngle: -1.27
+  maxAngle: -1.87
+  minLifeTime: 0.5
+  maxLifeTime: 0.8
+  minSpawnOffsetDistance: 0
+  maxSpawnOffsetDistance: 0
+  acceleration: {x: 0, y: 0, z: 0}
+  startColor: {r: 1, g: 0.9053073, b: 0, a: 1}
+  endColor: {r: 0.6778572, g: 0, b: 0.7264151, a: 1}
+  blendState: 2
+  emitTime: 0
+  gravity: -9.81

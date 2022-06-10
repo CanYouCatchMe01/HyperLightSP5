@@ -17,32 +17,37 @@
 #include "GameDataManager.h"
 #include "SceneManager.h"
 #include "CassetTapeComponent.h"
+#include "UpgradeComponent.h"
 #include "GameDataManager.h"
 #include "CollisionManager.h"
 
-PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed)
+PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float /*aAttackTime*/, float aSpeed, float aDashSpeed)
 {
-
 	myPlayerData.myMaxHP = aMaxHp;
 	myPlayerData.myCurrentHP = aMaxHp;
 	myMaxHealing = aMaxHealing;
 	myMaxAttacks = aMaxAttaks;
 	myDashTime = aDashTime;
 	myHealingTime = aHealingtime;
-	myAttackTime = aAttackTime;
+	myAttackTime = 0.75f/*aAttackTime*/;
 	mySpeed = aSpeed;
 	myDashSpeed = aDashSpeed;
 }
 
 PlayerComponent::~PlayerComponent()
-{
-}
+{}
 
 void PlayerComponent::OnUpdate(float aDt)
 {
 	myTakeDamageTimer -= aDt;
 
-	if (!myStun && !myHealing && !myAttack)
+	if (!myIsGrounded && !myDash)
+	{
+		myDir.y = -myGravity / mySpeed;
+		SetPosition(GetPosition() + (myDir * mySpeed * aDt));
+	}
+
+	if (!myStun && !myHealing /*&& !myAttack*/)
 	{
 		Movement(aDt);
 		myLastDir = myDir;
@@ -57,6 +62,7 @@ void PlayerComponent::OnUpdate(float aDt)
 	{
 		myStun = false;
 	}
+	myDashCollDownTimer -= aDt;
 	myDashTimer -= aDt;
 	if (myDashTimer < 0)
 	{
@@ -76,9 +82,6 @@ void PlayerComponent::OnUpdate(float aDt)
 
 void PlayerComponent::Movement(float aDT)
 {
-
-
-
 	//increasing the volume when the player is moving
 	if (myDir.x == 0 && myDir.z == 0)
 	{
@@ -90,7 +93,7 @@ void PlayerComponent::Movement(float aDT)
 	}
 	myWalkSound->setVolume(10.0f);
 	myDir.Normalize();
-	
+
 	if ((myDir.x != 0 || myDir.z != 0))
 	{
 		if (myGoalRotation != (std::atan2(myDir.z, -myDir.x) * 57.2957795f) - 90)
@@ -116,30 +119,38 @@ void PlayerComponent::Movement(float aDT)
 			}
 		}
 	}
-	if (myRotationTime < 1/myRotationSpeed)
+	if (myRotationTime < 1 / myRotationSpeed && !myAttack)
 	{
-		myRotation += myRotationDiff * aDT*myRotationSpeed;
+		myRotation += myRotationDiff * aDT * myRotationSpeed;
 		myTransform->SetRotation({ 0,myRotation,0 });
 		myRotationTime += aDT;
 	}
-
-
+	else if (myRotationTime < 1 / (myRotationSpeed / 5) && myAttack)
+	{
+		myRotation += myRotationDiff * aDT * (myRotationSpeed / 5);
+		myTransform->SetRotation({ 0,myRotation,0 });
+		myRotationTime += aDT;
+	}
 	if (myDash)
 	{
 		SetPosition(GetPosition() + myDashDir * myDashSpeed * aDT);
 		return;
 	}
-	myDir.y = -myGravity / mySpeed;
-	SetPosition(GetPosition() + (myDir * mySpeed * aDT));
-
-
+	if (!myAttack)
+	{
+		SetPosition(GetPosition() + (myDir * mySpeed * aDT));
+	}
+	else
+	{
+		SetPosition(GetPosition() + (myDir * (mySpeed / 10) * aDT));
+	}
 }
 
 void PlayerComponent::Attack()
-{	
+{
 	if (myAttackTimer < 0.0f)
 	{
-		myAttackTimer = 0.2f;
+		myAttackTimer = myAttackTime;
 		myAttack = true;
 		//do the attack
 		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_swing);
@@ -148,16 +159,15 @@ void PlayerComponent::Attack()
 
 void PlayerComponent::PickupHealing()
 {
-	if (myHealingItems >= myMaxHealing)
+	if (myPlayerData.myHealKitAmmnt >= myMaxHealing)
 	{
-		myHealingItems = myMaxHealing;
+		myPlayerData.myHealKitAmmnt = myMaxHealing;
 	}
 	else
 	{
-		myHealingItems++;
+		myPlayerData.myHealKitAmmnt++;
 	}
 }
-
 
 Tga2D::Vector3f PlayerComponent::GetPosition()
 {
@@ -173,6 +183,7 @@ int PlayerComponent::GetHp()
 {
 	return myPlayerData.myCurrentHP;
 }
+
 void PlayerComponent::SetHp(int aHp)
 {
 	if (aHp > myPlayerData.myMaxHP)
@@ -183,6 +194,8 @@ void PlayerComponent::SetHp(int aHp)
 	{
 		myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
 	}
+
+	SaveData();
 }
 
 void PlayerComponent::SetFullHP()
@@ -193,12 +206,14 @@ void PlayerComponent::SetFullHP()
 	takeDmgMessage.myMsg = eMessageType::ePlayerTookDMG;
 	takeDmgMessage.aFloatValue = (float)myPlayerData.myCurrentHP / (float)myPlayerData.myMaxHP;
 	myPollingStation->myPostmaster->SendMsg(takeDmgMessage);
+	SaveData();
 }
 
 int PlayerComponent::GetHealing()
 {
 	return myHealing;
 }
+
 void PlayerComponent::SetHealing(int aHealing)
 {
 	if (aHealing > myMaxHealing)
@@ -210,7 +225,6 @@ void PlayerComponent::SetHealing(int aHealing)
 		myHealing = aHealing;
 	}
 }
-
 
 void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)
 {
@@ -229,15 +243,16 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 		myDir -= myCameraRotation.GetRight();
 		break;
 	case Input::eInputEvent::eAttack:
-		if (myAttackTimer < 0.0f && !myHealing)
+		if (myAttackTimer < 0.0f && !myHealing && !myAttack)
 		{
 			Attack();
 		}
 		break;
 	case Input::eInputEvent::eDash:
 	{
-		if (myDashTimer < 0 && !myHealing)
+ 		if (myDashTimer < 0 && myDashCollDownTimer < 0 && !myHealing && !myAttack)
 		{
+			myDashCollDownTimer = myDashCoolDown;
 			myDashTimer = myDashTime;
 			myDash = true;
 			if (myLastDir.x != 0 || myLastDir.z != 0)
@@ -250,13 +265,13 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 		break;
 	}
 	case Input::eInputEvent::eHeal:
-		if (!myHealing && !myAttack && !myDash)
+	if (!myHealing && !myAttack && !myDash)
 		{
-			if (myHealingItems > 0 && myPlayerData.myCurrentHP != myPlayerData.myMaxHP)
+			if (myPlayerData.myHealKitAmmnt > 0 && myPlayerData.myCurrentHP != myPlayerData.myMaxHP)
 			{
 				myHealing = true;
 				myHealTimer = myHealingTime;
-				myHealingItems--;
+				myPlayerData.myHealKitAmmnt--;
 				myPlayerData.myCurrentHP++;
 
 				INFO_PRINT("%s %i", "Player HP", myPlayerData);
@@ -269,6 +284,9 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 				message.myMsg = eMessageType::ePlayerHealed;
 				message.aFloatValue = (float)myPlayerData.myCurrentHP / (float)myPlayerData.myMaxHP;
 				myPollingStation->myPostmaster->SendMsg(message);
+
+				PlayerData& tempData = myPollingStation->myGameDataManager.get()->GetPlayerData();
+				tempData.myCurrentHP = myPlayerData.myCurrentHP;
 			}
 			else
 			{
@@ -279,6 +297,11 @@ void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float 
 	}
 }
 
+void PlayerComponent::SaveData()
+{
+	PlayerData& playerData = myPollingStation->myGameDataManager.get()->GetPlayerData();
+	playerData = myPlayerData;
+}
 
 void PlayerComponent::OnAwake()
 {
@@ -294,36 +317,65 @@ void PlayerComponent::OnAwake()
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eHeal, this);
 
 	myAudioComponent = myGameObject->AddComponent<AudioComponent>();
-	myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_walk_jungle);
-	myWalkSound->setVolume(0.0f);
-	SetPollingStation(myPollingStation);
 }
+
 void PlayerComponent::OnStart()
 {
+	SetPollingStation(myPollingStation);
+	std::string sceneName = myPollingStation->mySceneManager.get()->GetActiveScene()->name;
+	if (sceneName == "Jungle 1" && sceneName == "Jungle 2" && sceneName == "Jungle 3")
+	{
+		myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_walk_jungle);
+	}
+	else if (sceneName == "Badlands 1" && sceneName == "Badlands 2" && sceneName == "Badlands 3")
+	{
+		myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_walk_badlands);
+	}
+	else
+	{
+		myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_walk_hub);
+	}
+
+
+	myWalkSound->setVolume(0.0f);
 	myTakeDamageTime = 1.f;
 	auto animatedMesh = myGameObject->GetComponent<AnimatedMeshComponent>();
-	auto playerIdle = animatedMesh->AddTransition("Player_Idle", [this]()->bool {return true; });
-	auto playerRun = playerIdle->AddTransition("Player_Run", [this]()->bool {return (myLastDir.x != 0 || myLastDir.z != 0); });
-	auto playerDash = playerRun->AddTransition("Player_Dash", [this]()->bool {return myDash; });
-	/*auto playerAttack = playerRun->AddTransition("player_slash", [this]()->bool {return myAttack; });*/
-	playerRun->AddTransition(playerIdle, [this]()->bool {return (myLastDir.x == 0 && myLastDir.z == 0); });
-	playerDash->AddTransition(playerIdle, [this]()->bool {return (myLastDir.x == 0 && myLastDir.z == 0 && !myDash); });
-	playerDash->AddTransition(playerRun, [this]()->bool {return ((myLastDir.x != 0 || myLastDir.z != 0) && !myDash); });
+	auto playerIdle = animatedMesh->AddTransition("Player_Idle", [this]()->bool { return true; });
+	auto playerRun = playerIdle->AddTransition("Player_Run", [this]()->bool { return (myLastDir.x != 0 || myLastDir.z != 0); });
+	auto playerDash = playerRun->AddTransition("Player_Dash", [this]()->bool { return myDash; });
+	auto playerAttack = animatedMesh->AddTransition("Player_Slash", [this]()->bool { return myAttack; }, 2.1f);
+	playerRun->AddTransition(playerAttack, [this]()->bool { return myAttack; });
+	playerIdle->AddTransition(playerAttack, [this]()->bool { return myAttack; });
+	playerAttack->AddTransition(playerIdle, [this]()->bool { return (!myAttack && (myLastDir.x == 0 && myLastDir.z == 0)); });
+	playerAttack->AddTransition(playerRun, [this]()->bool { return (!myAttack && (myLastDir.x != 0 || myLastDir.z != 0)); });
+	playerRun->AddTransition(playerIdle, [this]()->bool { return (myLastDir.x == 0 && myLastDir.z == 0); });
+	playerDash->AddTransition(playerIdle, [this]()->bool { return (myLastDir.x == 0 && myLastDir.z == 0 && !myDash); });
+	playerDash->AddTransition(playerRun, [this]()->bool { return ((myLastDir.x != 0 || myLastDir.z != 0) && !myDash); });
 
+	PlayerData tempData = myPollingStation->myGameDataManager.get()->GetPlayerData();
+	if (tempData.myCurrentHP > 0)
+	{
+		myPlayerData = tempData;
+	}
 }
 
 void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 {
 	if (aOther->tag == eTag::teleporter)
 	{
+		SaveData();
 		aOther->GetComponent<TeleporterComponent>()->Load();
 		return;
 	}
 
-	if (aOther->tag == eTag::health_pickup && myHealingItems < myMaxHealing)
+	if (aOther->tag == eTag::health_pickup && myPlayerData.myHealKitAmmnt < myMaxHealing)
 	{
-		myHealingItems++;
+		myPlayerData.myHealKitAmmnt++;
 		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_interact);
+
+		////update gameData
+		//PlayerData& playerData = myPollingStation->myGameDataManager.get()->GetPlayerData();
+		//playerData.myHealKitAmmnt = myHealingItems;
 
 		//HUD updates
 		Message message;
@@ -331,6 +383,7 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 		myPollingStation->myPostmaster->SendMsg(message);
 
 		myScene->RemoveGameObject(aOther);
+		SaveData();
 		return;
 	}
 
@@ -340,12 +393,17 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 		GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
 		const int& number = aOther->GetComponent<CassetTapeComponent>()->GetNumber();
 		gameData.myKeys[number] = true;
-		
+
 		myScene->RemoveGameObject(aOther);
 		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_interact);
 
 		//Load Hub if all keys are collected
-		myPollingStation->mySceneManager.get()->LoadScene("Hub");
+		myPollingStation->mySceneManager.get()->LoadScene("Hub", "HubTeleport");
+
+		Message cassetPicked;
+		cassetPicked.myMsg = eMessageType::ePickUpKey;
+		cassetPicked.anIntValue = number;
+		myPollingStation->myPostmaster.get()->SendMsg(cassetPicked);
 	}
 
 	if (aOther->tag == eTag::teleportActivator)
@@ -364,6 +422,7 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 	{
 		aOther->GetComponent<CheckPointComponent>()->Save();
 	}
+
 	if (myTakeDamageTimer < 0.f)
 	{
 		if (aOther->tag == eTag::popcorn)
@@ -392,7 +451,7 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 			}
 		}
 
-		if (aOther->tag == eTag::flute)
+		if (aOther->tag == eTag::bullet)
 		{
 			auto bulletComponent = aOther->GetComponent<BulletComponent>();
 			if (bulletComponent != nullptr)
@@ -405,6 +464,24 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
 			}
 		}
+
+		if (aOther->tag == eTag::upgrade)
+		{
+			int upgradeIndex = aOther->GetComponent<UpgradeComponent>()->GetIndex();
+			Message upgradeMsg;
+			if (upgradeIndex == 0)
+			{
+				upgradeMsg.myMsg = eMessageType::eHealthUpgrade;
+			}
+			else
+			{
+				upgradeMsg.myMsg = eMessageType::eWeaponUpgrade;
+			}
+			myPollingStation->myPostmaster.get()->SendMsg(upgradeMsg);
+			GameData& gamedata = myPollingStation->myGameDataManager.get()->GetGameData();
+			gamedata.myUpgrades[upgradeIndex] = true;
+			myScene->RemoveGameObject(aOther);
+		}
 	}
 }
 
@@ -412,7 +489,7 @@ void PlayerComponent::OnCollisionExit(GameObject* aOther)
 {
 	if (aOther->tag == eTag::popcorn)
 	{
-		if (aOther->GetComponent<PopcornEnemy>() != nullptr) 
+		if (aOther->GetComponent<PopcornEnemy>() != nullptr)
 		{
 			aOther->GetComponent<PopcornEnemy>()->myIsStunned = false;
 		}
@@ -420,11 +497,16 @@ void PlayerComponent::OnCollisionExit(GameObject* aOther)
 
 	if (aOther->tag == eTag::charge)
 	{
-		if (aOther->GetComponent<ChargeEnemy>() != nullptr) 
+		if (aOther->GetComponent<ChargeEnemy>() != nullptr)
 		{
 			aOther->GetComponent<ChargeEnemy>()->myIsStunned = false;
 		}
 	}
+}
+
+void PlayerComponent::OnEnemyHit()
+{
+	myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_slash);
 }
 
 void PlayerComponent::OnDeath()
@@ -438,7 +520,7 @@ void PlayerComponent::OnDeath()
 		return;
 	}
 	myPlayerData.mySavePosition = myPollingStation->myGameDataManager.get()->GetPlayerData().mySavePosition;
-	myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
+//	myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
 	myGameObject->GetTransform().SetPosition(myPlayerData.mySavePosition);
 }
 
@@ -451,9 +533,10 @@ void PlayerComponent::TakeDamage(int someDamage)
 	takeDmgMessage.aFloatValue = (float)myPlayerData.myCurrentHP / (float)myPlayerData.myMaxHP;
 	myPollingStation->myPostmaster->SendMsg(takeDmgMessage);
 
-
+	SaveData();
 	//chekded
 }
+
 #ifndef _RETAIL
 void PlayerComponent::DebugUpdate()
 {
@@ -461,10 +544,5 @@ void PlayerComponent::DebugUpdate()
 	{
 		ImGui::InputInt("HP", &myPlayerData.myCurrentHP);
 	}
-
 }
-
-
 #endif // _RETAIL
-
-

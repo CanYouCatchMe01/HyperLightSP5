@@ -29,7 +29,7 @@ public:
 	inline void SetGrounded(bool aIsGrounded) { myIsGrounded = aIsGrounded; };
 
 	void RecieveEvent(const Input::eInputEvent aEvent, const float aValue) override;
-
+	void SaveData();
 	virtual void OnAwake() override;
 
 	virtual void OnStart() override;
@@ -39,6 +39,7 @@ public:
 
 	void OnCollisionEnter(GameObject* aOther) override;
 	void OnCollisionExit(GameObject* aOther) override;
+	void OnEnemyHit();
 
 	void OnDeath();
 	void TakeDamage(int someDamage);
@@ -57,7 +58,8 @@ private:
 	int myMaxAttacks = 3;
 	float myDashTime = 0.1f;
 	float myHealingTime = 0.1f;
-	float myAttackTime = 0.1f;
+	float myAttackTime = 1.f;
+	float myDashCoolDown = 0.3f;
 	float myGravity = 10.0f;
 	float mySpeed = 0.5f;
 	float myDashSpeed = 3.0f;
@@ -70,6 +72,7 @@ private:
 
 	float myDashTimer = 0.0f;
 	float myAttackTimer = 0.0f;
+	float myDashCollDownTimer = 0.0f;
 	float myHealTimer = 0.0f;
 	float myStunTimer = 0.0f;
 	bool myDash = false;
@@ -79,7 +82,6 @@ private:
 	bool myHealing = false;
 	bool myNextAttack = false;
 	int myAttacks = 0;
-	int myHealingItems = 0;
 	
 	//Audio
 	class AudioComponent* myAudioComponent = nullptr;

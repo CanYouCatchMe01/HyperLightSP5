@@ -7,7 +7,7 @@ CollisionManager::CollisionManager()
 
 size_t CollisionManager::RegisterBoxCollider(Tga2D::Vector3f aSize, Tga2D::Vector3f aCenter, bool aIsStatic, bool aIsTrigger, GameObject* aParent)
 {
-	size_t handle = myOBBColliders.Size();
+	size_t handle = myNextColliderHandle++;
 	myIsColliderStatic.Insert(aIsStatic, handle);
 	myOBBColliders.Insert(OBB3D(aSize, aCenter, aIsStatic, aIsTrigger, aParent), handle);
 	return handle;
@@ -21,7 +21,7 @@ void CollisionManager::UnregisterBoxCollider(size_t aHandle)
 
 OBB3D* CollisionManager::GetOBB3D(size_t aHandle)
 {
-	return &myOBBColliders[aHandle];
+	return &myOBBColliders.Get(aHandle);
 }
 
 void CollisionManager::Update()

@@ -9,13 +9,13 @@
 #include <tga2d/drawers/SpriteDrawer.h>
 
 CreditsState::CreditsState(StateStack& aStateStack, PollingStation* aPollingStation)
-    :
-    State(aStateStack, aPollingStation)
+	:
+	State(aStateStack, aPollingStation)
 {
 	SetPollingStation(aPollingStation);
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/Credits/ui_credits_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
-	mySpriteInstance.mySizeMultiplier = { 2,1 };
+	mySpriteInstance.mySizeMultiplier = { 1.5f,1.5f };
 
 	mySpriteInstance.myScaleSpritesWithAspectRatio = true;
 	mySharedData.myTexture->CalculateTextureSize();
@@ -34,12 +34,13 @@ CreditsState::~CreditsState()
 }
 
 void CreditsState::Init()
-{}
+{
+}
 
 int CreditsState::Update(const float /*aDeltaTime*/)
 {
 	myIsActive = true;
-    return myNumberOfPops;
+	return myNumberOfPops;
 }
 
 void CreditsState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)

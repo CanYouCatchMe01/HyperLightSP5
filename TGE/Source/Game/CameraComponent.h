@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "InputObserver.h"
+#include "Scene.h"
 
 namespace Tga2D
 {
@@ -11,7 +12,8 @@ class CameraComponent : public Component, public Input::InputObserver
 {
 public:
 	CameraComponent() = default;
-	CameraComponent(Tga2D::Camera* aCamera, const float aFieldOfView);
+	CameraComponent(CameraContainer* aCamera, const float aFieldOfView);
+	~CameraComponent();
 
 	// Inherited via Component
 	virtual void OnAwake() override;
@@ -27,8 +29,8 @@ public:
 
 	void SetCameraOffset(Tga2D::Vector3f aCameraOffset) { myCameraOffset = aCameraOffset; }
 private:
-	float myCameraSpeed = 10;
+	float myCameraSpeed = 0.05f;
 	bool myCameraMove = false;
-	Tga2D::Camera* const myCamera;
+	CameraContainer* const myCameraContainer;
 	Tga2D::Vector3f myCameraOffset = {0.f,1.f,-10.f};
 };

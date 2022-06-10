@@ -10,6 +10,8 @@ enum class eMessageType
 	ePlayerHealed,
 	ePlayerPickedUpHealth,
 	eHealthUpgrade,
+	eWeaponUpgrade,
+	ePickUpKey,
 };
 
 

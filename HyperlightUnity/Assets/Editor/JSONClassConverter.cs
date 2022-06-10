@@ -62,6 +62,43 @@ class Converter
         return JGameObject;
     }
 
+    public static JObject ConvertToJSON(Emitter aEmitter)
+    {
+        string texturePath = "";
+        texturePath = AssetDatabase.GetAssetPath(aEmitter.texture);
+        Export.AddDependency(texturePath);
+
+        JObject result = new JObject(
+            new JProperty("texture", Path.ChangeExtension(texturePath, ".dds")),
+            new JProperty("startScale", aEmitter.startScale),
+            new JProperty("endScale", aEmitter.endScale),
+            new JProperty("minMass", aEmitter.minMass),
+            new JProperty("maxMass", aEmitter.maxMass),
+            new JProperty("minTimeBetweenParticleSpawns", aEmitter.minTimeBetweenParticleSpawns),
+            new JProperty("maxTimeBetweenParticleSpawns", aEmitter.maxTimeBetweenParticleSpawns),
+            new JProperty("minStartSpeed", aEmitter.minStartSpeed),
+            new JProperty("maxStartSpeed", aEmitter.maxStartSpeed),
+            new JProperty("minAngle", aEmitter.minAngle),
+            new JProperty("maxAngle", aEmitter.maxAngle),
+            new JProperty("minLifeTime", aEmitter.minLifeTime),
+            new JProperty("maxLifeTime", aEmitter.maxLifeTime),
+            new JProperty("minSpawnOffsetDistance", aEmitter.minSpawnOffsetDistance),
+            new JProperty("maxSpawnOffsetDistance", aEmitter.maxSpawnOffsetDistance),
+            new JProperty("acceleration", ConvertToJSON(aEmitter.acceleration)),
+            new JProperty("color",
+                new JArray(
+                    ConvertToJSON(aEmitter.startColor),
+                    ConvertToJSON(aEmitter.endColor)
+                )
+            ),
+            new JProperty("blendState", aEmitter.blendState),
+            new JProperty("emitTime", aEmitter.emitTime),
+            new JProperty("gravity", aEmitter.gravity)
+        );
+
+        return result;
+    }
+
     public static JObject ConvertToJSON(Vector3 aVector3)
     {
         JObject result = new JObject(
@@ -193,12 +230,23 @@ class Converter
             result.Add("type", "check_point");
             result.Add("data", ConvertToJSON((CheckPoint)aComponent));
         }
+        else if (aComponent.GetType() == typeof(Emitter))
+        {
+            result.Add("type", "emitter");
+            result.Add("data", ConvertToJSON((Emitter)aComponent));
+        }
 
         return result;
     }
     public static JObject ConvertToJSON(CheckPoint aCheckPoint)
     {
         JObject result = new JObject();
+
+        if (!aCheckPoint.spawnPointScene)
+            Debug.Log("Checkpoint on " + aCheckPoint.gameObject.name + " does not have a scene to load");
+
+        if (aCheckPoint.spawnPointName == "")
+            Debug.Log("Checkpoint on " + aCheckPoint.gameObject.name + " does not have a spawnpoint name");
 
         result.Add("scene", aCheckPoint.spawnPointScene.name);
         result.Add("name", aCheckPoint.spawnPointName);
@@ -209,6 +257,9 @@ class Converter
     {
         JObject result = new JObject();
 
+        if (aSpawnPoint.spawnPointName == "")
+            Debug.Log("Spawnpoint on " + aSpawnPoint.gameObject.name + " does not have a spawnpoint name");
+
         result.Add("name", aSpawnPoint.spawnPointName);
 
         return result;
@@ -216,6 +267,12 @@ class Converter
     public static JObject ConvertToJSON(Teleporter aTeleporter)
     {
         JObject result = new JObject();
+
+        if (!aTeleporter.sceneToLoad)
+            Debug.Log("Teleporter on " + aTeleporter.gameObject.name + " does not have a scene to load");
+
+        if (aTeleporter.spawnPointName == "")
+            Debug.Log("Teleporter on " + aTeleporter.gameObject.name + " does not have a spawnpoint name");
 
         result.Add("scene", aTeleporter.sceneToLoad.name);
         result.Add("spawnpoint", aTeleporter.spawnPointName);
@@ -287,7 +344,14 @@ class Converter
     {
         JObject result = new JObject();
 
-        string modelPath = AssetDatabase.GetAssetPath(PrefabUtility.GetCorrespondingObjectFromOriginalSource(aMeshFilter.sharedMesh));
+        if (!aMeshFilter.sharedMesh)
+            Debug.Log(aMeshFilter.gameObject.name + " is missing a mesh, could not export");
+        
+        var obj = PrefabUtility.GetCorrespondingObjectFromOriginalSource(aMeshFilter.sharedMesh);
+        if (!obj)
+            Debug.Log("Error in: " + aMeshFilter.gameObject.name);
+
+        string modelPath = AssetDatabase.GetAssetPath(obj);
 
         if (modelPath == "Library/unity default resources")
         {
@@ -410,16 +474,25 @@ class Converter
                     }
                 case TypeEnum.Texture:
                     {
+                        if (!element.myTexture)
+                            Debug.Log("Class container on " + aClassContainer.gameObject.name + " has a null texture");
+
                         data.Add(element.myVariableName, ConvertToJSON(element.myTexture));
                         break;
                     }
                 case TypeEnum.Scene:
                     {
+                        if (!element.myScene)
+                            Debug.Log("Class container on " + aClassContainer.gameObject.name + " has a null scene");
+
                         data.Add(element.myVariableName, ConvertToJSON((SceneAsset)element.myScene));
                         break;
                     }
                 case TypeEnum.GameObject:
                     {
+                        if (!element.myGameObject)
+                            Debug.Log("Class container on " + aClassContainer.gameObject.name +" has a null gameobject");
+
                         data.Add(element.myVariableName, ConvertToJSON(element.myGameObject));
                         break;
                     }

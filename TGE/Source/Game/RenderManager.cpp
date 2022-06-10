@@ -22,7 +22,10 @@ void RenderManager::Render(Scene* aScene)
 
 	Tga2D::DX11::RenderStateManager->ResetStates();
 
-	myGraphicsEngine.SetCamera(aScene->myCamera);
+	Tga2D::Camera& camera = aScene->myCamera.myCamera;
+	camera.SetTransform(aScene->myCamera.myCameraParent->GetTransform());
+
+	myGraphicsEngine.SetCamera(camera);
 
 	//Send data from CPU to GPU, CommonBuffer graphicsengine -> ShaderStructs.hlsli
 	myGraphicsEngine.UpdateAndBindCommonBuffer();

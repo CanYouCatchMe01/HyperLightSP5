@@ -9,6 +9,7 @@
 #include <tga2d/drawers/SpriteDrawer.h>
 #include "tga2d/light/LightManager.h"
 #include <tga2d/graphics/GraphicsEngine.h>
+#include "GameObject.h"
 
 RenderObjectManager::RenderObjectManager()
 {
@@ -18,14 +19,14 @@ void RenderObjectManager::Render(Tga2D::ForwardRenderer& aForwardsRenderer)
 {
 #ifdef _DEBUG
 	static float angle = 1.2f;
-	static float distance = 300.f;
+	static float distance = 100.f;
 	ImGui::Begin("Culling");
 	ImGui::DragFloat("Cull Angle", &angle, 0.01f, 0.f, 3.14f);
 	ImGui::DragFloat("Cull Distance", &distance, 10.f, 0.f, 1000000.f);
 	ImGui::End();
 #else
 	const float angle = 1.2f;
-	const float distance = 5.0f;
+	const float distance = 100.0f;
 #endif // DEBUG
 
 	const Tga2D::Camera& camera = Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetCamera();
@@ -60,9 +61,20 @@ void RenderObjectManager::Render(Tga2D::ForwardRenderer& aForwardsRenderer)
 		if (myEmptyAnimatedModels.count(i))
 			continue;
 
-		aForwardsRenderer.Render(myAnimatedModels[i]);
+		const auto& c = myAnimatedModels[i];
+		Tga2D::Transform t = c.myParent->GetTransform();
+		t.SetScale(t.GetScale() * 0.01f);
+
+		myAnimatedModels[i].myAnimatedModel.SetTransform(t);
+		aForwardsRenderer.Render(c.myAnimatedModel);
 	}
 
+	Tga2D::DX11::RenderStateManager->SetDepthStencilState(Tga2D::DepthStencilState::ReadOnly); // Render all transparent objects after here
+
+	for (size_t i = 0; i < myEmitters.Size(); i++)
+		myEmitters[i].Render();
+
+	Tga2D::DX11::RenderStateManager->SetDepthStencilState(Tga2D::DepthStencilState::Write); // Render all transparent objects before here
 }
 
 size_t RenderObjectManager::RegisterModel(const wchar_t* aPath, std::wstring* someTexturePaths)
@@ -79,17 +91,21 @@ size_t RenderObjectManager::RegisterModel(const wchar_t* aPath, std::wstring* so
 	return myModels.size() - 1;
 }
 
-size_t RenderObjectManager::RegisterAnimatedModel(const wchar_t* aPath, std::wstring* someTexturePaths)
+size_t RenderObjectManager::RegisterAnimatedModel(const wchar_t* aPath, GameObject* aParent, std::wstring* someTexturePaths)
 {
+	AnimatedModelContatiner c;
+	c.myAnimatedModel = Tga2D::ModelFactory::GetInstance().GetAnimatedModel(aPath, someTexturePaths);
+	c.myParent = aParent;
+
 	if (myEmptyAnimatedModels.size())
 	{
 		size_t handle = *std::prev(myEmptyAnimatedModels.end());
 		myEmptyAnimatedModels.erase(std::prev(myEmptyAnimatedModels.end()));
-		myAnimatedModels[handle] = Tga2D::ModelFactory::GetInstance().GetAnimatedModel(aPath);
+		myAnimatedModels[handle] = c;
 		return handle;
 	}
 
-	myAnimatedModels.push_back(Tga2D::ModelFactory::GetInstance().GetAnimatedModel(aPath, someTexturePaths));
+	myAnimatedModels.push_back(c);
 	return myAnimatedModels.size() - 1;
 }
 
@@ -137,6 +153,17 @@ void RenderObjectManager::AddPointLights(Tga2D::LightManager& aLightManager)
 	}
 }
 
+size_t RenderObjectManager::RegisterEmitter(nlohmann::json& aParticleConfig)
+{
+	myEmitters.Insert(Emitter(aParticleConfig), myNextEmitter);
+	return myNextEmitter++;
+}
+
+void RenderObjectManager::DestroyEmitter(size_t aEmitterHandle)
+{
+	myEmitters.Remove(aEmitterHandle);
+}
+
 
 Tga2D::ModelInstance* RenderObjectManager::GetModel(size_t aModelHandle)
 {
@@ -145,7 +172,7 @@ Tga2D::ModelInstance* RenderObjectManager::GetModel(size_t aModelHandle)
 
 Tga2D::AnimatedModelInstance* RenderObjectManager::GetAnimatedModel(size_t aModelHandle)
 {
-	return &myAnimatedModels[aModelHandle];
+	return &myAnimatedModels[aModelHandle].myAnimatedModel;
 }
 
 void RenderObjectManager::DestroyModel(size_t aModel)

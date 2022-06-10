@@ -22,7 +22,7 @@ struct GameData
 	//If a keys is taken set it to true
 	std::bitset<2> myKeys = { false };
 	int myCurrentKeysAmount = 0;
-
+	int myResolutionIndex = 1;
 	CheckPointComponent* myCheckpoint = nullptr;
 };
 
@@ -32,6 +32,7 @@ struct PlayerData
 	int myMaxHP;
 	int myCurrentHP;
 	int myAttakDMG;
+	int myHealKitAmmnt = 0;
 };
 
 class GameDataManager

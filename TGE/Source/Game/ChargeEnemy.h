@@ -7,8 +7,9 @@ class ChargeEnemy : public EnemyComponent
 
 public:
 	ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float aChargeRadius, float aChargeTime, float anIdleSpeed, int anAttackDamage, float aDashSpeed, float anIdleRadius);
-	void OnUpdate(float aDt) override;
 
+	void OnUpdate(float aDt) override;
+	void OnStart() override;
 private:
 	void Charge(float aDt);
 	void CheckChargeRadius();
@@ -18,6 +19,7 @@ private:
 
 	Timer myChargeTimer;
 	Timer myDashTimer;
+	Timer myAttackTimer;
 	
 	float myDashSpeed;
 	float myChargeTime;
@@ -25,4 +27,5 @@ private:
 
 	bool myIsDoneDashing = false;
 	bool myIsInAttackRange = false;
+	bool myIsAttacking = false;
 };

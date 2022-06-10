@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5618075617010252259}
   - component: {fileID: 5378558803975024447}
   - component: {fileID: 4169151075804570851}
+  - component: {fileID: 5960948710474558185}
   m_Layer: 0
   m_Name: a_z1_enemy
-  m_TagString: Untagged
+  m_TagString: flute
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.97706985, y: 1.9909824, z: 0.5806608}
-  m_Center: {x: 0.034388542, y: 0.99006087, z: 0.02548647}
+  m_Size: {x: 1.3918623, y: 1.9909824, z: 1.2640231}
+  m_Center: {x: 0.11829215, y: 0.99006087, z: 0.052533746}
 --- !u!114 &4169151075804570851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +113,7 @@ MonoBehaviour:
   myList:
   - myVariableType: 0
     myVariableName: max_hp
-    myInt: 1
+    myInt: 2
     myFloat: 0
     myString: 
     myVector3: {x: 0, y: 0, z: 0}
@@ -125,17 +126,6 @@ MonoBehaviour:
     myVariableName: speed
     myInt: 0
     myFloat: 3
-    myString: 
-    myVector3: {x: 0, y: 0, z: 0}
-    myBool: 0
-    myColor: {r: 1, g: 1, b: 1, a: 1}
-    myTexture: {fileID: 0}
-    myScene: {fileID: 0}
-    myGameObject: {fileID: 0}
-  - myVariableType: 1
-    myVariableName: attack_speed
-    myInt: 0
-    myFloat: 1
     myString: 
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0
@@ -187,3 +177,21 @@ MonoBehaviour:
     myTexture: {fileID: 0}
     myScene: {fileID: 0}
     myGameObject: {fileID: 8611775885327459655, guid: 77328341aa717fc45ba14b57ba95ef8c, type: 3}
+--- !u!111 &5960948710474558185
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543638450247900512}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 1827226128182048838, guid: f0e395f366517dd4c880033163d934a1, type: 3}
+  - {fileID: 1827226128182048838, guid: 9baf4c1ffcf47c8439b8b28303f613e8, type: 3}
+  - {fileID: 1827226128182048838, guid: f161a26dc05f25d47887e18654df42fc, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

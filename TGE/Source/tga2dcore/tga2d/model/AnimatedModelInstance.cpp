@@ -148,6 +148,7 @@ void AnimatedModelInstance::AnimationInstance::Stop()
 {
 	myState = AnimationState::Stopped;
 	myCurrentFrame = 0;
+	myTimer = 0;
 }
 
 void AnimatedModelInstance::AnimationInstance::SetIsLooping(bool shouldLoop)

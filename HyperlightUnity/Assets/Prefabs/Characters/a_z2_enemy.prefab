@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3485873638340813411}
   - component: {fileID: 8653232419074968146}
   - component: {fileID: 7895932597857104684}
+  - component: {fileID: 1124062566182776692}
   m_Layer: 0
   m_Name: a_z2_enemy
   m_TagString: charge
@@ -126,7 +127,7 @@ MonoBehaviour:
   myList:
   - myVariableType: 0
     myVariableName: max_hp
-    myInt: 1
+    myInt: 3
     myFloat: 0
     myString: 
     myVector3: {x: 0, y: 0, z: 0}
@@ -234,3 +235,22 @@ MonoBehaviour:
     myTexture: {fileID: 0}
     myScene: {fileID: 0}
     myGameObject: {fileID: 0}
+--- !u!111 &1124062566182776692
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95931111989311086}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 1827226128182048838, guid: 5c1c6b20cc59213439e7ce3d7d5dd949, type: 3}
+  - {fileID: 1827226128182048838, guid: f161a26dc05f25d47887e18654df42fc, type: 3}
+  - {fileID: 1827226128182048838, guid: f0e395f366517dd4c880033163d934a1, type: 3}
+  - {fileID: 0}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

@@ -8,8 +8,11 @@ public:
 	void OnAwake() override;
 	void OnStart() override;
 	void OnUpdate(float aDt) override;
+	
 	void SetDirection(Tga2D::Vector3f aDirection);
 	void SetPosition(Tga2D::Vector3f aPosition);
+	void SetRotation(Tga2D::Rotator aRotation);
+	
 	void RemoveBullet();
 	int GetAttackDamage();
 private:

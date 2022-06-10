@@ -13,6 +13,7 @@ public:
 	void OnStart() override;
 	void OnUpdate(const float aDeltaTime) override;
 private:
+	float myActivationTimer = 0.5f;
 	int myEnemyCounter = 0;
 	bool myGateIsOpen = false;
 	float myMoveTimer = 1.f;

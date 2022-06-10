@@ -51,6 +51,7 @@ void Scene::Update(float aTimeDelta)
 			{
 				delete *it;
 				it = myGameObjects.erase(it);
+				break;
 			}
 			else
 			{
@@ -92,7 +93,7 @@ SpawnPointManager& Scene::GetSpawnPointManager()
 
 Tga2D::Camera& Scene::GetCamera()
 {
-	return myCamera;
+	return myCamera.myCamera;
 }
 
 void Scene::SetDirectionalLight(const Tga2D::DirectionalLight& aDirectionalLight)

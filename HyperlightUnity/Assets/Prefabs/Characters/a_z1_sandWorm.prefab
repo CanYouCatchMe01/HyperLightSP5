@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8371463801393107495}
   - component: {fileID: 2424797156360842167}
   - component: {fileID: 4499490333443134311}
+  - component: {fileID: 7035353034775366753}
   m_Layer: 0
   m_Name: a_z1_sandWorm
   m_TagString: popcorn
@@ -133,6 +134,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: speed
     myInt: 0
@@ -142,6 +145,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: attack_speed
     myInt: 0
@@ -151,6 +156,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: detection_radius
     myInt: 0
@@ -160,6 +167,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: idle_speed
     myInt: 0
@@ -169,6 +178,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 0
     myVariableName: attack_damage
     myInt: 1
@@ -178,6 +189,8 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: idle_radius
     myInt: 0
@@ -187,3 +200,22 @@ MonoBehaviour:
     myBool: 0
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
+--- !u!111 &7035353034775366753
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457951444432148938}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 1827226128182048838, guid: 10971ee3a7b873949b4d12af0dcc9994, type: 3}
+  - {fileID: 0}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

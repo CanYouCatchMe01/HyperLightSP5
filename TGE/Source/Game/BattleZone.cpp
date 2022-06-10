@@ -25,6 +25,12 @@ void BattleZone::OnStart()
 
 void BattleZone::OnUpdate(const float aDeltaTime)
 {
+	if (myActivationTimer > 0)
+	{
+		myActivationTimer -= aDeltaTime;
+		return;
+	}
+
 	Tga2D::Vector3f pos = myTransform->GetPosition();
 	if (myGateIsOpen)
 		return;

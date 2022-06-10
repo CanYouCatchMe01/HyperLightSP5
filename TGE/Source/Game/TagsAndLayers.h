@@ -21,6 +21,8 @@ enum class eTag
 	music_change_parameter,
 	health_pickup,
 	cassette_tape,
+	bullet,
+	upgrade,
 };
 enum class eLayer
 {

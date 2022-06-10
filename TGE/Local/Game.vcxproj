@@ -180,6 +180,8 @@ copy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Comman
     <ClInclude Include="..\Source\Game\Converter.h" />
     <ClInclude Include="..\Source\Game\CreditsState.h" />
     <ClInclude Include="..\Source\Game\DebugObserver.h" />
+    <ClInclude Include="..\Source\Game\DialogueState.h" />
+    <ClInclude Include="..\Source\Game\EmitterComponent.h" />
     <ClInclude Include="..\Source\Game\EnemyComponent.h" />
     <ClInclude Include="..\Source\Game\FluteEnemy.h" />
     <ClInclude Include="..\Source\Game\Game.h" />
@@ -205,6 +207,7 @@ copy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Comman
     <ClInclude Include="..\Source\Game\OBB3D.h" />
     <ClInclude Include="..\Source\Game\Observer.h" />
     <ClInclude Include="..\Source\Game\OptionsState.h" />
+    <ClInclude Include="..\Source\Game\Particles.h" />
     <ClInclude Include="..\Source\Game\PauseMenuState.h" />
     <ClInclude Include="..\Source\Game\PlayerComponent.h" />
     <ClInclude Include="..\Source\Game\PointLightComponent.h" />
@@ -228,6 +231,7 @@ copy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Comman
     <ClInclude Include="..\Source\Game\resource.h" />
     <ClInclude Include="..\Source\Game\stdafx.h" />
     <ClInclude Include="..\Source\Game\targetver.h" />
+    <ClInclude Include="..\Source\Game\UpgradeComponent.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\animation\AnimationController.h" />
     <ClInclude Include="..\Source\tga2dcore\tga2d\model\AnimatedModelInstance.h" />
   </ItemGroup>
@@ -250,6 +254,8 @@ copy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Comman
     <ClCompile Include="..\Source\Game\Component.cpp" />
     <ClCompile Include="..\Source\Game\ComponentDebugger.cpp" />
     <ClCompile Include="..\Source\Game\CreditsState.cpp" />
+    <ClCompile Include="..\Source\Game\DialogueState.cpp" />
+    <ClCompile Include="..\Source\Game\EmitterComponent.cpp" />
     <ClCompile Include="..\Source\Game\EnemyComponent.cpp" />
     <ClCompile Include="..\Source\Game\FluteEnemy.cpp" />
     <ClCompile Include="..\Source\Game\Game.cpp" />
@@ -272,6 +278,7 @@ copy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Comman
     <ClCompile Include="..\Source\Game\MusicParameterComponent.cpp" />
     <ClCompile Include="..\Source\Game\OBB3D.cpp" />
     <ClCompile Include="..\Source\Game\OptionsState.cpp" />
+    <ClCompile Include="..\Source\Game\Particles.cpp" />
     <ClCompile Include="..\Source\Game\PauseMenuState.cpp" />
     <ClCompile Include="..\Source\Game\PlayerComponent.cpp" />
     <ClCompile Include="..\Source\Game\PointLightComponent.cpp" />
@@ -294,6 +301,7 @@ copy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Comman
     <ClCompile Include="..\Source\Game\stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Source\Game\UpgradeComponent.cpp" />
     <ClCompile Include="..\Source\tga2dcore\tga2d\model\AnimatedModelInstance.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -31,6 +31,11 @@ void BulletComponent::SetPosition(Tga2D::Vector3f aPosition)
 	myTransform->SetPosition(aPosition);
 }
 
+void BulletComponent::SetRotation(Tga2D::Rotator aRotation)
+{
+	myTransform->SetRotation(aRotation);
+}
+
 void BulletComponent::RemoveBullet()
 {
 	myScene->RemoveGameObject(myGameObject);

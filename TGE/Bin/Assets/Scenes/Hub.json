@@ -10,7 +10,7 @@
         "position": {
           "x": -15.56,
           "y": 0.0,
-          "z": 5.36
+          "z": -0.389999866
         },
         "rotation": {
           "x": 0.0,
@@ -21,7 +21,7 @@
         "scale": {
           "x": 0.2647,
           "y": 1.0,
-          "z": 0.8379579
+          "z": 2.774814
         }
       },
       "components": [],
@@ -35,7 +35,7 @@
             "position": {
               "x": -15.1629505,
               "y": 1.5,
-              "z": 7.87387371
+              "z": 7.934442
             },
             "rotation": {
               "x": 0.0,
@@ -46,7 +46,7 @@
             "scale": {
               "x": 0.7941,
               "y": 3.0,
-              "z": 5.02774763
+              "z": 16.6488838
             }
           },
           "components": [
@@ -64,6 +64,242 @@
                   "y": 1.0,
                   "z": 1.0
                 }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "a_g_weapon_upgrade",
+      "tag": 19,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -4.801889,
+          "y": -0.205265418,
+          "z": 1.09271908
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_weapon_upgrade.fbx",
+            "albedo": "Assets/Materials/Mat characters/matPlayer_upgrade_c.dds",
+            "normal": "Assets/Materials/Mat characters/matPlayer_upgrade_n.dds",
+            "reflective": "Assets/Materials/Mat characters/matPlayer_upgrade_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.000724643469,
+              "y": 1.22177565,
+              "z": 0.4588009
+            },
+            "size": {
+              "x": 1.2,
+              "y": 2.0130198,
+              "z": 1.2
+            }
+          }
+        },
+        {
+          "type": "upgrade",
+          "data": {
+            "index": 1
+          }
+        },
+        {
+          "type": "upgrade",
+          "data": {
+            "index": 1
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_healthUpgrade",
+      "tag": 19,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -3.86,
+          "y": 0.0100002289,
+          "z": 2.06
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.5,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "upgrade",
+          "data": {
+            "index": 0
+          }
+        }
+      ],
+      "children": [
+        {
+          "name": "a_g_healthUpgrade",
+          "tag": 19,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": -3.86,
+              "y": 0.0100002289,
+              "z": 2.06
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/GLOBAL/a_g_healthUpgrade.fbx",
+                "albedo": "Assets/Materials/Mat Zone1/mat_Pickup_c.dds",
+                "normal": "Assets/Materials/Mat Zone1/mat_Pickup_n.dds",
+                "reflective": "Assets/Materials/Mat Zone1/mat_Pickup_m.dds"
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "a_g_cassetteTape01",
+      "tag": 17,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -2.09983563,
+          "y": 0.0100002289,
+          "z": 2.7280283
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "casset_tape",
+          "data": {
+            "number": 0
+          }
+        }
+      ],
+      "children": [
+        {
+          "name": "a_g_cassetteTape01",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -2.24483562,
+              "y": -0.158999771,
+              "z": 2.7280283
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/GLOBAL/a_g_cassetteTape01.fbx",
+                "albedo": "Assets/Materials/Mat Zone1/mat_Pickup_c.dds",
+                "normal": "Assets/Materials/Mat Zone1/mat_Pickup_n.dds",
+                "reflective": "Assets/Materials/Mat Zone1/mat_Pickup_m.dds"
               }
             }
           ],
@@ -122,6 +358,42 @@
       "children": []
     },
     {
+      "name": "ui_tut_map_plane",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -1.34,
+          "y": 1.88,
+          "z": 15.33
+        },
+        "rotation": {
+          "x": -0.503571868,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.8639533
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 0.99999994,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/2D/UI_Tutorial_Texts/ui_tut_map_plane.fbx",
+            "albedo": "Assets/Art/2D/UI_Tutorial_Texts/Material/ui_tut_map_c.dds",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "SpawnPoint",
       "tag": 0,
       "layer": 0,
@@ -129,7 +401,7 @@
       "transform": {
         "position": {
           "x": -0.09725952,
-          "y": 0.0100002289,
+          "y": 1.85,
           "z": -0.6688943
         },
         "rotation": {
@@ -208,9 +480,9 @@
           "w": 0.942771852
         },
         "scale": {
-          "x": 1.00000012,
-          "y": 1.0,
-          "z": 1.00000012
+          "x": 0.50000006,
+          "y": 0.5,
+          "z": 0.50000006
         }
       },
       "components": [],
@@ -222,9 +494,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": 0.178837717,
-              "y": 0.9641304,
-              "z": -2.07228112
+              "x": 0.0095402,
+              "y": 0.487065315,
+              "z": -1.662891
             },
             "rotation": {
               "x": 0.0,
@@ -233,9 +505,9 @@
               "w": 0.942771852
             },
             "scale": {
-              "x": 1.00000012,
-              "y": 1.0,
-              "z": 1.00000012
+              "x": 0.50000006,
+              "y": 0.5,
+              "z": 0.50000006
             }
           },
           "components": [
@@ -243,9 +515,9 @@
               "type": "mesh",
               "data": {
                 "model": "Assets/Art/3D/GLOBAL/a_g_teleport.fbx",
-                "albedo": "",
-                "normal": "",
-                "reflective": ""
+                "albedo": "Assets/Materials/Mat Zon123/g_matTeleport_c.dds",
+                "normal": "Assets/Materials/Mat Zon123/g_matTeleport_n.dds",
+                "reflective": "Assets/Materials/Mat Zon123/g_matTeleport_m.dds"
               }
             }
           ],
@@ -258,9 +530,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": -0.09035927,
-              "y": 1.34293354,
-              "z": -4.035918
+              "x": -0.1250583,
+              "y": 0.6764669,
+              "z": -2.64470959
             },
             "rotation": {
               "x": 0.0,
@@ -269,9 +541,9 @@
               "w": 0.942771852
             },
             "scale": {
-              "x": 1.00000012,
-              "y": 1.0,
-              "z": 1.00000012
+              "x": 0.50000006,
+              "y": 0.5,
+              "z": 0.50000006
             }
           },
           "components": [
@@ -279,9 +551,9 @@
               "type": "mesh",
               "data": {
                 "model": "Assets/Art/3D/GLOBAL/a_g_teleport.fbx",
-                "albedo": "",
-                "normal": "",
-                "reflective": ""
+                "albedo": "Assets/Materials/Mat Zon123/g_matTeleport_c.dds",
+                "normal": "Assets/Materials/Mat Zon123/g_matTeleport_n.dds",
+                "reflective": "Assets/Materials/Mat Zon123/g_matTeleport_m.dds"
               }
             }
           ],
@@ -360,201 +632,6 @@
       ]
     },
     {
-      "name": "Player",
-      "tag": 5,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0,
-              "y": 0.8975179,
-              "z": 0.0
-            },
-            "size": {
-              "x": 0.85,
-              "y": 1.844964,
-              "z": 0.69
-            }
-          }
-        },
-        {
-          "type": "player",
-          "data": {
-            "max_hp": 5,
-            "max_healing": 3,
-            "max_attacks": 3,
-            "dash_time": 0.1,
-            "healing_time": 0.1,
-            "attack_time": 0.1,
-            "speed": 7.0,
-            "dash_speed": 50.0,
-            "bullet": {
-              "name": "a_g_bullet",
-              "tag": 9,
-              "layer": 0,
-              "is_static": false,
-              "transform": {
-                "position": {
-                  "x": -10.749,
-                  "y": 3.534,
-                  "z": -21.521
-                },
-                "rotation": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0,
-                  "w": 1.0
-                },
-                "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              },
-              "components": [
-                {
-                  "type": "mesh",
-                  "data": {
-                    "model": "Assets/Art/3D/GLOBAL/a_g_bullet.fbx",
-                    "albedo": "",
-                    "normal": "",
-                    "reflective": ""
-                  }
-                },
-                {
-                  "type": "box_collider",
-                  "data": {
-                    "is_trigger": true,
-                    "center": {
-                      "x": 0.0,
-                      "y": 0.0,
-                      "z": 0.0
-                    },
-                    "size": {
-                      "x": 0.209163815,
-                      "y": 0.209163815,
-                      "z": 0.209163815
-                    }
-                  }
-                },
-                {
-                  "type": "bullet",
-                  "data": {
-                    "attack_damage": 1,
-                    "speed": 5.0
-                  }
-                }
-              ],
-              "children": []
-            }
-          }
-        },
-        {
-          "type": "weapon",
-          "data": {
-            "weapon_upgrade": false,
-            "weapon_damage": 1
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": 0.0,
-              "y": 1.0,
-              "z": 1.0
-            },
-            "size": {
-              "x": 1.54516709,
-              "y": 1.93430161,
-              "z": 1.0
-            }
-          }
-        },
-        {
-          "type": "animated_mesh",
-          "data": {
-            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
-            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
-            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds",
-            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
-            "animations": [
-              {
-                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
-                "name": "Player_Dash"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
-                "name": "Player_Idle"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
-                "name": "Player_Run"
-              }
-            ]
-          }
-        }
-      ],
-      "children": [
-        {
-          "name": "Main Camera",
-          "tag": 4,
-          "layer": 0,
-          "is_static": false,
-          "transform": {
-            "position": {
-              "x": 0.0,
-              "y": 12.87,
-              "z": -9.15
-            },
-            "rotation": {
-              "x": 0.3277273,
-              "y": 0.0,
-              "z": 0.0,
-              "w": 0.944772363
-            },
-            "scale": {
-              "x": 1.0,
-              "y": 0.99999994,
-              "z": 0.99999994
-            }
-          },
-          "components": [
-            {
-              "type": "camera",
-              "data": {
-                "fov": 60.0
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
       "name": "Collider 1 (1)",
       "tag": 0,
       "layer": 0,
@@ -563,7 +640,7 @@
         "position": {
           "x": 11.72,
           "y": 0.0,
-          "z": 5.32
+          "z": -0.179999828
         },
         "rotation": {
           "x": 0.0,
@@ -574,7 +651,7 @@
         "scale": {
           "x": 0.2647,
           "y": 1.0,
-          "z": 0.8379579
+          "z": 2.71624041
         }
       },
       "components": [],
@@ -588,7 +665,7 @@
             "position": {
               "x": 12.11705,
               "y": 1.5,
-              "z": 7.83387375
+              "z": 7.968722
             },
             "rotation": {
               "x": 0.0,
@@ -599,7 +676,7 @@
             "scale": {
               "x": 0.7941,
               "y": 3.0,
-              "z": 5.02774763
+              "z": 16.2974434
             }
           },
           "components": [
@@ -695,46 +772,6 @@
       ]
     },
     {
-      "name": "Directional Light",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 0.0,
-          "y": 3.0,
-          "z": 0.0
-        },
-        "rotation": {
-          "x": 0.408217877,
-          "y": -0.234569684,
-          "z": 0.109381631,
-          "w": 0.8754261
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 0.99999994
-        }
-      },
-      "components": [
-        {
-          "type": "light",
-          "data": {
-            "type": 1,
-            "color": {
-              "r": 1.0,
-              "g": 0.956862748,
-              "b": 0.8392157,
-              "a": 1.0
-            },
-            "intensity": 1.0
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "Collider 1 (3)",
       "tag": 0,
       "layer": 0,
@@ -803,6 +840,46 @@
           "children": []
         }
       ]
+    },
+    {
+      "name": "Directional Light",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 3.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.408217877,
+          "y": -0.234569684,
+          "z": 0.109381631,
+          "w": 0.8754261
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 0.956862748,
+              "b": 0.8392157,
+              "a": 1.0
+            },
+            "intensity": 1.0
+          }
+        }
+      ],
+      "children": []
     },
     {
       "name": "Collider 1 (4)",
@@ -2465,6 +2542,39 @@
       "children": []
     },
     {
+      "name": "SpawnPoint (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -12.17,
+          "y": 1.1,
+          "z": 17.13
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
+            "name": "HubEntry0"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "show casset tape",
       "tag": 0,
       "layer": 0,
@@ -2597,39 +2707,6 @@
       "children": []
     },
     {
-      "name": "SpawnPoint (1)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -12.17,
-          "y": 1.1,
-          "z": 17.13
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "spawn_point",
-          "data": {
-            "name": "HubEntry0"
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "SpawnPoint (2)",
       "tag": 0,
       "layer": 0,
@@ -2661,6 +2738,216 @@
         }
       ],
       "children": []
+    },
+    {
+      "name": "Collider 1 (27)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -4.54,
+          "y": 0.0,
+          "z": -12.51
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.7124544,
+          "z": 0.0,
+          "w": 0.70171845
+        },
+        "scale": {
+          "x": 0.264700025,
+          "y": 1.0,
+          "z": 0.987594664
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -1.58358574,
+              "y": 1.5,
+              "z": -12.9519863
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.7124544,
+              "z": 0.0,
+              "w": 0.70171845
+            },
+            "scale": {
+              "x": 0.794100046,
+              "y": 3.0,
+              "z": 5.92556763
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Player",
+      "tag": 5,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -0.23,
+          "y": 0.0,
+          "z": -0.48
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.8975179,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.85,
+              "y": 1.844964,
+              "z": 0.69
+            }
+          }
+        },
+        {
+          "type": "player",
+          "data": {
+            "max_hp": 5,
+            "max_healing": 3,
+            "max_attacks": 3,
+            "dash_time": 0.1,
+            "healing_time": 0.1,
+            "attack_time": 0.1,
+            "speed": 7.0,
+            "dash_speed": 50.0
+          }
+        },
+        {
+          "type": "weapon",
+          "data": {
+            "weapon_upgrade": false,
+            "weapon_damage": 1
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "size": {
+              "x": 1.54516709,
+              "y": 1.93430161,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/matPlayer_c.dds",
+            "normal": "Assets/Materials/Mat characters/matPlayer_n.dds",
+            "reflective": "Assets/Materials/Mat characters/matPlayer_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                "name": "Player_Dash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                "name": "Player_Idle"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                "name": "Player_Run"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
+                "name": "Player_Slash"
+              }
+            ]
+          }
+        }
+      ],
+      "children": [
+        {
+          "name": "Main Camera",
+          "tag": 4,
+          "layer": 0,
+          "is_static": false,
+          "transform": {
+            "position": {
+              "x": -0.23,
+              "y": 12.87,
+              "z": -9.629999
+            },
+            "rotation": {
+              "x": 0.3277273,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 0.944772363
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 0.99999994,
+              "z": 0.99999994
+            }
+          },
+          "components": [
+            {
+              "type": "camera",
+              "data": {
+                "fov": 60.0
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
     }
   ]
 }

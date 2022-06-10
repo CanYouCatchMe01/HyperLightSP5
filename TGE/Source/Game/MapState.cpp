@@ -5,6 +5,7 @@
 #include "GameDataManager.h"
 #include "AudioManager.h"
 
+#include "PlayerComponent.h"
 #include <vector>
 
 #include <tga2d/engine.h>
@@ -25,10 +26,10 @@ MapState::MapState(StateStack& aStateStack, PollingStation* aPollingStation)
 
 	myButtons.push_back(Button(eButtonType::MapBack, { 0.3f, 0.85f }));
 
-	myButtons.push_back(Button(eButtonType::Teleport, { 0.4f, 0.6f })); //nere till vänster (badlands 1)
-	myButtons.push_back(Button(eButtonType::Teleport, { 0.4f, 0.4f })); //uppe till vänster (badlands 2)
-	myButtons.push_back(Button(eButtonType::Teleport, { 0.6f, 0.6f })); //nere till höger (jungle 1)
-	myButtons.push_back(Button(eButtonType::Teleport, { 0.6f, 0.4f })); //uppe till höger (jungle 2)
+	myButtons.push_back(Button(eButtonType::Teleport, { 0.36f, 0.52f })); //nere till vänster (badlands 1)
+	myButtons.push_back(Button(eButtonType::Teleport, { 0.39f, 0.3f })); //uppe till vänster (badlands 2)
+	myButtons.push_back(Button(eButtonType::Teleport, { 0.55f, 0.5f })); //nere till höger (jungle 1)
+	myButtons.push_back(Button(eButtonType::Teleport, { 0.58f, 0.34f })); //uppe till höger (jungle 2)
 
 	myButtons.push_back(Button(eButtonType::Hub, { 0.5f, 0.8f }));
 
@@ -102,7 +103,14 @@ void MapState::InvokeButton()
 
 	if (currentGameData.myTeleporterStatus[myCurrentSelection-1])
 	{
-		myPollingStation->mySceneManager.get()->LoadScene(myTeleportPoints[myCurrentSelection-1], "Teleporter");
+		if (myCurrentSelection == eButtonIndex::eHub)
+		{
+			myPollingStation->mySceneManager.get()->LoadScene(myTeleportPoints[myCurrentSelection-1], "HubTeleport");
+		}
+		else
+		{
+			myPollingStation->mySceneManager.get()->LoadScene(myTeleportPoints[myCurrentSelection-1], "Teleporter");
+		}
 		myNumberOfPops = 1;
 	}
 }

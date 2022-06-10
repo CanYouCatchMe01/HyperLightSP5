@@ -30,23 +30,18 @@ void EnemyComponent::OnAwake()
 
 void EnemyComponent::OnStart()
 {
-	myTarget = myPollingStation->myPlayer;
-	myMoveTime = ((1000.f, 0.1f) * ((float)rand() / RAND_MAX)) + 0.1f;
-	// need to match with the hit cooldown of the player
-	myTakeDamageTime = 1.f;
-	myRandNum = -1;
 }
 
 void EnemyComponent::SetIsGrounded(bool aIsGrounded)
-{
+ {
 	myIsGrounded = aIsGrounded;
 }
 
-void EnemyComponent::OnCollisionEnter(GameObject* aOther)
+void EnemyComponent::OnCollisionEnter(GameObject* aTrigger)
 {
-	if (aOther->tag == eTag::gate)
+	if (aTrigger->tag == eTag::gate)
 	{
-		myBattleZone = aOther->GetComponent<BattleZone>();
+		myBattleZone = aTrigger->GetComponent<BattleZone>();
 		myBattleZone->AddEnemy();
 	}
 }
@@ -68,6 +63,7 @@ void EnemyComponent::OnCollisionStay(GameObject* aTrigger)
 		{
 			if (aTrigger->GetComponent<PlayerComponent>()->myAttack)
 			{
+				//aTrigger->GetComponent<PlayerComponent>()->OnEnemyHit();
 				std::cout << "enemy took damage\n";
 				myTakeDamageTimer = myTakeDamageTime;
 				if (aTrigger->GetComponent<MeleeComponent>() != nullptr)
@@ -152,6 +148,16 @@ int EnemyComponent::GetAttackDmg()
 	return myAttackDmg;
 }
 
+void EnemyComponent::MoveTowardsPlayer(float aDt)
+{
+	myDistanceToTarget.Normalize();
+	Tga2D::Vector3f newRotation = { 0, (atan2(myDistanceToTarget.z, -myDistanceToTarget.x) - 3.14f / 2) * (180.f / 3.14f), 0 };
+
+	myTransform->SetRotation(newRotation);
+
+	SetPosition({ GetPosition().x + myDistanceToTarget.x * mySpeed * aDt, GetPosition().y, GetPosition().z + myDistanceToTarget.z * mySpeed * aDt });
+}
+
 void EnemyComponent::IdleMovement(float aDt)
 {
 	Tga2D::Vector3f currentPosition = GetPosition();
@@ -164,6 +170,7 @@ void EnemyComponent::IdleMovement(float aDt)
 	//Tga2D::Vector3f backwardDir = forwardDir * -1.f;
 	//Tga2D::Vector3f rightDir = myTransform->GetMatrix().GetRight();
 	//Tga2D::Vector3f leftDir = rightDir * -1.f;
+	SetPosition({ currentPosition.x, currentPosition.y - (1.f * aDt), currentPosition.z });
 	if (currentRadius2 > myIdleRadius * myIdleRadius)
 	{
 		/*std::cout << "Out of bounds" << std::endl;*/
@@ -286,10 +293,6 @@ void EnemyComponent::IdleMovement(float aDt)
 	//}
 }
 
-void EnemyComponent::MoveTowardsPlayer(float aDt)
-{
-	myDistanceToTarget.Normalize();
-	SetPosition({ GetPosition().x + myDistanceToTarget.x * mySpeed * aDt, GetPosition().y, GetPosition().z + myDistanceToTarget.z * mySpeed * aDt });
-}
+
 
 

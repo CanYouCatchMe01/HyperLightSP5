@@ -4,11 +4,15 @@
 #include "Postmaster.h"
 #include "StateStack.h"
 #include "PauseMenuState.h"
+#include "DialogueState.h"
 #include "SceneManager.h"
+#include "Scene.h"
+#include "GameDataManager.h"
 #include "Hud.h"
 #include "MapState.h"
 #include <iostream>
 #include <tga2d/graphics/Camera.h>
+#include "AudioManager.h"
 
 GameState::GameState(StateStack& aStateStack, PollingStation* aPollingStation, const std::string& aSceneName)
 	:
@@ -18,7 +22,16 @@ GameState::GameState(StateStack& aStateStack, PollingStation* aPollingStation, c
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eEscape, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMap, this);
 
+	myPollingStation->myPostmaster.get()->AddObserver(this, eMessageType::ePickUpKey);
+
 	myPollingStation->mySceneManager->LoadScene(aSceneName);
+	GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
+	gameData.myTeleporterStatus[4] = true;
+
+	if (myPollingStation->mySceneManager->GetActiveScene()->name == "Tutorial")
+	{
+		myIsTutorial = true;
+	}
 }
 
 GameState::~GameState()
@@ -26,6 +39,7 @@ GameState::~GameState()
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eEscape, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMap, this);
 	myPollingStation->mySceneManager->UnloadAllScenes();
+	myPollingStation->myAudioManager->SetListenerTransform(nullptr); //Set to null so there is not an old camera
 }
 
 int GameState::Update(const float aDeltaTime)
@@ -33,14 +47,32 @@ int GameState::Update(const float aDeltaTime)
 	myIsActive = true;
 
 	myPollingStation->mySceneManager->Update(aDeltaTime);
+	if (!myIsTutorial && !myIsDialogue)
+		return myNumberOfPops;
 
+	else if (myIsTutorial && myStartDialogueTimer > 0)
+	{
+		myStartDialogueTimer -= aDeltaTime;
+		if (myStartDialogueTimer <= 0)
+		{
+			myIsActive = false;
+			myStateStack.PushState(new DialogueState(myStateStack, myPollingStation));
+		}
+	}
+	else if (myIsDialogue && myStartDialogueTimer > 0)
+	{
+		myStartDialogueTimer -= aDeltaTime;
+		if (myStartDialogueTimer <= 0)
+		{
+			myIsActive = false;
+			myStateStack.PushState(new DialogueState(myStateStack, myPollingStation));
+		}
+	}
 	return myNumberOfPops;
 }
 
 void GameState::Init()
-{
-
-}
+{}
 
 void GameState::Render()
 {
@@ -59,8 +91,26 @@ void GameState::RecieveEvent(const Input::eInputEvent aEvent, const float /*aVal
 			myIsActive = false;
 			break;
 		case Input::eInputEvent::eMap:
+			if (myPollingStation->mySceneManager.get()->GetActiveScene()->name == "Tutorial") break;
+
 			myStateStack.PushState(new MapState(myStateStack, myPollingStation));
 			myIsActive = false;
+		default:
+			break;
+		}
+	}
+}
+
+void GameState::RecieveMsg(const Message& aMsg)
+{
+	if (myIsActive)
+	{
+		switch (aMsg.myMsg)
+		{
+		case eMessageType::ePickUpKey:
+			myIsDialogue = true;
+			myStartDialogueTimer = 0.2f;
+			break;
 		default:
 			break;
 		}

@@ -28,6 +28,8 @@
 #include "MusicParameterComponent.h"
 #include "CassetTapeShowerComponent.h"
 #include "CassetTapeComponent.h"
+#include "UpgradeComponent.h"
+#include "EmitterComponent.h"
 
 #include "tga2d/graphics/DirectionalLight.h"
 #include "tga2d/graphics/AmbientLight.h"
@@ -113,7 +115,7 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			}
 			else if (type == "animated_mesh")
 			{
-				gameObject->AddComponent<AnimatedMeshComponent>(data["model"], data["albedo"], data["normal"], data["reflective"], data["animations"], aScene);
+				gameObject->AddComponent<AnimatedMeshComponent>(data["model"], data["albedo"], data["normal"], data["reflective"], data["animations"], aScene, gameObject);
 			}
 			else if (type == "camera")
 			{
@@ -138,7 +140,7 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			}
 			else if (type == "flute_enemy")
 			{
-				gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["attack_speed"], data["detection_radius"], data["idle_speed"], data["runaway_radius"], data["bullet"]);
+				gameObject->AddComponent<FluteEnemy>(data["max_hp"], data["speed"], data["detection_radius"], data["idle_speed"], data["runaway_radius"], data["bullet"]);
 			}
 			else if (type == "bullet")
 			{
@@ -184,6 +186,10 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			{
 				gameObject->AddComponent<CassetTapeComponent>(data["number"].get<int>());
 			}
+			else if (type == "upgrade")
+			{
+				gameObject->AddComponent<UpgradeComponent>(data["index"]);
+			}
 			else if (type == "light")
 			{
 				switch (data["type"].get<eLight>())
@@ -207,6 +213,10 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 				std::wstring cubeMapZoo = L"Assets/Art/2D/earth-cubemap.dds";
 
 				aScene->SetAmbientLight(Tga2D::AmbientLight(wCubeMap, data["color"].get<Tga2D::Color>(), data["intensity"].get<float>()));
+			}
+			else if (type == "emitter")
+			{
+				gameObject->AddComponent<EmitterComponent>(data, aScene);
 			}
 		}
 		catch (const std::exception&)

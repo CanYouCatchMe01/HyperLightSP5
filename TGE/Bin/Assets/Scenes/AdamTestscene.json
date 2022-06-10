@@ -35,42 +35,6 @@
       "children": []
     },
     {
-      "name": "a_z3_ground_01",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -0.01,
-          "y": 1.53,
-          "z": -11.8800564
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_01.fbx",
-            "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
-            "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
-            "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "Player",
       "tag": 5,
       "layer": 0,
@@ -120,66 +84,7 @@
             "healing_time": 0.1,
             "attack_time": 0.1,
             "speed": 10.0,
-            "dash_speed": 30.0,
-            "bullet": {
-              "name": "a_g_bullet",
-              "tag": 9,
-              "layer": 0,
-              "is_static": false,
-              "transform": {
-                "position": {
-                  "x": -10.749,
-                  "y": 3.534,
-                  "z": -21.521
-                },
-                "rotation": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0,
-                  "w": 1.0
-                },
-                "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              },
-              "components": [
-                {
-                  "type": "mesh",
-                  "data": {
-                    "model": "Assets/Art/3D/GLOBAL/a_g_bullet.fbx",
-                    "albedo": "",
-                    "normal": "",
-                    "reflective": ""
-                  }
-                },
-                {
-                  "type": "box_collider",
-                  "data": {
-                    "is_trigger": true,
-                    "center": {
-                      "x": 0.0,
-                      "y": 0.0,
-                      "z": 0.0
-                    },
-                    "size": {
-                      "x": 0.209163815,
-                      "y": 0.209163815,
-                      "z": 0.209163815
-                    }
-                  }
-                },
-                {
-                  "type": "bullet",
-                  "data": {
-                    "attack_damage": 1,
-                    "speed": 5.0
-                  }
-                }
-              ],
-              "children": []
-            }
+            "dash_speed": 30.0
           }
         },
         {
@@ -366,7 +271,7 @@
       "name": "a_g_crate_M",
       "tag": 0,
       "layer": 0,
-      "is_static": false,
+      "is_static": true,
       "transform": {
         "position": {
           "x": -1.56,
@@ -390,9 +295,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/GLOBAL/a_g_crate_M.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone1/g_matCrate_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/g_matCrate_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/g_matCrate_m.dds"
           }
         },
         {
@@ -418,7 +323,7 @@
       "name": "a_g_crate_L",
       "tag": 0,
       "layer": 0,
-      "is_static": false,
+      "is_static": true,
       "transform": {
         "position": {
           "x": -6.496806,
@@ -442,9 +347,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/GLOBAL/a_g_crate_L.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone1/g_matCrate_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/g_matCrate_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/g_matCrate_m.dds"
           }
         },
         {
@@ -470,7 +375,7 @@
       "name": "a_z3_barrel_m",
       "tag": 0,
       "layer": 0,
-      "is_static": false,
+      "is_static": true,
       "transform": {
         "position": {
           "x": -6.76101971,
@@ -494,9 +399,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/ZON3/a_z3_barrel_m.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
           }
         },
         {
@@ -546,9 +451,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
           }
         },
         {
@@ -598,9 +503,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/ZON3/a_z3_grass_s_many.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
           }
         }
       ],
@@ -677,9 +582,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone3/z3_matTreeL_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matTreeL_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matTreeL_m.dds"
           }
         },
         {
@@ -729,9 +634,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_s.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
           }
         },
         {
@@ -1057,7 +962,7 @@
       "name": "a_g_crate_M (1)",
       "tag": 0,
       "layer": 0,
-      "is_static": false,
+      "is_static": true,
       "transform": {
         "position": {
           "x": -1.875,
@@ -1081,9 +986,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/GLOBAL/a_g_crate_M.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone1/g_matCrate_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/g_matCrate_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/g_matCrate_m.dds"
           }
         },
         {
@@ -1247,6 +1152,75 @@
               "y": 1.0,
               "z": 1.0
             }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "GameObject",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -2.635,
+          "y": 4.724,
+          "z": -14.1
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "emitter",
+          "data": {
+            "texture": "Assets/Materials/Mat characters/matPlayer_upgrade_c.dds",
+            "startScale": 0.5,
+            "endScale": 10.0,
+            "minMass": 20.0,
+            "maxMass": 1.0,
+            "minTimeBetweenParticleSpawns": 0.1,
+            "maxTimeBetweenParticleSpawns": 0.1,
+            "minStartSpeed": 1.0,
+            "maxStartSpeed": 3.0,
+            "minAngle": -1.27,
+            "maxAngle": -1.87,
+            "minLifeTime": 0.5,
+            "maxLifeTime": 4.0,
+            "minSpawnOffsetDistance": 5.0,
+            "maxSpawnOffsetDistance": 10.0,
+            "acceleration": {
+              "x": 0.0,
+              "y": 15.0,
+              "z": 10.0
+            },
+            "color": [
+              {
+                "r": 1.0,
+                "g": 0.2216981,
+                "b": 0.2216981,
+                "a": 1.0
+              },
+              {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              }
+            ],
+            "blendState": 2,
+            "emitTime": 0.0,
+            "gravity": -9.81
           }
         }
       ],

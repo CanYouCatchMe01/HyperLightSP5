@@ -39,7 +39,7 @@ protected:
 	bool myIsInRange = false;
 	bool myIsDead = false;
 	bool myHasTurned = false;
-	bool myIsGrounded = false;
+	bool myIsGrounded;
 
 	int myMaxHp;
 	int myAttackDmg;

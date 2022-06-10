@@ -3,7 +3,7 @@
 #include "Scene.h"
 #include "tga2d/model/AnimatedModelInstance.h"
 
-AnimatedMeshComponent::AnimatedMeshComponent(const std::string& aMeshPath, const std::string& aAlbedoPath, const std::string& aNormalPath, const std::string& aReflectivePath, const nlohmann::json& aAnimationList, class Scene* aScene)
+AnimatedMeshComponent::AnimatedMeshComponent(const std::string& aMeshPath, const std::string& aAlbedoPath, const std::string& aNormalPath, const std::string& aReflectivePath, const nlohmann::json& aAnimationList, class Scene* aScene, class GameObject* aGameObject)
 {
 	myAnimationController.Init(this);
 
@@ -19,7 +19,7 @@ AnimatedMeshComponent::AnimatedMeshComponent(const std::string& aMeshPath, const
 		std::wstring(aReflectivePath.begin(), aReflectivePath.end())
 	};
 
-	LoadMesh(std::wstring(aMeshPath.begin(), aMeshPath.end()), textures);
+	LoadMesh(std::wstring(aMeshPath.begin(), aMeshPath.end()), aGameObject, textures);
 
 	std::vector<Tga2D::AnimationImportDefinition> animations;
 	//size_t index = 0;
@@ -42,7 +42,12 @@ AnimatedMeshComponent::AnimatedMeshComponent(const std::string& aMeshPath, const
 	//aScene->GetRenderObjectManager().GetAnimatedModel(myModelHandle)->PlayAnimation(0);
 }
 
-void AnimatedMeshComponent::LoadMesh(const std::wstring& someFilePath, std::wstring* someTexturePaths)
+AnimatedMeshComponent::~AnimatedMeshComponent()
+{
+	myScene->GetRenderObjectManager().DestroyAnimatedModel(myModelHandle);
+}
+
+void AnimatedMeshComponent::LoadMesh(const std::wstring& someFilePath, GameObject* aGameObject, std::wstring* someTexturePaths)
 {
 #pragma warning(disable : 4244)
 	struct stat buffer;
@@ -58,7 +63,7 @@ void AnimatedMeshComponent::LoadMesh(const std::wstring& someFilePath, std::wstr
 	if (myHasModel)
 		myScene->GetRenderObjectManager().DestroyModel(myModelHandle);
 
-	myModelHandle = myScene->GetRenderObjectManager().RegisterAnimatedModel(someFilePath.c_str(), someTexturePaths);
+	myModelHandle = myScene->GetRenderObjectManager().RegisterAnimatedModel(someFilePath.c_str(), aGameObject, someTexturePaths);
 	myHasModel = true;
 }
 
@@ -68,7 +73,9 @@ void AnimatedMeshComponent::PlayAnimation(std::string aName)
 	{
 		if (anim.first == aName)
 		{
-			myScene->GetRenderObjectManager().GetAnimatedModel(myModelHandle)->PlayAnimation(static_cast<unsigned int>(anim.second));
+			Tga2D::AnimatedModelInstance* model = myScene->GetRenderObjectManager().GetAnimatedModel(myModelHandle);
+			model->StopAnimation();
+			model->PlayAnimation(static_cast<unsigned int>(anim.second));
 			return;
 		}
 	}
@@ -91,9 +98,9 @@ void AnimatedMeshComponent::OnUpdate(const float aDeltaTime)
 	if (myHasModel)
 	{
 		Tga2D::AnimatedModelInstance* model = myScene->GetRenderObjectManager().GetAnimatedModel(myModelHandle);
-		Tga2D::Transform scaled = *myTransform;
+		/*Tga2D::Transform scaled = *myTransform;
 		scaled.SetScale(scaled.GetScale() * 0.01f);
-		model->SetTransform(scaled);
+		model->SetTransform(scaled);*/
 
 		float speed = 1.0f;
 

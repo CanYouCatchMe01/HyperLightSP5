@@ -16,6 +16,11 @@ void StateStack::Init(PollingStation* aPollingStation)
 	myPollingStation = aPollingStation;
 }
 
+void StateStack::InitState()
+{
+	myStateStack.top()->Init();
+}
+
 void StateStack::PushState(State* aState)
 {
 	if (aState == nullptr)
@@ -30,6 +35,11 @@ void StateStack::PopState()
 		return;
 	delete myStateStack.top();
 	myStateStack.pop();
+}
+
+State* StateStack::GetCurrentState()
+{
+	return myStateStack.top();
 }
 
 void StateStack::RenderState()

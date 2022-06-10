@@ -19,7 +19,7 @@ PauseMenuState::PauseMenuState(StateStack& aStateStack, PollingStation* aPolling
 	SetPollingStation(aPollingStation);
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/PauseMenu/ui_pauseMenu_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f};
-	mySpriteInstance.mySizeMultiplier={2,1};
+	mySpriteInstance.mySizeMultiplier={1.75f,1.75f};
 
 	mySpriteInstance.myScaleSpritesWithAspectRatio = true;
 	mySharedData.myTexture->CalculateTextureSize();

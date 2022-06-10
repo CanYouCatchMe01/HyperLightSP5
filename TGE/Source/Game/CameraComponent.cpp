@@ -5,7 +5,7 @@
 #include "GameObject.h"
 #include "AudioManager.h"
 
-CameraComponent::CameraComponent(Tga2D::Camera* aCamera, const float aFieldOfView) : myCamera(aCamera)
+CameraComponent::CameraComponent(CameraContainer* aCameraContainer, const float aFieldOfView) : myCameraContainer(aCameraContainer)
 {
 
 
@@ -14,12 +14,18 @@ CameraComponent::CameraComponent(Tga2D::Camera* aCamera, const float aFieldOfVie
 	const float vFov = aFieldOfView * 0.0174532925f;
 	const float hFov = 2.0f * atan(tan(vFov / 2) * ((float)windowSize.x / (float)windowSize.y)) * (180.0f / 3.1415f);
 
-	
-	myCamera->SetPerspectiveProjection(hFov, { (float)windowSize.x, (float)windowSize.y }, 0.1f, 10000.0f);
+	myCameraContainer->myCamera.SetPerspectiveProjection(hFov, { (float)windowSize.x, (float)windowSize.y }, 0.1f, 10000.0f);
+}
+
+CameraComponent::~CameraComponent()
+{
+	myCameraContainer->myCameraParent = nullptr;
 }
 
 void CameraComponent::OnAwake()
 {
+	myCameraContainer->myCameraParent = myGameObject;
+
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveLeft, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveUp, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMoveRight, this);
@@ -67,7 +73,7 @@ void CameraComponent::RecieveEvent(Input::eInputEvent aEvent, const float aValue
 		default:
 			break;
 		}
-		myCamera->SetTransform(*myTransform);
+		//myCamera->SetTransform(*myTransform);
 	}
 }
 
@@ -76,12 +82,18 @@ void CameraComponent::OnUpdate(const float /*aDeltaTime*/)
 	//Follow Player
 	if (myPollingStation->myPlayer != nullptr)
 	{
-		Tga2D::Vector3f targetPosition = myPollingStation->myPlayer->GetTransform().GetPosition();
-		myTransform->SetPosition(targetPosition + myCameraOffset);
+		
+
+
+		Tga2D::Vector3f targetPosition = myPollingStation->myPlayer->GetTransform().GetPosition() + myCameraOffset;
+		Tga2D::Vector3f smoothFollow = Vector3::Lerp(myTransform->GetPosition(), targetPosition, myCameraSpeed);
+
+
+		myTransform->SetPosition(smoothFollow);
 	}
 	
 	//Set rendering camera
-	myCamera->SetTransform(*myTransform);
+	//myCamera->SetTransform(*myTransform);
 	myPollingStation->myAudioManager->SetListenerTransform(myTransform);
 }
 

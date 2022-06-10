@@ -176,6 +176,14 @@
     <ClCompile Include="..\Source\Game\CassetTapeComponent.cpp">
       <Filter>Code\Objects\CassetTape</Filter>
     </ClCompile>
+    <ClCompile Include="..\Source\Game\DialogueState.cpp">
+      <Filter>Code\StateStack\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\UpgradeComponent.cpp" />
+    <ClCompile Include="..\Source\Game\Particles.cpp">
+      <Filter>Code\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game\EmitterComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\Game\Observer.h">
@@ -381,6 +389,16 @@
     </ClInclude>
     <ClInclude Include="..\Source\Game\CassetTapeComponent.h">
       <Filter>Code\Objects\CassetTape</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\DialogueState.h">
+      <Filter>Code\StateStack\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\Particles.h">
+      <Filter>Code\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\UpgradeComponent.h" />
+    <ClInclude Include="..\Source\Game\EmitterComponent.h">
+      <Filter>Code\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

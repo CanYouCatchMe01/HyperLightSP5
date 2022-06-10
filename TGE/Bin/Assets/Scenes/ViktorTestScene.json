@@ -9,19 +9,19 @@
       "transform": {
         "position": {
           "x": 0.0,
-          "y": 10.197,
-          "z": -24.65
+          "y": 14.38,
+          "z": -27.25
         },
         "rotation": {
-          "x": 0.222399414,
+          "x": 0.3330664,
           "y": 0.0,
           "z": 0.0,
-          "w": 0.9749557
+          "w": 0.9429034
         },
         "scale": {
           "x": 1.0,
-          "y": 1.00000012,
-          "z": 1.00000012
+          "y": 1.0,
+          "z": 1.0
         }
       },
       "components": [
@@ -35,15 +35,150 @@
       "children": []
     },
     {
+      "name": "a_z1_enemy",
+      "tag": 9,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -10.42,
+          "y": 3.28,
+          "z": -9.655382
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.118292153,
+              "y": 0.990060866,
+              "z": 0.0525337458
+            },
+            "size": {
+              "x": 1.39186227,
+              "y": 1.99098241,
+              "z": 1.26402307
+            }
+          }
+        },
+        {
+          "type": "flute_enemy",
+          "data": {
+            "max_hp": 2,
+            "speed": 3.0,
+            "detection_radius": 7.5,
+            "idle_speed": 1.0,
+            "runaway_radius": 3.0,
+            "bullet": {
+              "name": "a_g_bullet",
+              "tag": 18,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": -10.749,
+                  "y": 3.534,
+                  "z": -21.521
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [
+                {
+                  "type": "mesh",
+                  "data": {
+                    "model": "Assets/Art/3D/GLOBAL/a_g_bullet.fbx",
+                    "albedo": "Assets/Materials/Mat Zone1/matBullet_c.dds",
+                    "normal": "Assets/Materials/Mat Zone1/matBullet_n.dds",
+                    "reflective": "Assets/Materials/Mat Zone1/matBullet_m.dds"
+                  }
+                },
+                {
+                  "type": "box_collider",
+                  "data": {
+                    "is_trigger": true,
+                    "center": {
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "size": {
+                      "x": 0.209163815,
+                      "y": 0.209163815,
+                      "z": 0.209163815
+                    }
+                  }
+                },
+                {
+                  "type": "bullet",
+                  "data": {
+                    "attack_damage": 1,
+                    "speed": 5.0
+                  }
+                }
+              ],
+              "children": []
+            }
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/Z1_mat_Enemy_c.dds",
+            "normal": "Assets/Materials/Mat characters/Z1_mat_Enemy_n.dds",
+            "reflective": "Assets/Materials/Mat characters/Z1_mat_Enemy_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE1/a_z1_enemy.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_idle.fbx",
+                "name": "Flute_Idle"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_shoot.fbx",
+                "name": "Flute_Shoot"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_run.fbx",
+                "name": "Flute_Run"
+              }
+            ]
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "Player",
       "tag": 5,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": -5.837471,
-          "y": 3.74,
-          "z": -14.661725
+          "x": -2.30637646,
+          "y": 3.55,
+          "z": -19.2210064
         },
         "rotation": {
           "x": 0.0,
@@ -132,7 +267,7 @@
               },
               {
                 "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
-                "name": "player_slash"
+                "name": "Player_Slash"
               }
             ]
           }
@@ -147,9 +282,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": -9.907106,
-          "y": 3.056418,
-          "z": -13.3893433
+          "x": -7.220619,
+          "y": 7.237,
+          "z": -14.619915
         },
         "rotation": {
           "x": 0.0,
@@ -215,129 +350,12 @@
             "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
             "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds",
             "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE1/a_z1_sandWorm.fbx",
-            "animations": []
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "a_z1_enemy",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -8.494797,
-          "y": 3.05543041,
-          "z": -11.0079155
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE1/a_z1_enemy.fbx",
-            "albedo": "Assets/Materials/Mat characters/Z1_mat_Enemy_c.dds",
-            "normal": "Assets/Materials/Mat characters/Z1_mat_Enemy_n.dds",
-            "reflective": "Assets/Materials/Mat characters/Z1_mat_Enemy_m.dds"
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0343885422,
-              "y": 0.990060866,
-              "z": 0.02548647
-            },
-            "size": {
-              "x": 0.977069855,
-              "y": 1.99098241,
-              "z": 0.5806608
-            }
-          }
-        },
-        {
-          "type": "flute_enemy",
-          "data": {
-            "max_hp": 1,
-            "speed": 3.0,
-            "attack_speed": 1.0,
-            "detection_radius": 7.5,
-            "idle_speed": 1.0,
-            "runaway_radius": 3.0,
-            "bullet": {
-              "name": "a_g_bullet",
-              "tag": 9,
-              "layer": 0,
-              "is_static": false,
-              "transform": {
-                "position": {
-                  "x": -10.749,
-                  "y": 3.534,
-                  "z": -21.521
-                },
-                "rotation": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0,
-                  "w": 1.0
-                },
-                "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              },
-              "components": [
-                {
-                  "type": "mesh",
-                  "data": {
-                    "model": "Assets/Art/3D/GLOBAL/a_g_bullet.fbx",
-                    "albedo": "",
-                    "normal": "",
-                    "reflective": ""
-                  }
-                },
-                {
-                  "type": "box_collider",
-                  "data": {
-                    "is_trigger": true,
-                    "center": {
-                      "x": 0.0,
-                      "y": 0.0,
-                      "z": 0.0
-                    },
-                    "size": {
-                      "x": 0.209163815,
-                      "y": 0.209163815,
-                      "z": 0.209163815
-                    }
-                  }
-                },
-                {
-                  "type": "bullet",
-                  "data": {
-                    "attack_damage": 1,
-                    "speed": 5.0
-                  }
-                }
-              ],
-              "children": []
-            }
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_sandWorm_crawl.fbx",
+                "name": "sandWorm_crawl"
+              }
+            ]
           }
         }
       ],
@@ -345,7 +363,7 @@
     },
     {
       "name": "a_g_bullet",
-      "tag": 9,
+      "tag": 18,
       "layer": 0,
       "is_static": false,
       "transform": {
@@ -371,9 +389,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/GLOBAL/a_g_bullet.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone1/matBullet_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/matBullet_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/matBullet_m.dds"
           }
         },
         {
@@ -396,7 +414,7 @@
           "type": "bullet",
           "data": {
             "attack_damage": 1,
-            "speed": 5.0
+            "speed": 0.1
           }
         }
       ],
@@ -513,9 +531,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/ZON3/a_z3_barrel_m.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
           }
         },
         {
@@ -565,9 +583,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_s.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
           }
         },
         {
@@ -584,42 +602,6 @@
               "y": 2.561488,
               "z": 0.4938808
             }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "a_z1_ground5",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 4.67,
-          "y": 2.46,
-          "z": -17.79
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone1/z1_Ground/a_z1_ground5.fbx",
-            "albedo": "Assets/Materials/Mat Ground Blocks/z1_matGround_c.dds",
-            "normal": "",
-            "reflective": ""
           }
         }
       ],
@@ -653,9 +635,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/ZON3/a_z3_grass_s_many.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
           }
         }
       ],
@@ -689,9 +671,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zone3/z3_matTreeL_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matTreeL_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matTreeL_m.dds"
           }
         },
         {

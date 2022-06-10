@@ -15,7 +15,7 @@ TeleporterComponent::TeleporterComponent(std::string aScene, std::string aCheckp
 void TeleporterComponent::Load()
 {
 	if (myScene->name == mySceneToLoad)
-	{
+	{ 
 		myPollingStation->myPlayer->GetTransform().SetPosition(myScene->GetSpawnPointManager().GetSpawnPosition(myCheckPointToLoad));
 		myPollingStation->myPlayer->GetComponent<PlayerComponent>()->SetFullHP();
 		return;
@@ -33,5 +33,4 @@ void TeleporterComponent::OnStart()
 }
 
 void TeleporterComponent::OnUpdate(const float /*aDeltaTime*/)
-{
-}
+{}

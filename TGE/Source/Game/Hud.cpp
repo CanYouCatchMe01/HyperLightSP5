@@ -39,8 +39,12 @@ void Hud::RecieveMsg(const Message& aMsg)
 			myNumberOfHealthKits--;
 
 		myHealthKits.ChangeTexture(myHealthCharges[myNumberOfHealthKits]);
-		myHealthBar.ChangeSizeMultiplier({ myCurrentMultiplier.x * aMsg.aFloatValue, myCurrentMultiplier.y });
+		myHealthBar.ChangeSizeMultiplier({ myCurrentMultiplier.x * healthValue, myCurrentMultiplier.y });
 
+		if (myHealthBar.GetSizeMultiplier().x > myCurrentMultiplier.x)
+		{
+			myHealthBar.ChangeSizeMultiplier({ myCurrentMultiplier.x, myCurrentMultiplier.y });
+		}
 		break;
 
 	case eMessageType::ePlayerPickedUpHealth:

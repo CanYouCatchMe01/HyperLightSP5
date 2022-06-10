@@ -23,7 +23,7 @@ MainMenuState::MainMenuState(StateStack& aStateStack, PollingStation* aPollingSt
 	SetPollingStation(aPollingStation);
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/MainMenu/ui_mainMenu_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
-	mySpriteInstance.mySizeMultiplier = { 1.8f,1.f };
+	mySpriteInstance.mySizeMultiplier = { 1.71f,1.71f };
 	mySpriteInstance.myScaleSpritesWithAspectRatio = true;
 	mySharedData.myTexture->CalculateTextureSize();
 	mySharedData.mySamplerFilter = Tga2D::SamplerFilter::Bilinear;
@@ -145,6 +145,7 @@ void MainMenuState::InvokeButton(eButtonType aType)
 		{
 		case eButtonType::Start:
 			myStateStack.PushState(new GameState(myStateStack, myPollingStation, "Tutorial"));
+			myStateStack.InitState();
 			break;
 		case eButtonType::Options:
 			myStateStack.PushState(new OptionsState(myStateStack, myPollingStation));
