@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "GameDataManager.h"
 #include "PollingStation.h"
+#include "EmitterComponent.h"
 
 TeleportActivator::TeleportActivator() 
 {}
@@ -14,6 +15,9 @@ TeleportActivator::~TeleportActivator()
 void TeleportActivator::Activate()
 {
 	if (myIsActive) return;
+
+	if(myGameObject->GetComponent<EmitterComponent>()!=nullptr)
+		myGameObject->GetComponent<EmitterComponent>()->SetEmitterStatus(true);
 
 	GameData& currentData = myPollingStation->myGameDataManager.get()->GetGameData();
 	currentData.myTeleporterStatus;
@@ -42,6 +46,8 @@ void TeleportActivator::OnAwake()
 
 void TeleportActivator::OnStart()
 {
+	if (myGameObject->GetComponent<EmitterComponent>() != nullptr && !myIsActive)
+		myGameObject->GetComponent<EmitterComponent>()->SetEmitterStatus(false);
 }
 
 void TeleportActivator::OnUpdate(const float /*aDeltaTime*/)

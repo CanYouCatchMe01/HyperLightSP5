@@ -85,7 +85,7 @@
       "transform": {
         "position": {
           "x": 4.12149429,
-          "y": 0.0,
+          "y": -17.52,
           "z": -8.472039
         },
         "rotation": {
@@ -790,6 +790,10 @@
                 "normal": "Assets/Materials/Mat Zone1/mat_Pickup_n.dds",
                 "reflective": "Assets/Materials/Mat Zone1/mat_Pickup_m.dds"
               }
+            },
+            {
+              "type": "bobbing_component",
+              "data": {}
             }
           ],
           "children": []
@@ -58583,8 +58587,8 @@
           "transform": {
             "position": {
               "x": 0.09186956,
-              "y": 2.08,
-              "z": 8.77
+              "y": 3.33,
+              "z": 6.69
             },
             "rotation": {
               "x": 0.0,
@@ -58676,7 +58680,7 @@
         },
         {
           "name": "CheckPoint (2)",
-          "tag": 0,
+          "tag": 11,
           "layer": 0,
           "is_static": true,
           "transform": {
@@ -58726,7 +58730,7 @@
         },
         {
           "name": "CheckPoint (1)",
-          "tag": 0,
+          "tag": 11,
           "layer": 0,
           "is_static": true,
           "transform": {
@@ -58776,7 +58780,7 @@
         },
         {
           "name": "CheckPoint (3)",
-          "tag": 0,
+          "tag": 11,
           "layer": 0,
           "is_static": true,
           "transform": {
@@ -58909,7 +58913,7 @@
         },
         {
           "name": "CheckPoint",
-          "tag": 0,
+          "tag": 11,
           "layer": 0,
           "is_static": true,
           "transform": {
@@ -59031,6 +59035,10 @@
                     "normal": "Assets/Materials/Mat Zone1/mat_Pickup_n.dds",
                     "reflective": "Assets/Materials/Mat Zone1/mat_Pickup_m.dds"
                   }
+                },
+                {
+                  "type": "bobbing_component",
+                  "data": {}
                 }
               ],
               "children": []
@@ -59306,6 +59314,39 @@
               "children": []
             }
           ]
+        },
+        {
+          "name": "SpawnPoint (5)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 0.09186956,
+              "y": 3.33,
+              "z": 8.22
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.706956744,
+              "z": 0.0,
+              "w": 0.7072568
+            },
+            "scale": {
+              "x": 1.00000012,
+              "y": 1.0,
+              "z": 1.00000012
+            }
+          },
+          "components": [
+            {
+              "type": "spawn_point",
+              "data": {
+                "name": "Jungle1Entry0"
+              }
+            }
+          ],
+          "children": []
         }
       ]
     },

@@ -23,64 +23,71 @@ public class CustomClassEditor : Editor
         {
             //Create a space
             EditorGUILayout.Space();
+            EditorGUILayout.BeginHorizontal();
 
-            TypeEnum typeEnum = (TypeEnum)EditorGUILayout.EnumPopup("Varible type", list[i].myVariableType);
+            //Enum type
+            TypeEnum typeEnum = (TypeEnum)EditorGUILayout.EnumPopup(list[i].myVariableType);
             list[i].myVariableType = typeEnum;
             
-            list[i].myVariableName = EditorGUILayout.TextField("Variable name", list[i].myVariableName);
+            //Variable name
+            list[i].myVariableName = EditorGUILayout.TextField(list[i].myVariableName);
+            GUILayout.Label("=");
+
+            var minWidth = GUILayout.MinWidth(64); //Used so the remove "x" stays in the window, when it is small
             switch (list[i].myVariableType)
             {
                 case TypeEnum.Int:
                     {
-                        list[i].myInt = EditorGUILayout.IntField("My Int", list[i].myInt);
+                        list[i].myInt = EditorGUILayout.IntField("", list[i].myInt, minWidth);
                         break;
                     }
                 case TypeEnum.Float:
                     {
-                        list[i].myFloat = EditorGUILayout.FloatField("My Float", list[i].myFloat);
+                        list[i].myFloat = EditorGUILayout.FloatField("", list[i].myFloat, minWidth);
                         break;
                     }
                 case TypeEnum.String:
                     {
-                        list[i].myString = EditorGUILayout.TextField("My String", list[i].myString);
+                        list[i].myString = EditorGUILayout.TextField("", list[i].myString, minWidth);
                         break;
                     }
                 case TypeEnum.Vector3:
                     {
-                        list[i].myVector3 = EditorGUILayout.Vector3Field("My Vector3", list[i].myVector3);
+                        list[i].myVector3 = EditorGUILayout.Vector3Field("", list[i].myVector3, minWidth);
                         break;
                     }
                 case TypeEnum.Bool:
                     {
-                        list[i].myBool = EditorGUILayout.Toggle("My Bool", list[i].myBool);
+                        list[i].myBool = EditorGUILayout.Toggle("", list[i].myBool, minWidth);
                         break;
                     }
                 case TypeEnum.Color:
                     {
-                        list[i].myColor = EditorGUILayout.ColorField("My Color", list[i].myColor);
+                        list[i].myColor = EditorGUILayout.ColorField("", list[i].myColor, minWidth);
                         break;
                     }
                 case TypeEnum.Texture:
                     {
-                        list[i].myTexture = EditorGUILayout.ObjectField("My Texture", list[i].myTexture, typeof(Texture), true) as Texture;
+                        list[i].myTexture = EditorGUILayout.ObjectField("", list[i].myTexture, typeof(Texture), true, minWidth) as Texture;
                         break;
                     }
                 case TypeEnum.Scene:
                     {
-                        list[i].myScene = EditorGUILayout.ObjectField("My Scene", list[i].myScene, typeof(SceneAsset), true) as SceneAsset;
+                        list[i].myScene = EditorGUILayout.ObjectField("", list[i].myScene, typeof(SceneAsset), true, minWidth) as SceneAsset;
                         break;
                     }
                 case TypeEnum.GameObject:
                     {
-                        list[i].myGameObject = EditorGUILayout.ObjectField("My GameObject", list[i].myGameObject, typeof(GameObject), true) as GameObject;
+                        list[i].myGameObject = EditorGUILayout.ObjectField("", list[i].myGameObject, typeof(GameObject), true, minWidth) as GameObject;
                         break;
                     }
             }
-
-            if (GUILayout.Button("Remove"))
+            var deleteIcon = EditorGUIUtility.IconContent("d_P4_DeletedLocal@2x");
+            if (GUILayout.Button(deleteIcon))
             {
                 elementToRemove = i;
             }
+            EditorGUILayout.EndHorizontal();
         }
 
         //Remove element
@@ -90,7 +97,7 @@ public class CustomClassEditor : Editor
         }
 
         EditorGUILayout.Space();
-        if (GUILayout.Button("Add"))
+        if (GUILayout.Button("Add Variable"))
         {
             list.Add(null);
         }

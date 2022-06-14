@@ -249,48 +249,6 @@ void EnemyComponent::IdleMovement(float aDt)
 	default:
 		break;
 	}
-	//// choose a random direction or stand still.
-	//// choose a random time for said action to occur.
-	//// set position
-	//Tga2D::Vector3f forwardDir = myTransform->GetMatrix().GetForward();
-	//Tga2D::Vector3f backwardDir = forwardDir * -1.f;
-	//Tga2D::Vector3f rightDir = myTransform->GetMatrix().GetRight();
-	//Tga2D::Vector3f leftDir = rightDir * -1.f;
-
-	//if (myMoveTimer < 0.f)
-	//{
-	//	myRandNum = rand() % 5;
-
-	//	myMoveTime = ((4.f, 0.75f) * ((float)rand() / RAND_MAX)) + 0.75f;
-	//	myMoveTimer = myMoveTime;
-	//}
-
-	//switch (myRandNum)
-	//{
-	//case 0:
-	//	forwardDir.Normalize();
-	//	SetPosition(GetPosition() + forwardDir * myIdleSpeed * aDt);
-	//	break;
-	//case 1:
-	//	backwardDir.Normalize();
-	//	SetPosition(GetPosition() + backwardDir * myIdleSpeed * aDt);
-	//	break;
-	//case 2:
-	//	rightDir.Normalize();
-	//	SetPosition(GetPosition() + rightDir * myIdleSpeed * aDt);
-	//	break;
-	//case 3:
-	//	leftDir.Normalize();
-	//	SetPosition(GetPosition() + leftDir * myIdleSpeed * aDt);
-	//	break;
-	//case 4:
-	//	// do nothing
-	//	SetPosition(GetPosition());
-	//	myWalkSound->setVolume(0.f);
-	//	break;
-	//default:
-	//	break;
-	//}
 }
 
 

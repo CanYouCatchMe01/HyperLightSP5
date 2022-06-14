@@ -20,7 +20,7 @@ public:
 	virtual void OnAwake() override;
 	virtual void OnStart() override;
 	virtual void OnUpdate(const float aDeltaTime) override;
-
+	void LoadMesh(const std::wstring& someFilePath, std::wstring* someTexturePaths = nullptr);
 
 #ifdef _DEBUG
 	void DebugUpdate() override;

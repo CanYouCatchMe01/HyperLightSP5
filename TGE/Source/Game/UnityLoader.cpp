@@ -30,6 +30,7 @@
 #include "CassetTapeComponent.h"
 #include "UpgradeComponent.h"
 #include "EmitterComponent.h"
+#include "BobbingComponent.h"
 
 #include "tga2d/graphics/DirectionalLight.h"
 #include "tga2d/graphics/AmbientLight.h"
@@ -123,7 +124,7 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			}
 			else if (type == "player")
 			{
-				gameObject->AddComponent<PlayerComponent>(data["max_hp"], data["max_healing"], data["max_attacks"], data["dash_time"], data["healing_time"], data["attack_time"], data["speed"], data["dash_speed"]);
+				gameObject->AddComponent<PlayerComponent>(data["max_hp"], data["max_healing"], data["max_attacks"], data["dash_time"], data["healing_time"], data["attack_time"], data["speed"], data["dash_speed"], data["upgrade_mesh"]);
 			}
 			else if (type == "box_collider")
 			{
@@ -217,6 +218,10 @@ GameObject* UnityLoader::CreateGameObject(nlohmann::json& aGameObject, class Sce
 			else if (type == "emitter")
 			{
 				gameObject->AddComponent<EmitterComponent>(data, aScene);
+			}
+			else if (type == "bobbing_component")
+			{
+				gameObject->AddComponent<BobbingComponent>();
 			}
 		}
 		catch (const std::exception&)

@@ -49,12 +49,20 @@ void GameWorld::Update(float aTimeDelta)
 #ifdef _DEBUG
 	myPollingStation->myDebugger.get()->DebugUpdate();
 #endif // _DEBUG
+
+	myPollingStation->Update();
 	if (!myGroupStartUp)
 	{
 		myStateStack.UpdateState(aTimeDelta);
-		myPollingStation->Update();
 		return;
 	}
+	if (GetAsyncKeyState(VK_ESCAPE))
+	{
+		myGroupStartUp = false;
+		myTGAStartUp = false;
+		return;
+	}
+
 	if (myTGAStartUp)
 	{
 		mySpriteInstance.myColor = { 1,1,1, myAlpha };

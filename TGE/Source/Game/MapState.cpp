@@ -111,7 +111,7 @@ void MapState::InvokeButton()
 		}
 		else
 		{
-			myPollingStation->mySceneManager.get()->LoadScene(myTeleportPoints[myCurrentSelection-1], "Teleporter");
+			myPollingStation->mySceneManager.get()->LoadScene(myTeleportPoints[myCurrentSelection-1], "teleporter");
 		}
 		myNumberOfPops = 1;
 	}

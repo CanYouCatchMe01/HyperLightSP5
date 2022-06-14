@@ -45,7 +45,7 @@ void AudioManager::Init()
 	myContext.system->getBusByID(&FSPRO::Bus::sfx, &myChannels.at(Channels::SFX));
 
 	myChannels.at(Channels::Master)->setVolume(1.0f);
-	myChannels.at(Channels::Music)->setVolume(1.0f);
+	myChannels.at(Channels::Music)->setVolume(0.5f);
 	myChannels.at(Channels::SFX)->setVolume(1.0f);
 }
 

@@ -3371,6 +3371,10 @@
                 "normal": "Assets/Materials/Mat Zone1/mat_Pickup_n.dds",
                 "reflective": "Assets/Materials/Mat Zone1/mat_Pickup_m.dds"
               }
+            },
+            {
+              "type": "bobbing_component",
+              "data": {}
             }
           ],
           "children": []
@@ -3462,7 +3466,7 @@
     },
     {
       "name": "CheckPoint (1)",
-      "tag": 0,
+      "tag": 11,
       "layer": 0,
       "is_static": true,
       "transform": {
@@ -3545,7 +3549,7 @@
     },
     {
       "name": "CheckPoint",
-      "tag": 0,
+      "tag": 11,
       "layer": 0,
       "is_static": true,
       "transform": {
@@ -5482,103 +5486,6 @@
       "children": []
     },
     {
-      "name": "a_z2_enemy (5)",
-      "tag": 8,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -68.02024,
-          "y": -1.33234787,
-          "z": 75.32285
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.03689517,
-              "y": 0.929864943,
-              "z": 0.0325423777
-            },
-            "size": {
-              "x": 0.847654,
-              "y": 1.87059057,
-              "z": 0.7153184
-            }
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": 0.04499963,
-              "y": 0.929864943,
-              "z": 0.137464464
-            },
-            "size": {
-              "x": 0.9458011,
-              "y": 1.87059057,
-              "z": 0.9251629
-            }
-          }
-        },
-        {
-          "type": "charge_enemy",
-          "data": {
-            "max_hp": 3,
-            "speed": 4.0,
-            "attack_speed": 1.0,
-            "detection_radius": 7.5,
-            "charge_radius": 5.0,
-            "charge_time": 1.0,
-            "idle_speed": 3.0,
-            "attack_damage": 1,
-            "dash_speed": 7.5,
-            "idle_radius": 10.0
-          }
-        },
-        {
-          "type": "animated_mesh",
-          "data": {
-            "albedo": "Assets/Materials/Mat characters/Z2_mat_Enemy_c.dds",
-            "normal": "Assets/Materials/Mat characters/Z2_mat_Enemy_n.dds",
-            "reflective": "Assets/Materials/Mat characters/Z2_mat_Enemy_m.dds",
-            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_enemy.fbx",
-            "animations": [
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z2_enemy_charge_slash.fbx",
-                "name": "z2_enemy_charge_slash"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_run.fbx",
-                "name": "Flute_Run"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_idle.fbx",
-                "name": "Flute_Idle"
-              }
-            ]
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "p_z3_woodenStatue_m",
       "tag": 0,
       "layer": 0,
@@ -6802,9 +6709,9 @@
       "is_static": true,
       "transform": {
         "position": {
-          "x": -91.25,
+          "x": -90.9,
           "y": -1.44774723,
-          "z": 29.23
+          "z": 28.48
         },
         "rotation": {
           "x": 0.0,
@@ -6813,7 +6720,7 @@
           "w": 1.0
         },
         "scale": {
-          "x": 1.0,
+          "x": 1.05,
           "y": 1.0,
           "z": 0.501947045
         }
@@ -6827,9 +6734,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": -89.75,
+              "x": -89.3250046,
               "y": 0.05225277,
-              "z": 30.73584
+              "z": 29.98584
             },
             "rotation": {
               "x": 0.0,
@@ -6838,7 +6745,7 @@
               "w": 1.0
             },
             "scale": {
-              "x": 3.0,
+              "x": 3.14999986,
               "y": 3.0,
               "z": 3.01168227
             }
@@ -6998,9 +6905,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": -91.3064651,
+          "x": -90.8064651,
           "y": -1.44774628,
-          "z": 32.2430573
+          "z": 31.4930573
         },
         "rotation": {
           "x": 0.0,
@@ -7023,9 +6930,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": -91.3064651,
+              "x": -90.8064651,
               "y": -1.44774628,
-              "z": 32.2430573
+              "z": 31.4930573
             },
             "rotation": {
               "x": 0.0,
@@ -7421,7 +7328,7 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": -80.98001,
+              "x": -80.90001,
               "y": -1.44774628,
               "z": 40.2600174
             },
@@ -7434,7 +7341,7 @@
             "scale": {
               "x": 4.500001,
               "y": 1.0,
-              "z": 0.490000129
+              "z": 0.5082281
             }
           },
           "components": [],
@@ -7446,7 +7353,7 @@
               "is_static": true,
               "transform": {
                 "position": {
-                  "x": -82.45001,
+                  "x": -82.4247,
                   "y": 0.0522537231,
                   "z": 26.7600174
                 },
@@ -7459,7 +7366,7 @@
                 "scale": {
                   "x": 27.0000076,
                   "y": 3.0,
-                  "z": 2.94000053
+                  "z": 3.04936886
                 }
               },
               "components": [
@@ -7503,7 +7410,7 @@
             },
             "scale": {
               "x": 0.540000141,
-              "y": 1.0,
+              "y": 2.5461,
               "z": 3.550001
             }
           },
@@ -7517,7 +7424,7 @@
               "transform": {
                 "position": {
                   "x": -73.67001,
-                  "y": 0.0522537231,
+                  "y": 2.37140274,
                   "z": 38.5400162
                 },
                 "rotation": {
@@ -7528,7 +7435,7 @@
                 },
                 "scale": {
                   "x": 3.2400012,
-                  "y": 3.0,
+                  "y": 7.6383,
                   "z": 21.3000031
                 }
               },
@@ -69648,9 +69555,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": -88.30645,
+          "x": -87.80645,
           "y": -1.44774628,
-          "z": 29.2430782
+          "z": 28.4930782
         },
         "rotation": {
           "x": 0.0,
@@ -69673,9 +69580,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": -88.30645,
+              "x": -87.80645,
               "y": -1.44774628,
-              "z": 29.2430782
+              "z": 28.4930782
             },
             "rotation": {
               "x": 0.0,
@@ -69713,7 +69620,7 @@
         "position": {
           "x": -95.99999,
           "y": -1.94774628,
-          "z": 27.25001
+          "z": 28.00001
         },
         "rotation": {
           "x": 0.0,
@@ -69738,7 +69645,7 @@
             "position": {
               "x": -95.99999,
               "y": -1.94774628,
-              "z": 27.25001
+              "z": 28.00001
             },
             "rotation": {
               "x": 0.0,
@@ -69776,7 +69683,7 @@
         "position": {
           "x": -99.00001,
           "y": -1.94774628,
-          "z": 30.2499886
+          "z": 30.9999886
         },
         "rotation": {
           "x": 0.0,
@@ -69801,7 +69708,7 @@
             "position": {
               "x": -99.00001,
               "y": -1.94774628,
-              "z": 30.2499886
+              "z": 30.9999886
             },
             "rotation": {
               "x": 0.0,
@@ -69965,7 +69872,7 @@
         "position": {
           "x": -99.07,
           "y": -1.94774723,
-          "z": 27.23
+          "z": 27.98
         },
         "rotation": {
           "x": 0.0,
@@ -69974,7 +69881,7 @@
           "w": 1.0
         },
         "scale": {
-          "x": 1.0,
+          "x": 1.0997,
           "y": 1.0,
           "z": 0.501947045
         }
@@ -69988,9 +69895,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": -97.57,
+              "x": -97.42045,
               "y": -0.447747231,
-              "z": 28.73584
+              "z": 29.48584
             },
             "rotation": {
               "x": 0.0,
@@ -69999,7 +69906,7 @@
               "w": 1.0
             },
             "scale": {
-              "x": 3.0,
+              "x": 3.2991,
               "y": 3.0,
               "z": 3.01168227
             }
@@ -82425,103 +82332,6 @@
       ]
     },
     {
-      "name": "a_z2_enemy (1)",
-      "tag": 8,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -15.36,
-          "y": -1.33234978,
-          "z": -15.24
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.03689517,
-              "y": 0.929864943,
-              "z": 0.0325423777
-            },
-            "size": {
-              "x": 0.847654,
-              "y": 1.87059057,
-              "z": 0.7153184
-            }
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": 0.04499963,
-              "y": 0.929864943,
-              "z": 0.137464464
-            },
-            "size": {
-              "x": 0.9458011,
-              "y": 1.87059057,
-              "z": 0.9251629
-            }
-          }
-        },
-        {
-          "type": "charge_enemy",
-          "data": {
-            "max_hp": 3,
-            "speed": 4.0,
-            "attack_speed": 1.0,
-            "detection_radius": 7.5,
-            "charge_radius": 5.0,
-            "charge_time": 1.0,
-            "idle_speed": 3.0,
-            "attack_damage": 1,
-            "dash_speed": 7.5,
-            "idle_radius": 10.0
-          }
-        },
-        {
-          "type": "animated_mesh",
-          "data": {
-            "albedo": "Assets/Materials/Mat characters/Z2_mat_Enemy_c.dds",
-            "normal": "Assets/Materials/Mat characters/Z2_mat_Enemy_n.dds",
-            "reflective": "Assets/Materials/Mat characters/Z2_mat_Enemy_m.dds",
-            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_enemy.fbx",
-            "animations": [
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z2_enemy_charge_slash.fbx",
-                "name": "z2_enemy_charge_slash"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_run.fbx",
-                "name": "Flute_Run"
-              },
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_z1_enemy_idle.fbx",
-                "name": "Flute_Idle"
-              }
-            ]
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "p_z3_grass_l (11)",
       "tag": 0,
       "layer": 0,
@@ -83206,9 +83016,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": -89.79,
+          "x": -89.31,
           "y": 1.58,
-          "z": 30.53
+          "z": 30.0
         },
         "rotation": {
           "x": 0.0,
@@ -98491,9 +98301,9 @@
           "w": 0.7070232
         },
         "scale": {
-          "x": 1.00000012,
-          "y": 1.0,
-          "z": 1.00000024
+          "x": 1.20000017,
+          "y": 1.2,
+          "z": 1.20000029
         }
       },
       "components": [
@@ -98591,42 +98401,6 @@
           "x": -17.0,
           "y": -1.90453339,
           "z": 11.0
-        },
-        "rotation": {
-          "x": -0.0109408675,
-          "y": 0.7070211,
-          "z": -0.0109408349,
-          "w": 0.7070232
-        },
-        "scale": {
-          "x": 1.00000012,
-          "y": 1.0,
-          "z": 1.00000024
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
-            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
-            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
-            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "p_z3_grass_l (71)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": -16.16,
-          "y": -1.85,
-          "z": 12.1232862
         },
         "rotation": {
           "x": -0.0109408675,
@@ -99165,7 +98939,7 @@
       "transform": {
         "position": {
           "x": 3.0,
-          "y": -0.76,
+          "y": 2.33,
           "z": -9.0
         },
         "rotation": {
@@ -99270,7 +99044,7 @@
           "transform": {
             "position": {
               "x": 8.656855,
-              "y": 11.24,
+              "y": 14.33,
               "z": -14.6568546
             },
             "rotation": {
@@ -101524,6 +101298,114 @@
             "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
             "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
             "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_grass_l (9)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -6.2,
+          "y": -1.5,
+          "z": -14.0
+        },
+        "rotation": {
+          "x": 0.0497507639,
+          "y": 0.0944995359,
+          "z": -0.118677214,
+          "w": 0.987173
+        },
+        "scale": {
+          "x": 0.99999994,
+          "y": 1.0,
+          "z": 1.00000012
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_grass_l (10)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -9.15,
+          "y": -1.5,
+          "z": -15.99
+        },
+        "rotation": {
+          "x": 0.0497507639,
+          "y": 0.0944995359,
+          "z": -0.118677214,
+          "w": 0.987173
+        },
+        "scale": {
+          "x": 1.90389979,
+          "y": 1.9039,
+          "z": 1.9039
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_grass_l (71)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -17.31,
+          "y": -1.86997223,
+          "z": 12.42
+        },
+        "rotation": {
+          "x": -0.0109408675,
+          "y": 0.7070211,
+          "z": -0.0109408349,
+          "w": 0.7070232
+        },
+        "scale": {
+          "x": 1.20000017,
+          "y": 1.2,
+          "z": 1.20000029
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
           }
         }
       ],

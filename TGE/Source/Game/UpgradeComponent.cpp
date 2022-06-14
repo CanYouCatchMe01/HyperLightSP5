@@ -21,5 +21,4 @@ void UpgradeComponent::OnStart()
 }
 
 void UpgradeComponent::OnUpdate(const float /*aDeltaTime*/)
-{
-}
+{}

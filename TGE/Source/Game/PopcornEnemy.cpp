@@ -24,12 +24,18 @@ void PopcornEnemy::OnUpdate(float aDt)
 	myTakeDamageTimer -= aDt;
 	CheckRadius();
 
+	if (!myIsGrounded)
+	{
+		myDir.y = -myGravity / mySpeed;
+		SetPosition(GetPosition() + (myDir * mySpeed * aDt));
+	}
+	
 	// enemy behavior
 	if (!myIsStunned && !myIsInRange)
 	{
 		IdleMovement(aDt);
 	}
-	else if (!myIsStunned && myIsInRange)
+	else if (!myIsStunned && myIsInRange && myPollingStation->myPlayer->GetComponent<PlayerComponent>()->myIsAlive)
 	{
 		MoveTowardsPlayer(aDt);
 	}
@@ -47,7 +53,7 @@ void PopcornEnemy::OnStart()
 	myTarget = myPollingStation->myPlayer;
 	myMoveTime = ((1000.f, 0.1f) * ((float)rand() / RAND_MAX)) + 0.1f;
 	// need to match with the hit cooldown of the player
-	myTakeDamageTime = 1.f;
+	myTakeDamageTime = 0.75f;
 	myRandNum = -1;
 	
 }

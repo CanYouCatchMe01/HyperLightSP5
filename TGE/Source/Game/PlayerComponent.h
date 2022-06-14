@@ -6,10 +6,13 @@
 #include "fmod_studio.hpp"
 #include <Tga2d/Math/Matrix.h>
 #include "GameDataManager.h"
+#include "Timer.h"
+#include <json.hpp>
+
 class PlayerComponent : public Component, Input::InputObserver
 {
 public:
-	PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed);
+	PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed, nlohmann::json aUpgradeMesh);
 	~PlayerComponent();
 	void OnUpdate(float aDt) override;
 	void Movement(float aDt);
@@ -43,11 +46,16 @@ public:
 
 	void OnDeath();
 	void TakeDamage(int someDamage);
+	void SetUpgradeMesh();
+	
 
+	
 
 	PlayerData myPlayerData;
 	bool myAttack = false;
+	bool myIsAlive = true;
 private:
+	void ApplyAnimations(class AnimatedMeshComponent* aMesh);
 	Tga2D::Matrix4x4f myCameraRotation;
 	float myRotation = 0;
 	float myGoalRotation = 0;
@@ -82,6 +90,14 @@ private:
 	bool myHealing = false;
 	bool myNextAttack = false;
 	int myAttacks = 0;
+
+	nlohmann::json myUpgradeMeshSettings;
+
+	//Just for LD to test
+	bool myIsImmortal = false;
+	
+	//Death timer
+	Timer myDeathTimer;
 	
 	//Audio
 	class AudioComponent* myAudioComponent = nullptr;

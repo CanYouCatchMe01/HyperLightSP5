@@ -31,7 +31,6 @@ struct PlayerData
 	Tga2D::Vector3f mySavePosition;
 	int myMaxHP;
 	int myCurrentHP;
-	int myAttakDMG;
 	int myHealKitAmmnt = 0;
 };
 

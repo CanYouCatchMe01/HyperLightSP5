@@ -34,7 +34,7 @@ void CheckPointComponent::Save()
 	PlayerComponent player = *myPollingStation->myPlayer->GetComponent<PlayerComponent>();
 	myPlayerData.myCurrentHP = player.myPlayerData.myCurrentHP;
 	myPlayerData.myMaxHP = player.myPlayerData.myMaxHP;
-	
+
 	/*player->myPlayerData.mySavePosition*/
 	/*player->SetPosition(player->myPlayerData.myCheckpoint->myTransform->GetPosition());*/
 	//PlayerData playerData(player);
@@ -43,5 +43,8 @@ void CheckPointComponent::Save()
 
 void CheckPointComponent::Load()
 {
-	myPollingStation->myPlayer->GetComponent<PlayerComponent>()->myPlayerData = myPlayerData;
+	auto player = myPollingStation->myPlayer->GetComponent<PlayerComponent>();
+	player->myPlayerData = myPlayerData;
+	myPollingStation->myPlayer->GetTransform().SetPosition(myScene->GetSpawnPointManager().GetSpawnPosition(myCheckPointName));
+
 }

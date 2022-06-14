@@ -93,6 +93,7 @@ void PauseMenuState::InvokeButton(eButtonType aType)
 	case eButtonType::ExitToMain:
 		myNumberOfPops = 2;
 		Tga2D::Engine::GetInstance()->GetGraphicsEngine().SetCamera(Tga2D::Camera());
+		myPollingStation->myAudioManager->SetMusic(FSPRO::Event::music_Boss);
 		break;
 	case eButtonType::Exit:
 		break;

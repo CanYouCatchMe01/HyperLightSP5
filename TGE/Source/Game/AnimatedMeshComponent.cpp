@@ -38,7 +38,8 @@ AnimatedMeshComponent::AnimatedMeshComponent(const std::string& aMeshPath, const
 		++animIndex;
 	}
 
-	aScene->GetRenderObjectManager().GetAnimatedModel(myModelHandle)->InitAnimations(animations);
+	auto model = aScene->GetRenderObjectManager().GetAnimatedModel(myModelHandle);
+	model->InitAnimations(animations);
 	//aScene->GetRenderObjectManager().GetAnimatedModel(myModelHandle)->PlayAnimation(0);
 }
 
@@ -49,8 +50,10 @@ AnimatedMeshComponent::~AnimatedMeshComponent()
 
 void AnimatedMeshComponent::LoadMesh(const std::wstring& someFilePath, GameObject* aGameObject, std::wstring* someTexturePaths)
 {
+#ifdef _DEBUG
 #pragma warning(disable : 4244)
 	struct stat buffer;
+
 	std::string s = std::string(someFilePath.begin(), someFilePath.end());
 	bool hasFile = (stat(s.c_str(), &buffer) == 0);
 	if (!hasFile)
@@ -59,9 +62,10 @@ void AnimatedMeshComponent::LoadMesh(const std::wstring& someFilePath, GameObjec
 		return;
 	}
 #pragma warning(default : 4244)
+#endif // _DEBUG
 
 	if (myHasModel)
-		myScene->GetRenderObjectManager().DestroyModel(myModelHandle);
+		myScene->GetRenderObjectManager().DestroyAnimatedModel(myModelHandle);
 
 	myModelHandle = myScene->GetRenderObjectManager().RegisterAnimatedModel(someFilePath.c_str(), aGameObject, someTexturePaths);
 	myHasModel = true;
@@ -111,6 +115,11 @@ void AnimatedMeshComponent::OnUpdate(const float aDeltaTime)
 		model->Update(aDeltaTime * speed);
 	}
 	
+}
+
+void AnimatedMeshComponent::LoadMesh(const std::wstring& someFilePath, std::wstring* someTexturePaths)
+{
+	LoadMesh(someFilePath, myGameObject, someTexturePaths);
 }
 
 #ifdef _DEBUG

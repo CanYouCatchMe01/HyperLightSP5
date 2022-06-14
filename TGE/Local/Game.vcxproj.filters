@@ -184,6 +184,9 @@
       <Filter>Code\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="..\Source\Game\EmitterComponent.cpp" />
+    <ClCompile Include="..\Source\Game\BobbingComponent.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\Game\Observer.h">
@@ -399,6 +402,9 @@
     <ClInclude Include="..\Source\Game\UpgradeComponent.h" />
     <ClInclude Include="..\Source\Game\EmitterComponent.h">
       <Filter>Code\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game\BobbingComponent.h">
+      <Filter>Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

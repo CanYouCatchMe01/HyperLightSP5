@@ -636,6 +636,39 @@
       ]
     },
     {
+      "name": "TutorialMusic",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 4.844449,
+          "y": 17.3647728,
+          "z": -6.33439064
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "music_changer",
+          "data": {
+            "music_to_play": "event:/music/tutorial"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "SpikeGround",
       "tag": 0,
       "layer": 0,
@@ -1303,6 +1336,10 @@
                 "normal": "Assets/Materials/Mat Zone1/mat_Pickup_n.dds",
                 "reflective": "Assets/Materials/Mat Zone1/mat_Pickup_m.dds"
               }
+            },
+            {
+              "type": "bobbing_component",
+              "data": {}
             }
           ],
           "children": []
@@ -1378,39 +1415,6 @@
           "children": []
         }
       ]
-    },
-    {
-      "name": "HubMusic",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 7.42614937,
-          "y": -1.29809189,
-          "z": -11.9569626
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "music_changer",
-          "data": {
-            "music_to_play": "event:/music/hub"
-          }
-        }
-      ],
-      "children": []
     },
     {
       "name": "Ground",
@@ -8105,7 +8109,7 @@
           "transform": {
             "position": {
               "x": -3.58843136,
-              "y": -1.29809189,
+              "y": -1.65999985,
               "z": 4.78420448
             },
             "rotation": {
@@ -8130,7 +8134,7 @@
               "transform": {
                 "position": {
                   "x": -3.58843136,
-                  "y": -1.29809189,
+                  "y": -1.65999985,
                   "z": 4.78420448
                 },
                 "rotation": {
@@ -8166,7 +8170,7 @@
               "transform": {
                 "position": {
                   "x": -3.58843136,
-                  "y": -1.29809189,
+                  "y": -1.65999985,
                   "z": 4.78420448
                 },
                 "rotation": {
@@ -12056,7 +12060,7 @@
           "transform": {
             "position": {
               "x": -3.77409935,
-              "y": -1.29809189,
+              "y": -1.5,
               "z": -2.16255
             },
             "rotation": {
@@ -12081,7 +12085,7 @@
               "transform": {
                 "position": {
                   "x": -3.77409935,
-                  "y": -1.29809189,
+                  "y": -1.5,
                   "z": -2.16255
                 },
                 "rotation": {
@@ -12117,7 +12121,7 @@
               "transform": {
                 "position": {
                   "x": -3.77409935,
-                  "y": -1.29809189,
+                  "y": -1.5,
                   "z": -2.16255
                 },
                 "rotation": {
@@ -20669,7 +20673,7 @@
           "transform": {
             "position": {
               "x": 30.0319042,
-              "y": 4.83,
+              "y": 5.27999973,
               "z": 61.6740036
             },
             "rotation": {
@@ -20694,7 +20698,7 @@
               "transform": {
                 "position": {
                   "x": 30.0319042,
-                  "y": 4.83,
+                  "y": 5.27999973,
                   "z": 61.6740036
                 },
                 "rotation": {
@@ -20730,7 +20734,7 @@
               "transform": {
                 "position": {
                   "x": 30.0319042,
-                  "y": 4.83,
+                  "y": 5.27999973,
                   "z": 61.6740036
                 },
                 "rotation": {
@@ -29182,9 +29186,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": -7.523817,
+              "x": -7.83826065,
               "y": 0.7019081,
-              "z": 33.83733
+              "z": 33.83423
             },
             "rotation": {
               "x": 0.0,
@@ -29207,9 +29211,9 @@
               "is_static": false,
               "transform": {
                 "position": {
-                  "x": -7.523817,
+                  "x": -7.83826065,
                   "y": 0.7019081,
-                  "z": 33.83733
+                  "z": 33.83423
                 },
                 "rotation": {
                   "x": 0.0,
@@ -29243,9 +29247,9 @@
               "is_static": false,
               "transform": {
                 "position": {
-                  "x": -7.523817,
+                  "x": -7.83826065,
                   "y": 0.7019081,
-                  "z": 33.83733
+                  "z": 33.83423
                 },
                 "rotation": {
                   "x": 0.0,
@@ -34201,6 +34205,92 @@
       ]
     },
     {
+      "name": "a_z2_sandWorm (1)",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 16.65,
+          "y": -0.0100002289,
+          "z": 34.2437935
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_sandWorm_crawl.fbx",
+                "name": "sandWorm_crawl"
+              }
+            ]
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "Lightning",
       "tag": 0,
       "layer": 0,
@@ -34472,6 +34562,178 @@
           "children": []
         }
       ]
+    },
+    {
+      "name": "a_z2_sandWorm",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 11.7503433,
+          "y": -0.0100002289,
+          "z": 34.2437935
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_sandWorm_crawl.fbx",
+                "name": "sandWorm_crawl"
+              }
+            ]
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z2_sandWorm (2)",
+      "tag": 7,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 14.0717583,
+          "y": -0.0100002289,
+          "z": 36.9741
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.00445199,
+              "y": 0.421182245,
+              "z": -0.3138399
+            },
+            "size": {
+              "x": 0.7058015,
+              "y": 0.855862558,
+              "z": 1.70783234
+            }
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0345881,
+              "y": 0.421182215,
+              "z": -0.2507944
+            },
+            "size": {
+              "x": 0.9345498,
+              "y": 0.85,
+              "z": 1.91987991
+            }
+          }
+        },
+        {
+          "type": "popcorn_enemy",
+          "data": {
+            "max_hp": 1,
+            "speed": 3.0,
+            "attack_speed": 1.0,
+            "detection_radius": 5.0,
+            "idle_speed": 2.0,
+            "attack_damage": 1,
+            "idle_radius": 5.0
+          }
+        },
+        {
+          "type": "animated_mesh",
+          "data": {
+            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
+            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
+            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds",
+            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
+            "animations": [
+              {
+                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_sandWorm_crawl.fbx",
+                "name": "sandWorm_crawl"
+              }
+            ]
+          }
+        }
+      ],
+      "children": []
     },
     {
       "name": "Decor",
@@ -43023,264 +43285,6 @@
       ]
     },
     {
-      "name": "a_z2_sandWorm (1)",
-      "tag": 7,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 16.65,
-          "y": -0.0100002289,
-          "z": 34.2437935
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": 0.00445199,
-              "y": 0.421182245,
-              "z": -0.3138399
-            },
-            "size": {
-              "x": 0.7058015,
-              "y": 0.855862558,
-              "z": 1.70783234
-            }
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0345881,
-              "y": 0.421182215,
-              "z": -0.2507944
-            },
-            "size": {
-              "x": 0.9345498,
-              "y": 0.85,
-              "z": 1.91987991
-            }
-          }
-        },
-        {
-          "type": "popcorn_enemy",
-          "data": {
-            "max_hp": 1,
-            "speed": 3.0,
-            "attack_speed": 1.0,
-            "detection_radius": 5.0,
-            "idle_speed": 2.0,
-            "attack_damage": 1,
-            "idle_radius": 5.0
-          }
-        },
-        {
-          "type": "animated_mesh",
-          "data": {
-            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
-            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
-            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds",
-            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
-            "animations": [
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_sandWorm_crawl.fbx",
-                "name": "sandWorm_crawl"
-              }
-            ]
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "a_z2_sandWorm",
-      "tag": 7,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 11.7503433,
-          "y": -0.0100002289,
-          "z": 34.2437935
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": 0.00445199,
-              "y": 0.421182245,
-              "z": -0.3138399
-            },
-            "size": {
-              "x": 0.7058015,
-              "y": 0.855862558,
-              "z": 1.70783234
-            }
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0345881,
-              "y": 0.421182215,
-              "z": -0.2507944
-            },
-            "size": {
-              "x": 0.9345498,
-              "y": 0.85,
-              "z": 1.91987991
-            }
-          }
-        },
-        {
-          "type": "popcorn_enemy",
-          "data": {
-            "max_hp": 1,
-            "speed": 3.0,
-            "attack_speed": 1.0,
-            "detection_radius": 5.0,
-            "idle_speed": 2.0,
-            "attack_damage": 1,
-            "idle_radius": 5.0
-          }
-        },
-        {
-          "type": "animated_mesh",
-          "data": {
-            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
-            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
-            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds",
-            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
-            "animations": [
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_sandWorm_crawl.fbx",
-                "name": "sandWorm_crawl"
-              }
-            ]
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "a_z2_sandWorm (2)",
-      "tag": 7,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 14.0717583,
-          "y": -0.0100002289,
-          "z": 36.9741
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": 0.00445199,
-              "y": 0.421182245,
-              "z": -0.3138399
-            },
-            "size": {
-              "x": 0.7058015,
-              "y": 0.855862558,
-              "z": 1.70783234
-            }
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 0.0345881,
-              "y": 0.421182215,
-              "z": -0.2507944
-            },
-            "size": {
-              "x": 0.9345498,
-              "y": 0.85,
-              "z": 1.91987991
-            }
-          }
-        },
-        {
-          "type": "popcorn_enemy",
-          "data": {
-            "max_hp": 1,
-            "speed": 3.0,
-            "attack_speed": 1.0,
-            "detection_radius": 5.0,
-            "idle_speed": 2.0,
-            "attack_damage": 1,
-            "idle_radius": 5.0
-          }
-        },
-        {
-          "type": "animated_mesh",
-          "data": {
-            "albedo": "Assets/Materials/Mat characters/mat_SandWorm_c.dds",
-            "normal": "Assets/Materials/Mat characters/mat_SandWorm_n.dds",
-            "reflective": "Assets/Materials/Mat characters/mat_SandWorm_m.dds",
-            "model": "Assets/Art/3D/CHARACTERS/ENEMY/ENEMY - ZONE2/a_z2_sandWorm.fbx",
-            "animations": [
-              {
-                "path": "Assets/Art/3D/CHARACTERS/ENEMY/ANIMATIONS/anim_sandWorm_crawl.fbx",
-                "name": "sandWorm_crawl"
-              }
-            ]
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "Teleporter (2)",
       "tag": 10,
       "layer": 0,
@@ -43448,7 +43452,7 @@
     },
     {
       "name": "CheckPoint (1)",
-      "tag": 0,
+      "tag": 11,
       "layer": 0,
       "is_static": true,
       "transform": {
@@ -43666,7 +43670,7 @@
     },
     {
       "name": "CheckPoint",
-      "tag": 0,
+      "tag": 11,
       "layer": 0,
       "is_static": true,
       "transform": {
@@ -47464,7 +47468,61 @@
             "healing_time": 0.1,
             "attack_time": 0.1,
             "speed": 7.0,
-            "dash_speed": 50.0
+            "dash_speed": 50.0,
+            "upgrade_mesh": {
+              "name": "Player_upgrade(Clone)",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [
+                {
+                  "type": "animated_mesh",
+                  "data": {
+                    "albedo": "Assets/Materials/Mat characters/matPlayer_upgrade_c.dds",
+                    "normal": "Assets/Materials/Mat characters/matPlayer_upgrade_n.dds",
+                    "reflective": "Assets/Materials/Mat characters/matPlayer_upgrade_m.dds",
+                    "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player_upgrade.fbx",
+                    "animations": [
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                        "name": "Player_Dash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                        "name": "Player_Idle"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                        "name": "Player_Run"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
+                        "name": "Player_Slash"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "children": []
+            }
           }
         },
         {
@@ -47513,6 +47571,10 @@
               {
                 "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
                 "name": "Player_Slash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                "name": "Player_Death"
               }
             ]
           }

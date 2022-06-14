@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5649928723838464443}
   - component: {fileID: 6649563062782766663}
   - component: {fileID: 5472163483946234735}
+  - component: {fileID: 4668456365557348298}
   m_Layer: 0
   m_Name: TeleportActivator
   m_TagString: teleportActivator
@@ -60,6 +61,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myScriptName: teleport_1
   myList: []
+--- !u!114 &4668456365557348298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806491618476703109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6c95e7793c99b47b5b67141b1dd5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: f6a72f8915e7bb24f8b66f6121077311, type: 3}
+  startScale: 0.5
+  endScale: 2
+  minMass: 10
+  maxMass: 3
+  minTimeBetweenParticleSpawns: 0.1
+  maxTimeBetweenParticleSpawns: 0.1
+  minStartSpeed: 1
+  maxStartSpeed: 1
+  minAngle: -1.27
+  maxAngle: -1.87
+  minLifeTime: 1
+  maxLifeTime: 0.8
+  minSpawnOffsetDistance: 0
+  maxSpawnOffsetDistance: 0
+  acceleration: {x: 0, y: 0, z: 0}
+  startColor: {r: 1, g: 0.9053073, b: 0, a: 1}
+  endColor: {r: 0.6778572, g: 0, b: 0.7264151, a: 1}
+  blendState: 2
+  emitTime: 0.68
+  gravity: -9.81
 --- !u!1001 &4155426622310876326
 PrefabInstance:
   m_ObjectHideFlags: 0

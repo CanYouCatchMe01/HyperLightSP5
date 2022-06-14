@@ -226,6 +226,7 @@ MonoBehaviour:
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
     myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 1
     myVariableName: my speed
     myInt: 0
@@ -236,6 +237,7 @@ MonoBehaviour:
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
     myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 3
     myVariableName: 'flying '
     myInt: 0
@@ -246,6 +248,7 @@ MonoBehaviour:
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
     myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 4
     myVariableName: jump
     myInt: 0
@@ -256,6 +259,7 @@ MonoBehaviour:
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
     myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
 --- !u!4 &385483229
 Transform:
   m_ObjectHideFlags: 0
@@ -294,6 +298,7 @@ MonoBehaviour:
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
     myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
 --- !u!1 &894032167
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622116501}
   - component: {fileID: 1622116500}
+  - component: {fileID: 1622116502}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -639,6 +645,7 @@ MonoBehaviour:
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
     myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
   - myVariableType: 7
     myVariableName: load
     myInt: 0
@@ -649,6 +656,7 @@ MonoBehaviour:
     myColor: {r: 1, g: 1, b: 1, a: 1}
     myTexture: {fileID: 0}
     myScene: {fileID: 102900000, guid: 98dd69c9ab28fdb47819593352995179, type: 3}
+    myGameObject: {fileID: 0}
 --- !u!4 &1622116501
 Transform:
   m_ObjectHideFlags: 0
@@ -663,6 +671,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1622116502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622116499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4207025edc3df8148a3dac71b4db0b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myScriptName: anim
+  myList:
+  - myVariableType: 2
+    myVariableName: path
+    myInt: 0
+    myFloat: 0
+    myString: ' / / /'
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
+  - myVariableType: 6
+    myVariableName: texture1
+    myInt: 0
+    myFloat: 0
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
+  - myVariableType: 6
+    myVariableName: texture2
+    myInt: 0
+    myFloat: 0
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
+  - myVariableType: 6
+    myVariableName: texture3
+    myInt: 0
+    myFloat: 0
+    myString: 
+    myVector3: {x: 0, y: 0, z: 0}
+    myBool: 0
+    myColor: {r: 1, g: 1, b: 1, a: 1}
+    myTexture: {fileID: 0}
+    myScene: {fileID: 0}
+    myGameObject: {fileID: 0}
 --- !u!1001 &1646419376
 PrefabInstance:
   m_ObjectHideFlags: 0

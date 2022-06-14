@@ -3,7 +3,12 @@ guid: ee9ba386e0f5af3438491616452895d4
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: g_matAmphitheatre
+    second: {fileID: 2100000, guid: 425b12c9525fe3540849fd1ddbb1d30d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

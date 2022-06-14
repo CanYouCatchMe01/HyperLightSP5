@@ -4,6 +4,8 @@
 #include "BulletComponent.h"
 #include "UnityLoader.h"
 #include "AnimatedMeshComponent.h"
+#include "PlayerComponent.h"
+#include "AudioComponent.h"
 
 FluteEnemy::FluteEnemy(int aMaxHp, float aSpeed, float aDetectionRadius, float anIdleSpeed, float aRunawayRadius, nlohmann::json& anObject)
 {
@@ -26,22 +28,30 @@ void FluteEnemy::OnUpdate(float aDt)
 	CorrectRotation(aDt);
 	CheckRadius();
 	
+	if (!myIsGrounded)
+	{
+		myDir.y = -myGravity / mySpeed;
+		SetPosition(GetPosition() + (myDir * mySpeed * aDt));
+	}
+	
 	//check if player is too close
 	float r2 = myDistanceToTarget.x * myDistanceToTarget.x + myDistanceToTarget.z * myDistanceToTarget.z;
 	myRunaway = r2 < myRunawayRadius * myRunawayRadius;
-
-	if (myRunaway)
+	if (myPollingStation->myPlayer->GetComponent<PlayerComponent>()->myIsAlive)
 	{
-		MoveAwayFromPlayer(aDt);
-		myDoAttack = myAttackSpeed;
-	}
-	else if (!myIsInRange)
-	{
-		myDoAttack = myAttackSpeed;
-	}
-	else if (myIsInRange)
-	{
-		ShootPlayer(aDt);
+		if (myRunaway)
+		{
+			MoveAwayFromPlayer(aDt);
+			myDoAttack = myAttackSpeed;
+		}
+		else if (!myIsInRange)
+		{
+			myDoAttack = myAttackSpeed;
+		}
+		else if (myIsInRange)
+		{
+			ShootPlayer(aDt);
+		}
 	}
 }
 
@@ -65,7 +75,7 @@ void FluteEnemy::OnStart()
 	myTarget = myPollingStation->myPlayer;
 	myMoveTime = ((1000.f, 0.1f) * ((float)rand() / RAND_MAX)) + 0.1f;
 	// need to match with the hit cooldown of the player
-	myTakeDamageTime = 1.f;
+	myTakeDamageTime = 0.75f;
 	myRandNum = -1;
 }
 
@@ -82,7 +92,10 @@ void FluteEnemy::ShootPlayer(float aDt)
 	//create timer for attacking
 	myDoAttack -= aDt;
 	if (myDoAttack <= 0)
-	{
+
+	{	//Attack Audio
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_attack_flute);
+		
 		myIsAttacking = true;
 		myDoAttack = myAttackSpeed + 0.25f;
 		//create bullet

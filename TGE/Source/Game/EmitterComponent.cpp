@@ -22,6 +22,7 @@ void EmitterComponent::OnStart()
 
 void EmitterComponent::OnUpdate(const float aDeltaTime)
 {
+	if (!myStatus) return;
 	Emitter* emitter = myScene->GetRenderObjectManager().GetEmitter(myEmitterHandle);
 	emitter->SetTransform(*myTransform);
 	emitter->Update(aDeltaTime);

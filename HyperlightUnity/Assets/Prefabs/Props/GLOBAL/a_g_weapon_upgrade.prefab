@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 365930714117995451}
   - component: {fileID: 8191629271706414022}
   - component: {fileID: 7154243715836042720}
+  - component: {fileID: 3291107850484960930}
   m_Layer: 0
   m_Name: a_g_weapon_upgrade
   m_TagString: upgrade
@@ -121,3 +122,17 @@ MonoBehaviour:
     myTexture: {fileID: 0}
     myScene: {fileID: 0}
     myGameObject: {fileID: 0}
+--- !u!114 &3291107850484960930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167621733988162158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4207025edc3df8148a3dac71b4db0b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myScriptName: bobbing_component
+  myList: []

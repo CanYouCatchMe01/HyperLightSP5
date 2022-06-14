@@ -21,7 +21,7 @@
 #include "GameDataManager.h"
 #include "CollisionManager.h"
 
-PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float /*aAttackTime*/, float aSpeed, float aDashSpeed)
+PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float /*aAttackTime*/, float aSpeed, float aDashSpeed, nlohmann::json aUpgradeMesh)
 {
 	myPlayerData.myMaxHP = aMaxHp;
 	myPlayerData.myCurrentHP = aMaxHp;
@@ -32,6 +32,13 @@ PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, fl
 	myAttackTime = 0.75f/*aAttackTime*/;
 	mySpeed = aSpeed;
 	myDashSpeed = aDashSpeed;
+	myUpgradeMeshSettings = aUpgradeMesh;
+
+	myDeathTimer.SetDuration(2.f);
+	myDeathTimer.SetCallback([this]()
+		{
+			OnDeath();
+		});
 }
 
 PlayerComponent::~PlayerComponent()
@@ -40,6 +47,7 @@ PlayerComponent::~PlayerComponent()
 void PlayerComponent::OnUpdate(float aDt)
 {
 	myTakeDamageTimer -= aDt;
+	myDeathTimer.Update(aDt);
 
 	if (!myIsGrounded && !myDash)
 	{
@@ -78,6 +86,13 @@ void PlayerComponent::OnUpdate(float aDt)
 	{
 		myHealing = false;
 	}
+
+	//Just for LD to test
+	if (GetAsyncKeyState('I'))
+	{
+		myIsImmortal = true;
+		INFO_PRINT("Immortal %i", myIsImmortal);
+	}
 }
 
 void PlayerComponent::Movement(float aDT)
@@ -91,7 +106,7 @@ void PlayerComponent::Movement(float aDT)
 		myWalkSound->setVolume(0.0f);
 		return;
 	}
-	myWalkSound->setVolume(10.0f);
+	myWalkSound->setVolume(1.0f);
 	myDir.Normalize();
 
 	if ((myDir.x != 0 || myDir.z != 0))
@@ -200,6 +215,7 @@ void PlayerComponent::SetHp(int aHp)
 
 void PlayerComponent::SetFullHP()
 {
+  	myIsAlive = true;
 	myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
 
 	Message takeDmgMessage;
@@ -228,6 +244,7 @@ void PlayerComponent::SetHealing(int aHealing)
 
 void PlayerComponent::RecieveEvent(const Input::eInputEvent aEvent, const float /*aValue*/)
 {
+	if (!myIsAlive) { return; }
 	switch (aEvent)
 	{
 	case Input::eInputEvent::eMoveDown:
@@ -340,17 +357,7 @@ void PlayerComponent::OnStart()
 	myWalkSound->setVolume(0.0f);
 	myTakeDamageTime = 1.f;
 	auto animatedMesh = myGameObject->GetComponent<AnimatedMeshComponent>();
-	auto playerIdle = animatedMesh->AddTransition("Player_Idle", [this]()->bool { return true; });
-	auto playerRun = playerIdle->AddTransition("Player_Run", [this]()->bool { return (myLastDir.x != 0 || myLastDir.z != 0); });
-	auto playerDash = playerRun->AddTransition("Player_Dash", [this]()->bool { return myDash; });
-	auto playerAttack = animatedMesh->AddTransition("Player_Slash", [this]()->bool { return myAttack; });
-	playerRun->AddTransition(playerAttack, [this]()->bool { return myAttack; });
-	playerIdle->AddTransition(playerAttack, [this]()->bool { return myAttack; });
-	playerAttack->AddTransition(playerIdle, [this]()->bool { return (!myAttack && (myLastDir.x == 0 && myLastDir.z == 0)); });
-	playerAttack->AddTransition(playerRun, [this]()->bool { return (!myAttack && (myLastDir.x != 0 || myLastDir.z != 0)); });
-	playerRun->AddTransition(playerIdle, [this]()->bool { return (myLastDir.x == 0 && myLastDir.z == 0); });
-	playerDash->AddTransition(playerIdle, [this]()->bool { return (myLastDir.x == 0 && myLastDir.z == 0 && !myDash); });
-	playerDash->AddTransition(playerRun, [this]()->bool { return ((myLastDir.x != 0 || myLastDir.z != 0) && !myDash); });
+	ApplyAnimations(animatedMesh);
 
 	PlayerData tempData = myPollingStation->myGameDataManager.get()->GetPlayerData();
 	if (tempData.myCurrentHP > 0)
@@ -433,7 +440,9 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 				std::cout << "player took damage by popcorn\n";
 				TakeDamage(aOther->GetComponent<PopcornEnemy>()->GetAttackDmg());
 				aOther->GetComponent<PopcornEnemy>()->myIsStunned = true;
-				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+
+				//Worm is hitting
+				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_attack_worm_hit);
 
 				INFO_PRINT("%s %i", "Player HP", myPlayerData.myCurrentHP);
 			}
@@ -447,7 +456,9 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 				std::cout << "player took damage by charge\n";
 				TakeDamage(aOther->GetComponent<ChargeEnemy>()->GetAttackDmg());
 				aOther->GetComponent<ChargeEnemy>()->myIsStunned = true;
-				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+
+				//Guitar hit
+				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_attack_guitar_hit);
 			}
 		}
 
@@ -461,7 +472,8 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 				TakeDamage(bulletComponent->GetAttackDamage());
 				bulletComponent->RemoveBullet();
 
-				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+				//Hit audio
+				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_attack_worm_hit);
 			}
 		}
 
@@ -476,6 +488,8 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 			else
 			{
 				upgradeMsg.myMsg = eMessageType::eWeaponUpgrade;
+				SetUpgradeMesh();
+
 			}
 			myPollingStation->myPostmaster.get()->SendMsg(upgradeMsg);
 			GameData& gamedata = myPollingStation->myGameDataManager.get()->GetGameData();
@@ -511,23 +525,34 @@ void PlayerComponent::OnEnemyHit()
 
 void PlayerComponent::OnDeath()
 {
-	std::cout << "player died\n";
+	myIsAlive = false;
+	myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+	myDeathTimer.Stop();
 	GameData gameData = myPollingStation->myGameDataManager.get()->GetGameData();
 	if (gameData.myCheckpoint != nullptr)
 	{
+		SetFullHP();
 		gameData.myCheckpoint->Load(); //causes crash
-		myGameObject->GetTransform().SetPosition(myPlayerData.mySavePosition);
+		//myGameObject->GetTransform().SetPosition(myPlayerData.mySavePosition);
 		return;
 	}
-	myPlayerData.mySavePosition = myPollingStation->myGameDataManager.get()->GetPlayerData().mySavePosition;
+	SetFullHP();
+	myPlayerData = myPollingStation->myGameDataManager.get()->GetPlayerData();
 //	myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
 	myGameObject->GetTransform().SetPosition(myPlayerData.mySavePosition);
 }
 
 void PlayerComponent::TakeDamage(int someDamage)
 {
+	//Just for LD to test
+	if (myIsImmortal)
+	{
+		return;
+	}
+	
 	myPlayerData.myCurrentHP -= someDamage;
-	if (myPlayerData.myCurrentHP <= 0) { OnDeath(); }
+	if (myPlayerData.myCurrentHP <= 0) { myIsAlive = false; myDeathTimer.Start(); }
+	else { myDeathTimer.Reset(); }
 	Message takeDmgMessage;
 	takeDmgMessage.myMsg = eMessageType::ePlayerTookDMG;
 	takeDmgMessage.aFloatValue = (float)myPlayerData.myCurrentHP / (float)myPlayerData.myMaxHP;
@@ -535,6 +560,42 @@ void PlayerComponent::TakeDamage(int someDamage)
 
 	SaveData();
 	//chekded
+}
+
+void PlayerComponent::SetUpgradeMesh()
+{
+	myGameObject->RemoveComponent<AnimatedMeshComponent>();
+
+	auto data = myUpgradeMeshSettings["components"][0]["data"];
+
+	auto mesh = myGameObject->AddComponent<AnimatedMeshComponent>(data["model"], data["albedo"], data["normal"], data["reflective"], data["animations"], myScene, myGameObject);
+	ApplyAnimations(mesh);
+	
+
+}
+
+void PlayerComponent::ApplyAnimations(AnimatedMeshComponent* aMesh)
+{
+	auto playerIdle = aMesh->AddTransition("Player_Idle", [this]()->bool { return true; });
+	auto playerRun = playerIdle->AddTransition("Player_Run", [this]()->bool { return (myLastDir.x != 0 || myLastDir.z != 0); });
+	auto playerDash = playerRun->AddTransition("Player_Dash", [this]()->bool { return myDash; });
+	auto playerAttack = aMesh->AddTransition("Player_Slash", [this]()->bool { return myAttack; });
+	auto playerDeath = aMesh->AddTransition("Player_Death", [this]()->bool { return myPlayerData.myCurrentHP <= 0; });
+	playerRun->AddTransition(playerAttack, [this]()->bool { return myAttack; });
+	playerIdle->AddTransition(playerAttack, [this]()->bool { return myAttack; });
+	playerAttack->AddTransition(playerIdle, [this]()->bool { return (!myAttack && (myLastDir.x == 0 && myLastDir.z == 0)); });
+	playerAttack->AddTransition(playerRun, [this]()->bool { return (!myAttack && (myLastDir.x != 0 || myLastDir.z != 0)); });
+	playerRun->AddTransition(playerIdle, [this]()->bool { return (myLastDir.x == 0 && myLastDir.z == 0); });
+	playerDash->AddTransition(playerIdle, [this]()->bool { return (myLastDir.x == 0 && myLastDir.z == 0 && !myDash); });
+	playerDash->AddTransition(playerRun, [this]()->bool { return ((myLastDir.x != 0 || myLastDir.z != 0) && !myDash); });
+	playerRun->AddTransition(playerDeath, [this]()->bool { return myPlayerData.myCurrentHP <= 0; });
+	playerIdle->AddTransition(playerDeath, [this]()->bool { return myPlayerData.myCurrentHP <= 0; });
+	playerAttack->AddTransition(playerDeath, [this]()->bool { return myPlayerData.myCurrentHP <= 0; });
+	playerDash->AddTransition(playerDeath, [this]()->bool { return myPlayerData.myCurrentHP <= 0; });
+	playerDeath->AddTransition(playerIdle, [this]()->bool { return myPlayerData.myCurrentHP > 0; });
+	playerDeath->AddTransition(playerRun, [this]()->bool { return myPlayerData.myCurrentHP > 0; });
+	playerDeath->AddTransition(playerAttack, [this]()->bool { return myPlayerData.myCurrentHP > 0; });
+	playerDeath->AddTransition(playerDash, [this]()->bool { return myPlayerData.myCurrentHP > 0; });
 }
 
 #ifndef _RETAIL

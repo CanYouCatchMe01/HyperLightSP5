@@ -28,4 +28,7 @@ private:
 	bool myIsDoneDashing = false;
 	bool myIsInAttackRange = false;
 	bool myIsAttacking = false;
+	
+public: 
+	bool myStartDashing = false;
 };

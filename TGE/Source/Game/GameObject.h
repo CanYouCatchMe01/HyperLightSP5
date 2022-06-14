@@ -91,7 +91,7 @@ public:
 	void DebugUpdate() override;
 #endif // _RETAIL
 protected:
-	virtual ~GameObject(); //Protected för att bara en scen för förstöra gameobjects, mvh elias
+	virtual ~GameObject();
 private:
 	void Update(float aTimeDelta);
 	std::vector<GameObject*> myChildren;

@@ -3,7 +3,8 @@
 #include "ChargeEnemy.h"
 #include "Scene.h"
 #include "AnimatedMeshComponent.h"
-
+#include "PlayerComponent.h"
+#include "AudioComponent.h"
 
 ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aDetectionRadius, float aChargeRadius, float aChargeTime, float anIdleSpeed, int anAttackDamage, float aDashSpeed, float anIdleRadius)
 {
@@ -23,6 +24,7 @@ ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aD
 		{
 			myChargeDirection = myDistanceToTarget;	
 			myIsDoneDashing = false;
+			myStartDashing = true;
 			myDashTimer.Reset();
 			myDashTimer.Start();
 		});
@@ -33,11 +35,14 @@ ChargeEnemy::ChargeEnemy(int aMaxHp, float aSpeed, float anAttackSpeed, float aD
 			myIsDoneDashing = true;
 			myAttackTimer.Reset();
 			myAttackTimer.Start();
+			//Attack audio
+			myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_attack_guitar);
 		});
 	
 	myAttackTimer.SetDuration(1.25f);
 	myAttackTimer.SetCallback([this]()
 		{
+			myStartDashing = false;
 			myChargeTimer.Reset();
 			myChargeTimer.Start();
 		});
@@ -50,13 +55,18 @@ void ChargeEnemy::OnUpdate(float aDt)
 	myAttackTimer.Update(aDt);
 	myWalkSound->setVolume(1.f);
 	
+	if (!myIsGrounded)
+	{
+		myDir.y = -myGravity / mySpeed * aDt;
+		SetPosition({ GetPosition().x, GetPosition().y - mySpeed * aDt, GetPosition().z});
+	}
+	
 	myMoveTimer -= aDt;
 	myTakeDamageTimer -= aDt;
 
 	CheckRadius();
 	CheckChargeRadius();
-
-	if (!myIsInRange && !myIsInAttackRange)
+	if (!myPollingStation->myPlayer->GetComponent<PlayerComponent>()->myIsAlive)
 	{
 		myChargeTimer.Stop();
 		myDashTimer.Stop();
@@ -64,7 +74,15 @@ void ChargeEnemy::OnUpdate(float aDt)
 		myIsDoneDashing = false;
 		IdleMovement(aDt);
 	}
-	else if (!myIsInAttackRange && myIsInRange)
+	else if (!myIsInRange && !myIsInAttackRange)
+	{
+		myChargeTimer.Stop();
+		myDashTimer.Stop();
+		myAttackTimer.Stop();
+		myIsDoneDashing = false;
+		IdleMovement(aDt);
+	}
+	else if (!myIsInAttackRange && myIsInRange && myPollingStation->myPlayer->GetComponent<PlayerComponent>()->myIsAlive)
 	{
 		myChargeTimer.Stop();
 		myDashTimer.Stop();
@@ -72,7 +90,7 @@ void ChargeEnemy::OnUpdate(float aDt)
 		myIsDoneDashing = false;
 		MoveTowardsPlayer(aDt);
 	}
-	else if (myIsInAttackRange)
+	else if (myIsInAttackRange && myPollingStation->myPlayer->GetComponent<PlayerComponent>()->myIsAlive)
 	{	
 		if (!myIsDoneDashing)
 		{
@@ -100,7 +118,7 @@ void ChargeEnemy::OnStart()
 	myTarget = myPollingStation->myPlayer;
 	myMoveTime = ((1000.f, 0.1f) * ((float)rand() / RAND_MAX)) + 0.1f;
 	// need to match with the hit cooldown of the player
-	myTakeDamageTime = 1.f;
+	myTakeDamageTime = 0.75f;
 	myRandNum = -1;
 }
 
@@ -115,9 +133,14 @@ void ChargeEnemy::Charge(float aDt)
 {
 	if (!myIsStunned)
 	{
+		//Charge sound
+		//myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_charging); //EarRape?? why?
+
 		myChargeTimer.Start();
-		myChargeDirection.Normalize();
+		if (myChargeDirection.Length() != 0)
+			myChargeDirection.Normalize();
 		SetPosition({ GetPosition().x + myChargeDirection.x * myDashSpeed * aDt, GetPosition().y, GetPosition().z + myChargeDirection.z * myDashSpeed * aDt });
+		/*std::cout << "Enemy Position: " << GetPosition() << std::endl;*/
 	}
 }
 

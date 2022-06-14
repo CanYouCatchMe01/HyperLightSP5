@@ -166,6 +166,7 @@ xcopy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Comma
     <ClInclude Include="..\Source\Game\AudioManager.h" />
     <ClInclude Include="..\Source\Game\BaseDebugger.h" />
     <ClInclude Include="..\Source\Game\BattleZone.h" />
+    <ClInclude Include="..\Source\Game\BobbingComponent.h" />
     <ClInclude Include="..\Source\Game\BoxColliderComponent.h" />
     <ClInclude Include="..\Source\Game\BulletComponent.h" />
     <ClInclude Include="..\Source\Game\Button.h" />
@@ -242,6 +243,7 @@ xcopy /y "..\..\FMOD_hyper_light\fmod_studio_guids.hpp" "..\Source\Game\"</Comma
     <ClCompile Include="..\Source\Game\AudioManager.cpp" />
     <ClCompile Include="..\Source\Game\BaseDebugger.cpp" />
     <ClCompile Include="..\Source\Game\BattleZone.cpp" />
+    <ClCompile Include="..\Source\Game\BobbingComponent.cpp" />
     <ClCompile Include="..\Source\Game\BoxColliderComponent.cpp" />
     <ClCompile Include="..\Source\Game\BulletComponent.cpp" />
     <ClCompile Include="..\Source\Game\Button.cpp" />

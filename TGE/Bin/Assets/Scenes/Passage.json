@@ -42,6 +42,39 @@
       "children": []
     },
     {
+      "name": "HubMusic",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 5.37034559,
+          "y": 0.0,
+          "z": 1.58527279
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "music_changer",
+          "data": {
+            "music_to_play": "event:/music/hub"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "a_g_corpse",
       "tag": 0,
       "layer": 0,
@@ -45962,6 +45995,39 @@
       ]
     },
     {
+      "name": "SpawnPoint (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 27.3099976,
+          "y": 1.30999947,
+          "z": 15.05
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
+            "name": "PassageSpawn0"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "Col_Wall",
       "tag": 0,
       "layer": 0,
@@ -52689,15 +52755,15 @@
       ]
     },
     {
-      "name": "SpawnPoint (2)",
-      "tag": 0,
+      "name": "Teleporter (1)",
+      "tag": 10,
       "layer": 0,
       "is_static": true,
       "transform": {
         "position": {
-          "x": 27.3099976,
-          "y": 1.30999947,
-          "z": 15.05
+          "x": -2.459999,
+          "y": 1.22999954,
+          "z": 0.7099991
         },
         "rotation": {
           "x": 0.0,
@@ -52707,15 +52773,32 @@
         },
         "scale": {
           "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
+          "y": 1.6784,
+          "z": 4.1321
         }
       },
       "components": [
         {
-          "type": "spawn_point",
+          "type": "box_collider",
           "data": {
-            "name": "PassageSpawn0"
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "teleporter",
+          "data": {
+            "scene": "Badlands 2",
+            "spawnpoint": "Badlands2Entry1"
           }
         }
       ],
@@ -53036,56 +53119,6 @@
       ]
     },
     {
-      "name": "Teleporter (1)",
-      "tag": 10,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -2.459999,
-          "y": 1.22999954,
-          "z": 0.7099991
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.6784,
-          "z": 4.1321
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
-            }
-          }
-        },
-        {
-          "type": "teleporter",
-          "data": {
-            "scene": "Badlands 2",
-            "spawnpoint": "Badlands2Entry1"
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "Teleporter (3)",
       "tag": 10,
       "layer": 0,
@@ -53259,6 +53292,10 @@
                 "normal": "Assets/Materials/Mat Zone1/mat_Pickup_n.dds",
                 "reflective": "Assets/Materials/Mat Zone1/mat_Pickup_m.dds"
               }
+            },
+            {
+              "type": "bobbing_component",
+              "data": {}
             }
           ],
           "children": []
@@ -53339,6 +53376,10 @@
                 "normal": "Assets/Materials/Mat Zone1/mat_Pickup_n.dds",
                 "reflective": "Assets/Materials/Mat Zone1/mat_Pickup_m.dds"
               }
+            },
+            {
+              "type": "bobbing_component",
+              "data": {}
             }
           ],
           "children": []
@@ -53585,6 +53626,10 @@
                 "normal": "Assets/Materials/Mat Zone1/mat_Pickup_n.dds",
                 "reflective": "Assets/Materials/Mat Zone1/mat_Pickup_m.dds"
               }
+            },
+            {
+              "type": "bobbing_component",
+              "data": {}
             }
           ],
           "children": []
@@ -53626,7 +53671,7 @@
     },
     {
       "name": "CheckPoint",
-      "tag": 0,
+      "tag": 11,
       "layer": 0,
       "is_static": true,
       "transform": {

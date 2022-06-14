@@ -493,7 +493,10 @@ class Converter
                         if (!element.myGameObject)
                             Debug.Log("Class container on " + aClassContainer.gameObject.name +" has a null gameobject");
 
-                        data.Add(element.myVariableName, ConvertToJSON(element.myGameObject));
+                        var obj = Object.Instantiate(element.myGameObject);
+                        //var obj = PrefabUtility.InstantiatePrefab(element.myGameObject);
+                        data.Add(element.myVariableName, ConvertToJSON((GameObject)obj));
+                        Object.DestroyImmediate(obj);
                         break;
                     }
             }

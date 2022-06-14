@@ -25,14 +25,16 @@ void StateStack::PushState(State* aState)
 {
 	if (aState == nullptr)
 		return;
-	aState->Init();
+
 	myStateStack.push(aState);
+	myStateStack.top()->Init();
 }
 
 void StateStack::PopState()
 {
 	if (myStateStack.empty())
 		return;
+
 	delete myStateStack.top();
 	myStateStack.pop();
 }
@@ -60,8 +62,8 @@ void StateStack::UpdateState(const float aDeltaTime)
 	{
 		for (size_t i = 0; i < popInfo; i++)
 		{
-			delete myStateStack.top();
-			myStateStack.pop();
+			PopState();
 		}
+		myStateStack.top()->Init();
 	}
 }

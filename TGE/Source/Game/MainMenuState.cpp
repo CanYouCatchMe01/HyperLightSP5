@@ -21,6 +21,10 @@ MainMenuState::MainMenuState(StateStack& aStateStack, PollingStation* aPollingSt
 	State(aStateStack, aPollingStation)
 {
 	SetPollingStation(aPollingStation);
+
+	//Play music
+	myPollingStation->myAudioManager->SetMusic(FSPRO::Event::music_Boss);
+
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/MainMenu/ui_mainMenu_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
 	mySpriteInstance.mySizeMultiplier = { 1.71f,1.71f };
@@ -46,8 +50,6 @@ MainMenuState::MainMenuState(StateStack& aStateStack, PollingStation* aPollingSt
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eMenuDown, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eSelect, this);
 	myPollingStation->myInputMapper.get()->AddObserver(Input::eInputEvent::eDash, this);
-
-	myPollingStation->myAudioManager.get()->SetMusic(FSPRO::Event::music_jungle);
 }
 
 MainMenuState::~MainMenuState()
