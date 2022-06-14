@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{208f54e7-37df-4128-87c9-c1cedb958dab}">
+		<property name="volume">
+			<value>5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{35e79b2e-c003-4252-a5da-13f7693c02c3}</destination>
 		</relationship>
@@ -107,7 +110,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{f06264be-b3e8-447e-a0a6-c2832f1a1a9e}">
 		<property name="volume">
-			<value>1</value>
+			<value>3</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -162,6 +165,7 @@
 		<relationship name="effects">
 			<destination>{750d66e2-a4e5-4730-ad3a-3bf2acafec85}</destination>
 			<destination>{df50eeea-23d6-4a85-9538-a7dbcbe34b7f}</destination>
+			<destination>{bbb8a7a4-c680-42c5-ab87-aade723c0c6f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{fe494c96-3d4e-44a8-a167-651209272cf4}" />
@@ -189,4 +193,15 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{df50eeea-23d6-4a85-9538-a7dbcbe34b7f}" />
+	<object class="MixerSend" id="{bbb8a7a4-c680-42c5-ab87-aade723c0c6f}">
+		<property name="level">
+			<value>-13.5</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{cb2e2f1d-1203-4383-8e54-0d725becb51d}</destination>
+		</relationship>
+	</object>
 </objects>

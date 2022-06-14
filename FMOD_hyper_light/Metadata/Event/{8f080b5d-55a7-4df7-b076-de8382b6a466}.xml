@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{8f080b5d-55a7-4df7-b076-de8382b6a466}">
 		<property name="name">
-			<value>attack_octave</value>
+			<value>attack_flute</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{e1bef59d-bf4c-4c60-91ec-a8cc5724cf68}">
+		<property name="volume">
+			<value>-5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{6a8d58fa-44b1-48b0-8579-28dd6cd58568}</destination>
 		</relationship>
@@ -108,7 +111,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{545a095f-1e99-4773-859e-ce610df4ae46}">
 		<property name="volume">
-			<value>-18</value>
+			<value>-8.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -125,6 +128,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{6a8d58fa-44b1-48b0-8579-28dd6cd58568}">
 		<relationship name="effects">
+			<destination>{1b810c4c-d9cf-4fb0-be12-a81278f30f65}</destination>
 			<destination>{c6e73cf0-51b6-49f1-9f30-c6e8b846444b}</destination>
 			<destination>{6ed0534d-7568-4129-8627-d19fdcf0c0ee}</destination>
 		</relationship>
@@ -170,6 +174,17 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{486f1cb2-153f-4333-8a68-d6540bfa6e1d}" />
+	<object class="MixerSend" id="{1b810c4c-d9cf-4fb0-be12-a81278f30f65}">
+		<property name="level">
+			<value>-4.5</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{cb2e2f1d-1203-4383-8e54-0d725becb51d}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{c6e73cf0-51b6-49f1-9f30-c6e8b846444b}" />
 	<object class="SpatialiserEffect" id="{6ed0534d-7568-4129-8627-d19fdcf0c0ee}" />
 	<object class="MixerBusFader" id="{c1a36310-17ea-4fe1-a575-f7459ecb2250}" />
