@@ -37,6 +37,10 @@ public class Export
 
     //holds unique names for each file it should export
     private static HashSet<string> myRequiredPaths = new HashSet<string>();
+    private static bool myExportWithPngs = true;
+
+    
+
     public static void AddDependency(string aPath)
     {
         myRequiredPaths.Add(aPath);
@@ -50,6 +54,9 @@ public class Export
 
             ExportFile(path, "../TGE/Bin/" + path);
         }
+
+        ExportFile("../FMOD_hyper_light/Build/Desktop/Master.bank", "../TGE/Bin/Assets/FMOD/Master.bank");
+        ExportFile("../FMOD_hyper_light/Build/Desktop/Master.strings.bank", "../TGE/Bin/Assets/FMOD/Master.strings.bank");
 
         myRequiredPaths.Clear();
     }
@@ -75,6 +82,11 @@ public class Export
             string args = "\"" + sourcePath + "\"" + " " + "\"" + ddsDest + "\"";
             System.Diagnostics.Process.Start(exe, args); // Call imagemagick convert
             //return; // Dont copy png;
+
+            if (!myExportWithPngs)
+            {
+                return;
+            }
         }
 
         File.Copy(aSource, aDestination, true);
@@ -139,6 +151,21 @@ public class Export
     {
         DrawCollider.myDrawColliders = !DrawCollider.myDrawColliders;
     }
+
+    [MenuItem("Tools/Toggle export with pngs")]
+    public static void ToggleExportWithPngs()
+    {
+        myExportWithPngs = !myExportWithPngs;
+        if (myExportWithPngs)
+        {
+            Debug.Log("Now exporting with PNG");
+        }
+        else
+        {
+            Debug.Log("Now exporting without PNG");
+        }
+    }
+
     private static void ExportScene(UnityEngine.SceneManagement.Scene aScene)
     {
         GameObject[] rootGameobjects = aScene.GetRootGameObjects();

@@ -9731,7 +9731,7 @@
             },
             "scale": {
               "x": 1.0,
-              "y": 1.0,
+              "y": 1.0161,
               "z": 1.0
             }
           },
@@ -9756,7 +9756,7 @@
                 },
                 "scale": {
                   "x": 1.0,
-                  "y": 1.0,
+                  "y": 1.0161,
                   "z": 1.0
                 }
               },
@@ -9792,7 +9792,7 @@
                 },
                 "scale": {
                   "x": 1.0,
-                  "y": 1.0,
+                  "y": 1.0161,
                   "z": 1.0
                 }
               },
@@ -26921,7 +26921,7 @@
             },
             "scale": {
               "x": 0.9999998,
-              "y": 1.0,
+              "y": 1.1848,
               "z": 0.9999998
             }
           },
@@ -26946,7 +26946,7 @@
                 },
                 "scale": {
                   "x": 0.9999998,
-                  "y": 1.0,
+                  "y": 1.1848,
                   "z": 0.9999998
                 }
               },
@@ -26982,7 +26982,7 @@
                 },
                 "scale": {
                   "x": 0.9999998,
-                  "y": 1.0,
+                  "y": 1.1848,
                   "z": 0.9999998
                 }
               },
@@ -47466,7 +47466,7 @@
             "max_attacks": 3,
             "dash_time": 0.1,
             "healing_time": 0.1,
-            "attack_time": 0.1,
+            "attack_time": 0.75,
             "speed": 7.0,
             "dash_speed": 50.0,
             "upgrade_mesh": {
@@ -47516,6 +47516,10 @@
                       {
                         "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
                         "name": "Player_Slash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                        "name": "Player_Death"
                       }
                     ]
                   }

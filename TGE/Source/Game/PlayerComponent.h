@@ -41,7 +41,9 @@ public:
 #endif // _RETAIL
 
 	void OnCollisionEnter(GameObject* aOther) override;
+	void OnCollisionStay(GameObject* aOther) override;
 	void OnCollisionExit(GameObject* aOther) override;
+	
 	void OnEnemyHit();
 
 	void OnDeath();
@@ -98,6 +100,7 @@ private:
 	
 	//Death timer
 	Timer myDeathTimer;
+	Timer mySetFullHpTimer;
 	
 	//Audio
 	class AudioComponent* myAudioComponent = nullptr;

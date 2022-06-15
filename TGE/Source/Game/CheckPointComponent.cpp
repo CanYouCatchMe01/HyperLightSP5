@@ -30,10 +30,11 @@ void CheckPointComponent::Save()
 
 	// TODO: Save game state
 	std::cout << "Saving player\n";
-	myPollingStation->myGameDataManager.get()->GetGameData().myCheckpoint = this;
-	PlayerComponent player = *myPollingStation->myPlayer->GetComponent<PlayerComponent>();
-	myPlayerData.myCurrentHP = player.myPlayerData.myCurrentHP;
-	myPlayerData.myMaxHP = player.myPlayerData.myMaxHP;
+	GameData& gM = myPollingStation->myGameDataManager.get()->GetGameData();
+	gM.myCheckpoint = this;
+	PlayerComponent* player = myPollingStation->myPlayer->GetComponent<PlayerComponent>();
+	myPlayerData.myCurrentHP = player->myPlayerData.myCurrentHP;
+	myPlayerData.myMaxHP = player->myPlayerData.myMaxHP;
 
 	/*player->myPlayerData.mySavePosition*/
 	/*player->SetPosition(player->myPlayerData.myCheckpoint->myTransform->GetPosition());*/

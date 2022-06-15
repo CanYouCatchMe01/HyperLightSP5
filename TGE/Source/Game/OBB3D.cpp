@@ -88,9 +88,11 @@ bool OBB3D::Collides(OBB3D& anOther)
         correction *= -1.0f;
 
     // NEW FIX FOR SLOPES AND EDGES, check if not a level plane and if the length is smaller than max step height
-    //bool walkingIntoWall = myTransform.GetMatrix().GetUp().GetNormalized().Dot(correction.GetNormalized()) == 0;
+    bool walkingIntoWall = myTransform.GetMatrix().GetUp().GetNormalized().Dot(correction.GetNormalized()) == 0;
 
-    if (slope && !stair)
+
+
+    if (slope && !stair && !walkingIntoWall)
     {
         correction.x = 0;
         correction.z = 0;

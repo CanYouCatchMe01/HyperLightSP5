@@ -178,13 +178,13 @@ void Emitter::Render()
 	spriteInstances.reserve(myParticles.size());
 
 	Tga2D::Vector3f cameraPos = Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetCamera().GetTransform().GetPosition();
+	Tga2D::Vector3f up = myTransform.GetMatrix().GetUp();
 
 	for (const auto& p : myParticles)
 	{
 		Tga2D::Sprite3DInstanceData spritedata;
 
 		Tga2D::Vector3 toEye = (cameraPos - p.myPosition).GetNormalized();
-		Tga2D::Vector3f up = myTransform.GetMatrix().GetUp();
 		Tga2D::Vector3f xaxis = up.Cross(toEye).GetNormalized();
 		Tga2D::Vector3f yaxis = toEye.Cross(xaxis).GetNormalized();
 

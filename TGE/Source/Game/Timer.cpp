@@ -39,6 +39,7 @@ void Timer::Update(const float aDt)
 	{
 		myCallback();
 		myIsOn = false;
+		myElapsedTime = 0.f;
 	}
 }
 

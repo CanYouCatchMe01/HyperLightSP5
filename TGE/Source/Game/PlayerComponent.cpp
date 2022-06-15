@@ -21,7 +21,7 @@
 #include "GameDataManager.h"
 #include "CollisionManager.h"
 
-PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float /*aAttackTime*/, float aSpeed, float aDashSpeed, nlohmann::json aUpgradeMesh)
+PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, float aDashTime, float aHealingtime, float aAttackTime, float aSpeed, float aDashSpeed, nlohmann::json aUpgradeMesh)
 {
 	myPlayerData.myMaxHP = aMaxHp;
 	myPlayerData.myCurrentHP = aMaxHp;
@@ -29,7 +29,7 @@ PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, fl
 	myMaxAttacks = aMaxAttaks;
 	myDashTime = aDashTime;
 	myHealingTime = aHealingtime;
-	myAttackTime = 0.75f/*aAttackTime*/;
+	myAttackTime = aAttackTime;
 	mySpeed = aSpeed;
 	myDashSpeed = aDashSpeed;
 	myUpgradeMeshSettings = aUpgradeMesh;
@@ -38,6 +38,13 @@ PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, fl
 	myDeathTimer.SetCallback([this]()
 		{
 			OnDeath();
+		});
+	
+	mySetFullHpTimer.SetDuration(0.25f);
+	mySetFullHpTimer.SetCallback([this]()
+		{
+			mySetFullHpTimer.Reset();
+			myIsAlive = true;
 		});
 }
 
@@ -51,6 +58,7 @@ void PlayerComponent::OnUpdate(float aDt)
 {
 	myTakeDamageTimer -= aDt;
 	myDeathTimer.Update(aDt);
+	mySetFullHpTimer.Update(aDt);
 
 	if (!myIsGrounded && !myDash)
 	{
@@ -218,7 +226,6 @@ void PlayerComponent::SetHp(int aHp)
 
 void PlayerComponent::SetFullHP()
 {
-  	myIsAlive = true;
 	myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
 
 	Message takeDmgMessage;
@@ -439,7 +446,45 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 		aOther->GetComponent<CheckPointComponent>()->Save();
 	}
 
-	if (myTakeDamageTimer < 0.f)
+	if (myIsAlive && aOther->tag == eTag::bullet)
+	{
+		auto bulletComponent = aOther->GetComponent<BulletComponent>();
+		if (bulletComponent != nullptr)
+		{
+			myTakeDamageTimer = myTakeDamageTime;
+			std::cout << "player took damage by flute bullet\n";
+			TakeDamage(bulletComponent->GetAttackDamage());
+			bulletComponent->RemoveBullet();
+
+			//Hit audio
+			myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_attack_worm_hit);
+		}
+	}
+
+	if (aOther->tag == eTag::upgrade)
+	{
+		int upgradeIndex = aOther->GetComponent<UpgradeComponent>()->GetIndex();
+		Message upgradeMsg;
+		if (upgradeIndex == 0)
+		{
+			upgradeMsg.myMsg = eMessageType::eHealthUpgrade;
+		}
+		else
+		{
+			upgradeMsg.myMsg = eMessageType::eWeaponUpgrade;
+			SetUpgradeMesh();
+
+		}
+		myPollingStation->myPostmaster.get()->SendMsg(upgradeMsg);
+		GameData& gamedata = myPollingStation->myGameDataManager.get()->GetGameData();
+		gamedata.myUpgrades[upgradeIndex] = true;
+		myScene->RemoveGameObject(aOther);
+	}
+}
+
+void PlayerComponent::OnCollisionStay(GameObject* aOther)
+{
+	if (myTakeDamageTimer < 0.f && myIsAlive)
 	{
 		if (aOther->tag == eTag::popcorn)
 		{
@@ -469,41 +514,6 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 				//Guitar hit
 				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_attack_guitar_hit);
 			}
-		}
-
-		if (aOther->tag == eTag::bullet)
-		{
-			auto bulletComponent = aOther->GetComponent<BulletComponent>();
-			if (bulletComponent != nullptr)
-			{
-				myTakeDamageTimer = myTakeDamageTime;
-				std::cout << "player took damage by flute bullet\n";
-				TakeDamage(bulletComponent->GetAttackDamage());
-				bulletComponent->RemoveBullet();
-
-				//Hit audio
-				myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_attack_worm_hit);
-			}
-		}
-
-		if (aOther->tag == eTag::upgrade)
-		{
-			int upgradeIndex = aOther->GetComponent<UpgradeComponent>()->GetIndex();
-			Message upgradeMsg;
-			if (upgradeIndex == 0)
-			{
-				upgradeMsg.myMsg = eMessageType::eHealthUpgrade;
-			}
-			else
-			{
-				upgradeMsg.myMsg = eMessageType::eWeaponUpgrade;
-				SetUpgradeMesh();
-
-			}
-			myPollingStation->myPostmaster.get()->SendMsg(upgradeMsg);
-			GameData& gamedata = myPollingStation->myGameDataManager.get()->GetGameData();
-			gamedata.myUpgrades[upgradeIndex] = true;
-			myScene->RemoveGameObject(aOther);
 		}
 	}
 }
@@ -541,6 +551,7 @@ void PlayerComponent::OnDeath()
 	GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
 	if (gameData.myCheckpoint != nullptr)
 	{
+		mySetFullHpTimer.Start();
 		SetFullHP();
 		gameData.myCheckpoint->Load(); //causes crash
 		//myGameObject->GetTransform().SetPosition(myPlayerData.mySavePosition);
@@ -549,6 +560,7 @@ void PlayerComponent::OnDeath()
 	SetFullHP();
 	myPlayerData = myPollingStation->myGameDataManager.get()->GetPlayerData();
 //	myPlayerData.myCurrentHP = myPlayerData.myMaxHP;
+	mySetFullHpTimer.Start();
 	myGameObject->GetTransform().SetPosition(myPlayerData.mySavePosition);
 }
 
@@ -562,7 +574,7 @@ void PlayerComponent::TakeDamage(int someDamage)
 	
 	myPlayerData.myCurrentHP -= someDamage;
 	if (myPlayerData.myCurrentHP <= 0) { myIsAlive = false; myDeathTimer.Start(); }
-	else { myDeathTimer.Reset(); }
+	else { myDeathTimer.Stop(); }
 	Message takeDmgMessage;
 	takeDmgMessage.myMsg = eMessageType::ePlayerTookDMG;
 	takeDmgMessage.aFloatValue = (float)myPlayerData.myCurrentHP / (float)myPlayerData.myMaxHP;

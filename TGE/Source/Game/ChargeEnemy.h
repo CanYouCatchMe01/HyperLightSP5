@@ -20,15 +20,13 @@ private:
 	Timer myChargeTimer;
 	Timer myDashTimer;
 	Timer myAttackTimer;
-	
+	Timer mySuperUsefulAndWellThoughtOutTimer;
+
 	float myDashSpeed;
 	float myChargeTime;
 	float myChargeRadius;
 
-	bool myIsDoneDashing = false;
+	bool myIsMoving = true;
+	bool myReadyToAttack = true;
 	bool myIsInAttackRange = false;
-	bool myIsAttacking = false;
-	
-public: 
-	bool myStartDashing = false;
 };

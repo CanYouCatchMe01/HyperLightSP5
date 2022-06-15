@@ -72,6 +72,510 @@
       ]
     },
     {
+      "name": "a_z3_grass_l",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 13.1609879,
+          "y": 0.00999832153,
+          "z": 15.7174788
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_flower_l",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 13.3894844,
+          "y": 0.33,
+          "z": 15.04864
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_flower_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matFlowers_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matFlowers_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matFlowers_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_rock_l",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 15.71,
+          "y": -1.83,
+          "z": 14.79
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_rock_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_barrel_s",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 13.3738289,
+          "y": 1.16,
+          "z": 13.5835962
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_woodenStatue_m",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 13.0414124,
+          "y": 0.00999832153,
+          "z": 11.818759
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_rock_m",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 14.1272182,
+          "y": 0.00999832153,
+          "z": 16.49726
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_rock_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_rock_l",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -18.87,
+          "y": -0.15,
+          "z": 10.27
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_rock_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_rock_m",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -16.85,
+          "y": 0.0100021362,
+          "z": 15.76
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_rock_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_rock_s",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -13.7003975,
+          "y": 0.0100002289,
+          "z": 15.5474443
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_rock_s.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_deadTree",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -14.53,
+          "y": 0.0100002289,
+          "z": 18.39
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.2763285,
+          "z": 0.0,
+          "w": 0.9610633
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_deadTree.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matDeadTree_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matDeadTree_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matDeadTree_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_grass_l",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -14.7659016,
+          "y": 0.282721519,
+          "z": 13.7730389
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_cactus_02",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -15.47,
+          "y": 0.434839725,
+          "z": 15.06
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.171414062,
+          "z": 0.0,
+          "w": 0.985199153
+        },
+        "scale": {
+          "x": 1.00000012,
+          "y": 1.0,
+          "z": 1.00000012
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_cactus_02.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matCactus_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matCactus_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matCactus_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_cactus_01",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -15.68,
+          "y": 0.314425468,
+          "z": 13.06
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_cactus_01.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matCactus_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matCactus_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matCactus_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_oilBarrel",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -14.7659006,
+          "y": 0.33423233,
+          "z": 11.7849579
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_oilBarrel.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/matOilBarrel_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/matOilBarrel_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/matOilBarrel_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "HubMusic",
       "tag": 0,
       "layer": 0,
@@ -113,7 +617,7 @@
         "position": {
           "x": -1.44,
           "y": 0.0,
-          "z": 1.77
+          "z": 0.63
         },
         "rotation": {
           "x": 0.0,
@@ -1143,8 +1647,8 @@
       "transform": {
         "position": {
           "x": -1.34,
-          "y": 1.88,
-          "z": 15.33
+          "y": 2.18,
+          "z": 16.48
         },
         "rotation": {
           "x": -0.503571868,
@@ -3993,9 +4497,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": -1.49,
+          "x": -1.5,
           "y": 0.0,
-          "z": -2.89
+          "z": 4.92
         },
         "rotation": {
           "x": 0.0,
@@ -4034,7 +4538,7 @@
             "max_attacks": 3,
             "dash_time": 0.1,
             "healing_time": 0.1,
-            "attack_time": 0.1,
+            "attack_time": 0.75,
             "speed": 7.0,
             "dash_speed": 50.0,
             "upgrade_mesh": {
@@ -4160,9 +4664,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": 3.47000813,
+              "x": 3.46000814,
               "y": 12.3349075,
-              "z": -9.089994
+              "z": -1.279994
             },
             "rotation": {
               "x": 0.353553385,
@@ -4187,6 +4691,1410 @@
           "children": []
         }
       ]
+    },
+    {
+      "name": "a_z1_grass_l (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -16.5,
+          "y": 0.282721519,
+          "z": 11.93
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_grass_l (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -17.95,
+          "y": 0.282721519,
+          "z": 13.62
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 12.96,
+          "y": 0.29,
+          "z": 14.61
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 14.17,
+          "y": 0.29,
+          "z": 15.42
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 13.11,
+          "y": 0.29,
+          "z": 13.1
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (4)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 13.87,
+          "y": 0.29,
+          "z": 12.06
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (5)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 15.0,
+          "y": 0.29,
+          "z": 11.98
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (6)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 14.31,
+          "y": 0.29,
+          "z": 11.89
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (7)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 14.74,
+          "y": 0.29,
+          "z": 11.71
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (8)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 12.94,
+          "y": 0.29,
+          "z": 11.19
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (9)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 15.87,
+          "y": 0.29,
+          "z": 13.5
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (10)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 15.23,
+          "y": 0.29,
+          "z": 16.17
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (11)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 14.11,
+          "y": 0.29,
+          "z": 18.27
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (12)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 16.8,
+          "y": 0.29,
+          "z": 12.19
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (13)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 19.77,
+          "y": 0.29,
+          "z": 14.17
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_grass_l (14)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 23.34,
+          "y": 0.29,
+          "z": 13.08
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_rock_l (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 16.87,
+          "y": -0.49,
+          "z": 15.76
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_rock_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_rock_l (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 17.43,
+          "y": -1.85,
+          "z": 14.63
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_rock_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_rock_l (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 19.58,
+          "y": -1.85,
+          "z": 15.98
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_rock_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_woodenStatue_m (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 14.51,
+          "y": 0.00999832153,
+          "z": 13.26
+        },
+        "rotation": {
+          "x": 0.0138793439,
+          "y": 0.2608483,
+          "z": -0.0512885451,
+          "w": 0.96391654
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_woodenStatue_m (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 19.34,
+          "y": 0.00999832153,
+          "z": 12.95
+        },
+        "rotation": {
+          "x": 0.0138793439,
+          "y": 0.2608483,
+          "z": -0.0512885451,
+          "w": 0.96391654
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_woodenStatue_m (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 21.77,
+          "y": -0.52,
+          "z": 15.87
+        },
+        "rotation": {
+          "x": -0.0490235835,
+          "y": 0.9898119,
+          "z": -0.0204899758,
+          "w": -0.132096276
+        },
+        "scale": {
+          "x": 1.0000006,
+          "y": 1.0,
+          "z": 1.0000006
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_flower_l (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 18.46,
+          "y": 0.33,
+          "z": 13.3
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_flower_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matFlowers_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matFlowers_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matFlowers_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_flower_l (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 22.94,
+          "y": 0.33,
+          "z": 15.97
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_flower_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matFlowers_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matFlowers_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matFlowers_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_grass_l (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -20.61,
+          "y": 0.282721519,
+          "z": 15.28
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_grass_l (4)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -19.43,
+          "y": 0.282721519,
+          "z": 13.75
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_grass_l (5)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -19.07,
+          "y": 0.282721519,
+          "z": 14.07
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_grass_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matGrass_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matGrass_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matGrass_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_rock_l (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -23.0,
+          "y": -1.1,
+          "z": 14.11
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_rock_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_rock_l (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -19.11,
+          "y": -1.1,
+          "z": 17.52
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_rock_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_rock_l (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -19.7,
+          "y": -0.34,
+          "z": 16.7
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_rock_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_cactus_01 (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -20.21,
+          "y": 0.314425468,
+          "z": 12.86
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.62513876,
+          "z": 0.0,
+          "w": 0.7805137
+        },
+        "scale": {
+          "x": 1.00000024,
+          "y": 1.0,
+          "z": 1.00000024
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_cactus_01.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matCactus_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matCactus_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matCactus_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_cactus_02 (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -22.3,
+          "y": 0.434839725,
+          "z": 15.62
+        },
+        "rotation": {
+          "x": 0.03323668,
+          "y": -0.4442467,
+          "z": 0.06679501,
+          "w": 0.8927926
+        },
+        "scale": {
+          "x": 0.99999994,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_cactus_02.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matCactus_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matCactus_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matCactus_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_rock_s (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -18.45,
+          "y": 0.0100002289,
+          "z": 12.43
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_rock_s.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_rock_s (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -24.98,
+          "y": 0.0100002289,
+          "z": 11.7
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_rock_s.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_oilBarrel (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -17.48,
+          "y": 0.33423233,
+          "z": 12.77
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_oilBarrel.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/matOilBarrel_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/matOilBarrel_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/matOilBarrel_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_oilBarrel (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -18.33,
+          "y": 0.33423233,
+          "z": 14.97
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_oilBarrel.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/matOilBarrel_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/matOilBarrel_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/matOilBarrel_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_oilBarrel (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -25.76,
+          "y": 0.33423233,
+          "z": 12.89
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_oilBarrel.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/matOilBarrel_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/matOilBarrel_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/matOilBarrel_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_g_oilBarrel (4)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -9.04,
+          "y": 0.33423233,
+          "z": 18.77
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/GLOBAL/a_g_oilBarrel.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/matOilBarrel_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/matOilBarrel_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/matOilBarrel_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_rock_l (4)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -6.32,
+          "y": -0.83,
+          "z": 18.42
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_rock_l.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
     }
   ]
 }

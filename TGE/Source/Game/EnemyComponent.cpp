@@ -7,6 +7,7 @@
 #include "BattleZone.h"
 
 #include "Scene.h"
+#include "AudioManager.h"
 
 EnemyComponent::EnemyComponent()
 {
@@ -77,8 +78,25 @@ void EnemyComponent::OnCollisionStay(GameObject* aTrigger)
 
 void EnemyComponent::TakeDamage(int someDamage)
 {
+	myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_slash);
 	myIsStunned = true;
 	myMaxHp -= someDamage;
+
+	//Hit audio
+	{
+		//set the 3Dattributes
+		FMOD_3D_ATTRIBUTES attributes3D;
+		Tga2D::Vector3f forward, up;
+		forward = myTransform->GetMatrix().GetForward().GetNormalized();
+		up = myTransform->GetMatrix().GetUp().GetNormalized();
+
+		attributes3D.position = { myTransform->GetPosition().x, myTransform->GetPosition().y, myTransform->GetPosition().z };
+		attributes3D.forward = { forward.x, forward.y, forward.z };
+		attributes3D.up = { up.x, up.y, up.z };
+		
+		myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_player_slash, attributes3D);
+	}
+	
 	if (myMaxHp <= 0) { OnDeath(); }
 }
 

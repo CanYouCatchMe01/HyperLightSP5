@@ -23,7 +23,7 @@ MainMenuState::MainMenuState(StateStack& aStateStack, PollingStation* aPollingSt
 	SetPollingStation(aPollingStation);
 
 	//Play music
-	myPollingStation->myAudioManager->SetMusic(FSPRO::Event::music_Boss);
+	myPollingStation->myAudioManager->SetMusic(FSPRO::Event::music_meny);
 
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/MainMenu/ui_mainMenu_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };

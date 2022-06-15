@@ -497,7 +497,6 @@ class Converter
                         //var obj = PrefabUtility.InstantiatePrefab(element.myGameObject);
                         try
                         {
-                            Debug.Log("Trying!");
                             data.Add(element.myVariableName, ConvertToJSON(obj));
                             Object.DestroyImmediate(obj);
                         }

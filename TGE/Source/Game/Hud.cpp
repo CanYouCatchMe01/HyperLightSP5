@@ -57,6 +57,9 @@ void Hud::RecieveMsg(const Message& aMsg)
 	case eMessageType::ePlayerTookDMG:
 		if (healthValue < 0)
 			healthValue = 0;
+		
+		if (healthValue > 1)
+			healthValue = 1;
 
 		myHealthBar.ChangeSizeMultiplier({ myCurrentMultiplier.x * healthValue, myCurrentMultiplier.y });
 

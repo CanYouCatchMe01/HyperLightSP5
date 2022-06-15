@@ -171,7 +171,7 @@ MonoBehaviour:
   - myVariableType: 1
     myVariableName: attack_time
     myInt: 0
-    myFloat: 0.1
+    myFloat: 0.75
     myString: 
     myVector3: {x: 0, y: 0, z: 0}
     myBool: 0

@@ -63822,7 +63822,7 @@
             "max_attacks": 3,
             "dash_time": 0.1,
             "healing_time": 0.1,
-            "attack_time": 0.1,
+            "attack_time": 0.75,
             "speed": 7.0,
             "dash_speed": 50.0,
             "upgrade_mesh": {

@@ -9,6 +9,7 @@ public:
 
 	void OnUpdate(float aDt) override;
 	void OnStart() override;
+	void OnAwake() override;
 private:
 	void OnDeath() override;
 };
