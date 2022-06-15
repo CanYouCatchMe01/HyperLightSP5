@@ -16,6 +16,7 @@ public:
 	UIElement(Tga2D::Vector2f aPosition, Tga2D::Vector2f aSizeMultiplier, std::wstring aTexturePath);
 	~UIElement();
 	void Render();
+	void SetAlpha(float aValue);
 	void ChangeTexture(std::wstring aTexturePath);
 	void ChangeSizeMultiplier(Tga2D::Vector2f aSizeMultiplier);
 	void SetPivot(Tga2D::Vector2f aPosition);

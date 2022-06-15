@@ -82,7 +82,7 @@ Button::Button(eButtonType aButtonType, Tga2D::Vector2f aPosition)
 	case eButtonType::FullScreen:
 		texturePathSelected = L"Sprites/UI/Menus/OptionsMenu/ui_optionsMenu_fullscreen_selected.dds";
 		texturePathDeselected = L"Sprites/UI/Menus/OptionsMenu/ui_optionsMenu_fullscreen_unSelected.dds";
-		myText.SetColor({ 1,0,0,1 });
+		myText.SetColor({ 0.349f, 0.702f, 0.8f,1 });
 		if (!fullscreenStat)
 			myText.SetText("Windowed");
 		else
@@ -185,7 +185,7 @@ void Button::Render()
 
 void Button::SetActiveColour()
 {
-	myText.SetColor({ 1,0,0,1 });
+	myText.SetColor({ 0.349f, 0.702f, 0.8f,1 });
 }
 
 void Button::ResetColour()

@@ -5,6 +5,7 @@ class TeleporterComponent : public Component
 {
 public:
 	TeleporterComponent(std::string aScene, std::string aCheckpointName);
+	~TeleporterComponent();
 	void Load();
 	void OnAwake() override;
 	void OnStart() override;

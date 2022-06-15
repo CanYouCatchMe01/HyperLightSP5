@@ -71,16 +71,6 @@ bool OBB3D::Collides(OBB3D& anOther)
         }
     }*/
 
-    if (maximumOverlap <= myMaxStepHeight && maximumOverlap > 0)
-        correction = maxTv * maximumOverlap;
-
-    if (vecToObstacle.Dot(correction) < 0)
-        correction *= -1.0f;
-
-    // NEW FIX FOR SLOPES AND EDGES, check if not a level plane and if the length is smaller than max step height
-
-    //bool walkingIntoWall = myTransform.GetMatrix().GetUp().GetNormalized().Dot(correction.GetNormalized()) == 0;
-
     Vector3 thisUp = myTransform.GetMatrix().GetUp();
     Vector3 thatUp = anOther.myTransform.GetMatrix().GetUp();
 
@@ -91,7 +81,15 @@ bool OBB3D::Collides(OBB3D& anOther)
     bool stair = maximumOverlap <= myMaxStepHeight && maximumOverlap > 0 && !slope;
     stair = maximumOverlap <= myMaxStepHeight && maximumOverlap > 0 && !slope;
 
-    //std::cout << slope << '\n';
+    if (maximumOverlap <= myMaxStepHeight && maximumOverlap > 0 && !stair)
+        correction = maxTv * maximumOverlap;
+
+    if (vecToObstacle.Dot(correction) < 0)
+        correction *= -1.0f;
+
+    // NEW FIX FOR SLOPES AND EDGES, check if not a level plane and if the length is smaller than max step height
+    //bool walkingIntoWall = myTransform.GetMatrix().GetUp().GetNormalized().Dot(correction.GetNormalized()) == 0;
+
     if (slope && !stair)
     {
         correction.x = 0;

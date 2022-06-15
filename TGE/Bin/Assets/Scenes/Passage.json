@@ -1668,7 +1668,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -1845,7 +1845,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -2022,7 +2022,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -2197,7 +2197,7 @@
             "center": {
               "x": 0.04499963,
               "y": 0.929864943,
-              "z": 0.137464464
+              "z": 0.8
             },
             "size": {
               "x": 0.9458011,
@@ -34428,7 +34428,7 @@
                 "center": {
                   "x": 0.04499963,
                   "y": 0.929864943,
-                  "z": 0.137464464
+                  "z": 0.8
                 },
                 "size": {
                   "x": 0.9458011,
@@ -34525,7 +34525,7 @@
                 "center": {
                   "x": 0.04499963,
                   "y": 0.929864943,
-                  "z": 0.137464464
+                  "z": 0.8
                 },
                 "size": {
                   "x": 0.9458011,
@@ -34802,7 +34802,7 @@
                 "center": {
                   "x": 0.04499963,
                   "y": 0.929864943,
-                  "z": 0.137464464
+                  "z": 0.8
                 },
                 "size": {
                   "x": 0.9458011,
@@ -52805,6 +52805,56 @@
       "children": []
     },
     {
+      "name": "Teleporter (3)",
+      "tag": 10,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 28.0200043,
+          "y": -2.14999962,
+          "z": 7.97999954
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 15.2627773,
+          "y": 1.0,
+          "z": 3.88802218
+        }
+      },
+      "components": [
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": true,
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "size": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        {
+          "type": "teleporter",
+          "data": {
+            "scene": "Passage",
+            "spawnpoint": "PassageEntry0"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "lightning",
       "tag": 0,
       "layer": 0,
@@ -53117,56 +53167,6 @@
           "children": []
         }
       ]
-    },
-    {
-      "name": "Teleporter (3)",
-      "tag": 10,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": 28.0200043,
-          "y": -2.14999962,
-          "z": 7.97999954
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 15.2627773,
-          "y": 1.0,
-          "z": 3.88802218
-        }
-      },
-      "components": [
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": true,
-            "center": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "size": {
-              "x": 1.0,
-              "y": 1.0,
-              "z": 1.0
-            }
-          }
-        },
-        {
-          "type": "teleporter",
-          "data": {
-            "scene": "Passage",
-            "spawnpoint": "PassageEntry0"
-          }
-        }
-      ],
-      "children": []
     },
     {
       "name": "Teleporter (4)",
@@ -53510,7 +53510,7 @@
       "transform": {
         "position": {
           "x": 126.39,
-          "y": 6.75,
+          "y": 7.43,
           "z": 8.130001
         },
         "rotation": {
@@ -53637,39 +53637,6 @@
       ]
     },
     {
-      "name": "SpawnPoint (1)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": 124.164917,
-          "y": 6.0,
-          "z": 8.147858
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "spawn_point",
-          "data": {
-            "name": "PassageEntry1"
-          }
-        }
-      ],
-      "children": []
-    },
-    {
       "name": "CheckPoint",
       "tag": 11,
       "layer": 0,
@@ -53713,6 +53680,39 @@
           "type": "check_point",
           "data": {
             "scene": "Passage",
+            "name": "PassageEntry1"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "SpawnPoint (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 121.52,
+          "y": 8.27,
+          "z": 7.73
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "spawn_point",
+          "data": {
             "name": "PassageEntry1"
           }
         }
@@ -60260,9 +60260,9 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": 69.22,
+          "x": 6.6,
           "y": 2.86,
-          "z": 7.28
+          "z": 0.48
         },
         "rotation": {
           "x": 0.0,
@@ -60303,7 +60303,65 @@
             "healing_time": 0.1,
             "attack_time": 0.1,
             "speed": 7.0,
-            "dash_speed": 50.0
+            "dash_speed": 50.0,
+            "upgrade_mesh": {
+              "name": "Player_upgrade(Clone)",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [
+                {
+                  "type": "animated_mesh",
+                  "data": {
+                    "albedo": "Assets/Materials/Mat characters/matPlayer_upgrade_c.dds",
+                    "normal": "Assets/Materials/Mat characters/matPlayer_upgrade_n.dds",
+                    "reflective": "Assets/Materials/Mat characters/matPlayer_upgrade_m.dds",
+                    "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player_upgrade.fbx",
+                    "animations": [
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                        "name": "Player_Dash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                        "name": "Player_Idle"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                        "name": "Player_Run"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
+                        "name": "Player_Slash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                        "name": "Player_Death"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "children": []
+            }
           }
         },
         {
@@ -60352,6 +60410,10 @@
               {
                 "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
                 "name": "Player_Slash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                "name": "Player_Death"
               }
             ]
           }
@@ -60365,9 +60427,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": 62.1630745,
+              "x": -0.456925869,
               "y": 14.07,
-              "z": 3.90002966
+              "z": -2.89997053
             },
             "rotation": {
               "x": 0.397740334,

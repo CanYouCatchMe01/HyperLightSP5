@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "BattleZone.h"
 #include "GameObject.h"
+#include "AudioComponent.h"
 
 BattleZone::BattleZone()
 {
@@ -17,6 +18,7 @@ void BattleZone::OnCollisionStay(GameObject* /*anOther*/)
 
 void BattleZone::OnAwake()
 {
+	myAudioComponent = myGameObject->AddComponent<AudioComponent>();
 }
 
 void BattleZone::OnStart()
@@ -37,6 +39,11 @@ void BattleZone::OnUpdate(const float aDeltaTime)
 
 	if (myEnemyCounter > 0)
 		return;
+
+	if (myMoveTimer == 1.0f) //Play audio one, myMoveTimer will decrease later
+	{
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
+	}
 
 	if (myMoveTimer > 0)
 	{

@@ -59,6 +59,9 @@ OptionsState::OptionsState(StateStack& aStateStack, PollingStation* aPollingStat
 	myScreenResolutions.push_back({ 1920,1080 });
 	myScreenResolutions.push_back({ 2560,1440 });
 
+//---------------4K for Marcus-------------------
+//	myScreenResolutions.push_back({ 3840,2160 });
+
 	myScreenResIndex = myPollingStation->myGameDataManager.get()->GetGameData().myResolutionIndex;
 	myButtons[1].SetText(std::to_string(myScreenResolutions[myScreenResIndex].x) + "x" + std::to_string(myScreenResolutions[myScreenResIndex].y));
 	myButtons[2].SetText(std::to_string((int)(myPollingStation->myAudioManager.get()->GetVolume(Channels::Master) * 100)));
@@ -110,16 +113,7 @@ int OptionsState::Update(const float aDeltaTime)
 				break;
 			}
 		}
-
 	}
-	if (myShouldChangeScreenRes)
-	{
-		Tga2D::Engine::GetInstance()->SetResolution(myScreenResolutions[myScreenResIndex], true);
-		myShouldChangeScreenRes = false;
-		GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
-		gameData.myResolutionIndex = myScreenResIndex;
-	}
-
 	return myNumberOfPops;
 }
 
@@ -144,8 +138,13 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 				{
 					myScreenResIndex--;
 					myButtons[mySelectedButtonIndex].SetText(std::to_string(myScreenResolutions[myScreenResIndex].x) + "x" + std::to_string(myScreenResolutions[myScreenResIndex].y));
+					if(!myFullScreen)
+						Tga2D::Engine::GetInstance()->SetResolution({ myScreenResolutions[myScreenResIndex].x, myScreenResolutions[myScreenResIndex].y + 30 }, true);
+					else
+						Tga2D::Engine::GetInstance()->SetResolution({ myScreenResolutions[myScreenResIndex] }, true);
+					GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
+					gameData.myResolutionIndex = myScreenResIndex;
 				}
-					myShouldChangeScreenRes = true;
 				break;
 			default:
 				break;
@@ -159,12 +158,19 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 			switch (mySelectedButton)
 			{
 			case eButtonType::Resolution:
-				if (myScreenResIndex < myScreenResolutions.size()-1)
+				if (myScreenResIndex < myScreenResolutions.size() - 1)
 				{
 					myScreenResIndex++;
 					myButtons[mySelectedButtonIndex].SetText(std::to_string(myScreenResolutions[myScreenResIndex].x) + "x" + std::to_string(myScreenResolutions[myScreenResIndex].y));
+
+					if (!myFullScreen)
+						Tga2D::Engine::GetInstance()->SetResolution({ myScreenResolutions[myScreenResIndex].x, myScreenResolutions[myScreenResIndex].y + 30 }, true);
+					else
+						Tga2D::Engine::GetInstance()->SetResolution({ myScreenResolutions[myScreenResIndex] }, true);
+
+					GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
+					gameData.myResolutionIndex = myScreenResIndex;
 				}
-					myShouldChangeScreenRes = true;
 				break;
 			default:
 				break;
@@ -196,7 +202,7 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 			mySelectedArrow = (int)eArrowIndex::eSFXDown;
 		}
 		myArrows[(int)mySelectedArrow].SetState(eState::Selected);
-		if(mySelectedButton!=eButtonType::SFXVol)
+		if (mySelectedButton != eButtonType::SFXVol)
 			myPollingStation->myAudioManager->PlayEvent(FSPRO::Event::sfx_menu_menu_hoover);
 		break;
 
@@ -237,7 +243,7 @@ void OptionsState::RecieveEvent(const Input::eInputEvent aEvent, const float aVa
 			{
 				mySelectedButtonIndex++;
 				myButtons[mySelectedButtonIndex].SetState(eState::Selected);
-				
+
 			}
 			else
 			{

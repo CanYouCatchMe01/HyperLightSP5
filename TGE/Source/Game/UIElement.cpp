@@ -26,6 +26,11 @@ void UIElement::Render()
 	Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetSpriteDrawer().Draw(mySharedData, mySpriteInstance);
 }
 
+void UIElement::SetAlpha(float aValue)
+{
+	mySpriteInstance.myColor = { 1,1,1,aValue };
+}
+
 void UIElement::ChangeTexture(std::wstring aTexturePath)
 {
 	myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(aTexturePath.c_str());

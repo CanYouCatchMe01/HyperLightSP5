@@ -29,7 +29,7 @@ void GameWorld::Init(HWND aHWND)
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/tgalogo_W.dds");
 	mySpriteInstance.myPivot = { 0.5f,0.5f };
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
-	mySpriteInstance.mySizeMultiplier = { 1.f,0.32f };
+	mySpriteInstance.mySizeMultiplier = 0.9f;
 	myPollingStation = new PollingStation;
 	myPollingStation->Init(aHWND);
 

@@ -277,6 +277,7 @@ Animation:
   - {fileID: 1827226128182048838, guid: 007ddc78b091a1e4a834f755d5acf746, type: 3}
   - {fileID: 1827226128182048838, guid: 05391ef3a7bfed148bd205ac6cbdc19e, type: 3}
   - {fileID: 1827226128182048838, guid: 6f23f31a9c9b2a240852add5f220bde2, type: 3}
+  - {fileID: 0}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

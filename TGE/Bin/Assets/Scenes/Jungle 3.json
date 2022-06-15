@@ -50,7 +50,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -173,6 +173,94 @@
                 "name": "Flute_Run"
               }
             ]
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_barrel_s",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -74.31,
+          "y": 4.00000048,
+          "z": -87.7
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.5,
+          "y": 1.5,
+          "z": 1.5
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.388792217,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.6734036,
+              "y": 0.777584434,
+              "z": 0.6734036
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_rock_m (108)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -74.87,
+          "y": 3.02,
+          "z": -90.38
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_rock_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matRocks_m.dds"
           }
         }
       ],
@@ -1412,14 +1500,14 @@
           "z": -69.04856
         },
         "rotation": {
-          "x": 0.0431176126,
-          "y": -0.182560429,
-          "z": 0.04312273,
-          "w": 0.981301665
+          "x": -0.0377612,
+          "y": 0.03878867,
+          "z": 0.0545636527,
+          "w": 0.9970418
         },
         "scale": {
-          "x": 1.0,
-          "y": 1.0,
+          "x": 0.99999994,
+          "y": 0.99999994,
           "z": 1.0
         }
       },
@@ -12952,7 +13040,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -13645,7 +13733,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -13822,7 +13910,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -14859,7 +14947,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -15036,7 +15124,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -15213,7 +15301,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -15648,7 +15736,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -15825,7 +15913,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -16002,7 +16090,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -17167,6 +17255,48 @@
             {
               "type": "teleport_1",
               "data": {}
+            },
+            {
+              "type": "emitter",
+              "data": {
+                "texture": "Assets/Art/2D/particleNoteSprite.dds",
+                "startScale": 0.5,
+                "endScale": 2.0,
+                "minMass": 10.0,
+                "maxMass": 3.0,
+                "minTimeBetweenParticleSpawns": 0.1,
+                "maxTimeBetweenParticleSpawns": 0.1,
+                "minStartSpeed": 1.0,
+                "maxStartSpeed": 1.0,
+                "minAngle": -1.27,
+                "maxAngle": -1.87,
+                "minLifeTime": 1.0,
+                "maxLifeTime": 0.8,
+                "minSpawnOffsetDistance": 0.0,
+                "maxSpawnOffsetDistance": 0.0,
+                "acceleration": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "color": [
+                  {
+                    "r": 1.0,
+                    "g": 0.9053073,
+                    "b": 0.0,
+                    "a": 1.0
+                  },
+                  {
+                    "r": 0.6778572,
+                    "g": 0.0,
+                    "b": 0.7264151,
+                    "a": 1.0
+                  }
+                ],
+                "blendState": 2,
+                "emitTime": 0.68,
+                "gravity": -9.81
+              }
             }
           ],
           "children": [
@@ -75631,7 +75761,65 @@
             "healing_time": 0.1,
             "attack_time": 0.1,
             "speed": 7.0,
-            "dash_speed": 50.0
+            "dash_speed": 50.0,
+            "upgrade_mesh": {
+              "name": "Player_upgrade(Clone)",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [
+                {
+                  "type": "animated_mesh",
+                  "data": {
+                    "albedo": "Assets/Materials/Mat characters/matPlayer_upgrade_c.dds",
+                    "normal": "Assets/Materials/Mat characters/matPlayer_upgrade_n.dds",
+                    "reflective": "Assets/Materials/Mat characters/matPlayer_upgrade_m.dds",
+                    "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player_upgrade.fbx",
+                    "animations": [
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                        "name": "Player_Dash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                        "name": "Player_Idle"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                        "name": "Player_Run"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
+                        "name": "Player_Slash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                        "name": "Player_Death"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "children": []
+            }
           }
         },
         {
@@ -75680,6 +75868,10 @@
               {
                 "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
                 "name": "Player_Slash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                "name": "Player_Death"
               }
             ]
           }
@@ -94780,9 +94972,9 @@
       "is_static": true,
       "transform": {
         "position": {
-          "x": -80.21,
+          "x": -78.71003,
           "y": 6.29,
-          "z": -78.87
+          "z": -78.8792953
         },
         "rotation": {
           "x": 0.0,
@@ -94791,9 +94983,9 @@
           "w": -0.9999953
         },
         "scale": {
-          "x": 2.242909,
+          "x": 0.578962266,
           "y": 5.59210539,
-          "z": 5.671006
+          "z": 12.5652466
         }
       },
       "components": [],
@@ -94805,9 +94997,9 @@
           "is_static": true,
           "transform": {
             "position": {
-              "x": -79.07101,
+              "x": -78.3816452,
               "y": 3.49394727,
-              "z": -76.0415
+              "z": -72.59859
             },
             "rotation": {
               "x": 0.0,
@@ -94816,9 +95008,9 @@
               "w": -0.9999953
             },
             "scale": {
-              "x": 2.242909,
+              "x": 0.578962266,
               "y": 5.59210539,
-              "z": 5.671006
+              "z": 12.5652466
             }
           },
           "components": [
@@ -95496,6 +95688,936 @@
           "x": 0.9862088,
           "y": 1.1789,
           "z": 1.1789
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_rock_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Floor (37)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -75.08,
+          "y": 6.29,
+          "z": -78.9
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.00309658051,
+          "z": 0.0,
+          "w": -0.9999953
+        },
+        "scale": {
+          "x": 0.578962266,
+          "y": 5.59210539,
+          "z": 12.5652466
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -74.75162,
+              "y": 3.49394727,
+              "z": -72.61929
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.00309658051,
+              "z": 0.0,
+              "w": -0.9999953
+            },
+            "scale": {
+              "x": 0.578962266,
+              "y": 5.59210539,
+              "z": 12.5652466
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Floor (38)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -75.1899261,
+          "y": 6.29,
+          "z": -96.64966
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.00309658051,
+          "z": 0.0,
+          "w": -0.9999953
+        },
+        "scale": {
+          "x": 0.578962266,
+          "y": 5.59210539,
+          "z": 12.5652466
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -74.86154,
+              "y": 3.49394727,
+              "z": -90.36895
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.00309658051,
+              "z": 0.0,
+              "w": -0.9999953
+            },
+            "scale": {
+              "x": 0.578962266,
+              "y": 5.59210539,
+              "z": 12.5652466
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Floor (39)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -78.6898651,
+          "y": 6.29,
+          "z": -96.62798
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.00309658051,
+          "z": 0.0,
+          "w": -0.9999953
+        },
+        "scale": {
+          "x": 0.578962266,
+          "y": 5.59210539,
+          "z": 12.5652466
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -78.36148,
+              "y": 3.49394727,
+              "z": -90.3472748
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.00309658051,
+              "z": 0.0,
+              "w": -0.9999953
+            },
+            "scale": {
+              "x": 0.578962266,
+              "y": 5.59210539,
+              "z": 12.5652466
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "p_z3_woodenStatue_m (22)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -78.27461,
+          "y": 0.9263797,
+          "z": -68.0284348
+        },
+        "rotation": {
+          "x": 0.0431176126,
+          "y": -0.182560429,
+          "z": 0.04312273,
+          "w": 0.981301665
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (23)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -74.9,
+          "y": 0.82,
+          "z": -67.79
+        },
+        "rotation": {
+          "x": 0.009922853,
+          "y": 0.423299879,
+          "z": 0.0601683967,
+          "w": 0.903935
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_rock_m (107)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -75.19,
+          "y": -0.54,
+          "z": -70.98
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.326315165,
+          "z": 0.0,
+          "w": 0.945261061
+        },
+        "scale": {
+          "x": 1.2707001,
+          "y": 1.2707,
+          "z": 1.2707001
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_rock_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (24)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -78.29,
+          "y": 3.9,
+          "z": -85.69
+        },
+        "rotation": {
+          "x": 0.008413022,
+          "y": -0.385662615,
+          "z": -0.0425179526,
+          "w": 0.921621263
+        },
+        "scale": {
+          "x": 0.9999999,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (25)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -74.78,
+          "y": 3.65,
+          "z": -85.81
+        },
+        "rotation": {
+          "x": -0.0180593356,
+          "y": -0.19973202,
+          "z": -0.01741701,
+          "w": 0.979529262
+        },
+        "scale": {
+          "x": 0.99999994,
+          "y": 1.00000012,
+          "z": 1.00000012
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (26)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -78.2709961,
+          "y": 4.00135851,
+          "z": -87.808815
+        },
+        "rotation": {
+          "x": 0.008413022,
+          "y": -0.385662615,
+          "z": -0.0425179526,
+          "w": 0.921621263
+        },
+        "scale": {
+          "x": 0.9999999,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (27)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -78.09129,
+          "y": 6.491966,
+          "z": -87.68806
+        },
+        "rotation": {
+          "x": 0.03255778,
+          "y": 0.255080432,
+          "z": -0.0286102425,
+          "w": 0.9659479
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (28)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -74.73841,
+          "y": 3.77977467,
+          "z": -88.49567
+        },
+        "rotation": {
+          "x": 0.008413022,
+          "y": -0.385662615,
+          "z": -0.0425179526,
+          "w": 0.921621263
+        },
+        "scale": {
+          "x": 0.9999999,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (29)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -74.5587,
+          "y": 6.270382,
+          "z": -88.37491
+        },
+        "rotation": {
+          "x": 0.0166693889,
+          "y": -0.195439219,
+          "z": -0.0400085859,
+          "w": 0.9797576
+        },
+        "scale": {
+          "x": 0.99999994,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (30)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -78.24882,
+          "y": 4.11961,
+          "z": -90.28076
+        },
+        "rotation": {
+          "x": 0.008413022,
+          "y": -0.385662615,
+          "z": -0.0425179526,
+          "w": 0.921621263
+        },
+        "scale": {
+          "x": 0.9999999,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (31)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -78.0691147,
+          "y": 6.610217,
+          "z": -90.16
+        },
+        "rotation": {
+          "x": 0.03255778,
+          "y": 0.255080432,
+          "z": -0.0286102425,
+          "w": 0.9659479
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (33)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -74.70809,
+          "y": 6.4267416,
+          "z": -91.37753
+        },
+        "rotation": {
+          "x": 0.03255778,
+          "y": 0.255080432,
+          "z": -0.0286102425,
+          "w": 0.9659479
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (32)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -74.8877945,
+          "y": 3.936134,
+          "z": -91.49829
+        },
+        "rotation": {
+          "x": 0.008413022,
+          "y": -0.385662615,
+          "z": -0.0425179526,
+          "w": 0.921621263
+        },
+        "scale": {
+          "x": 0.9999999,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (35)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -74.878685,
+          "y": 4.033086,
+          "z": -93.5115051
+        },
+        "rotation": {
+          "x": 0.008413022,
+          "y": -0.385662615,
+          "z": -0.0425179526,
+          "w": 0.921621263
+        },
+        "scale": {
+          "x": 0.9999999,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (34)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -74.69898,
+          "y": 6.52369356,
+          "z": -93.39075
+        },
+        "rotation": {
+          "x": 0.03255778,
+          "y": 0.255080432,
+          "z": -0.0286102425,
+          "w": 0.9659479
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (37)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -78.25712,
+          "y": 6.765587,
+          "z": -93.08475
+        },
+        "rotation": {
+          "x": 0.03255778,
+          "y": 0.255080432,
+          "z": -0.0286102425,
+          "w": 0.9659479
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_woodenStatue_m (36)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -78.43682,
+          "y": 4.274979,
+          "z": -93.2055054
+        },
+        "rotation": {
+          "x": 0.008413022,
+          "y": -0.385662615,
+          "z": -0.0425179526,
+          "w": 0.921621263
+        },
+        "scale": {
+          "x": 0.9999999,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_woodenStatue_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matWoodenStatue_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_rock_m (109)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -78.23,
+          "y": 2.8,
+          "z": -89.31
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_rock_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_rock_m (110)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -74.83,
+          "y": 3.01,
+          "z": -93.15
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_rock_m.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matRocks_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matRocks_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matRocks_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_rock_m (111)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -75.12,
+          "y": 2.55,
+          "z": -89.28
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
         }
       },
       "components": [

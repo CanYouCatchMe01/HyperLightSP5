@@ -22,7 +22,9 @@ public:
 	void RecieveEvent(const Input::eInputEvent aEvent, const float aValue) override;
 
 private:
-	int myIndex=0;
+	bool myEndGame = false;
+	int myIndex = 0;
+	float myAlphaValue = -0.5f;
 	UIElement myDialogueBox;
 	UIElement myAstralProjection;
 	eDialogueType myDialogueType = eDialogueType::Tutorial;

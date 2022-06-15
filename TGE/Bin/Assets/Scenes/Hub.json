@@ -1871,9 +1871,9 @@
           "type": "mesh",
           "data": {
             "model": "Assets/Art/3D/HUB/a_g_amphitheatre.fbx",
-            "albedo": "",
-            "normal": "",
-            "reflective": ""
+            "albedo": "Assets/Materials/Mat Zon123/g_amphitheatre_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/g_amphitheatre_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/g_amphitheatre_m.dds"
           }
         }
       ],
@@ -2454,7 +2454,7 @@
         "position": {
           "x": 1.03,
           "y": 0.0,
-          "z": 15.48
+          "z": 16.0999985
         },
         "rotation": {
           "x": 0.0,
@@ -2479,7 +2479,7 @@
             "position": {
               "x": 2.669775,
               "y": 1.5,
-              "z": 16.5849514
+              "z": 17.20495
             },
             "rotation": {
               "x": 0.0,
@@ -2524,7 +2524,7 @@
         "position": {
           "x": -7.45,
           "y": 0.0,
-          "z": 16.22
+          "z": 16.84
         },
         "rotation": {
           "x": 0.0,
@@ -2549,7 +2549,7 @@
             "position": {
               "x": -8.141819,
               "y": 1.5,
-              "z": 17.240221
+              "z": 17.8602219
             },
             "rotation": {
               "x": 0.0,
@@ -2594,7 +2594,7 @@
         "position": {
           "x": -15.49,
           "y": 0.0,
-          "z": 16.25
+          "z": 16.8699989
         },
         "rotation": {
           "x": 0.0,
@@ -2619,7 +2619,7 @@
             "position": {
               "x": -16.18182,
               "y": 1.5,
-              "z": 17.2702217
+              "z": 17.89022
             },
             "rotation": {
               "x": 0.0,
@@ -2664,7 +2664,7 @@
         "position": {
           "x": -14.01,
           "y": 0.0,
-          "z": 18.51
+          "z": 19.1300011
         },
         "rotation": {
           "x": 0.0,
@@ -2689,7 +2689,7 @@
             "position": {
               "x": -14.70182,
               "y": 1.5,
-              "z": 19.5302219
+              "z": 20.1502228
             },
             "rotation": {
               "x": 0.0,
@@ -2734,7 +2734,7 @@
         "position": {
           "x": -8.71,
           "y": 0.0,
-          "z": 18.57
+          "z": 19.1899986
         },
         "rotation": {
           "x": 0.0,
@@ -2759,7 +2759,7 @@
             "position": {
               "x": -9.401819,
               "y": 1.5,
-              "z": 19.5902214
+              "z": 20.21022
             },
             "rotation": {
               "x": 0.0,
@@ -2804,7 +2804,7 @@
         "position": {
           "x": -3.03,
           "y": 0.0,
-          "z": 16.48
+          "z": 17.0999985
         },
         "rotation": {
           "x": 0.0,
@@ -2829,7 +2829,7 @@
             "position": {
               "x": -5.254573,
               "y": 1.5,
-              "z": 16.96552
+              "z": 17.58552
             },
             "rotation": {
               "x": 0.0,
@@ -2874,7 +2874,7 @@
         "position": {
           "x": 11.68,
           "y": 0.0,
-          "z": -2.84
+          "z": -2.22
         },
         "rotation": {
           "x": 0.0,
@@ -2899,7 +2899,7 @@
             "position": {
               "x": 12.1228056,
               "y": 1.5,
-              "z": -1.53277123
+              "z": -0.912771344
             },
             "rotation": {
               "x": 0.0,
@@ -2944,7 +2944,7 @@
         "position": {
           "x": 10.87,
           "y": 0.0,
-          "z": -5.33
+          "z": -4.71
         },
         "rotation": {
           "x": 0.0,
@@ -2969,7 +2969,7 @@
             "position": {
               "x": 11.6360521,
               "y": 1.5,
-              "z": -4.18192
+              "z": -3.56192017
             },
             "rotation": {
               "x": 0.0,
@@ -3014,7 +3014,7 @@
         "position": {
           "x": 9.45,
           "y": 0.0,
-          "z": -7.5
+          "z": -6.88
         },
         "rotation": {
           "x": 0.0,
@@ -3039,7 +3039,7 @@
             "position": {
               "x": 10.4870939,
               "y": 1.5,
-              "z": -6.58930826
+              "z": -5.96930838
             },
             "rotation": {
               "x": 0.0,
@@ -3084,7 +3084,7 @@
         "position": {
           "x": 7.77,
           "y": 0.0,
-          "z": -9.51
+          "z": -8.89
         },
         "rotation": {
           "x": 0.0,
@@ -3109,7 +3109,7 @@
             "position": {
               "x": 8.92494,
               "y": 1.5,
-              "z": -8.754331
+              "z": -8.134331
             },
             "rotation": {
               "x": 0.0,
@@ -3154,7 +3154,7 @@
         "position": {
           "x": 5.81,
           "y": 0.0,
-          "z": -11.24
+          "z": -10.62
         },
         "rotation": {
           "x": 0.0,
@@ -3179,7 +3179,7 @@
             "position": {
               "x": 7.06178761,
               "y": 1.5,
-              "z": -10.6586637
+              "z": -10.0386639
             },
             "rotation": {
               "x": 0.0,
@@ -3224,7 +3224,7 @@
         "position": {
           "x": 3.5,
           "y": 0.0,
-          "z": -12.39
+          "z": -11.77
         },
         "rotation": {
           "x": 0.0,
@@ -3249,7 +3249,7 @@
             "position": {
               "x": 4.859595,
               "y": 1.5,
-              "z": -12.1524591
+              "z": -11.5324593
             },
             "rotation": {
               "x": 0.0,
@@ -3294,7 +3294,7 @@
         "position": {
           "x": 1.38,
           "y": 0.0,
-          "z": -12.81
+          "z": -12.1900005
         },
         "rotation": {
           "x": 0.0,
@@ -3319,7 +3319,7 @@
             "position": {
               "x": 2.75474787,
               "y": 1.5,
-              "z": -12.9324417
+              "z": -12.3124409
             },
             "rotation": {
               "x": 0.0,
@@ -3331,496 +3331,6 @@
               "x": 0.794100046,
               "y": 3.0,
               "z": 2.64369082
-            }
-          },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0
-                },
-                "size": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "Collider 1 (20)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -4.54,
-          "y": 0.0,
-          "z": -13.3
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": -0.659071445,
-          "z": 0.0,
-          "w": 0.7520804
-        },
-        "scale": {
-          "x": 0.264700025,
-          "y": 1.0,
-          "z": 0.4406151
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "Box",
-          "tag": 0,
-          "layer": 0,
-          "is_static": true,
-          "transform": {
-            "position": {
-              "x": -5.798298,
-              "y": 1.5,
-              "z": -12.732893
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": -0.659071445,
-              "z": 0.0,
-              "w": 0.7520804
-            },
-            "scale": {
-              "x": 0.794100165,
-              "y": 3.0,
-              "z": 2.64369059
-            }
-          },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0
-                },
-                "size": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "Collider 1 (21)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -7.11,
-          "y": 0.0,
-          "z": -12.9
-        },
-        "rotation": {
-          "x": 0.0278558973,
-          "y": -0.5238649,
-          "z": -0.07589372,
-          "w": 0.84795624
-        },
-        "scale": {
-          "x": 0.2647,
-          "y": 1.0,
-          "z": 0.440615058
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "Box",
-          "tag": 0,
-          "layer": 0,
-          "is_static": true,
-          "transform": {
-            "position": {
-              "x": -7.96612167,
-              "y": 1.460363,
-              "z": -11.7645178
-            },
-            "rotation": {
-              "x": 0.0278558973,
-              "y": -0.5238649,
-              "z": -0.07589372,
-              "w": 0.84795624
-            },
-            "scale": {
-              "x": 0.7941,
-              "y": 3.0,
-              "z": 2.64369035
-            }
-          },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0
-                },
-                "size": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "Collider 1 (22)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -9.67,
-          "y": 0.0,
-          "z": -11.81
-        },
-        "rotation": {
-          "x": 0.0139944665,
-          "y": -0.365640163,
-          "z": -0.07962409,
-          "w": 0.927238643
-        },
-        "scale": {
-          "x": 0.2647,
-          "y": 1.00000012,
-          "z": 0.440615118
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "Box",
-          "tag": 0,
-          "layer": 0,
-          "is_static": true,
-          "transform": {
-            "position": {
-              "x": -10.077261,
-              "y": 1.460363,
-              "z": -10.4475021
-            },
-            "rotation": {
-              "x": 0.0139944665,
-              "y": -0.365640163,
-              "z": -0.07962409,
-              "w": 0.927238643
-            },
-            "scale": {
-              "x": 0.794100046,
-              "y": 3.00000024,
-              "z": 2.64369059
-            }
-          },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0
-                },
-                "size": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "Collider 1 (23)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -11.55,
-          "y": 0.0,
-          "z": -9.99
-        },
-        "rotation": {
-          "x": 0.009329871,
-          "y": -0.310975462,
-          "z": -0.08030436,
-          "w": 0.9469733
-        },
-        "scale": {
-          "x": 0.2647,
-          "y": 1.0,
-          "z": 0.440615058
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "Box",
-          "tag": 0,
-          "layer": 0,
-          "is_static": true,
-          "transform": {
-            "position": {
-              "x": -11.79594,
-              "y": 1.460363,
-              "z": -8.589365
-            },
-            "rotation": {
-              "x": 0.009329871,
-              "y": -0.310975462,
-              "z": -0.08030436,
-              "w": 0.9469733
-            },
-            "scale": {
-              "x": 0.7941,
-              "y": 3.00000024,
-              "z": 2.64369035
-            }
-          },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0
-                },
-                "size": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "Collider 1 (24)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -13.3099995,
-          "y": 0.0,
-          "z": -7.81
-        },
-        "rotation": {
-          "x": 0.00106851454,
-          "y": -0.212501541,
-          "z": -0.08083749,
-          "w": 0.973810732
-        },
-        "scale": {
-          "x": 0.264700025,
-          "y": 1.00000012,
-          "z": 0.4406151
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "Box",
-          "tag": 0,
-          "layer": 0,
-          "is_static": true,
-          "transform": {
-            "position": {
-              "x": -13.2658215,
-              "y": 1.460363,
-              "z": -6.388623
-            },
-            "rotation": {
-              "x": 0.00106851454,
-              "y": -0.212501541,
-              "z": -0.08083749,
-              "w": 0.973810732
-            },
-            "scale": {
-              "x": 0.7941,
-              "y": 3.00000024,
-              "z": 2.64369059
-            }
-          },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0
-                },
-                "size": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "Collider 1 (25)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -14.3899994,
-          "y": 0.0,
-          "z": -5.45
-        },
-        "rotation": {
-          "x": -0.00221498916,
-          "y": -0.172782123,
-          "z": -0.0808142051,
-          "w": 0.9816367
-        },
-        "scale": {
-          "x": 0.2647,
-          "y": 1.00000012,
-          "z": 0.4406151
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "Box",
-          "tag": 0,
-          "layer": 0,
-          "is_static": true,
-          "transform": {
-            "position": {
-              "x": -14.2306252,
-              "y": 1.460363,
-              "z": -4.03689575
-            },
-            "rotation": {
-              "x": -0.00221498916,
-              "y": -0.172782123,
-              "z": -0.0808142051,
-              "w": 0.9816367
-            },
-            "scale": {
-              "x": 0.794100046,
-              "y": 3.00000024,
-              "z": 2.64369059
-            }
-          },
-          "components": [
-            {
-              "type": "box_collider",
-              "data": {
-                "is_trigger": false,
-                "center": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0
-                },
-                "size": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              }
-            }
-          ],
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "Collider 1 (26)",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": -15.32,
-          "y": 0.0,
-          "z": -3.0
-        },
-        "rotation": {
-          "x": -0.0111669237,
-          "y": -0.0628118739,
-          "z": -0.08006962,
-          "w": 0.9947456
-        },
-        "scale": {
-          "x": 0.264699966,
-          "y": 0.99999994,
-          "z": 0.440615028
-        }
-      },
-      "components": [],
-      "children": [
-        {
-          "name": "Box",
-          "tag": 0,
-          "layer": 0,
-          "is_static": true,
-          "transform": {
-            "position": {
-              "x": -14.8529415,
-              "y": 1.460363,
-              "z": -1.65682471
-            },
-            "rotation": {
-              "x": -0.0111669237,
-              "y": -0.0628118739,
-              "z": -0.08006962,
-              "w": 0.9947456
-            },
-            "scale": {
-              "x": 0.7940999,
-              "y": 3.0,
-              "z": 2.64369035
             }
           },
           "components": [
@@ -3970,7 +3480,7 @@
         "position": {
           "x": -4.54,
           "y": 0.0,
-          "z": -12.51
+          "z": -12.11
         },
         "rotation": {
           "x": 0.0,
@@ -3995,7 +3505,7 @@
             "position": {
               "x": -1.58358574,
               "y": 1.5,
-              "z": -12.9519863
+              "z": -12.5519867
             },
             "rotation": {
               "x": 0.0,
@@ -4060,7 +3570,7 @@
           "data": {
             "wait_seconds": 5.0,
             "casset": {
-              "name": "casset win",
+              "name": "casset win(Clone)",
               "tag": 0,
               "layer": 0,
               "is_static": false,
@@ -4164,15 +3674,328 @@
       "children": []
     },
     {
+      "name": "Collider 1 (28)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -9.54,
+          "y": 0.0,
+          "z": -10.61
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.797951758,
+          "z": 0.0,
+          "w": 0.6027214
+        },
+        "scale": {
+          "x": 0.264700085,
+          "y": 1.0,
+          "z": 0.9875949
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -6.79871655,
+              "y": 1.5,
+              "z": -11.8021011
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.797951758,
+              "z": 0.0,
+              "w": 0.6027214
+            },
+            "scale": {
+              "x": 0.7941002,
+              "y": 3.0,
+              "z": 5.92556953
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Collider 1 (29)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -12.54,
+          "y": 0.0,
+          "z": -6.85999966
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.9267578,
+          "z": 0.0,
+          "w": 0.375659436
+        },
+        "scale": {
+          "x": 0.264700055,
+          "y": 1.0,
+          "z": 0.9875947
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -10.7620277,
+              "y": 1.5,
+              "z": -9.263029
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.9267578,
+              "z": 0.0,
+              "w": 0.375659436
+            },
+            "scale": {
+              "x": 0.7941001,
+              "y": 3.0,
+              "z": 5.92556858
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Collider 1 (30)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -14.53,
+          "y": 0.0,
+          "z": -2.8
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.9678626,
+          "z": 0.0,
+          "w": 0.2514797
+        },
+        "scale": {
+          "x": 0.264700085,
+          "y": 1.0,
+          "z": 0.987594843
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -13.4345589,
+              "y": 1.5,
+              "z": -5.58132172
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.9678626,
+              "z": 0.0,
+              "w": 0.2514797
+            },
+            "scale": {
+              "x": 0.7941002,
+              "y": 3.0,
+              "z": 5.92556953
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Collider 1 (31)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": -15.09,
+          "y": 0.0,
+          "z": 0.95
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.9924071,
+          "z": 0.0,
+          "w": 0.122997053
+        },
+        "scale": {
+          "x": 0.264700085,
+          "y": 1.0,
+          "z": 0.9875949
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": -14.7517433,
+              "y": 1.5,
+              "z": -2.020071
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.9924071,
+              "z": 0.0,
+              "w": 0.122997053
+            },
+            "scale": {
+              "x": 0.7941003,
+              "y": 3.0,
+              "z": 5.92556953
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "FANCYCAM",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -9.93,
+          "y": 12.22,
+          "z": -27.24
+        },
+        "rotation": {
+          "x": 0.128553048,
+          "y": 0.338804483,
+          "z": -0.0467894673,
+          "w": 0.9308579
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 0.99999994,
+          "z": 0.9999999
+        }
+      },
+      "components": [
+        {
+          "type": "camera",
+          "data": {
+            "fov": 50.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "Player",
       "tag": 5,
       "layer": 0,
       "is_static": false,
       "transform": {
         "position": {
-          "x": -1.44,
+          "x": -1.49,
           "y": 0.0,
-          "z": -3.39
+          "z": -2.89
         },
         "rotation": {
           "x": 0.0,
@@ -4213,7 +4036,65 @@
             "healing_time": 0.1,
             "attack_time": 0.1,
             "speed": 7.0,
-            "dash_speed": 50.0
+            "dash_speed": 50.0,
+            "upgrade_mesh": {
+              "name": "Player_upgrade(Clone)",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [
+                {
+                  "type": "animated_mesh",
+                  "data": {
+                    "albedo": "Assets/Materials/Mat characters/matPlayer_upgrade_c.dds",
+                    "normal": "Assets/Materials/Mat characters/matPlayer_upgrade_n.dds",
+                    "reflective": "Assets/Materials/Mat characters/matPlayer_upgrade_m.dds",
+                    "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player_upgrade.fbx",
+                    "animations": [
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                        "name": "Player_Dash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                        "name": "Player_Idle"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                        "name": "Player_Run"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
+                        "name": "Player_Slash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                        "name": "Player_Death"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "children": []
+            }
           }
         },
         {
@@ -4262,6 +4143,10 @@
               {
                 "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
                 "name": "Player_Slash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                "name": "Player_Death"
               }
             ]
           }
@@ -4275,9 +4160,9 @@
           "is_static": false,
           "transform": {
             "position": {
-              "x": 3.520008,
+              "x": 3.47000813,
               "y": 12.3349075,
-              "z": -9.589994
+              "z": -9.089994
             },
             "rotation": {
               "x": 0.353553385,

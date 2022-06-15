@@ -42,6 +42,268 @@
       "children": []
     },
     {
+      "name": "Collider 1 (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 12.9,
+          "y": 5.99999952,
+          "z": -45.02
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 0.34647,
+          "y": 2.0228,
+          "z": 0.57724
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 13.4197044,
+              "y": 9.0342,
+              "z": -43.28828
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.03941,
+              "y": 6.0684,
+              "z": 3.46344
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Collider 1 (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 17.02,
+          "y": 6.03,
+          "z": -44.99
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 18.52,
+              "y": 7.53,
+              "z": -41.99
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 3.0,
+              "y": 3.0,
+              "z": 6.0
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Collider 1",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 20.0,
+          "y": 1.35,
+          "z": -78.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.707105756,
+          "z": 0.0,
+          "w": 0.707107842
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.4971
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 15.5087042,
+              "y": 2.85,
+              "z": -76.4999847
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.707105756,
+              "z": 0.0,
+              "w": 0.707107842
+            },
+            "scale": {
+              "x": 3.0,
+              "y": 3.0,
+              "z": 8.9826
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "p_z3_barrel_s",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 16.922,
+          "y": 3.053,
+          "z": -71.366
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.5,
+          "y": 1.5,
+          "z": 1.5
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.388792217,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.6734036,
+              "y": 0.777584434,
+              "z": 0.6734036
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
       "name": "p_g_amphitheatre_gate",
       "tag": 0,
       "layer": 0,
@@ -20810,7 +21072,7 @@
             "position": {
               "x": 17.6832218,
               "y": 6.0,
-              "z": -39.3014832
+              "z": -37.5514832
             },
             "rotation": {
               "x": 0.0,
@@ -24552,6 +24814,110 @@
                 "albedo": "Assets/Materials/Mat Zon123/matBush_c.dds",
                 "normal": "Assets/Materials/Mat Zon123/matBush_n.dds",
                 "reflective": "Assets/Materials/Mat Zon123/matBush_m.dds"
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "p_z3_barrel_m (4)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 13.4332218,
+              "y": 6.0,
+              "z": -39.5514832
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_barrel_m.fbx",
+                "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+                "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+                "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+              }
+            },
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.5,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 0.7,
+                  "y": 1.0,
+                  "z": 0.7
+                }
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "p_z3_barrel_m (5)",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 13.22,
+              "y": 6.0,
+              "z": -40.92
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "components": [
+            {
+              "type": "mesh",
+              "data": {
+                "model": "Assets/Art/3D/ZON3/a_z3_barrel_m.fbx",
+                "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+                "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+                "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+              }
+            },
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.5,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 0.7,
+                  "y": 1.0,
+                  "z": 0.7
+                }
               }
             }
           ],
@@ -39539,6 +39905,69 @@
                   "children": []
                 }
               ]
+            },
+            {
+              "name": "pf_z3_ground01 (24)",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": 20.0,
+                  "y": 6.0,
+                  "z": -45.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 1.0,
+                  "z": 0.0,
+                  "w": 0.000212222309
+                },
+                "scale": {
+                  "x": 1.00000024,
+                  "y": 1.0,
+                  "z": 1.00000024
+                }
+              },
+              "components": [],
+              "children": [
+                {
+                  "name": "a_z3_ground_01",
+                  "tag": 0,
+                  "layer": 0,
+                  "is_static": false,
+                  "transform": {
+                    "position": {
+                      "x": 20.0,
+                      "y": 6.0,
+                      "z": -45.0
+                    },
+                    "rotation": {
+                      "x": 0.0,
+                      "y": 1.0,
+                      "z": 0.0,
+                      "w": 0.000212222309
+                    },
+                    "scale": {
+                      "x": 1.00000024,
+                      "y": 1.0,
+                      "z": 1.00000024
+                    }
+                  },
+                  "components": [
+                    {
+                      "type": "mesh",
+                      "data": {
+                        "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_01.fbx",
+                        "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
+                        "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
+                        "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
+                      }
+                    }
+                  ],
+                  "children": []
+                }
+              ]
             }
           ]
         },
@@ -43252,7 +43681,7 @@
                   "is_static": false,
                   "transform": {
                     "position": {
-                      "x": 13.0,
+                      "x": 14.0,
                       "y": 6.0,
                       "z": -42.0
                     },
@@ -43277,7 +43706,7 @@
                       "is_static": false,
                       "transform": {
                         "position": {
-                          "x": 13.0,
+                          "x": 14.0,
                           "y": 6.0,
                           "z": -42.0
                         },
@@ -43412,7 +43841,7 @@
                   "is_static": false,
                   "transform": {
                     "position": {
-                      "x": 13.0,
+                      "x": 14.0,
                       "y": 9.0,
                       "z": -42.0
                     },
@@ -43437,9 +43866,9 @@
                       "is_static": false,
                       "transform": {
                         "position": {
-                          "x": 13.0,
-                          "y": 9.0,
-                          "z": -42.0
+                          "x": 13.49046,
+                          "y": 7.49,
+                          "z": -42.4005852
                         },
                         "rotation": {
                           "x": 0.0,
@@ -60359,7 +60788,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -61325,7 +61754,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -61502,7 +61931,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -61765,7 +62194,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -61942,7 +62371,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -62291,7 +62720,7 @@
             "idle_speed": 1.0,
             "runaway_radius": 3.0,
             "bullet": {
-              "name": "a_g_bullet",
+              "name": "a_g_bullet(Clone)",
               "tag": 18,
               "layer": 0,
               "is_static": false,
@@ -63395,7 +63824,65 @@
             "healing_time": 0.1,
             "attack_time": 0.1,
             "speed": 7.0,
-            "dash_speed": 50.0
+            "dash_speed": 50.0,
+            "upgrade_mesh": {
+              "name": "Player_upgrade(Clone)",
+              "tag": 0,
+              "layer": 0,
+              "is_static": false,
+              "transform": {
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                },
+                "scale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              },
+              "components": [
+                {
+                  "type": "animated_mesh",
+                  "data": {
+                    "albedo": "Assets/Materials/Mat characters/matPlayer_upgrade_c.dds",
+                    "normal": "Assets/Materials/Mat characters/matPlayer_upgrade_n.dds",
+                    "reflective": "Assets/Materials/Mat characters/matPlayer_upgrade_m.dds",
+                    "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player_upgrade.fbx",
+                    "animations": [
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
+                        "name": "Player_Dash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
+                        "name": "Player_Idle"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
+                        "name": "Player_Run"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
+                        "name": "Player_Slash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                        "name": "Player_Death"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "children": []
+            }
           }
         },
         {
@@ -63444,6 +63931,10 @@
               {
                 "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
                 "name": "Player_Slash"
+              },
+              {
+                "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                "name": "Player_Death"
               }
             ]
           }
@@ -63484,6 +63975,388 @@
           "children": []
         }
       ]
+    },
+    {
+      "name": "p_z3_barrel_s (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 15.1399994,
+          "y": 3.303,
+          "z": -71.22
+        },
+        "rotation": {
+          "x": 0.695692241,
+          "y": 0.695694447,
+          "z": -0.1265337,
+          "w": -0.12653403
+        },
+        "scale": {
+          "x": 1.50000048,
+          "y": 1.50000036,
+          "z": 1.50000072
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.388792217,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.6734036,
+              "y": 0.777584434,
+              "z": 0.6734036
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_barrel_s (2)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 13.16,
+          "y": 3.053,
+          "z": -74.47
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.5,
+          "y": 1.5,
+          "z": 1.5
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.388792217,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.6734036,
+              "y": 0.777584434,
+              "z": 0.6734036
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_barrel_s (3)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 12.3,
+          "y": 3.053,
+          "z": -73.81
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.5,
+          "y": 1.5,
+          "z": 1.5
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.388792217,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.6734036,
+              "y": 0.777584434,
+              "z": 0.6734036
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_barrel_s (4)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 12.26,
+          "y": 3.053,
+          "z": -74.66
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.5,
+          "y": 1.5,
+          "z": 1.5
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.388792217,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.6734036,
+              "y": 0.777584434,
+              "z": 0.6734036
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "p_z3_barrel_s (5)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 11.38,
+          "y": 3.3,
+          "z": -74.43
+        },
+        "rotation": {
+          "x": 0.70250535,
+          "y": 0.0805290639,
+          "z": -0.08052881,
+          "w": 0.7025073
+        },
+        "scale": {
+          "x": 1.5,
+          "y": 1.50000036,
+          "z": 1.50000048
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.388792217,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.6734036,
+              "y": 0.777584434,
+              "z": 0.6734036
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Collider 1 (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 21.89,
+          "y": 1.9,
+          "z": -72.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.707105756,
+          "z": 0.0,
+          "w": 0.707107842
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 0.6113558
+        }
+      },
+      "components": [],
+      "children": [
+        {
+          "name": "Box",
+          "tag": 0,
+          "layer": 0,
+          "is_static": true,
+          "transform": {
+            "position": {
+              "x": 20.0559368,
+              "y": 3.4,
+              "z": -70.49999
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": -0.707105756,
+              "z": 0.0,
+              "w": 0.707107842
+            },
+            "scale": {
+              "x": 3.0,
+              "y": 3.0,
+              "z": 3.66813469
+            }
+          },
+          "components": [
+            {
+              "type": "box_collider",
+              "data": {
+                "is_trigger": false,
+                "center": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "size": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                }
+              }
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "p_z3_barrel_s (6)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 17.68,
+          "y": 3.053,
+          "z": -70.64
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.5,
+          "y": 1.5,
+          "z": 1.5
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_barrel_s.fbx",
+            "albedo": "Assets/Materials/Mat Zon123/z123_matBarrels_c.dds",
+            "normal": "Assets/Materials/Mat Zon123/z123_matBarrels_n.dds",
+            "reflective": "Assets/Materials/Mat Zon123/z123_matBarrels_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 0.0,
+              "y": 0.388792217,
+              "z": 0.0
+            },
+            "size": {
+              "x": 0.6734036,
+              "y": 0.777584434,
+              "z": 0.6734036
+            }
+          }
+        }
+      ],
+      "children": []
     }
   ]
 }

@@ -194,4 +194,8 @@ namespace Input
 		}
 
 	}
+	Tga2D::InputManager& InputMapper::GetInputManager()
+	{
+		return myInputManager;
+	}
 }

@@ -42,7 +42,10 @@ PlayerComponent::PlayerComponent(int aMaxHp, int aMaxHealing, int aMaxAttaks, fl
 }
 
 PlayerComponent::~PlayerComponent()
-{}
+{
+	GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
+	gameData.myCheckpoint = nullptr; //Sets to nullptr else the game will crash, becuse it loads a new scene
+}
 
 void PlayerComponent::OnUpdate(float aDt)
 {
@@ -88,7 +91,7 @@ void PlayerComponent::OnUpdate(float aDt)
 	}
 
 	//Just for LD to test
-	if (GetAsyncKeyState('I'))
+	if (myPollingStation->myInputMapper->GetInputManager().IsKeyPressed('I'))
 	{
 		myIsImmortal = true;
 		INFO_PRINT("Immortal %i", myIsImmortal);
@@ -338,13 +341,18 @@ void PlayerComponent::OnAwake()
 
 void PlayerComponent::OnStart()
 {
+	GameData& gamedata = myPollingStation->myGameDataManager.get()->GetGameData();
+	if (gamedata.myUpgrades[1])
+		SetUpgradeMesh();
+
 	SetPollingStation(myPollingStation);
 	std::string sceneName = myPollingStation->mySceneManager.get()->GetActiveScene()->name;
-	if (sceneName == "Jungle 1" && sceneName == "Jungle 2" && sceneName == "Jungle 3")
+	if (sceneName == "Jungle 1" || sceneName == "Jungle 2" || sceneName == "Jungle 3")
 	{
+		myAmbience = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_world_ambient_jungle);
 		myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_walk_jungle);
 	}
-	else if (sceneName == "Badlands 1" && sceneName == "Badlands 2" && sceneName == "Badlands 3")
+	else if (sceneName == "Badlands 1" || sceneName == "Badlands 2" || sceneName == "Badlands 3")
 	{
 		myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_walk_badlands);
 	}
@@ -372,13 +380,14 @@ void PlayerComponent::OnCollisionEnter(GameObject* aOther)
 	{
 		SaveData();
 		aOther->GetComponent<TeleporterComponent>()->Load();
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
 		return;
 	}
 
 	if (aOther->tag == eTag::health_pickup && myPlayerData.myHealKitAmmnt < myMaxHealing)
 	{
 		myPlayerData.myHealKitAmmnt++;
-		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_interact);
+		myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_healing);
 
 		////update gameData
 		//PlayerData& playerData = myPollingStation->myGameDataManager.get()->GetPlayerData();
@@ -528,7 +537,8 @@ void PlayerComponent::OnDeath()
 	myIsAlive = false;
 	myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_player_death);
 	myDeathTimer.Stop();
-	GameData gameData = myPollingStation->myGameDataManager.get()->GetGameData();
+	myDeathTimer.Reset();
+	GameData& gameData = myPollingStation->myGameDataManager.get()->GetGameData();
 	if (gameData.myCheckpoint != nullptr)
 	{
 		SetFullHP();

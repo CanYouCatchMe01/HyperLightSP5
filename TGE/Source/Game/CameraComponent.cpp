@@ -39,6 +39,7 @@ void CameraComponent::OnStart()
 	if (myPollingStation->myPlayer != nullptr)
 	{
 		myCameraOffset -= myPollingStation->myPlayer->GetTransform().GetPosition();
+		myTransform->SetPosition(myPollingStation->myPlayer->GetTransform().GetPosition());
 	}
 }
 

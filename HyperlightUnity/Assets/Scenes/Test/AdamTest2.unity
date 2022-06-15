@@ -214,7 +214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &122149186
 GameObject:
@@ -292,13 +292,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122149186}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.12, y: 6.59, z: -10}
+  m_LocalRotation: {x: 0, y: -0.45639917, z: 0, w: 0.88977516}
+  m_LocalPosition: {x: 9.02, y: 6.59, z: -7.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -54.31, z: 0}
 --- !u!1001 &461954143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -308,7 +308,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1539985705901981908, guid: f9f3571d940438b43b368209aeb7e856, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1539985705901981908, guid: f9f3571d940438b43b368209aeb7e856, type: 3}
       propertyPath: m_LocalPosition.x
@@ -356,6 +356,70 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f3571d940438b43b368209aeb7e856, type: 3}
+--- !u!1 &862089962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 862089964}
+  - component: {fileID: 862089963}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &862089963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862089962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6c95e7793c99b47b5b67141b1dd5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: f6a72f8915e7bb24f8b66f6121077311, type: 3}
+  startScale: 1
+  endScale: 1
+  minMass: 1
+  maxMass: 1
+  minTimeBetweenParticleSpawns: 0.01
+  maxTimeBetweenParticleSpawns: 0.01
+  minStartSpeed: 1
+  maxStartSpeed: 10
+  minAngle: 0
+  maxAngle: 0
+  minLifeTime: 1
+  maxLifeTime: 1
+  minSpawnOffsetDistance: 0
+  maxSpawnOffsetDistance: 0
+  acceleration: {x: 0, y: 1.67, z: 0}
+  startColor: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}
+  endColor: {r: 1, g: 1, b: 1, a: 1}
+  blendState: 2
+  emitTime: 0
+  gravity: 9.81
+--- !u!4 &862089964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862089962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1774845, y: 6.14, z: -4.115}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1025410352
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,36 +531,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16cb4995dada1984f80d52f479b01755, type: 3}
---- !u!1 &1647948906 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5095668861209206057, guid: 16cb4995dada1984f80d52f479b01755, type: 3}
-  m_PrefabInstance: {fileID: 1647948905}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1647948907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647948906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4207025edc3df8148a3dac71b4db0b36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myScriptName: bla
-  myList:
-  - myVariableType: 8
-    myVariableName: 
-    myInt: 0
-    myFloat: 0
-    myString: 
-    myVector3: {x: 0, y: 0, z: 0}
-    myBool: 0
-    myColor: {r: 1, g: 1, b: 1, a: 1}
-    myTexture: {fileID: 0}
-    myScene: {fileID: 0}
-    myGameObject: {fileID: 5046723290473628328, guid: 9e726064bd74af64a9b47f7381e0d0bf, type: 3}
 --- !u!1001 &1906469429
 PrefabInstance:
   m_ObjectHideFlags: 0

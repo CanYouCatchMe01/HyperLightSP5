@@ -104,6 +104,6 @@ private:
 
 	//Save the walksound to increase and decrease the volume, when the player is moving
 	FMOD::Studio::EventInstance* myWalkSound = nullptr;
-	FMOD::Studio::EventInstance* myCheckpointSound = nullptr;
+	FMOD::Studio::EventInstance* myAmbience = nullptr;
 };
 

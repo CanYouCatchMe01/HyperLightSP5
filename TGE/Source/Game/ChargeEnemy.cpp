@@ -147,7 +147,9 @@ void ChargeEnemy::Charge(float aDt)
 
 void ChargeEnemy::OnDeath()
 {
-	myScene->RemoveGameObject(myGameObject);
+	//Calls parent OnDeath, which should happen for every enemy
+	EnemyComponent::OnDeath();
+
 	std::cout << "he dead (charge enemy)\n";
 }
 

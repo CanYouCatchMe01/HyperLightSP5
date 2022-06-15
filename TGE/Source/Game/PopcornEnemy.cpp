@@ -60,7 +60,8 @@ void PopcornEnemy::OnStart()
 
 void PopcornEnemy::OnDeath()
 {
-	myScene->RemoveGameObject(myGameObject);
+	//Calls parent OnDeath, which should happen for every enemy
+	EnemyComponent::OnDeath(); 
 	std::cout << "he dead (popcorn enemy)\n";
 }
 

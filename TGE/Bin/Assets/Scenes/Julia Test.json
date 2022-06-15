@@ -1,0 +1,538 @@
+{
+  "name": "Julia Test",
+  "gameObjects": [
+    {
+      "name": "Main Camera",
+      "tag": 4,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": -10.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "camera",
+          "data": {
+            "fov": 60.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "z2_badLandsRockBig_01",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 1.58107686,
+          "y": 3.49714231,
+          "z": 12.9799652
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON2/z2_badLandsRockBig_01.fbx",
+            "albedo": "",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_TreeM",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -16.07,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_TreeM.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matTreeM_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matTreeM_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matTreeM_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_TreeL",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": -6.03,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON3/a_z3_TreeL.fbx",
+            "albedo": "Assets/Materials/Mat Zone3/z3_matTreeL_c.dds",
+            "normal": "Assets/Materials/Mat Zone3/z3_matTreeL_n.dds",
+            "reflective": "Assets/Materials/Mat Zone3/z3_matTreeL_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_cactus3",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 8.29,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_cactus_03.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matCactus_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matCactus_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matCactus_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_cactus2",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 4.44,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_cactus_02.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matCactus_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matCactus_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matCactus_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z1_cactus1",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/ZON1/a_z1_cactus_01.fbx",
+            "albedo": "Assets/Materials/Mat Zone1/z1_matCactus_c.dds",
+            "normal": "Assets/Materials/Mat Zone1/z1_matCactus_n.dds",
+            "reflective": "Assets/Materials/Mat Zone1/z1_matCactus_m.dds"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "BlockBlock49 (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.88708353,
+          "y": 3.04020929,
+          "z": -4.63793325
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "mesh",
+          "data": {
+            "model": "Assets/Art/3D/Ground Blocks/Ground v1/BlockBlock49.fbx",
+            "albedo": "Assets/Art/3D/Ground Blocks/Ground v1/wangmap_c.dds",
+            "normal": "",
+            "reflective": ""
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "BlockCube4 (Missing Prefab)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": []
+    },
+    {
+      "name": "a_z1_groundBlock6 (Missing Prefab)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": []
+    },
+    {
+      "name": "a_z1_groundBlock1 (Missing Prefab)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": []
+    },
+    {
+      "name": "a_z1_groundBlock4 (Missing Prefab)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": []
+    },
+    {
+      "name": "a_z1_groundBlock5 (Missing Prefab)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": []
+    },
+    {
+      "name": "pf_z1_path01 (Missing Prefab)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": []
+    },
+    {
+      "name": "pf_z1_ground01 (Missing Prefab)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": []
+    },
+    {
+      "name": "BlockCube3 (Missing Prefab)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [],
+      "children": []
+    },
+    {
+      "name": "Directional Light",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 3.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.408217877,
+          "y": -0.234569684,
+          "z": 0.109381631,
+          "w": 0.8754261
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
+        {
+          "type": "light",
+          "data": {
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 0.956862748,
+              "b": 0.8392157,
+              "a": 1.0
+            },
+            "intensity": 1.0
+          }
+        }
+      ],
+      "children": []
+    }
+  ]
+}

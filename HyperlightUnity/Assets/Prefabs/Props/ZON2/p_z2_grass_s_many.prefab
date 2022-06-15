@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8156193519396129117}
   - component: {fileID: 6256741793835253143}
   m_Layer: 0
-  m_Name: a_z2_grass_s_many
+  m_Name: p_z2_grass_s_many
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6495492342676539692, guid: 40f0f1771435e3747bc1bd12db2b2a59, type: 3}
+  - {fileID: 2100000, guid: 46f1e12e1609b994891aaee4fb460731, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

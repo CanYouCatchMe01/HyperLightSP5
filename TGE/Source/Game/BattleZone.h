@@ -17,4 +17,7 @@ private:
 	int myEnemyCounter = 0;
 	bool myGateIsOpen = false;
 	float myMoveTimer = 1.f;
+
+	//Audio
+	class AudioComponent* myAudioComponent = nullptr;
 };

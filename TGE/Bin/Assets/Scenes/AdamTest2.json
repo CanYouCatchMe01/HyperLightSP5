@@ -8,9 +8,42 @@
       "is_static": false,
       "transform": {
         "position": {
-          "x": 3.12,
+          "x": 9.02,
           "y": 6.59,
-          "z": -10.0
+          "z": -7.45
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": -0.456399173,
+          "z": 0.0,
+          "w": 0.889775157
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "camera",
+          "data": {
+            "fov": 60.0
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "a_z3_ground_04",
+      "tag": 0,
+      "layer": 0,
+      "is_static": true,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
         },
         "rotation": {
           "x": 0.0,
@@ -26,9 +59,28 @@
       },
       "components": [
         {
-          "type": "camera",
+          "type": "mesh",
           "data": {
-            "fov": 60.0
+            "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_04.fbx",
+            "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
+            "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
+            "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
+          }
+        },
+        {
+          "type": "box_collider",
+          "data": {
+            "is_trigger": false,
+            "center": {
+              "x": 3.0,
+              "y": 1.5,
+              "z": -3.0
+            },
+            "size": {
+              "x": 6.0,
+              "y": 3.0,
+              "z": 6.0
+            }
           }
         }
       ],
@@ -92,98 +144,6 @@
         {
           "type": "bobbing_component",
           "data": {}
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "a_z3_ground_04",
-      "tag": 0,
-      "layer": 0,
-      "is_static": true,
-      "transform": {
-        "position": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0,
-          "w": 1.0
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
-        }
-      },
-      "components": [
-        {
-          "type": "mesh",
-          "data": {
-            "model": "Assets/Art/3D/Ground Blocks/Ground v2/zone3/z3_Ground/a_z3_ground_04.fbx",
-            "albedo": "Assets/Materials/Mat Ground Blocks/z3_matGround_c.dds",
-            "normal": "Assets/Materials/Mat Ground Blocks/z3_matGround_n.dds",
-            "reflective": "Assets/Materials/Mat Ground Blocks/z3_matGround_m.dds"
-          }
-        },
-        {
-          "type": "box_collider",
-          "data": {
-            "is_trigger": false,
-            "center": {
-              "x": 3.0,
-              "y": 1.5,
-              "z": -3.0
-            },
-            "size": {
-              "x": 6.0,
-              "y": 3.0,
-              "z": 6.0
-            }
-          }
-        }
-      ],
-      "children": []
-    },
-    {
-      "name": "Directional Light",
-      "tag": 0,
-      "layer": 0,
-      "is_static": false,
-      "transform": {
-        "position": {
-          "x": 0.0,
-          "y": 3.0,
-          "z": 0.0
-        },
-        "rotation": {
-          "x": 0.408217877,
-          "y": -0.234569684,
-          "z": 0.109381631,
-          "w": 0.8754261
-        },
-        "scale": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 0.99999994
-        }
-      },
-      "components": [
-        {
-          "type": "light",
-          "data": {
-            "type": 1,
-            "color": {
-              "r": 1.0,
-              "g": 0.956862748,
-              "b": 0.8392157,
-              "a": 1.0
-            },
-            "intensity": 1.0
-          }
         }
       ],
       "children": []
@@ -286,6 +246,10 @@
                       {
                         "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
                         "name": "Player_Slash"
+                      },
+                      {
+                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_death.fbx",
+                        "name": "Player_Death"
                       }
                     ]
                   }
@@ -348,64 +312,45 @@
               }
             ]
           }
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Directional Light",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 3.0,
+          "z": 0.0
         },
+        "rotation": {
+          "x": 0.408217877,
+          "y": -0.234569684,
+          "z": 0.109381631,
+          "w": 0.8754261
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 0.99999994
+        }
+      },
+      "components": [
         {
-          "type": "bla",
+          "type": "light",
           "data": {
-            "": {
-              "name": "Player_upgrade(Clone)",
-              "tag": 0,
-              "layer": 0,
-              "is_static": false,
-              "transform": {
-                "position": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0
-                },
-                "rotation": {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0.0,
-                  "w": 1.0
-                },
-                "scale": {
-                  "x": 1.0,
-                  "y": 1.0,
-                  "z": 1.0
-                }
-              },
-              "components": [
-                {
-                  "type": "animated_mesh",
-                  "data": {
-                    "albedo": "Assets/Materials/Mat characters/matPlayer_upgrade_c.dds",
-                    "normal": "Assets/Materials/Mat characters/matPlayer_upgrade_n.dds",
-                    "reflective": "Assets/Materials/Mat characters/matPlayer_upgrade_m.dds",
-                    "model": "Assets/Art/3D/CHARACTERS/PLAYER/Player_upgrade.fbx",
-                    "animations": [
-                      {
-                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_dash.fbx",
-                        "name": "Player_Dash"
-                      },
-                      {
-                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_idle.fbx",
-                        "name": "Player_Idle"
-                      },
-                      {
-                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_run.fbx",
-                        "name": "Player_Run"
-                      },
-                      {
-                        "path": "Assets/Art/3D/CHARACTERS/PLAYER/ANIMATIONS/anim_player_slash.fbx",
-                        "name": "Player_Slash"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "children": []
-            }
+            "type": 1,
+            "color": {
+              "r": 1.0,
+              "g": 0.956862748,
+              "b": 0.8392157,
+              "a": 1.0
+            },
+            "intensity": 1.0
           }
         }
       ],
@@ -435,6 +380,75 @@
         }
       },
       "components": [],
+      "children": []
+    },
+    {
+      "name": "GameObject (1)",
+      "tag": 0,
+      "layer": 0,
+      "is_static": false,
+      "transform": {
+        "position": {
+          "x": 3.17748451,
+          "y": 6.14,
+          "z": -4.115
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "components": [
+        {
+          "type": "emitter",
+          "data": {
+            "texture": "Assets/Art/2D/particleNoteSprite.dds",
+            "startScale": 1.0,
+            "endScale": 1.0,
+            "minMass": 1.0,
+            "maxMass": 1.0,
+            "minTimeBetweenParticleSpawns": 0.01,
+            "maxTimeBetweenParticleSpawns": 0.01,
+            "minStartSpeed": 1.0,
+            "maxStartSpeed": 10.0,
+            "minAngle": 0.0,
+            "maxAngle": 0.0,
+            "minLifeTime": 1.0,
+            "maxLifeTime": 1.0,
+            "minSpawnOffsetDistance": 0.0,
+            "maxSpawnOffsetDistance": 0.0,
+            "acceleration": {
+              "x": 0.0,
+              "y": 1.67,
+              "z": 0.0
+            },
+            "color": [
+              {
+                "r": 1.0,
+                "g": 0.2216981,
+                "b": 0.2216981,
+                "a": 1.0
+              },
+              {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              }
+            ],
+            "blendState": 2,
+            "emitTime": 0.0,
+            "gravity": 9.81
+          }
+        }
+      ],
       "children": []
     }
   ]

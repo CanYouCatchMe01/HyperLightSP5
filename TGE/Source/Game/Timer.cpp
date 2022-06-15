@@ -28,20 +28,18 @@ Timer Timer::Reset()
 
 void Timer::Update(const float aDt)
 {
-	if (!myIsOn)
+	if (!myIsOn) //Only call once
 		return;
 
 	if (myElapsedTime < myDuration)
-		myElapsedTime += aDt;
-
-	if (myElapsedTime <= myDuration)
-		return;
-
-	if (myCallback)
+	{
+		myElapsedTime += aDt; //Increase
+	}	
+	else if (myCallback) //Move then duration
+	{
 		myCallback();
-
-	myElapsedTime = myDuration;
-	myIsOn = false;
+		myIsOn = false;
+	}
 }
 
 Timer Timer::SetDuration(const float aDurationInSeconds)

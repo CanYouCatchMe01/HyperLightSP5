@@ -37,6 +37,7 @@ GameState::GameState(StateStack& aStateStack, PollingStation* aPollingStation, c
 
 GameState::~GameState()
 {
+	myPollingStation->myPostmaster.get()->RemoveObserver(this, eMessageType::ePickUpKey);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eEscape, this);
 	myPollingStation->myInputMapper.get()->RemoveObserver(Input::eInputEvent::eMap, this);
 	myPollingStation->mySceneManager->UnloadAllScenes();

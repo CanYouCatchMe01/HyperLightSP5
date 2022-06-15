@@ -15,9 +15,9 @@ CreditsState::CreditsState(StateStack& aStateStack, PollingStation* aPollingStat
 	SetPollingStation(aPollingStation);
 	mySharedData.myTexture = Tga2D::Engine::GetInstance()->GetTextureManager().GetTexture(L"Sprites/UI/Menus/Credits/ui_credits_background.dds");
 	mySpriteInstance.myPosition = { 0.5f,0.5f };
-	mySpriteInstance.mySizeMultiplier = { 1.5f,1.5f };
+	mySpriteInstance.mySizeMultiplier = { 1.f,1.81f };
 
-	mySpriteInstance.myScaleSpritesWithAspectRatio = true;
+	mySpriteInstance.myScaleSpritesWithAspectRatio = false;
 	mySharedData.myTexture->CalculateTextureSize();
 	mySharedData.mySamplerFilter = Tga2D::SamplerFilter::Bilinear;
 

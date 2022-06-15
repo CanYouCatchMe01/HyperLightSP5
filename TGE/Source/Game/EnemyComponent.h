@@ -20,7 +20,7 @@ public:
 	virtual void TakeDamage(int someDamage);
 	virtual int GetAttackDmg();
 
-	virtual void OnDeath() = 0;
+	virtual void OnDeath();
 
 protected:
 	BattleZone* myBattleZone;

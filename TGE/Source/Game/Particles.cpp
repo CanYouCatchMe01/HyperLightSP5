@@ -5,6 +5,8 @@
 #include <tga2d/graphics/GraphicsEngine.h>
 #include "tga2d/texture/TextureManager.h"
 #include <random>
+#include "tga2d/graphics/GraphicsEngine.h"
+#include "tga2d/graphics/Camera.h"
 
 namespace Util
 {
@@ -175,9 +177,28 @@ void Emitter::Render()
 	std::vector<Tga2D::Sprite3DInstanceData> spriteInstances;
 	spriteInstances.reserve(myParticles.size());
 
+	Tga2D::Vector3f cameraPos = Tga2D::Engine::GetInstance()->GetGraphicsEngine().GetCamera().GetTransform().GetPosition();
+
 	for (const auto& p : myParticles)
 	{
 		Tga2D::Sprite3DInstanceData spritedata;
+
+		Tga2D::Vector3 toEye = (cameraPos - p.myPosition).GetNormalized();
+		Tga2D::Vector3f up = myTransform.GetMatrix().GetUp();
+		Tga2D::Vector3f xaxis = up.Cross(toEye).GetNormalized();
+		Tga2D::Vector3f yaxis = toEye.Cross(xaxis).GetNormalized();
+
+		spritedata.myTransform(1, 1) = xaxis.x;
+		spritedata.myTransform(1, 2) = xaxis.y;
+		spritedata.myTransform(1, 3) = xaxis.z;
+
+		spritedata.myTransform(2, 1) = yaxis.x;
+		spritedata.myTransform(2, 2) = yaxis.y;
+		spritedata.myTransform(2, 3) = yaxis.z;
+
+		spritedata.myTransform(3, 1) = toEye.x;
+		spritedata.myTransform(3, 2) = toEye.y;
+		spritedata.myTransform(3, 3) = toEye.z;
 
 		spritedata.myColor.myR = sd.myStartColor.myR + ((sd.myEndColor.myR - sd.myStartColor.myR) * p.myTime / p.myLifeTime);
 		spritedata.myColor.myG = sd.myStartColor.myG + ((sd.myEndColor.myG - sd.myStartColor.myG) * p.myTime / p.myLifeTime);
@@ -186,12 +207,12 @@ void Emitter::Render()
 
 		float scale = sd.myStartScale + ((sd.myEndScale - sd.myStartScale) * p.myTime / p.myLifeTime);
 
-		Tga2D::Vector3f pos;
-		pos.x = p.myPosition.x - (scale * 0.5f);
-		pos.y = p.myPosition.y - (scale * 0.5f);
-		pos.z = p.myPosition.z - (scale * 0.5f);
+		//Tga2D::Vector3f pos;
+		//pos.x = p.myPosition.x;// - (scale * 0.5f);
+		//pos.y = p.myPosition.y;// - (scale * 0.5f);
+		//pos.z = p.myPosition.z;// - (scale * 0.5f);
 
-		spritedata.myTransform.SetPosition(pos);
+		spritedata.myTransform.SetPosition(p.myPosition);
 
 		spritedata.myTransform = Tga2D::Matrix4x4f::CreateScaleMatrix({ scale,scale,scale }) * spritedata.myTransform;
 

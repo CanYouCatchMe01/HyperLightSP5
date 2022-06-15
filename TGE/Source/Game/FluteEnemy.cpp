@@ -114,7 +114,9 @@ void FluteEnemy::ShootPlayer(float aDt)
 
 void FluteEnemy::OnDeath()
 {
-	myScene->RemoveGameObject(myGameObject);
+	//Calls parent OnDeath, which should happen for every enemy
+	EnemyComponent::OnDeath();
+
 	std::cout << "he dead (flute enemy)\n";
 }
 

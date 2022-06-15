@@ -19,6 +19,7 @@ namespace Input
 		void MapEvent(const eInputAction aInputEvent, const eInputEvent aOutputEvent);
 		void AddObserver(const eInputEvent aEventToListenFor, InputObserver* aObserver);
 		void RemoveObserver(const eInputEvent aEventToListenFor, InputObserver* aObserver);
+		Tga2D::InputManager& GetInputManager();
 
 	private:
 

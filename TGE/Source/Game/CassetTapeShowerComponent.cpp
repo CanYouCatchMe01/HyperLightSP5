@@ -22,14 +22,14 @@ void CassetTapeShowerComponent::OnStart()
 	{
 		myScene->CreateGameObject(mySpawnObject);
 
-		//sets the load scene timer
-		myTimer.SetDuration(5.0f);
-		myTimer.SetCallback([this]()
-			{
-				//Load Win UI
-				myPollingStation->mySceneManager.get()->LoadScene("MarcusTest2");
-			});
-		myTimer.Start();
+		////sets the load scene timer
+		//myTimer.SetDuration(5.0f);
+		//myTimer.SetCallback([this]()
+		//	{
+		//		//Load Win UI
+		//		myPollingStation->mySceneManager.get()->LoadScene("MarcusTest2");
+		//	});
+		//myTimer.Start();
 	}
 }
 

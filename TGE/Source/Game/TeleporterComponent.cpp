@@ -12,6 +12,9 @@ TeleporterComponent::TeleporterComponent(std::string aScene, std::string aCheckp
 	myCheckPointToLoad = aCheckpointName;
 }
 
+TeleporterComponent::~TeleporterComponent()
+{}
+
 void TeleporterComponent::Load()
 {
 	if (myScene->name == mySceneToLoad)

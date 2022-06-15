@@ -22,19 +22,28 @@ DialogueState::DialogueState(StateStack& aStateStack, PollingStation* aPollingSt
 	{
 		myDialogues.push_back("Elise");
 		myDialogues.push_back("...Awaken!");
-		myDialogues.push_back("The tribes have stolen music away from the people. \nFind the casette pieces and bring it back to them! ");
+		myDialogues.push_back("The tribes have stolen music away from the people \nand the once peaceful land had lost its harmony.");
+		myDialogues.push_back("Find the casette pieces and bring it back to them!");
 		myDialogues.push_back("There are two tribes with one half each, they have hidden them \naway in their sanctuaries, you need to find them. ");
+		myDialogues.push_back("Before you go into their world, you have to make it through \nthis trial to get used to their world.");
 		myDialogues.push_back("...");
 		myDialogues.push_back("GO!");
 	}
 	else if (currentData.myKeys[0] && currentData.myKeys[1])
 	{
-		myDialogues.push_back("Congratulations!");
-		myDialogues.push_back("You managed to beat the whole damn game.");
-		myDialogues.push_back("We're happy you made it...");
-		myDialogues.push_back("But how are you gonna spend the rest of the day?");
-		myDialogues.push_back("Maybe watch a video?");
-		myDialogues.push_back("Maybe restart and try again?");
+		myDialogues.push_back("The artifacts are assembled and the land is filled with \nsweet music once again!");
+		myDialogues.push_back("The tribes backed down after having been so ruthelessly \nbeaten down by Elise. They would not want to taste her wrath \nonce more.");
+		myDialogues.push_back("The people could feel safe that the music would be protected \nby Elise if it were ever to be threatened again.");
+		myDialogues.push_back("Harmony had returned to the lands, thanks to Elise...");
+		myDialogues.push_back("... and thanks to you!");
+		myDialogues.push_back("Thank you for playing!");
+
+		myEndGame = true;
+
+		currentData.myUpgrades[0] = false;
+		currentData.myUpgrades[1] = false;
+		currentData.myKeys[0] = false;
+		currentData.myKeys[1] = false;
 	}
 	else if (currentData.myKeys[0] || currentData.myKeys[1])
 	{
@@ -75,7 +84,9 @@ void DialogueState::Render()
 {
 	myStateStack.RenderUnderlyingState();
 	Tga2D::Engine::GetInstance()->GetGraphicsEngine().SetCamera(Tga2D::Camera());
-	myAstralProjection.Render();
+	if(!myEndGame)
+		myAstralProjection.Render();
+
 	myDialogueBox.Render();
 	myText.Render();
 }
@@ -90,10 +101,16 @@ void DialogueState::RecieveEvent(const Input::eInputEvent aEvent, const float /*
 		if (myIndex < myDialogues.size())
 			myText.SetText(myDialogues[myIndex]);
 		else
+		{
 			myNumberOfPops = 1;
+			if (myEndGame)
+				myNumberOfPops = 2;
+		}
 	}
 	else if (aEvent == Input::eInputEvent::eSelect)
 	{
 		myNumberOfPops = 1;
+		if (myEndGame)
+			myNumberOfPops = 2;
 	}
 }

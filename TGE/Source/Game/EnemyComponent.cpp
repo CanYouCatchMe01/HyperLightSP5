@@ -6,14 +6,14 @@
 #include "AudioComponent.h"
 #include "BattleZone.h"
 
+#include "Scene.h"
+
 EnemyComponent::EnemyComponent()
 {
 }
 
 EnemyComponent::~EnemyComponent()
 {
-	if (myBattleZone != nullptr)
-		myBattleZone->RemoveEnemy();
 }
 
 void EnemyComponent::OnUpdate(float)
@@ -23,7 +23,7 @@ void EnemyComponent::OnUpdate(float)
 void EnemyComponent::OnAwake()
 {
 	myAudioComponent = myGameObject->AddComponent<AudioComponent>();
-	myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_walk_badlands);
+	//myWalkSound = myAudioComponent->PlayEvent3D(FSPRO::Event::sfx_enemy_walk_badlands); //sounds all the time in badlands, removing for now
 	myStartPosition = GetPosition();
 	myWalkSound->setVolume(0.0f);
 }
@@ -146,6 +146,14 @@ Tga2D::Vector3f EnemyComponent::GetPosition()
 int EnemyComponent::GetAttackDmg()
 {
 	return myAttackDmg;
+}
+
+void EnemyComponent::OnDeath()
+{
+	if (myBattleZone != nullptr)
+		myBattleZone->RemoveEnemy();
+
+	myScene->RemoveGameObject(myGameObject);
 }
 
 void EnemyComponent::MoveTowardsPlayer(float aDt)
